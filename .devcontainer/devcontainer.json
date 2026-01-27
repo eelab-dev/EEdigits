@@ -1,0 +1,11 @@
+{
+    "name": "Digital Tools",
+    "image": "danchitnis/digital-tools",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "mshr-h.veriloghdl"
+            ]
+        }
+    }
+}
