@@ -1,0 +1,14 @@
+[options]
+mode prove
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal and2bit.v
+read -formal and2bit_formal.sv
+prep -top and2bit_formal
+
+[files]
+../and2bit.v
+and2bit_formal.sv
