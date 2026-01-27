@@ -1,0 +1,7 @@
+temp
+iverilog
+*.vvp
+*.vcd
+yosys
+sby
+z3
