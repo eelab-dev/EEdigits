@@ -35,12 +35,3 @@ cd /workspaces/digital-toolchains/yosys
 sudo make install
 ```
 
-## Z3 (SMT solver)
-
-For formal flows (e.g., SymbiYosys), install Z3 via Alpine packages and include it in automation scripts:
-
-```bash
-sudo apk add --no-cache z3
-```
-
-If you maintain a single bootstrap list, add `z3` alongside the base packages to keep CI and fresh containers consistent.
