@@ -70,7 +70,7 @@ RUN git clone https://github.com/Z3Prover/z3.git .
 
 # Build and install
 WORKDIR /build/build
-RUN cmake .. && \
+RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local .. && \
     make -j$(nproc) && \
     make install
 
