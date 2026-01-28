@@ -90,7 +90,26 @@ RUN git clone https://github.com/YosysHQ/sby.git .
 # Install
 RUN make install
 
-# Stage 5: Final
+# Stage 5: Verible Downloader
+FROM alpine:latest AS verible-downloader
+
+RUN apk add --no-cache curl jq tar gzip
+
+WORKDIR /verible
+
+RUN ARCH=$(uname -m) && \
+    if [ "$ARCH" = "x86_64" ]; then \
+    ASSET_NAME="linux-static-x86_64"; \
+    elif [ "$ARCH" = "aarch64" ]; then \
+    ASSET_NAME="linux-static-arm64"; \
+    else \
+    echo "Unsupported architecture: $ARCH"; exit 1; \
+    fi && \
+    LATEST_URL=$(curl -s https://api.github.com/repos/chipsalliance/verible/releases/latest | jq -r ".assets[] | select(.name | contains(\"$ASSET_NAME\")) | .browser_download_url") && \
+    echo "Downloading Verible from $LATEST_URL" && \
+    curl -L -s "$LATEST_URL" | tar -xz --strip-components=1 -C /verible
+
+# Stage 6: Final
 FROM alpine:latest
 
 # Install runtime dependencies
@@ -105,7 +124,8 @@ RUN apk add --no-cache \
     graphviz \
     zip \
     make \
-    bash
+    bash \
+    git
 
 # Copy Icarus Verilog artifacts
 COPY --from=iverilog-builder /usr/local/bin/iverilog /usr/local/bin/iverilog
@@ -125,6 +145,9 @@ COPY --from=z3-builder /usr/local/include/z3* /usr/local/include/
 # Copy Sby artifacts
 COPY --from=sby-builder /usr/local/bin/sby* /usr/local/bin/
 COPY --from=sby-builder /usr/local/share/yosys/python3 /usr/local/share/yosys/python3
+
+# Copy Verible artifacts
+COPY --from=verible-downloader /verible/bin/* /usr/local/bin/
 
 # Set working directory
 WORKDIR /workspace
