@@ -11,7 +11,7 @@ module tb_and2bit;
       .y(y)
   );
 
-  task automatic apply_and_check(input [1:0] aa, input [1:0] bb);
+  task automatic apply_and_check(input logic [1:0] aa, input logic [1:0] bb);
     reg [1:0] exp;
     begin
       a = aa;

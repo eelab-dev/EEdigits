@@ -1,9 +1,8 @@
-module main();
+module test ();
 
-initial
-  begin
+  initial begin
     $display("Hello World");
-    $finish ;
+    $finish;
   end
 
 endmodule
