@@ -1,7 +1,7 @@
 temp
-iverilog
 *.vvp
 *.vcd
-yosys
-sby
-z3
+examples/**/formal/*_prove/
+examples/**/formal/*_cover/
+examples/**/synthesis/*.rpt
+examples/**/synthesis/*_synth.v
