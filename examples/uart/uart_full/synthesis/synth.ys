@@ -1,0 +1,14 @@
+read_verilog -sv ../uart_full.v
+read_verilog -sv ../uart_tx.v
+read_verilog -sv ../uart_rx.v
+
+hierarchy -top uart_full
+proc; opt
+fsm; opt
+techmap; opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+stat -top uart_full
+
+write_verilog -noattr -noexpr uart_full_synth.v
+tee -o synth.rpt stat -top uart_full
