@@ -1,0 +1,19 @@
+[options]
+mode bmc
+depth 150
+
+[engines]
+smtbmc z3
+
+[script]
+read -formal uart_full.v
+read -formal uart_tx.v
+read -formal uart_rx.v
+read -formal uart_full_formal.sv
+prep -top uart_full_formal
+
+[files]
+../uart_full.v
+../uart_tx.v
+../uart_rx.v
+uart_full_formal.sv
