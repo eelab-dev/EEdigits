@@ -1,6 +1,7 @@
 temp
 *.vvp
 *.vcd
+*_sim
 examples/**/formal/*_prove/
 examples/**/formal/*_cover/
 examples/**/synthesis/*.rpt
