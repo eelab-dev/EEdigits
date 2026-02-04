@@ -194,7 +194,14 @@ RUN apk add --no-cache \
     zip \
     make \
     bash \
-    git
+    git \
+    coreutils \
+    ncurses-terminfo-base
+
+# Create a non-root user for devcontainer usage
+RUN adduser -D -s /bin/bash coder && \
+    mkdir -p /workspace && \
+    chown -R coder:coder /workspace
 
 # Copy Icarus Verilog artifacts
 COPY --from=iverilog-builder /usr/local/bin/iverilog /usr/local/bin/iverilog
@@ -235,8 +242,33 @@ RUN chmod +x /usr/local/bin/bitwuzla
 # Convenience alias (optional) for explicit SMT2 invocation.
 RUN ln -sf /usr/local/bin/bitwuzla /usr/local/bin/bitwuzla-smt2
 
+# VS Code terminal friendliness
+ENV TERM=xterm-256color \
+    COLORTERM=truecolor \
+    SHELL=/bin/bash
+
+# Entrypoint + bashrc to enable colorful interactive shells and provide a
+# manual fallback for VS Code shell integration.
+COPY Docker/scripts/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+COPY Docker/scripts/root.bashrc /root/.bashrc
+
+# Make the same interactive experience available to the non-root user.
+COPY Docker/scripts/root.bashrc /home/coder/.bashrc
+RUN printf '%s\n' \
+    'if [ -f "${HOME}/.bashrc" ]; then' \
+    '  . "${HOME}/.bashrc"' \
+    'fi' \
+    > /home/coder/.bash_profile && \
+    chown -R coder:coder /home/coder
+
 # Set working directory
 WORKDIR /workspace
 
-# Set default command
-CMD ["/bin/sh"]
+# Default: interactive bash (VS Code shell integration supports bash)
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+CMD ["/bin/bash", "-l"]
+
+# Default user for VS Code devcontainer
+USER coder

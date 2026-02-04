@@ -8,7 +8,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="${SCRIPT_DIR}/.."
 
 # Image name
-IMAGE_NAME="danchitnis/digital-tools"
+IMAGE_REPO="danchitnis/digital-tools"
+IMAGE_TAG="${IMAGE_TAG:-latest}"
+IMAGE_NAME="${IMAGE_REPO}:${IMAGE_TAG}"
 
 echo "Building Docker image: $IMAGE_NAME"
 
@@ -27,5 +29,10 @@ docker build \
 	-t "$IMAGE_NAME" \
 	-f "${SCRIPT_DIR}/Dockerfile" \
 	"$REPO_ROOT"
+
+# Convenience: also tag without an explicit tag when using 'latest'
+if [ "$IMAGE_TAG" = "latest" ]; then
+	docker tag "$IMAGE_NAME" "$IMAGE_REPO"
+fi
 
 echo "Build complete!"
