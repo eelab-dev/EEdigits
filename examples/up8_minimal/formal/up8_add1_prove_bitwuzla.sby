@@ -1,0 +1,17 @@
+[options]
+mode bmc
+depth 45
+
+[engines]
+smtbmc bitwuzla
+
+[script]
+# Same proof as up8_add1_prove_z3.sby, but using Bitwuzla.
+read -formal -D FORMAL -D UP8_INLINE_ROM -D UP8_FORMAL_ROMONLY -I . up8_cpu.v
+read -formal up8_add1_formal.sv
+prep -top up8_add1_formal
+
+[files]
+../up8_cpu.v
+up8_add1_formal.sv
+up8_inline_rom.vh
