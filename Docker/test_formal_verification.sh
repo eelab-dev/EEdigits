@@ -10,18 +10,34 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Path to examples (one level up from Docker directory)
 EXAMPLES_DIR="${SCRIPT_DIR}/../examples/and2bit"
 
+# Solvers to test (space-separated). Defaults to testing both.
+# You can override, e.g.: SMT_SOLVERS="z3" or SMT_SOLVERS="bitwuzla".
+SMT_SOLVERS="${SMT_SOLVERS:-z3 bitwuzla}"
+
 echo "Running formal verification using Docker image: $IMAGE_NAME"
 
-# Run the formal verification inside the container
-# We copy to a temp directory to avoid creating root-owned artifacts on the host
-docker run --rm \
-    -v "$EXAMPLES_DIR":/workspace:ro \
-    $IMAGE_NAME \
-    sh -c "cp -r /workspace /tmp/sandbox && cd /tmp/sandbox/formal && sby -f and2bit_prove.sby && sby -f and2bit_cover.sby"
+run_formal_for_solver() {
+    local solver="$1"
+    echo "----------------------------------------"
+    echo "Testing SMT solver: $solver"
 
-if [ $? -eq 0 ]; then
-    echo "Formal verification completed successfully!"
-else
-    echo "Formal verification failed!"
-    exit 1
-fi
+    docker run --rm \
+        -e SMT_SOLVER="$solver" \
+        -v "$EXAMPLES_DIR":/workspace:ro \
+        "$IMAGE_NAME" \
+        sh -c 'set -e; \
+            cp -r /workspace /tmp/sandbox; \
+            cd /tmp/sandbox/formal; \
+            if [ "$SMT_SOLVER" = "z3" ]; then z3 --version >/dev/null; fi; \
+            if [ "$SMT_SOLVER" = "bitwuzla" ]; then bitwuzla --version >/dev/null; fi; \
+            sed -i -E "s/^(smtbmc)[[:space:]]+z3$/\\1 ${SMT_SOLVER}/" *.sby; \
+            sby -f and2bit_prove.sby; \
+            sby -f and2bit_cover.sby'
+}
+
+for solver in $SMT_SOLVERS; do
+    run_formal_for_solver "$solver"
+done
+
+echo "----------------------------------------"
+echo "Formal verification completed successfully for: $SMT_SOLVERS"
