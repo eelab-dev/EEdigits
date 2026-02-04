@@ -4,5 +4,16 @@ temp
 *_sim
 examples/**/formal/*_prove/
 examples/**/formal/*_cover/
+examples/**/formal/*_prove_*/
+examples/**/formal/*_cover_*/
+examples/**/formal/*_step_*/
+examples/**/formal/*_z3/
+examples/**/formal/*_bitwuzla/
+examples/**/formal/*_run.log
+examples/**/formal/*.log
 examples/**/synthesis/*.rpt
 examples/**/synthesis/*_synth.v
+
+# Common generated output folders
+examples/**/build/
+examples/**/waves/

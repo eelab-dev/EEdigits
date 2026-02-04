@@ -1,0 +1,20 @@
+[options]
+mode bmc
+depth 45
+
+[engines]
+smtbmc z3
+
+[script]
+# Define FORMAL to disable file IO init, and UP8_INLINE_ROM to include
+# the fixed ROM bytes for this proof.
+# UP8_FORMAL_ROMONLY removes data-memory read/write ports (not used by this program)
+# to keep the SMT model tractable.
+read -formal -D FORMAL -D UP8_INLINE_ROM -D UP8_FORMAL_ROMONLY -I . up8_cpu.v
+read -formal up8_add1_formal.sv
+prep -top up8_add1_formal
+
+[files]
+../up8_cpu.v
+up8_add1_formal.sv
+up8_inline_rom.vh

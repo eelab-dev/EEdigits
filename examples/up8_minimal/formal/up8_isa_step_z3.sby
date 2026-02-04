@@ -1,0 +1,16 @@
+[options]
+mode bmc
+depth 2
+
+[engines]
+smtbmc z3
+
+[script]
+# Symbolic instruction fetch and ROM-only formal mode.
+read -formal -D FORMAL -D UP8_SYMBOLIC_IMEM -D UP8_FORMAL_ROMONLY -D UP8_FORMAL_ROMONLY -I . up8_cpu.v
+read -formal up8_isa_step_formal.sv
+prep -top up8_isa_step_formal
+
+[files]
+../up8_cpu.v
+up8_isa_step_formal.sv
