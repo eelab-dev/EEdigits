@@ -74,7 +74,36 @@ RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local .. && \
     make -j$(nproc) && \
     make install
 
-# Stage 4: SymbiYosys (sby) Builder
+# Stage 4: Bitwuzla Builder
+FROM alpine:latest AS bitwuzla-builder
+
+# Install build dependencies
+RUN apk add --no-cache \
+    build-base \
+    git \
+    python3 \
+    meson \
+    ninja \
+    cmake \
+    gmp-dev \
+    mpfr-dev \
+    pkgconf \
+    curl \
+    tar
+
+# Clone Bitwuzla repository
+WORKDIR /build
+RUN git clone https://github.com/bitwuzla/bitwuzla.git .
+
+# Configure, build, and install
+RUN ./configure.py release --shared --prefix=/usr/local && \
+    cd build && \
+    ninja -j$(nproc) && \
+    ninja install && \
+    strip /usr/local/bin/bitwuzla 2>/dev/null || true && \
+    strip /usr/local/lib/libbitwuzla*.so* 2>/dev/null || true
+
+# Stage 5: SymbiYosys (sby) Builder
 FROM alpine:latest AS sby-builder
 
 # Install build dependencies
@@ -90,7 +119,7 @@ RUN git clone https://github.com/YosysHQ/sby.git .
 # Install
 RUN make install
 
-# Stage 5: Verible Downloader
+# Stage 6: Verible Downloader
 FROM alpine:latest AS verible-downloader
 
 RUN apk add --no-cache curl jq tar gzip
@@ -115,6 +144,8 @@ FROM alpine:latest
 # Install runtime dependencies
 RUN apk add --no-cache \
     libstdc++ \
+    gmp \
+    mpfr \
     readline \
     zlib \
     tcl \
@@ -142,12 +173,52 @@ COPY --from=z3-builder /usr/local/bin/z3 /usr/local/bin/z3
 COPY --from=z3-builder /usr/local/lib/libz3* /usr/local/lib/
 COPY --from=z3-builder /usr/local/include/z3* /usr/local/include/
 
+# Copy Bitwuzla artifacts
+COPY --from=bitwuzla-builder /usr/local/bin/bitwuzla /usr/local/bin/bitwuzla-real
+COPY --from=bitwuzla-builder /usr/local/lib/libbitwuzla* /usr/local/lib/
+
 # Copy Sby artifacts
 COPY --from=sby-builder /usr/local/bin/sby* /usr/local/bin/
 COPY --from=sby-builder /usr/local/share/yosys/python3 /usr/local/share/yosys/python3
 
 # Copy Verible artifacts
 COPY --from=verible-downloader /verible/bin/* /usr/local/bin/
+
+# Yosys smtbmc invokes Bitwuzla with a legacy `--smt2` flag. Newer Bitwuzla
+# uses `--lang smt2` instead, so wrap `bitwuzla` to translate.
+RUN cat > /usr/local/bin/bitwuzla <<'PY' \
+    && chmod +x /usr/local/bin/bitwuzla
+#!/usr/bin/env python3
+import os
+import sys
+
+
+def main() -> None:
+    argv = sys.argv[1:]
+    out: list[str] = []
+
+    for a in argv:
+        if a in ("--smt2", "-smt2"):
+            # Map legacy flag to modern Bitwuzla CLI.
+            out.extend(["--lang", "smt2"])
+        elif a == "-i":
+            # Boolector-style interactive flag used by smtio.py; Bitwuzla reads from
+            # stdin by default, so ignore it.
+            continue
+        else:
+            out.append(a)
+
+    # If no language flag was present at all (and no --smt2), keep Bitwuzla default.
+    cmd = ["/usr/local/bin/bitwuzla-real", *out]
+    os.execv(cmd[0], cmd)
+
+
+if __name__ == "__main__":
+    main()
+PY
+
+# Convenience alias (optional) for explicit SMT2 invocation.
+RUN ln -sf /usr/local/bin/bitwuzla /usr/local/bin/bitwuzla-smt2
 
 # Set working directory
 WORKDIR /workspace
