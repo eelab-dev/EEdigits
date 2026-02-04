@@ -100,10 +100,48 @@ RUN ./configure.py release --shared --prefix=/usr/local && \
     cd build && \
     ninja -j$(nproc) && \
     ninja install && \
-    strip /usr/local/bin/bitwuzla 2>/dev/null || true && \
-    strip /usr/local/lib/libbitwuzla*.so* 2>/dev/null || true
+    (strip /usr/local/bin/bitwuzla 2>/dev/null || true) && \
+    (strip /usr/local/lib/libbitwuzla*.so* 2>/dev/null || true)
 
-# Stage 5: SymbiYosys (sby) Builder
+# Stage 5: CVC5 Builder
+FROM alpine:latest AS cvc5-builder
+
+# Optional: pin an explicit CVC5 git tag (e.g. cvc5-1.3.2). If unset,
+# we automatically resolve the latest stable cvc5-X.Y.Z tag at build time.
+ARG CVC5_TAG=
+
+# Install build dependencies
+RUN apk add --no-cache \
+    build-base \
+    git \
+    python3 \
+    py3-pip \
+    cmake \
+    gmp-dev \
+    bash \
+    curl \
+    zip
+
+# Helper script to resolve latest stable cvc5-X.Y.Z tag.
+COPY Docker/scripts/resolve_cvc5_tag.py /usr/local/bin/resolve_cvc5_tag.py
+RUN chmod +x /usr/local/bin/resolve_cvc5_tag.py
+
+# Clone CVC5 repository (auto-resolve latest stable tag by default)
+WORKDIR /build
+RUN set -e; \
+    tag="$(CVC5_TAG="$CVC5_TAG" /usr/local/bin/resolve_cvc5_tag.py)"; \
+    echo "Using CVC5 tag: $tag"; \
+    git clone --branch "$tag" --depth 1 https://github.com/cvc5/cvc5.git .
+
+# Configure, build, and install (production build)
+RUN ./configure.sh production --auto-download --prefix=/usr/local --no-pyvenv && \
+    cd build && \
+    make -j$(nproc) && \
+    make install && \
+    (strip /usr/local/bin/cvc5 2>/dev/null || true) && \
+    (strip /usr/local/lib/libcvc5*.so* /usr/local/lib/libpoly*.so* 2>/dev/null || true)
+
+# Stage 6: SymbiYosys (sby) Builder
 FROM alpine:latest AS sby-builder
 
 # Install build dependencies
@@ -138,7 +176,7 @@ RUN ARCH=$(uname -m) && \
     echo "Downloading Verible from $LATEST_URL" && \
     curl -L -s "$LATEST_URL" | tar -xz --strip-components=1 -C /verible
 
-# Stage 6: Final
+# Stage 7: Final
 FROM alpine:latest
 
 # Install runtime dependencies
@@ -177,6 +215,11 @@ COPY --from=z3-builder /usr/local/include/z3* /usr/local/include/
 COPY --from=bitwuzla-builder /usr/local/bin/bitwuzla /usr/local/bin/bitwuzla-real
 COPY --from=bitwuzla-builder /usr/local/lib/libbitwuzla* /usr/local/lib/
 
+# Copy CVC5 artifacts
+COPY --from=cvc5-builder /usr/local/bin/cvc5 /usr/local/bin/cvc5
+COPY --from=cvc5-builder /usr/local/lib/libcvc5* /usr/local/lib/
+COPY --from=cvc5-builder /usr/local/lib/libpoly* /usr/local/lib/
+
 # Copy Sby artifacts
 COPY --from=sby-builder /usr/local/bin/sby* /usr/local/bin/
 COPY --from=sby-builder /usr/local/share/yosys/python3 /usr/local/share/yosys/python3
@@ -186,36 +229,8 @@ COPY --from=verible-downloader /verible/bin/* /usr/local/bin/
 
 # Yosys smtbmc invokes Bitwuzla with a legacy `--smt2` flag. Newer Bitwuzla
 # uses `--lang smt2` instead, so wrap `bitwuzla` to translate.
-RUN cat > /usr/local/bin/bitwuzla <<'PY' \
-    && chmod +x /usr/local/bin/bitwuzla
-#!/usr/bin/env python3
-import os
-import sys
-
-
-def main() -> None:
-    argv = sys.argv[1:]
-    out: list[str] = []
-
-    for a in argv:
-        if a in ("--smt2", "-smt2"):
-            # Map legacy flag to modern Bitwuzla CLI.
-            out.extend(["--lang", "smt2"])
-        elif a == "-i":
-            # Boolector-style interactive flag used by smtio.py; Bitwuzla reads from
-            # stdin by default, so ignore it.
-            continue
-        else:
-            out.append(a)
-
-    # If no language flag was present at all (and no --smt2), keep Bitwuzla default.
-    cmd = ["/usr/local/bin/bitwuzla-real", *out]
-    os.execv(cmd[0], cmd)
-
-
-if __name__ == "__main__":
-    main()
-PY
+COPY Docker/scripts/bitwuzla_wrapper.py /usr/local/bin/bitwuzla
+RUN chmod +x /usr/local/bin/bitwuzla
 
 # Convenience alias (optional) for explicit SMT2 invocation.
 RUN ln -sf /usr/local/bin/bitwuzla /usr/local/bin/bitwuzla-smt2
