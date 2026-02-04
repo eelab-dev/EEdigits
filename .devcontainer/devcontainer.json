@@ -1,8 +1,18 @@
 {
     "name": "Digital Tools",
-    "image": "danchitnis/digital-tools",
+    "image": "danchitnis/digital-tools:latest",
+    "remoteUser": "coder",
     "customizations": {
         "vscode": {
+            "settings": {
+                "terminal.integrated.shellIntegration.enabled": true,
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash"
+                    }
+                }
+            },
             "extensions": [
                 "mshr-h.veriloghdl",
                 "CHIPSAlliance.verible"
