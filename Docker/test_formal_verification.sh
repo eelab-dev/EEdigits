@@ -10,9 +10,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Path to examples (one level up from Docker directory)
 EXAMPLES_DIR="${SCRIPT_DIR}/../examples/and2bit"
 
-# Solvers to test (space-separated). Defaults to testing both.
-# You can override, e.g.: SMT_SOLVERS="z3" or SMT_SOLVERS="bitwuzla".
-SMT_SOLVERS="${SMT_SOLVERS:-z3 bitwuzla}"
+# Solvers to test (space-separated). Defaults to testing all installed solvers.
+# You can override, e.g.: SMT_SOLVERS="z3" or SMT_SOLVERS="bitwuzla cvc5".
+SMT_SOLVERS="${SMT_SOLVERS:-z3 bitwuzla cvc5}"
 
 echo "Running formal verification using Docker image: $IMAGE_NAME"
 
@@ -30,6 +30,7 @@ run_formal_for_solver() {
             cd /tmp/sandbox/formal; \
             if [ "$SMT_SOLVER" = "z3" ]; then z3 --version >/dev/null; fi; \
             if [ "$SMT_SOLVER" = "bitwuzla" ]; then bitwuzla --version >/dev/null; fi; \
+            if [ "$SMT_SOLVER" = "cvc5" ]; then cvc5 --version >/dev/null; fi; \
             sed -i -E "s/^(smtbmc)[[:space:]]+z3$/\\1 ${SMT_SOLVER}/" *.sby; \
             sby -f and2bit_prove.sby; \
             sby -f and2bit_cover.sby'

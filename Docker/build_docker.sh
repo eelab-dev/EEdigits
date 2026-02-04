@@ -14,6 +14,18 @@ echo "Building Docker image: $IMAGE_NAME"
 
 # Build the image
 # Context is set to the repository root
-docker build -t "$IMAGE_NAME" -f "${SCRIPT_DIR}/Dockerfile" "$REPO_ROOT"
+build_args=()
+if [ -n "${CVC5_TAG:-}" ]; then
+	echo "Using pinned CVC5 tag from env: $CVC5_TAG"
+	build_args+=( --build-arg "CVC5_TAG=$CVC5_TAG" )
+else
+	echo "CVC5_TAG not set; Dockerfile will resolve latest stable tag"
+fi
+
+docker build \
+	"${build_args[@]}" \
+	-t "$IMAGE_NAME" \
+	-f "${SCRIPT_DIR}/Dockerfile" \
+	"$REPO_ROOT"
 
 echo "Build complete!"
