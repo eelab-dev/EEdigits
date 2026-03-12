@@ -1,0 +1,167 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `generic_fifo_lfsr_prove_formal'. Setting top module to generic_fifo_lfsr_prove_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \generic_fifo_lfsr_prove_formal
+Used module:     $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+Used module:         $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram
+
+2.2. Analyzing design hierarchy..
+Top module:  \generic_fifo_lfsr_prove_formal
+Used module:     $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+Used module:         $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram
+Removed 0 unused modules.
+Module generic_fifo_lfsr_prove_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       24 wires
+      140 wire bits
+       14 public wires
+       80 public wire bits
+       12 ports
+       56 port bits
+       14 cells
+        1   $anyinit
+        2   $anyseq
+        1   $assume
+        2   $logic_and
+        1   $logic_or
+        1   $mem_v2
+        5   $mux
+        1   $not
+
+=== $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       51 wires
+      245 wire bits
+       29 public wires
+      133 public wire bits
+       11 ports
+       25 port bits
+       41 cells
+        2   $add
+        2   $and
+        6   $anyinit
+        1   $assume
+        2   $eq
+        2   $logic_and
+       20   $mux
+        1   $ne
+        1   $not
+        2   $reduce_and
+        2   $xor
+        1 submodules
+        1   $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram
+
+=== generic_fifo_lfsr_prove_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       87 wires
+      412 wire bits
+       22 public wires
+       91 public wire bits
+       93 cells
+        2   $add
+        1   $anyconst
+        7   $anyinit
+        7   $anyseq
+        5   $assert
+        6   $assume
+        7   $eq
+        1   $initstate
+        1   $le
+       13   $logic_and
+       10   $logic_not
+        1   $logic_or
+        1   $lt
+       25   $mux
+        1   $ne
+        1   $pmux
+        1   $reduce_bool
+        3   $sub
+        1 submodules
+        1   $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      148 generic_fifo_lfsr_prove_formal
+       41 $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+       14   $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram
+
+        +----------Count including submodules.
+        | 
+      162 wires
+      797 wire bits
+       65 public wires
+      304 public wire bits
+       23 ports
+       81 port bits
+        - memories
+        - memory bits
+        - processes
+      148 cells
+        4   $add
+        2   $and
+        1   $anyconst
+       14   $anyinit
+        9   $anyseq
+        5   $assert
+        8   $assume
+        9   $eq
+        1   $initstate
+        1   $le
+       17   $logic_and
+       10   $logic_not
+        2   $logic_or
+        1   $lt
+        1   $mem_v2
+       50   $mux
+        2   $ne
+        2   $not
+        1   $pmux
+        2   $reduce_and
+        1   $reduce_bool
+        3   $sub
+        2   $xor
+        1 submodules
+        1   $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Creating SMT-LIBv2 representation of module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Creating SMT-LIBv2 representation of module generic_fifo_lfsr_prove_formal.
+
+End of script. Logfile hash: 323cbae06f, CPU: user 0.02s system 0.03s, MEM: 14.62 MB peak
+Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+Time spent: 85% 2x write_smt2 (0 sec), 9% 2x read_rtlil (0 sec), ...

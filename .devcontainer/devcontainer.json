@@ -1,6 +1,9 @@
 {
     "name": "Digital Tools",
-    "image": "danchitnis/digital-tools:latest",
+    "build": {
+        "dockerfile": "../Docker/Dockerfile",
+        "context": ".."
+    },
     "remoteUser": "coder",
     "customizations": {
         "vscode": {

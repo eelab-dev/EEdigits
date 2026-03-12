@@ -1,0 +1,55 @@
+SBY 16:19:16 [generic_fifo_lfsr_auto] Removing directory '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr_auto'.
+SBY 16:19:16 [generic_fifo_lfsr_auto] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/timescale.v' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr_auto/src/timescale.v'.
+SBY 16:19:16 [generic_fifo_lfsr_auto] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_dpram_formal.v' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr_auto/src/generic_dpram_formal.v'.
+SBY 16:19:16 [generic_fifo_lfsr_auto] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr.v' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr_auto/src/generic_fifo_lfsr.v'.
+SBY 16:19:16 [generic_fifo_lfsr_auto] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr_prove_formal.sv' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr_auto/src/generic_fifo_lfsr_prove_formal.sv'.
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: smtbmc bitwuzla
+SBY 16:19:16 [generic_fifo_lfsr_auto] base: starting process "cd generic_fifo_lfsr_auto/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 16:19:16 [generic_fifo_lfsr_auto] base: Warning: Encountered `translate_off' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using a portable and standards-compliant construct such as `ifdef is recommended!
+SBY 16:19:16 [generic_fifo_lfsr_auto] base: Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+SBY 16:19:16 [generic_fifo_lfsr_auto] base: finished (returncode=0)
+SBY 16:19:16 [generic_fifo_lfsr_auto] prep: starting process "cd generic_fifo_lfsr_auto/model; yosys -ql design_prep.log design_prep.ys"
+SBY 16:19:16 [generic_fifo_lfsr_auto] prep: Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+SBY 16:19:16 [generic_fifo_lfsr_auto] prep: finished (returncode=0)
+SBY 16:19:16 [generic_fifo_lfsr_auto] smt2: starting process "cd generic_fifo_lfsr_auto/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 16:19:16 [generic_fifo_lfsr_auto] smt2: finished (returncode=0)
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: starting process "cd generic_fifo_lfsr_auto; yosys-smtbmc -s bitwuzla --presat --unroll --noprogress -t 15  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Solver: bitwuzla
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 16:19:16 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 16:19:17 [generic_fifo_lfsr_auto] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 16:19:18 [generic_fifo_lfsr_auto] engine_0: ##   0:00:01  Checking assumptions in step 12..
+SBY 16:19:18 [generic_fifo_lfsr_auto] engine_0: ##   0:00:01  Checking assertions in step 12..
+SBY 16:19:20 [generic_fifo_lfsr_auto] engine_0: ##   0:00:03  Checking assumptions in step 13..
+SBY 16:19:20 [generic_fifo_lfsr_auto] engine_0: ##   0:00:03  Checking assertions in step 13..
+SBY 16:19:24 [generic_fifo_lfsr_auto] engine_0: ##   0:00:07  Checking assumptions in step 14..
+SBY 16:19:24 [generic_fifo_lfsr_auto] engine_0: ##   0:00:07  Checking assertions in step 14..
+SBY 16:19:34 [generic_fifo_lfsr_auto] engine_0: ##   0:00:17  Status: passed
+SBY 16:19:34 [generic_fifo_lfsr_auto] engine_0: finished (returncode=0)
+SBY 16:19:34 [generic_fifo_lfsr_auto] engine_0: Status returned by engine: pass
+SBY 16:19:34 [generic_fifo_lfsr_auto] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:18 (18)
+SBY 16:19:34 [generic_fifo_lfsr_auto] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:17 (17)
+SBY 16:19:34 [generic_fifo_lfsr_auto] summary: engine_0 (smtbmc bitwuzla) returned pass
+SBY 16:19:34 [generic_fifo_lfsr_auto] summary: engine_0 did not produce any traces
+SBY 16:19:34 [generic_fifo_lfsr_auto] DONE (PASS, rc=0)

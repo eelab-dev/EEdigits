@@ -1,0 +1,5 @@
+
+read_verilog -sv /workspaces/digital-tools/examples/sdram/iobuf_stub.v /workspaces/digital-tools/examples/sdram/oddr2_stub.v /workspaces/digital-tools/examples/sdram/sdram.v
+hierarchy -check -top sdram
+proc; opt;
+stat -json -top sdram

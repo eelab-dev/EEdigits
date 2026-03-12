@@ -1,0 +1,13 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+
+-- Executing script file `/workspaces/digital-tools/examples/generic_fifo_lfsr/temp_stats.ys' --
+
+1. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/generic_fifo_lfsr/timescale.v
+Parsing SystemVerilog input from `/workspaces/digital-tools/examples/generic_fifo_lfsr/timescale.v' to AST representation.
+Successfully finished Verilog frontend.

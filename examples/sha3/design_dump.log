@@ -1,0 +1,1809 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+
+-- Executing script file `/workspaces/digital-tools/examples/sha3/temp_stats.ys' --
+
+1. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/sha3/keccak.v
+Parsing SystemVerilog input from `/workspaces/digital-tools/examples/sha3/keccak.v' to AST representation.
+Generating RTLIL representation for module `\keccak'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/sha3/padder.v
+Parsing SystemVerilog input from `/workspaces/digital-tools/examples/sha3/padder.v' to AST representation.
+Generating RTLIL representation for module `\padder'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/sha3/padder1.v
+Parsing SystemVerilog input from `/workspaces/digital-tools/examples/sha3/padder1.v' to AST representation.
+Generating RTLIL representation for module `\padder1'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/sha3/f_permutation.v
+Parsing SystemVerilog input from `/workspaces/digital-tools/examples/sha3/f_permutation.v' to AST representation.
+Generating RTLIL representation for module `\f_permutation'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/sha3/round2in1.v
+Parsing SystemVerilog input from `/workspaces/digital-tools/examples/sha3/round2in1.v' to AST representation.
+Generating RTLIL representation for module `\round2in1'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/sha3/rconst2in1.v
+Parsing SystemVerilog input from `/workspaces/digital-tools/examples/sha3/rconst2in1.v' to AST representation.
+Generating RTLIL representation for module `\rconst2in1'.
+Note: Assuming pure combinatorial block at /workspaces/digital-tools/examples/sha3/rconst2in1.v:23.5-33.10 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at /workspaces/digital-tools/examples/sha3/rconst2in1.v:35.5-45.10 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1. Analyzing design hierarchy..
+Top module:  \keccak
+Used module:     \f_permutation
+Used module:         \round2in1
+Used module:         \rconst2in1
+Used module:     \padder
+Used module:         \padder1
+
+7.2. Analyzing design hierarchy..
+Top module:  \keccak
+Used module:     \f_permutation
+Used module:         \round2in1
+Used module:         \rconst2in1
+Used module:     \padder
+Used module:         \padder1
+Removed 0 unused modules.
+
+8. Executing PROC pass (convert processes to netlists).
+
+8.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:71$38 in module f_permutation.
+Marked 2 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:48$35 in module f_permutation.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:40$30 in module f_permutation.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:36$29 in module f_permutation.
+Removed 1 dead cases from process $proc$/workspaces/digital-tools/examples/sha3/padder1.v:22$26 in module padder1.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/padder1.v:22$26 in module padder1.
+Marked 2 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/padder.v:77$22 in module padder.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/padder.v:65$20 in module padder.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/padder.v:59$19 in module padder.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/padder.v:51$15 in module padder.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/padder.v:45$14 in module padder.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/keccak.v:84$4 in module keccak.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/keccak.v:55$3 in module keccak.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sha3/keccak.v:49$1 in module keccak.
+Removed a total of 1 dead cases.
+
+8.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 429 assignments to connections.
+
+8.4. Executing PROC_INIT pass (extract init attributes).
+
+8.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~23 debug messages>
+
+8.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\rconst2in1.$proc$/workspaces/digital-tools/examples/sha3/rconst2in1.v:35$795'.
+Creating decoders for process `\rconst2in1.$proc$/workspaces/digital-tools/examples/sha3/rconst2in1.v:23$754'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$753'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$752'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$751'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$750'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$749'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$748'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$747'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$746'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$745'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$744'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$743'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$742'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$741'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$740'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$739'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$738'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$737'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$736'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$735'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$734'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$733'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$732'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$731'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$730'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$728'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$727'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$726'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$725'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$724'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$723'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$722'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$721'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$720'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$719'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$718'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$717'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$716'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$715'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$714'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$713'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$712'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$711'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$710'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$709'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$708'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$707'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$706'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$705'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$704'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$703'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$702'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$701'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$700'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$699'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$698'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$697'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$695'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$694'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$693'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$692'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$691'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$690'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$689'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$688'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$687'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$686'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$685'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$684'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$683'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$682'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$681'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$680'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$678'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$677'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$676'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$675'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$674'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$673'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$672'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$671'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$669'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$668'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$667'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$666'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$664'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$663'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$661'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$659'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$655'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$651'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$647'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$643'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$639'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$635'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$631'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$627'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$623'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$619'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$615'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$611'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$607'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$603'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$599'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$595'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$591'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$587'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$583'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$579'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$575'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$571'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$567'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$563'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$559'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$556'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$553'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$550'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$547'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$544'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$541'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$538'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$535'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$532'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$529'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$526'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$523'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$520'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$517'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$514'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$511'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$508'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$505'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$502'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$499'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$496'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$493'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$490'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$487'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$484'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$479'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$474'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$469'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$464'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$459'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$458'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$457'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$456'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$455'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$454'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$453'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$452'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$451'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$450'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$449'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$448'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$447'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$446'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$445'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$444'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$443'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$442'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$441'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$440'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$439'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$438'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$437'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$436'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$435'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$433'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$432'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$431'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$430'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$429'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$428'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$427'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$426'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$425'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$424'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$423'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$422'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$421'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$420'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$419'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$418'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$417'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$416'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$415'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$414'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$413'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$412'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$411'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$410'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$409'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$408'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$407'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$406'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$405'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$404'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$403'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$402'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$400'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$399'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$398'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$397'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$396'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$395'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$394'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$393'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$392'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$391'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$390'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$389'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$388'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$387'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$386'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$385'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$383'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$382'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$381'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$380'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$379'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$378'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$377'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$376'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$374'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$373'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$372'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$371'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$369'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$368'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$366'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$364'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$360'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$356'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$352'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$348'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$344'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$340'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$336'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$332'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$328'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$324'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$320'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$316'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$312'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$308'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$304'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$300'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$296'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$292'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$288'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$284'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$280'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$276'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$272'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$268'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$264'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$261'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$258'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$255'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$252'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$249'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$246'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$243'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$240'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$237'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$234'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$231'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$228'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$225'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$222'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$219'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$216'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$213'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$210'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$207'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$204'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$201'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$198'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$195'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$192'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$189'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$184'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$179'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$174'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$169'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$164'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$163'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$162'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$161'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$160'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$159'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$158'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$157'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$156'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$155'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$154'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$153'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$152'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$151'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$150'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$149'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$148'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$147'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$146'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$145'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$144'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$143'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$142'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$141'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$140'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$139'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:231$138'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:230$137'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:229$136'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:228$135'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:227$134'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:226$133'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:225$132'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:224$131'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:223$130'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:222$129'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:221$128'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:220$127'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:219$126'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:218$125'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:217$124'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:216$123'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:215$122'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:214$121'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:213$120'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:212$119'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:211$118'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:210$117'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:209$116'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:208$115'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:207$114'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:204$113'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:203$112'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:202$111'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:201$110'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:200$109'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:199$108'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:198$107'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:197$106'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:196$105'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:195$104'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:194$103'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:193$102'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:192$101'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:191$100'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:190$99'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:189$98'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:188$97'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:187$96'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:186$95'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:185$94'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:184$93'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:183$92'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:182$91'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:181$90'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:180$89'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:123$88'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:122$87'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:121$86'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:120$85'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:119$84'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:118$83'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:117$82'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:116$81'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:115$80'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:114$79'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:113$78'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:112$77'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:111$76'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:110$75'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:109$74'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:108$73'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:107$72'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:106$71'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:105$70'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:104$69'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:103$68'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:102$67'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:101$66'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:100$65'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:99$64'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:96$63'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:95$62'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:94$61'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:93$60'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:92$59'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:91$58'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:90$57'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:89$56'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:88$55'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:87$54'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:86$53'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:85$52'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:84$51'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:83$50'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:82$49'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:81$48'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:80$47'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:79$46'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:78$45'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:77$44'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:76$43'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:75$42'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:74$41'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:73$40'.
+Creating decoders for process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:72$39'.
+Creating decoders for process `\f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:71$38'.
+     1/1: $0\out[1599:0]
+Creating decoders for process `\f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:48$35'.
+     1/1: $0\out_ready[0:0]
+Creating decoders for process `\f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:40$30'.
+     1/1: $0\calc[0:0]
+Creating decoders for process `\f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:36$29'.
+     1/1: $0\i[10:0]
+Creating decoders for process `\padder1.$proc$/workspaces/digital-tools/examples/sha3/padder1.v:22$26'.
+     1/1: $1\out[63:0]
+Creating decoders for process `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:77$22'.
+     1/6: $2\v1[63:0] [63:8]
+     2/6: $2\v1[63:0] [7]
+     3/6: $2\v1[63:0] [6:0]
+     4/6: $1\v1[63:0] [63:8]
+     5/6: $1\v1[63:0] [6:0]
+     6/6: $1\v1[63:0] [7]
+Creating decoders for process `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:65$20'.
+     1/1: $0\done[0:0]
+Creating decoders for process `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:59$19'.
+     1/1: $0\state[0:0]
+Creating decoders for process `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:51$15'.
+     1/1: $0\i[8:0]
+Creating decoders for process `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:45$14'.
+     1/1: $0\out[575:0]
+Creating decoders for process `\keccak.$proc$/workspaces/digital-tools/examples/sha3/keccak.v:84$4'.
+     1/1: $0\out_ready[0:0]
+Creating decoders for process `\keccak.$proc$/workspaces/digital-tools/examples/sha3/keccak.v:55$3'.
+     1/1: $0\state[0:0]
+Creating decoders for process `\keccak.$proc$/workspaces/digital-tools/examples/sha3/keccak.v:49$1'.
+     1/1: $0\i[10:0]
+
+8.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\rconst2in1.\rc2' from process `\rconst2in1.$proc$/workspaces/digital-tools/examples/sha3/rconst2in1.v:35$795'.
+No latch inferred for signal `\rconst2in1.\rc1' from process `\rconst2in1.$proc$/workspaces/digital-tools/examples/sha3/rconst2in1.v:23$754'.
+No latch inferred for signal `\round2in1.\gg[24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$753'.
+No latch inferred for signal `\round2in1.\gg[19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$752'.
+No latch inferred for signal `\round2in1.\gg[14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$751'.
+No latch inferred for signal `\round2in1.\gg[9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$750'.
+No latch inferred for signal `\round2in1.\gg[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$749'.
+No latch inferred for signal `\round2in1.\gg[23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$748'.
+No latch inferred for signal `\round2in1.\gg[18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$747'.
+No latch inferred for signal `\round2in1.\gg[13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$746'.
+No latch inferred for signal `\round2in1.\gg[8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$745'.
+No latch inferred for signal `\round2in1.\gg[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$744'.
+No latch inferred for signal `\round2in1.\gg[22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$743'.
+No latch inferred for signal `\round2in1.\gg[17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$742'.
+No latch inferred for signal `\round2in1.\gg[12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$741'.
+No latch inferred for signal `\round2in1.\gg[7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$740'.
+No latch inferred for signal `\round2in1.\gg[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$739'.
+No latch inferred for signal `\round2in1.\gg[21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$738'.
+No latch inferred for signal `\round2in1.\gg[16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$737'.
+No latch inferred for signal `\round2in1.\gg[11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$736'.
+No latch inferred for signal `\round2in1.\gg[6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$735'.
+No latch inferred for signal `\round2in1.\gg[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$734'.
+No latch inferred for signal `\round2in1.\gg[20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$733'.
+No latch inferred for signal `\round2in1.\gg[15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$732'.
+No latch inferred for signal `\round2in1.\gg[10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$731'.
+No latch inferred for signal `\round2in1.\gg[5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$730'.
+No latch inferred for signal `\round2in1.\gg[0] [63]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$728'.
+No latch inferred for signal `\round2in1.\gg[0] [62]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$727'.
+No latch inferred for signal `\round2in1.\gg[0] [61]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$726'.
+No latch inferred for signal `\round2in1.\gg[0] [60]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$725'.
+No latch inferred for signal `\round2in1.\gg[0] [59]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$724'.
+No latch inferred for signal `\round2in1.\gg[0] [58]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$723'.
+No latch inferred for signal `\round2in1.\gg[0] [57]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$722'.
+No latch inferred for signal `\round2in1.\gg[0] [56]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$721'.
+No latch inferred for signal `\round2in1.\gg[0] [55]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$720'.
+No latch inferred for signal `\round2in1.\gg[0] [54]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$719'.
+No latch inferred for signal `\round2in1.\gg[0] [53]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$718'.
+No latch inferred for signal `\round2in1.\gg[0] [52]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$717'.
+No latch inferred for signal `\round2in1.\gg[0] [51]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$716'.
+No latch inferred for signal `\round2in1.\gg[0] [50]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$715'.
+No latch inferred for signal `\round2in1.\gg[0] [49]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$714'.
+No latch inferred for signal `\round2in1.\gg[0] [48]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$713'.
+No latch inferred for signal `\round2in1.\gg[0] [47]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$712'.
+No latch inferred for signal `\round2in1.\gg[0] [46]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$711'.
+No latch inferred for signal `\round2in1.\gg[0] [45]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$710'.
+No latch inferred for signal `\round2in1.\gg[0] [44]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$709'.
+No latch inferred for signal `\round2in1.\gg[0] [43]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$708'.
+No latch inferred for signal `\round2in1.\gg[0] [42]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$707'.
+No latch inferred for signal `\round2in1.\gg[0] [41]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$706'.
+No latch inferred for signal `\round2in1.\gg[0] [40]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$705'.
+No latch inferred for signal `\round2in1.\gg[0] [39]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$704'.
+No latch inferred for signal `\round2in1.\gg[0] [38]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$703'.
+No latch inferred for signal `\round2in1.\gg[0] [37]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$702'.
+No latch inferred for signal `\round2in1.\gg[0] [36]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$701'.
+No latch inferred for signal `\round2in1.\gg[0] [35]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$700'.
+No latch inferred for signal `\round2in1.\gg[0] [34]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$699'.
+No latch inferred for signal `\round2in1.\gg[0] [33]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$698'.
+No latch inferred for signal `\round2in1.\gg[0] [32]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$697'.
+No latch inferred for signal `\round2in1.\gg[0] [31]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$695'.
+No latch inferred for signal `\round2in1.\gg[0] [30]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$694'.
+No latch inferred for signal `\round2in1.\gg[0] [29]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$693'.
+No latch inferred for signal `\round2in1.\gg[0] [28]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$692'.
+No latch inferred for signal `\round2in1.\gg[0] [27]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$691'.
+No latch inferred for signal `\round2in1.\gg[0] [26]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$690'.
+No latch inferred for signal `\round2in1.\gg[0] [25]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$689'.
+No latch inferred for signal `\round2in1.\gg[0] [24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$688'.
+No latch inferred for signal `\round2in1.\gg[0] [23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$687'.
+No latch inferred for signal `\round2in1.\gg[0] [22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$686'.
+No latch inferred for signal `\round2in1.\gg[0] [21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$685'.
+No latch inferred for signal `\round2in1.\gg[0] [20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$684'.
+No latch inferred for signal `\round2in1.\gg[0] [19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$683'.
+No latch inferred for signal `\round2in1.\gg[0] [18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$682'.
+No latch inferred for signal `\round2in1.\gg[0] [17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$681'.
+No latch inferred for signal `\round2in1.\gg[0] [16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$680'.
+No latch inferred for signal `\round2in1.\gg[0] [15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$678'.
+No latch inferred for signal `\round2in1.\gg[0] [14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$677'.
+No latch inferred for signal `\round2in1.\gg[0] [13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$676'.
+No latch inferred for signal `\round2in1.\gg[0] [12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$675'.
+No latch inferred for signal `\round2in1.\gg[0] [11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$674'.
+No latch inferred for signal `\round2in1.\gg[0] [10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$673'.
+No latch inferred for signal `\round2in1.\gg[0] [9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$672'.
+No latch inferred for signal `\round2in1.\gg[0] [8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$671'.
+No latch inferred for signal `\round2in1.\gg[0] [7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$669'.
+No latch inferred for signal `\round2in1.\gg[0] [6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$668'.
+No latch inferred for signal `\round2in1.\gg[0] [5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$667'.
+No latch inferred for signal `\round2in1.\gg[0] [4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$666'.
+No latch inferred for signal `\round2in1.\gg[0] [3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$664'.
+No latch inferred for signal `\round2in1.\gg[0] [2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$663'.
+No latch inferred for signal `\round2in1.\gg[0] [1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$661'.
+No latch inferred for signal `\round2in1.\gg[0] [0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$659'.
+No latch inferred for signal `\round2in1.\ff[24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$655'.
+No latch inferred for signal `\round2in1.\ff[19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$651'.
+No latch inferred for signal `\round2in1.\ff[14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$647'.
+No latch inferred for signal `\round2in1.\ff[9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$643'.
+No latch inferred for signal `\round2in1.\ff[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$639'.
+No latch inferred for signal `\round2in1.\ff[23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$635'.
+No latch inferred for signal `\round2in1.\ff[18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$631'.
+No latch inferred for signal `\round2in1.\ff[13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$627'.
+No latch inferred for signal `\round2in1.\ff[8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$623'.
+No latch inferred for signal `\round2in1.\ff[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$619'.
+No latch inferred for signal `\round2in1.\ff[22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$615'.
+No latch inferred for signal `\round2in1.\ff[17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$611'.
+No latch inferred for signal `\round2in1.\ff[12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$607'.
+No latch inferred for signal `\round2in1.\ff[7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$603'.
+No latch inferred for signal `\round2in1.\ff[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$599'.
+No latch inferred for signal `\round2in1.\ff[21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$595'.
+No latch inferred for signal `\round2in1.\ff[16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$591'.
+No latch inferred for signal `\round2in1.\ff[11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$587'.
+No latch inferred for signal `\round2in1.\ff[6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$583'.
+No latch inferred for signal `\round2in1.\ff[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$579'.
+No latch inferred for signal `\round2in1.\ff[20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$575'.
+No latch inferred for signal `\round2in1.\ff[15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$571'.
+No latch inferred for signal `\round2in1.\ff[10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$567'.
+No latch inferred for signal `\round2in1.\ff[5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$563'.
+No latch inferred for signal `\round2in1.\ff[0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$559'.
+No latch inferred for signal `\round2in1.\cc[24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$556'.
+No latch inferred for signal `\round2in1.\cc[19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$553'.
+No latch inferred for signal `\round2in1.\cc[14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$550'.
+No latch inferred for signal `\round2in1.\cc[9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$547'.
+No latch inferred for signal `\round2in1.\cc[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$544'.
+No latch inferred for signal `\round2in1.\cc[23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$541'.
+No latch inferred for signal `\round2in1.\cc[18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$538'.
+No latch inferred for signal `\round2in1.\cc[13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$535'.
+No latch inferred for signal `\round2in1.\cc[8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$532'.
+No latch inferred for signal `\round2in1.\cc[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$529'.
+No latch inferred for signal `\round2in1.\cc[22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$526'.
+No latch inferred for signal `\round2in1.\cc[17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$523'.
+No latch inferred for signal `\round2in1.\cc[12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$520'.
+No latch inferred for signal `\round2in1.\cc[7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$517'.
+No latch inferred for signal `\round2in1.\cc[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$514'.
+No latch inferred for signal `\round2in1.\cc[21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$511'.
+No latch inferred for signal `\round2in1.\cc[16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$508'.
+No latch inferred for signal `\round2in1.\cc[11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$505'.
+No latch inferred for signal `\round2in1.\cc[6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$502'.
+No latch inferred for signal `\round2in1.\cc[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$499'.
+No latch inferred for signal `\round2in1.\cc[20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$496'.
+No latch inferred for signal `\round2in1.\cc[15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$493'.
+No latch inferred for signal `\round2in1.\cc[10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$490'.
+No latch inferred for signal `\round2in1.\cc[5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$487'.
+No latch inferred for signal `\round2in1.\cc[0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$484'.
+No latch inferred for signal `\round2in1.\bb[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$479'.
+No latch inferred for signal `\round2in1.\bb[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$474'.
+No latch inferred for signal `\round2in1.\bb[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$469'.
+No latch inferred for signal `\round2in1.\bb[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$464'.
+No latch inferred for signal `\round2in1.\bb[0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$459'.
+No latch inferred for signal `\round2in1.\g[24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$458'.
+No latch inferred for signal `\round2in1.\g[19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$457'.
+No latch inferred for signal `\round2in1.\g[14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$456'.
+No latch inferred for signal `\round2in1.\g[9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$455'.
+No latch inferred for signal `\round2in1.\g[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$454'.
+No latch inferred for signal `\round2in1.\g[23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$453'.
+No latch inferred for signal `\round2in1.\g[18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$452'.
+No latch inferred for signal `\round2in1.\g[13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$451'.
+No latch inferred for signal `\round2in1.\g[8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$450'.
+No latch inferred for signal `\round2in1.\g[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$449'.
+No latch inferred for signal `\round2in1.\g[22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$448'.
+No latch inferred for signal `\round2in1.\g[17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$447'.
+No latch inferred for signal `\round2in1.\g[12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$446'.
+No latch inferred for signal `\round2in1.\g[7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$445'.
+No latch inferred for signal `\round2in1.\g[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$444'.
+No latch inferred for signal `\round2in1.\g[21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$443'.
+No latch inferred for signal `\round2in1.\g[16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$442'.
+No latch inferred for signal `\round2in1.\g[11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$441'.
+No latch inferred for signal `\round2in1.\g[6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$440'.
+No latch inferred for signal `\round2in1.\g[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$439'.
+No latch inferred for signal `\round2in1.\g[20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$438'.
+No latch inferred for signal `\round2in1.\g[15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$437'.
+No latch inferred for signal `\round2in1.\g[10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$436'.
+No latch inferred for signal `\round2in1.\g[5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$435'.
+No latch inferred for signal `\round2in1.\g[0] [63]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$433'.
+No latch inferred for signal `\round2in1.\g[0] [62]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$432'.
+No latch inferred for signal `\round2in1.\g[0] [61]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$431'.
+No latch inferred for signal `\round2in1.\g[0] [60]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$430'.
+No latch inferred for signal `\round2in1.\g[0] [59]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$429'.
+No latch inferred for signal `\round2in1.\g[0] [58]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$428'.
+No latch inferred for signal `\round2in1.\g[0] [57]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$427'.
+No latch inferred for signal `\round2in1.\g[0] [56]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$426'.
+No latch inferred for signal `\round2in1.\g[0] [55]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$425'.
+No latch inferred for signal `\round2in1.\g[0] [54]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$424'.
+No latch inferred for signal `\round2in1.\g[0] [53]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$423'.
+No latch inferred for signal `\round2in1.\g[0] [52]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$422'.
+No latch inferred for signal `\round2in1.\g[0] [51]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$421'.
+No latch inferred for signal `\round2in1.\g[0] [50]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$420'.
+No latch inferred for signal `\round2in1.\g[0] [49]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$419'.
+No latch inferred for signal `\round2in1.\g[0] [48]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$418'.
+No latch inferred for signal `\round2in1.\g[0] [47]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$417'.
+No latch inferred for signal `\round2in1.\g[0] [46]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$416'.
+No latch inferred for signal `\round2in1.\g[0] [45]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$415'.
+No latch inferred for signal `\round2in1.\g[0] [44]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$414'.
+No latch inferred for signal `\round2in1.\g[0] [43]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$413'.
+No latch inferred for signal `\round2in1.\g[0] [42]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$412'.
+No latch inferred for signal `\round2in1.\g[0] [41]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$411'.
+No latch inferred for signal `\round2in1.\g[0] [40]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$410'.
+No latch inferred for signal `\round2in1.\g[0] [39]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$409'.
+No latch inferred for signal `\round2in1.\g[0] [38]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$408'.
+No latch inferred for signal `\round2in1.\g[0] [37]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$407'.
+No latch inferred for signal `\round2in1.\g[0] [36]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$406'.
+No latch inferred for signal `\round2in1.\g[0] [35]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$405'.
+No latch inferred for signal `\round2in1.\g[0] [34]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$404'.
+No latch inferred for signal `\round2in1.\g[0] [33]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$403'.
+No latch inferred for signal `\round2in1.\g[0] [32]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$402'.
+No latch inferred for signal `\round2in1.\g[0] [31]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$400'.
+No latch inferred for signal `\round2in1.\g[0] [30]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$399'.
+No latch inferred for signal `\round2in1.\g[0] [29]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$398'.
+No latch inferred for signal `\round2in1.\g[0] [28]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$397'.
+No latch inferred for signal `\round2in1.\g[0] [27]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$396'.
+No latch inferred for signal `\round2in1.\g[0] [26]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$395'.
+No latch inferred for signal `\round2in1.\g[0] [25]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$394'.
+No latch inferred for signal `\round2in1.\g[0] [24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$393'.
+No latch inferred for signal `\round2in1.\g[0] [23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$392'.
+No latch inferred for signal `\round2in1.\g[0] [22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$391'.
+No latch inferred for signal `\round2in1.\g[0] [21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$390'.
+No latch inferred for signal `\round2in1.\g[0] [20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$389'.
+No latch inferred for signal `\round2in1.\g[0] [19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$388'.
+No latch inferred for signal `\round2in1.\g[0] [18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$387'.
+No latch inferred for signal `\round2in1.\g[0] [17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$386'.
+No latch inferred for signal `\round2in1.\g[0] [16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$385'.
+No latch inferred for signal `\round2in1.\g[0] [15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$383'.
+No latch inferred for signal `\round2in1.\g[0] [14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$382'.
+No latch inferred for signal `\round2in1.\g[0] [13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$381'.
+No latch inferred for signal `\round2in1.\g[0] [12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$380'.
+No latch inferred for signal `\round2in1.\g[0] [11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$379'.
+No latch inferred for signal `\round2in1.\g[0] [10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$378'.
+No latch inferred for signal `\round2in1.\g[0] [9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$377'.
+No latch inferred for signal `\round2in1.\g[0] [8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$376'.
+No latch inferred for signal `\round2in1.\g[0] [7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$374'.
+No latch inferred for signal `\round2in1.\g[0] [6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$373'.
+No latch inferred for signal `\round2in1.\g[0] [5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$372'.
+No latch inferred for signal `\round2in1.\g[0] [4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$371'.
+No latch inferred for signal `\round2in1.\g[0] [3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$369'.
+No latch inferred for signal `\round2in1.\g[0] [2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$368'.
+No latch inferred for signal `\round2in1.\g[0] [1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$366'.
+No latch inferred for signal `\round2in1.\g[0] [0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$364'.
+No latch inferred for signal `\round2in1.\f[24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$360'.
+No latch inferred for signal `\round2in1.\f[19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$356'.
+No latch inferred for signal `\round2in1.\f[14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$352'.
+No latch inferred for signal `\round2in1.\f[9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$348'.
+No latch inferred for signal `\round2in1.\f[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$344'.
+No latch inferred for signal `\round2in1.\f[23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$340'.
+No latch inferred for signal `\round2in1.\f[18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$336'.
+No latch inferred for signal `\round2in1.\f[13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$332'.
+No latch inferred for signal `\round2in1.\f[8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$328'.
+No latch inferred for signal `\round2in1.\f[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$324'.
+No latch inferred for signal `\round2in1.\f[22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$320'.
+No latch inferred for signal `\round2in1.\f[17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$316'.
+No latch inferred for signal `\round2in1.\f[12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$312'.
+No latch inferred for signal `\round2in1.\f[7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$308'.
+No latch inferred for signal `\round2in1.\f[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$304'.
+No latch inferred for signal `\round2in1.\f[21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$300'.
+No latch inferred for signal `\round2in1.\f[16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$296'.
+No latch inferred for signal `\round2in1.\f[11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$292'.
+No latch inferred for signal `\round2in1.\f[6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$288'.
+No latch inferred for signal `\round2in1.\f[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$284'.
+No latch inferred for signal `\round2in1.\f[20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$280'.
+No latch inferred for signal `\round2in1.\f[15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$276'.
+No latch inferred for signal `\round2in1.\f[10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$272'.
+No latch inferred for signal `\round2in1.\f[5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$268'.
+No latch inferred for signal `\round2in1.\f[0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$264'.
+No latch inferred for signal `\round2in1.\c[24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$261'.
+No latch inferred for signal `\round2in1.\c[19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$258'.
+No latch inferred for signal `\round2in1.\c[14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$255'.
+No latch inferred for signal `\round2in1.\c[9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$252'.
+No latch inferred for signal `\round2in1.\c[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$249'.
+No latch inferred for signal `\round2in1.\c[23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$246'.
+No latch inferred for signal `\round2in1.\c[18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$243'.
+No latch inferred for signal `\round2in1.\c[13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$240'.
+No latch inferred for signal `\round2in1.\c[8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$237'.
+No latch inferred for signal `\round2in1.\c[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$234'.
+No latch inferred for signal `\round2in1.\c[22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$231'.
+No latch inferred for signal `\round2in1.\c[17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$228'.
+No latch inferred for signal `\round2in1.\c[12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$225'.
+No latch inferred for signal `\round2in1.\c[7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$222'.
+No latch inferred for signal `\round2in1.\c[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$219'.
+No latch inferred for signal `\round2in1.\c[21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$216'.
+No latch inferred for signal `\round2in1.\c[16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$213'.
+No latch inferred for signal `\round2in1.\c[11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$210'.
+No latch inferred for signal `\round2in1.\c[6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$207'.
+No latch inferred for signal `\round2in1.\c[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$204'.
+No latch inferred for signal `\round2in1.\c[20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$201'.
+No latch inferred for signal `\round2in1.\c[15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$198'.
+No latch inferred for signal `\round2in1.\c[10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$195'.
+No latch inferred for signal `\round2in1.\c[5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$192'.
+No latch inferred for signal `\round2in1.\c[0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$189'.
+No latch inferred for signal `\round2in1.\b[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$184'.
+No latch inferred for signal `\round2in1.\b[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$179'.
+No latch inferred for signal `\round2in1.\b[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$174'.
+No latch inferred for signal `\round2in1.\b[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$169'.
+No latch inferred for signal `\round2in1.\b[0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$164'.
+No latch inferred for signal `\round2in1.\a[24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$163'.
+No latch inferred for signal `\round2in1.\a[19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$162'.
+No latch inferred for signal `\round2in1.\a[14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$161'.
+No latch inferred for signal `\round2in1.\a[9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$160'.
+No latch inferred for signal `\round2in1.\a[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$159'.
+No latch inferred for signal `\round2in1.\a[23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$158'.
+No latch inferred for signal `\round2in1.\a[18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$157'.
+No latch inferred for signal `\round2in1.\a[13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$156'.
+No latch inferred for signal `\round2in1.\a[8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$155'.
+No latch inferred for signal `\round2in1.\a[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$154'.
+No latch inferred for signal `\round2in1.\a[22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$153'.
+No latch inferred for signal `\round2in1.\a[17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$152'.
+No latch inferred for signal `\round2in1.\a[12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$151'.
+No latch inferred for signal `\round2in1.\a[7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$150'.
+No latch inferred for signal `\round2in1.\a[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$149'.
+No latch inferred for signal `\round2in1.\a[21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$148'.
+No latch inferred for signal `\round2in1.\a[16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$147'.
+No latch inferred for signal `\round2in1.\a[11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$146'.
+No latch inferred for signal `\round2in1.\a[6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$145'.
+No latch inferred for signal `\round2in1.\a[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$144'.
+No latch inferred for signal `\round2in1.\a[20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$143'.
+No latch inferred for signal `\round2in1.\a[15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$142'.
+No latch inferred for signal `\round2in1.\a[10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$141'.
+No latch inferred for signal `\round2in1.\a[5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$140'.
+No latch inferred for signal `\round2in1.\a[0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$139'.
+No latch inferred for signal `\round2in1.\ee[20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:231$138'.
+No latch inferred for signal `\round2in1.\ee[23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:230$137'.
+No latch inferred for signal `\round2in1.\ee[21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:229$136'.
+No latch inferred for signal `\round2in1.\ee[24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:228$135'.
+No latch inferred for signal `\round2in1.\ee[22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:227$134'.
+No latch inferred for signal `\round2in1.\ee[17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:226$133'.
+No latch inferred for signal `\round2in1.\ee[15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:225$132'.
+No latch inferred for signal `\round2in1.\ee[18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:224$131'.
+No latch inferred for signal `\round2in1.\ee[16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:223$130'.
+No latch inferred for signal `\round2in1.\ee[19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:222$129'.
+No latch inferred for signal `\round2in1.\ee[14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:221$128'.
+No latch inferred for signal `\round2in1.\ee[12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:220$127'.
+No latch inferred for signal `\round2in1.\ee[10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:219$126'.
+No latch inferred for signal `\round2in1.\ee[13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:218$125'.
+No latch inferred for signal `\round2in1.\ee[11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:217$124'.
+No latch inferred for signal `\round2in1.\ee[6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:216$123'.
+No latch inferred for signal `\round2in1.\ee[9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:215$122'.
+No latch inferred for signal `\round2in1.\ee[7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:214$121'.
+No latch inferred for signal `\round2in1.\ee[5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:213$120'.
+No latch inferred for signal `\round2in1.\ee[8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:212$119'.
+No latch inferred for signal `\round2in1.\ee[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:211$118'.
+No latch inferred for signal `\round2in1.\ee[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:210$117'.
+No latch inferred for signal `\round2in1.\ee[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:209$116'.
+No latch inferred for signal `\round2in1.\ee[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:208$115'.
+No latch inferred for signal `\round2in1.\ee[0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:207$114'.
+No latch inferred for signal `\round2in1.\dd[24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:204$113'.
+No latch inferred for signal `\round2in1.\dd[19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:203$112'.
+No latch inferred for signal `\round2in1.\dd[14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:202$111'.
+No latch inferred for signal `\round2in1.\dd[9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:201$110'.
+No latch inferred for signal `\round2in1.\dd[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:200$109'.
+No latch inferred for signal `\round2in1.\dd[23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:199$108'.
+No latch inferred for signal `\round2in1.\dd[18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:198$107'.
+No latch inferred for signal `\round2in1.\dd[13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:197$106'.
+No latch inferred for signal `\round2in1.\dd[8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:196$105'.
+No latch inferred for signal `\round2in1.\dd[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:195$104'.
+No latch inferred for signal `\round2in1.\dd[22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:194$103'.
+No latch inferred for signal `\round2in1.\dd[17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:193$102'.
+No latch inferred for signal `\round2in1.\dd[12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:192$101'.
+No latch inferred for signal `\round2in1.\dd[7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:191$100'.
+No latch inferred for signal `\round2in1.\dd[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:190$99'.
+No latch inferred for signal `\round2in1.\dd[21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:189$98'.
+No latch inferred for signal `\round2in1.\dd[16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:188$97'.
+No latch inferred for signal `\round2in1.\dd[11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:187$96'.
+No latch inferred for signal `\round2in1.\dd[6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:186$95'.
+No latch inferred for signal `\round2in1.\dd[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:185$94'.
+No latch inferred for signal `\round2in1.\dd[20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:184$93'.
+No latch inferred for signal `\round2in1.\dd[15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:183$92'.
+No latch inferred for signal `\round2in1.\dd[10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:182$91'.
+No latch inferred for signal `\round2in1.\dd[5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:181$90'.
+No latch inferred for signal `\round2in1.\dd[0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:180$89'.
+No latch inferred for signal `\round2in1.\e[20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:123$88'.
+No latch inferred for signal `\round2in1.\e[23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:122$87'.
+No latch inferred for signal `\round2in1.\e[21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:121$86'.
+No latch inferred for signal `\round2in1.\e[24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:120$85'.
+No latch inferred for signal `\round2in1.\e[22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:119$84'.
+No latch inferred for signal `\round2in1.\e[17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:118$83'.
+No latch inferred for signal `\round2in1.\e[15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:117$82'.
+No latch inferred for signal `\round2in1.\e[18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:116$81'.
+No latch inferred for signal `\round2in1.\e[16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:115$80'.
+No latch inferred for signal `\round2in1.\e[19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:114$79'.
+No latch inferred for signal `\round2in1.\e[14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:113$78'.
+No latch inferred for signal `\round2in1.\e[12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:112$77'.
+No latch inferred for signal `\round2in1.\e[10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:111$76'.
+No latch inferred for signal `\round2in1.\e[13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:110$75'.
+No latch inferred for signal `\round2in1.\e[11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:109$74'.
+No latch inferred for signal `\round2in1.\e[6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:108$73'.
+No latch inferred for signal `\round2in1.\e[9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:107$72'.
+No latch inferred for signal `\round2in1.\e[7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:106$71'.
+No latch inferred for signal `\round2in1.\e[5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:105$70'.
+No latch inferred for signal `\round2in1.\e[8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:104$69'.
+No latch inferred for signal `\round2in1.\e[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:103$68'.
+No latch inferred for signal `\round2in1.\e[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:102$67'.
+No latch inferred for signal `\round2in1.\e[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:101$66'.
+No latch inferred for signal `\round2in1.\e[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:100$65'.
+No latch inferred for signal `\round2in1.\e[0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:99$64'.
+No latch inferred for signal `\round2in1.\d[24]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:96$63'.
+No latch inferred for signal `\round2in1.\d[19]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:95$62'.
+No latch inferred for signal `\round2in1.\d[14]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:94$61'.
+No latch inferred for signal `\round2in1.\d[9]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:93$60'.
+No latch inferred for signal `\round2in1.\d[4]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:92$59'.
+No latch inferred for signal `\round2in1.\d[23]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:91$58'.
+No latch inferred for signal `\round2in1.\d[18]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:90$57'.
+No latch inferred for signal `\round2in1.\d[13]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:89$56'.
+No latch inferred for signal `\round2in1.\d[8]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:88$55'.
+No latch inferred for signal `\round2in1.\d[3]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:87$54'.
+No latch inferred for signal `\round2in1.\d[22]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:86$53'.
+No latch inferred for signal `\round2in1.\d[17]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:85$52'.
+No latch inferred for signal `\round2in1.\d[12]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:84$51'.
+No latch inferred for signal `\round2in1.\d[7]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:83$50'.
+No latch inferred for signal `\round2in1.\d[2]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:82$49'.
+No latch inferred for signal `\round2in1.\d[21]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:81$48'.
+No latch inferred for signal `\round2in1.\d[16]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:80$47'.
+No latch inferred for signal `\round2in1.\d[11]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:79$46'.
+No latch inferred for signal `\round2in1.\d[6]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:78$45'.
+No latch inferred for signal `\round2in1.\d[1]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:77$44'.
+No latch inferred for signal `\round2in1.\d[20]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:76$43'.
+No latch inferred for signal `\round2in1.\d[15]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:75$42'.
+No latch inferred for signal `\round2in1.\d[10]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:74$41'.
+No latch inferred for signal `\round2in1.\d[5]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:73$40'.
+No latch inferred for signal `\round2in1.\d[0]' from process `\round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:72$39'.
+No latch inferred for signal `\padder1.\out' from process `\padder1.$proc$/workspaces/digital-tools/examples/sha3/padder1.v:22$26'.
+No latch inferred for signal `\padder.\v1' from process `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:77$22'.
+
+8.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\f_permutation.\out' using process `\f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:71$38'.
+  created $dff cell `$procdff$916' with positive edge clock.
+Creating register for signal `\f_permutation.\out_ready' using process `\f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:48$35'.
+  created $dff cell `$procdff$917' with positive edge clock.
+Creating register for signal `\f_permutation.\calc' using process `\f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:40$30'.
+  created $dff cell `$procdff$918' with positive edge clock.
+Creating register for signal `\f_permutation.\i' using process `\f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:36$29'.
+  created $dff cell `$procdff$919' with positive edge clock.
+Creating register for signal `\padder.\done' using process `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:65$20'.
+  created $dff cell `$procdff$920' with positive edge clock.
+Creating register for signal `\padder.\state' using process `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:59$19'.
+  created $dff cell `$procdff$921' with positive edge clock.
+Creating register for signal `\padder.\i' using process `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:51$15'.
+  created $dff cell `$procdff$922' with positive edge clock.
+Creating register for signal `\padder.\out' using process `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:45$14'.
+  created $dff cell `$procdff$923' with positive edge clock.
+Creating register for signal `\keccak.\out_ready' using process `\keccak.$proc$/workspaces/digital-tools/examples/sha3/keccak.v:84$4'.
+  created $dff cell `$procdff$924' with positive edge clock.
+Creating register for signal `\keccak.\state' using process `\keccak.$proc$/workspaces/digital-tools/examples/sha3/keccak.v:55$3'.
+  created $dff cell `$procdff$925' with positive edge clock.
+Creating register for signal `\keccak.\i' using process `\keccak.$proc$/workspaces/digital-tools/examples/sha3/keccak.v:49$1'.
+  created $dff cell `$procdff$926' with positive edge clock.
+
+8.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+8.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `rconst2in1.$proc$/workspaces/digital-tools/examples/sha3/rconst2in1.v:35$795'.
+Removing empty process `rconst2in1.$proc$/workspaces/digital-tools/examples/sha3/rconst2in1.v:23$754'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$753'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$752'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$751'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$750'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$749'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$748'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$747'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$746'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$745'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$744'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$743'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$742'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$741'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$740'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$739'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$738'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$737'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$736'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$735'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$734'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$733'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$732'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$731'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:261$730'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$728'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$727'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$726'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$725'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$724'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$723'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$722'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$721'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$720'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$719'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$718'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$717'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$716'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$715'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$714'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$713'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$712'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$711'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$710'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$709'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$708'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$707'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$706'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$705'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$704'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$703'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$702'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$701'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$700'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$699'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$698'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$697'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$695'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$694'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$693'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$692'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$691'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$690'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$689'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$688'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$687'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$686'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$685'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$684'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$683'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$682'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$681'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$680'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$678'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$677'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$676'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$675'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$674'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$673'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$672'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$671'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$669'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$668'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$667'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$666'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$664'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:251$663'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$661'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:249$659'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$655'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$651'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$647'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$643'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$639'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$635'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$631'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$627'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$623'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$619'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$615'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$611'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$607'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$603'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$599'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$595'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$591'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$587'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$583'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$579'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$575'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$571'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$567'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$563'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:239$559'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$556'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$553'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$550'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$547'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$544'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$541'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$538'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$535'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$532'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$529'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$526'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$523'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$520'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$517'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$514'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$511'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$508'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$505'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$502'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$499'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$496'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$493'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$490'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$487'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:174$484'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$479'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$474'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$469'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$464'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:164$459'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$458'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$457'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$456'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$455'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$454'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$453'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$452'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$451'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$450'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$449'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$448'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$447'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$446'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$445'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$444'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$443'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$442'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$441'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$440'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$439'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$438'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$437'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$436'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:153$435'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$433'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$432'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$431'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$430'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$429'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$428'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$427'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$426'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$425'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$424'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$423'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$422'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$421'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$420'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$419'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$418'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$417'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$416'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$415'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$414'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$413'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$412'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$411'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$410'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$409'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$408'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$407'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$406'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$405'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$404'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$403'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$402'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$400'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$399'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$398'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$397'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$396'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$395'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$394'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$393'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$392'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$391'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$390'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$389'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$388'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$387'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$386'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$385'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$383'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$382'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$381'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$380'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$379'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$378'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$377'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$376'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$374'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$373'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$372'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$371'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$369'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:143$368'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$366'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:141$364'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$360'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$356'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$352'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$348'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$344'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$340'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$336'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$332'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$328'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$324'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$320'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$316'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$312'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$308'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$304'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$300'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$296'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$292'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$288'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$284'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$280'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$276'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$272'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$268'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:131$264'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$261'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$258'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$255'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$252'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$249'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$246'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$243'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$240'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$237'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$234'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$231'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$228'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$225'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$222'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$219'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$216'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$213'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$210'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$207'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$204'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$201'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$198'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$195'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$192'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:66$189'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$184'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$179'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$174'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$169'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:56$164'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$163'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$162'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$161'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$160'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$159'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$158'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$157'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$156'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$155'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$154'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$153'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$152'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$151'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$150'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$149'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$148'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$147'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$146'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$145'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$144'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$143'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$142'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$141'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$140'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:47$139'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:231$138'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:230$137'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:229$136'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:228$135'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:227$134'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:226$133'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:225$132'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:224$131'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:223$130'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:222$129'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:221$128'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:220$127'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:219$126'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:218$125'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:217$124'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:216$123'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:215$122'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:214$121'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:213$120'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:212$119'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:211$118'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:210$117'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:209$116'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:208$115'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:207$114'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:204$113'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:203$112'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:202$111'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:201$110'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:200$109'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:199$108'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:198$107'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:197$106'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:196$105'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:195$104'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:194$103'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:193$102'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:192$101'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:191$100'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:190$99'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:189$98'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:188$97'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:187$96'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:186$95'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:185$94'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:184$93'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:183$92'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:182$91'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:181$90'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:180$89'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:123$88'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:122$87'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:121$86'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:120$85'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:119$84'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:118$83'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:117$82'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:116$81'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:115$80'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:114$79'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:113$78'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:112$77'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:111$76'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:110$75'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:109$74'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:108$73'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:107$72'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:106$71'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:105$70'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:104$69'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:103$68'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:102$67'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:101$66'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:100$65'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:99$64'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:96$63'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:95$62'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:94$61'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:93$60'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:92$59'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:91$58'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:90$57'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:89$56'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:88$55'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:87$54'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:86$53'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:85$52'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:84$51'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:83$50'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:82$49'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:81$48'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:80$47'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:79$46'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:78$45'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:77$44'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:76$43'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:75$42'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:74$41'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:73$40'.
+Removing empty process `round2in1.$proc$/workspaces/digital-tools/examples/sha3/round2in1.v:72$39'.
+Found and cleaned up 2 empty switches in `\f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:71$38'.
+Removing empty process `f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:71$38'.
+Found and cleaned up 3 empty switches in `\f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:48$35'.
+Removing empty process `f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:48$35'.
+Found and cleaned up 1 empty switch in `\f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:40$30'.
+Removing empty process `f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:40$30'.
+Found and cleaned up 1 empty switch in `\f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:36$29'.
+Removing empty process `f_permutation.$proc$/workspaces/digital-tools/examples/sha3/f_permutation.v:36$29'.
+Found and cleaned up 1 empty switch in `\padder1.$proc$/workspaces/digital-tools/examples/sha3/padder1.v:22$26'.
+Removing empty process `padder1.$proc$/workspaces/digital-tools/examples/sha3/padder1.v:22$26'.
+Found and cleaned up 2 empty switches in `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:77$22'.
+Removing empty process `padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:77$22'.
+Found and cleaned up 2 empty switches in `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:65$20'.
+Removing empty process `padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:65$20'.
+Found and cleaned up 2 empty switches in `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:59$19'.
+Removing empty process `padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:59$19'.
+Found and cleaned up 2 empty switches in `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:51$15'.
+Removing empty process `padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:51$15'.
+Found and cleaned up 2 empty switches in `\padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:45$14'.
+Removing empty process `padder.$proc$/workspaces/digital-tools/examples/sha3/padder.v:45$14'.
+Found and cleaned up 2 empty switches in `\keccak.$proc$/workspaces/digital-tools/examples/sha3/keccak.v:84$4'.
+Removing empty process `keccak.$proc$/workspaces/digital-tools/examples/sha3/keccak.v:84$4'.
+Found and cleaned up 2 empty switches in `\keccak.$proc$/workspaces/digital-tools/examples/sha3/keccak.v:55$3'.
+Removing empty process `keccak.$proc$/workspaces/digital-tools/examples/sha3/keccak.v:55$3'.
+Found and cleaned up 1 empty switch in `\keccak.$proc$/workspaces/digital-tools/examples/sha3/keccak.v:49$1'.
+Removing empty process `keccak.$proc$/workspaces/digital-tools/examples/sha3/keccak.v:49$1'.
+Cleaned up 23 empty switches.
+
+8.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rconst2in1.
+Optimizing module round2in1.
+Optimizing module f_permutation.
+Optimizing module padder1.
+<suppressed ~1 debug messages>
+Optimizing module padder.
+<suppressed ~5 debug messages>
+Optimizing module keccak.
+
+9. Executing OPT pass (performing simple optimizations).
+
+9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rconst2in1.
+Optimizing module round2in1.
+Optimizing module f_permutation.
+Optimizing module padder1.
+Optimizing module padder.
+Optimizing module keccak.
+
+9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rconst2in1'.
+Computing hashes of 72 cells of `\rconst2in1'.
+Finding duplicate cells in `\rconst2in1'.
+Computing hashes of 67 cells of `\rconst2in1'.
+Finding duplicate cells in `\rconst2in1'.
+Computing hashes of 65 cells of `\rconst2in1'.
+Finding duplicate cells in `\rconst2in1'.
+<suppressed ~21 debug messages>
+Finding identical cells in module `\round2in1'.
+Computing hashes of 304 cells of `\round2in1'.
+Finding duplicate cells in `\round2in1'.
+Finding identical cells in module `\f_permutation'.
+Computing hashes of 21 cells of `\f_permutation'.
+Finding duplicate cells in `\f_permutation'.
+Finding identical cells in module `\padder1'.
+Computing hashes of 9 cells of `\padder1'.
+Finding duplicate cells in `\padder1'.
+Finding identical cells in module `\padder'.
+Computing hashes of 37 cells of `\padder'.
+Finding duplicate cells in `\padder'.
+Computing hashes of 36 cells of `\padder'.
+Finding duplicate cells in `\padder'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\keccak'.
+Computing hashes of 11 cells of `\keccak'.
+Finding duplicate cells in `\keccak'.
+Removed a total of 8 cells.
+
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \rconst2in1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \round2in1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \f_permutation..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \padder1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \padder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$872.
+    dead port 1/2 on $mux $procmux$866.
+    dead port 1/2 on $mux $procmux$860.
+Running muxtree optimizer on module \keccak..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 3 multiplexer ports.
+<suppressed ~44 debug messages>
+
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \rconst2in1.
+  Optimizing cells in module \round2in1.
+  Optimizing cells in module \f_permutation.
+  Optimizing cells in module \padder1.
+  Optimizing cells in module \padder.
+  Optimizing cells in module \keccak.
+Performed a total of 0 changes.
+
+9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rconst2in1'.
+Computing hashes of 65 cells of `\rconst2in1'.
+Finding duplicate cells in `\rconst2in1'.
+Finding identical cells in module `\round2in1'.
+Computing hashes of 304 cells of `\round2in1'.
+Finding duplicate cells in `\round2in1'.
+Finding identical cells in module `\f_permutation'.
+Computing hashes of 21 cells of `\f_permutation'.
+Finding duplicate cells in `\f_permutation'.
+Finding identical cells in module `\padder1'.
+Computing hashes of 9 cells of `\padder1'.
+Finding duplicate cells in `\padder1'.
+Finding identical cells in module `\padder'.
+Computing hashes of 33 cells of `\padder'.
+Finding duplicate cells in `\padder'.
+Finding identical cells in module `\keccak'.
+Computing hashes of 11 cells of `\keccak'.
+Finding duplicate cells in `\keccak'.
+Removed a total of 0 cells.
+
+9.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$916 ($dff) from module f_permutation (D = $procmux$828_Y, Q = \out, rval = 1600'0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:337:slice$927 ($sdff) from module f_permutation (D = \round_out, Q = \out).
+Adding SRST signal on $procdff$917 ($dff) from module f_permutation (D = $procmux$833_Y, Q = \out_ready, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$929 ($sdff) from module f_permutation (D = 1'1, Q = \out_ready).
+Adding SRST signal on $procdff$918 ($dff) from module f_permutation (D = $or$/workspaces/digital-tools/examples/sha3/f_permutation.v:42$33_Y, Q = \calc, rval = 1'0).
+Adding SRST signal on $procdff$919 ($dff) from module f_permutation (D = { \i [9:0] $and$/workspaces/digital-tools/examples/sha3/f_permutation.v:34$28_Y }, Q = \i, rval = 11'00000000000).
+Adding SRST signal on $procdff$922 ($dff) from module padder (D = $procmux$893_Y, Q = \i, rval = 9'000000000).
+Adding EN signal on $auto$ff.cc:337:slice$935 ($sdff) from module padder (D = $and$/workspaces/digital-tools/examples/sha3/padder.v:55$18_Y, Q = \i).
+Adding SRST signal on $procdff$923 ($dff) from module padder (D = $procmux$898_Y, Q = \out, rval = 576'000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000).
+Adding EN signal on $auto$ff.cc:337:slice$937 ($sdff) from module padder (D = { \out [511:0] \v1 }, Q = \out).
+Adding SRST signal on $procdff$920 ($dff) from module padder (D = $procmux$883_Y, Q = \done, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$939 ($sdff) from module padder (D = 1'1, Q = \done).
+Adding SRST signal on $procdff$921 ($dff) from module padder (D = $procmux$888_Y, Q = \state, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$941 ($sdff) from module padder (D = 1'1, Q = \state).
+Adding SRST signal on $procdff$924 ($dff) from module keccak (D = $procmux$903_Y, Q = \out_ready, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$943 ($sdff) from module keccak (D = 1'1, Q = \out_ready).
+Adding SRST signal on $procdff$925 ($dff) from module keccak (D = $procmux$908_Y, Q = \state, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$945 ($sdff) from module keccak (D = 1'1, Q = \state).
+Adding SRST signal on $procdff$926 ($dff) from module keccak (D = { \i [9:0] $and$/workspaces/digital-tools/examples/sha3/keccak.v:53$2_Y }, Q = \i, rval = 11'00000000000).
+
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rconst2in1..
+Finding unused cells or wires in module \round2in1..
+Finding unused cells or wires in module \f_permutation..
+Finding unused cells or wires in module \padder1..
+Finding unused cells or wires in module \padder..
+Finding unused cells or wires in module \keccak..
+Removed 21 unused cells and 640 unused wires.
+<suppressed ~27 debug messages>
+
+9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rconst2in1.
+Optimizing module round2in1.
+Optimizing module f_permutation.
+Optimizing module padder1.
+Optimizing module padder.
+Optimizing module keccak.
+
+9.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \rconst2in1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \round2in1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \f_permutation..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \padder1..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \padder..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \keccak..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~13 debug messages>
+
+9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \rconst2in1.
+  Optimizing cells in module \round2in1.
+  Optimizing cells in module \f_permutation.
+  Optimizing cells in module \padder1.
+  Optimizing cells in module \padder.
+  Optimizing cells in module \keccak.
+Performed a total of 0 changes.
+
+9.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\rconst2in1'.
+Computing hashes of 65 cells of `\rconst2in1'.
+Finding duplicate cells in `\rconst2in1'.
+Finding identical cells in module `\round2in1'.
+Computing hashes of 304 cells of `\round2in1'.
+Finding duplicate cells in `\round2in1'.
+Finding identical cells in module `\f_permutation'.
+Computing hashes of 15 cells of `\f_permutation'.
+Finding duplicate cells in `\f_permutation'.
+Finding identical cells in module `\padder1'.
+Computing hashes of 9 cells of `\padder1'.
+Finding duplicate cells in `\padder1'.
+Finding identical cells in module `\padder'.
+Computing hashes of 24 cells of `\padder'.
+Finding duplicate cells in `\padder'.
+Finding identical cells in module `\keccak'.
+Computing hashes of 6 cells of `\keccak'.
+Finding duplicate cells in `\keccak'.
+Removed a total of 0 cells.
+
+9.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \rconst2in1..
+Finding unused cells or wires in module \round2in1..
+Finding unused cells or wires in module \f_permutation..
+Finding unused cells or wires in module \padder1..
+Finding unused cells or wires in module \padder..
+Finding unused cells or wires in module \keccak..
+
+9.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module rconst2in1.
+Optimizing module round2in1.
+Optimizing module f_permutation.
+Optimizing module padder1.
+Optimizing module padder.
+Optimizing module keccak.
+
+9.16. Finished fast OPT passes. (There is nothing left to do.)
+{
+   "creator": "Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)",
+   "invocation": "stat -json -top keccak ",
+   "modules": {
+      "\\rconst2in1": {
+         "num_wires":         54,
+         "num_wire_bits":     191,
+         "num_pub_wires":     3,
+         "num_pub_wire_bits": 140,
+         "num_ports":         3,
+         "num_port_bits":     140,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         65,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$or": 65
+         }
+      },
+      "\\round2in1": {
+         "num_wires":         469,
+         "num_wire_bits":     33088,
+         "num_pub_wires":     289,
+         "num_pub_wire_bits": 21568,
+         "num_ports":         4,
+         "num_port_bits":     3328,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         304,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$and": 50,
+            "$not": 50,
+            "$xor": 204
+         }
+      },
+      "\\f_permutation": {
+         "num_wires":         21,
+         "num_wire_bits":     6104,
+         "num_pub_wires":     15,
+         "num_pub_wire_bits": 5523,
+         "num_ports":         7,
+         "num_port_bits":     2181,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         13,
+         "num_submodules":       2,
+         "num_cells_by_type": {
+            "$and": 2,
+            "$mux": 1,
+            "$not": 2,
+            "$or": 2,
+            "$reduce_or": 1,
+            "$sdff": 2,
+            "$sdffe": 2,
+            "$xor": 1,
+            "rconst2in1": 1,
+            "round2in1": 1
+         }
+      },
+      "\\padder1": {
+         "num_wires":         11,
+         "num_wire_bits":     139,
+         "num_pub_wires":     3,
+         "num_pub_wire_bits": 131,
+         "num_ports":         3,
+         "num_port_bits":     131,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         9,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$eq": 7,
+            "$logic_not": 1,
+            "$pmux": 1
+         }
+      },
+      "\\padder": {
+         "num_wires":         29,
+         "num_wire_bits":     874,
+         "num_pub_wires":     17,
+         "num_pub_wire_bits": 791,
+         "num_ports":         10,
+         "num_port_bits":     650,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         23,
+         "num_submodules":       1,
+         "num_cells_by_type": {
+            "$and": 6,
+            "$mux": 6,
+            "$not": 4,
+            "$or": 3,
+            "$sdffe": 4,
+            "padder1": 1
+         }
+      },
+      "\\keccak": {
+         "num_wires":         19,
+         "num_wire_bits":     3865,
+         "num_pub_wires":     18,
+         "num_pub_wire_bits": 3864,
+         "num_ports":         9,
+         "num_port_bits":     585,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         4,
+         "num_submodules":       2,
+         "num_cells_by_type": {
+            "$and": 1,
+            "$sdff": 1,
+            "$sdffe": 2,
+            "f_permutation": 1,
+            "padder": 1
+         }
+      }
+   },
+      "design": {
+         "num_wires":         603,
+         "num_wire_bits":     44261,
+         "num_pub_wires":     345,
+         "num_pub_wire_bits": 32017,
+         "num_ports":         36,
+         "num_port_bits":     7015,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         418,
+         "num_submodules":       2,
+         "num_cells_by_type": {
+            "$and": 59,
+            "$eq": 7,
+            "$logic_not": 1,
+            "$mux": 7,
+            "$not": 56,
+            "$or": 70,
+            "$pmux": 1,
+            "$reduce_or": 1,
+            "$sdff": 3,
+            "$sdffe": 8,
+            "$xor": 205,
+            "f_permutation": 1,
+            "padder": 1
+         }
+      }
+}
+
+End of script. Logfile hash: 2caa99ecf1, CPU: user 0.27s system 0.17s, MEM: 35.50 MB peak
+Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+Time spent: 23% 7x read_verilog (0 sec), 20% 2x opt_clean (0 sec), ...

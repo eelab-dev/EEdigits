@@ -19,7 +19,7 @@ RUN git clone https://github.com/steveicarus/iverilog.git .
 # Build and install
 RUN sh autoconf.sh && \
     ./configure && \
-    make -j$(nproc) && \
+    make -j2 && \
     make install
 
 # Stage 2: Yosys Builder
@@ -51,7 +51,7 @@ RUN sed -i '/#include <stdlib.h>/a #include <unistd.h>' passes/cmds/linux_perf.c
 
 # Build and install
 RUN make config-clang && \
-    make -j$(nproc) && \
+    make -j2 && \
     make install
 
 # Stage 3: Z3 Builder
@@ -71,7 +71,7 @@ RUN git clone https://github.com/Z3Prover/z3.git .
 # Build and install
 WORKDIR /build/build
 RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local .. && \
-    make -j$(nproc) && \
+    make -j2 && \
     make install
 
 # Stage 4: Bitwuzla Builder
@@ -136,12 +136,31 @@ RUN set -e; \
 # Configure, build, and install (production build)
 RUN ./configure.sh production --auto-download --prefix=/usr/local --no-pyvenv && \
     cd build && \
-    make -j$(nproc) && \
+    make -j2 && \
     make install && \
     (strip /usr/local/bin/cvc5 2>/dev/null || true) && \
     (strip /usr/local/lib/libcvc5*.so* /usr/local/lib/libpoly*.so* 2>/dev/null || true)
 
-# Stage 6: SymbiYosys (sby) Builder
+# Stage 6: Yices2 Builder
+FROM alpine:latest AS yices2-builder
+
+RUN apk add --no-cache \
+    build-base \
+    git \
+    gmp-dev \
+    gperf \
+    autoconf \
+    automake \
+    libtool
+
+WORKDIR /build
+RUN git clone https://github.com/SRI-CSL/yices2.git . && \
+    autoconf && \
+    ./configure --prefix=/usr/local && \
+    make -j"$(nproc)" && \
+    make install
+
+# Stage 7: SymbiYosys (sby) Builder
 FROM alpine:latest AS sby-builder
 
 # Install build dependencies
@@ -157,7 +176,7 @@ RUN git clone https://github.com/YosysHQ/sby.git .
 # Install
 RUN make install
 
-# Stage 6: Verible Downloader
+# Stage 8: Verible Downloader
 FROM alpine:latest AS verible-downloader
 
 RUN apk add --no-cache curl jq tar gzip
@@ -176,7 +195,7 @@ RUN ARCH=$(uname -m) && \
     echo "Downloading Verible from $LATEST_URL" && \
     curl -L -s "$LATEST_URL" | tar -xz --strip-components=1 -C /verible
 
-# Stage 7: Final
+# Stage 9: Final
 FROM alpine:latest
 
 # Install runtime dependencies
@@ -221,6 +240,10 @@ COPY --from=z3-builder /usr/local/include/z3* /usr/local/include/
 # Copy Bitwuzla artifacts
 COPY --from=bitwuzla-builder /usr/local/bin/bitwuzla /usr/local/bin/bitwuzla-real
 COPY --from=bitwuzla-builder /usr/local/lib/libbitwuzla* /usr/local/lib/
+
+# Copy Yices2 artifacts
+COPY --from=yices2-builder /usr/local/bin/yices* /usr/local/bin/
+#COPY --from=yices2-builder /usr/local/lib/libyices* /usr/local/lib/
 
 # Copy CVC5 artifacts
 COPY --from=cvc5-builder /usr/local/bin/cvc5 /usr/local/bin/cvc5

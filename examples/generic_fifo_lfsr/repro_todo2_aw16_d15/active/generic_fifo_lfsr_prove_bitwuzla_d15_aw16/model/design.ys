@@ -1,0 +1,11 @@
+# running in generic_fifo_lfsr_prove_bitwuzla_d15_aw16/src/
+read -formal timescale.v
+read -formal generic_dpram_formal.v
+read -formal generic_fifo_lfsr.v
+read -formal generic_fifo_lfsr_prove_formal.sv
+prep -top generic_fifo_lfsr_prove_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

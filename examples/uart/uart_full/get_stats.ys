@@ -1,0 +1,14 @@
+# get_stats.ys (UART_FULL)
+
+# Read UART_FULL + its submodules
+# (Use -sv to be safe; it also works fine for plain Verilog.)
+read_verilog -sv uart_tx.v uart_rx.v uart_full.v
+
+# Set/verify the top module (adjust if your top module name differs)
+hierarchy -check -top uart_full
+
+# Lower processes to RTL cells and clean up
+proc; opt;
+
+# JSON stats to stdout (your Yosys version prints JSON to console)
+stat -json -top uart_full
