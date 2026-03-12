@@ -1,0 +1,15 @@
+[options]
+mode cover
+depth 160
+
+[engines]
+smtbmc yices
+
+[script]
+read -formal sdram.v
+read -formal sdram_cover_formal.sv
+prep -top sdram_cover_formal -flatten
+
+[files]
+../sdram.v
+sdram_cover_formal.sv

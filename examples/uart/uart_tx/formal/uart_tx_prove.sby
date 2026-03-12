@@ -3,7 +3,7 @@ mode bmc
 depth 120
 
 [engines]
-smtbmc z3
+smtbmc yices
 
 [script]
 read -formal uart_tx.v

@@ -1,0 +1,9 @@
+# get_stats.ys for SDRAM
+
+read_verilog -sv iobuf_stub.v oddr2_stub.v sdram.v
+
+hierarchy -check -top sdram
+
+proc; opt;
+
+stat -json -top sdram

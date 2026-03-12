@@ -1,0 +1,25 @@
+[options]
+mode bmc
+depth 80
+
+[engines]
+smtbmc bitwuzla
+
+[script]
+read -formal keccak.v
+read -formal padder.v
+read -formal padder1.v
+read -formal f_permutation.v
+read -formal round2in1.v
+read -formal rconst2in1.v
+read -formal sha3_keccak_prove_formal.sv
+prep -top sha3_keccak_prove_formal 
+
+[files]
+../keccak.v
+../padder.v
+../padder1.v
+../f_permutation.v
+../round2in1.v
+../rconst2in1.v
+sha3_keccak_prove_formal.sv

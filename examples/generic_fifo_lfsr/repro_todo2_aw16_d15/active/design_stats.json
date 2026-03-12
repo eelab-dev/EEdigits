@@ -1,0 +1,85 @@
+{
+   "creator": "Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)",
+   "invocation": "stat -json -top generic_fifo_lfsr ",
+   "modules": {
+      "\\generic_fifo_lfsr": {
+         "num_wires":         40,
+         "num_wire_bits":     70,
+         "num_pub_wires":     23,
+         "num_pub_wire_bits": 45,
+         "num_ports":         11,
+         "num_port_bits":     25,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         29,
+         "num_submodules":       1,
+         "num_cells_by_type": {
+            "$add": 2,
+            "$adff": 4,
+            "$adffe": 2,
+            "$and": 2,
+            "$eq": 2,
+            "$logic_and": 2,
+            "$mux": 8,
+            "$ne": 1,
+            "$reduce_and": 2,
+            "$reduce_bool": 2,
+            "$xor": 2,
+            "$paramod$8c6d73870dd18573f9816bd7cabf1c517392c779\\generic_dpram": 1
+         }
+      },
+      "$paramod$8c6d73870dd18573f9816bd7cabf1c517392c779\\generic_dpram": {
+         "num_wires":         19,
+         "num_wire_bits":     60,
+         "num_pub_wires":     12,
+         "num_pub_wire_bits": 30,
+         "num_ports":         12,
+         "num_port_bits":     30,
+         "num_memories":      1,
+         "num_memory_bits":   64,
+         "num_processes":     0,
+         "num_cells":         9,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$logic_and": 2,
+            "$logic_or": 1,
+            "$memrd": 1,
+            "$memwr_v2": 1,
+            "$mux": 3,
+            "$sdffe": 1
+         }
+      }
+   },
+      "design": {
+         "num_wires":         59,
+         "num_wire_bits":     130,
+         "num_pub_wires":     35,
+         "num_pub_wire_bits": 75,
+         "num_ports":         23,
+         "num_port_bits":     55,
+         "num_memories":      1,
+         "num_memory_bits":   64,
+         "num_processes":     0,
+         "num_cells":         38,
+         "num_submodules":       1,
+         "num_cells_by_type": {
+            "$add": 2,
+            "$adff": 4,
+            "$adffe": 2,
+            "$and": 2,
+            "$eq": 2,
+            "$logic_and": 4,
+            "$logic_or": 1,
+            "$memrd": 1,
+            "$memwr_v2": 1,
+            "$mux": 11,
+            "$ne": 1,
+            "$reduce_and": 2,
+            "$reduce_bool": 2,
+            "$sdffe": 1,
+            "$xor": 2,
+            "$paramod$8c6d73870dd18573f9816bd7cabf1c517392c779\\generic_dpram": 1
+         }
+      }
+}

@@ -1,0 +1,2 @@
+SBY 14:42:09 [examples/uart/uart_full/formal/uart_full_auto] Removing directory '/workspaces/digital-tools/examples/uart/uart_full/formal/uart_full_auto'.
+SBY 14:42:09 [examples/uart/uart_full/formal/uart_full_auto] Copy '/workspaces/digital-tools/../uart_full.v' to '/workspaces/digital-tools/examples/uart/uart_full/formal/uart_full_auto/src/uart_full.v'.

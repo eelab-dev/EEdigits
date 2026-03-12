@@ -1,9 +1,9 @@
 [options]
-mode bmc
+mode prove
 depth 120
 
 [engines]
-smtbmc z3
+smtbmc cvc5
 
 [script]
 read -formal uart_rx.v

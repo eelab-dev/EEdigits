@@ -1,0 +1,15 @@
+# get_stats.ys for SHA3
+
+read_verilog -sv \
+  rconst2in1.v \
+  round2in1.v \
+  f_permutation.v \
+  padder.v \
+  padder1.v \
+  keccak.v
+
+hierarchy -check -top keccak
+
+proc; opt;
+
+stat -json -top keccak

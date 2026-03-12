@@ -3,8 +3,7 @@ mode bmc
 depth 45
 
 [engines]
-smtbmc z3
-smtbmc bitwuzla
+smtbmc yices
 
 [script]
 # Define FORMAL to disable file IO init, and UP8_INLINE_ROM to include

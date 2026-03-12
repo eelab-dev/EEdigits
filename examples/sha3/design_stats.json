@@ -1,0 +1,152 @@
+{
+   "creator": "Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)",
+   "invocation": "stat -json -top keccak ",
+   "modules": {
+      "\\rconst2in1": {
+         "num_wires":         54,
+         "num_wire_bits":     191,
+         "num_pub_wires":     3,
+         "num_pub_wire_bits": 140,
+         "num_ports":         3,
+         "num_port_bits":     140,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         65,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$or": 65
+         }
+      },
+      "\\round2in1": {
+         "num_wires":         469,
+         "num_wire_bits":     33088,
+         "num_pub_wires":     289,
+         "num_pub_wire_bits": 21568,
+         "num_ports":         4,
+         "num_port_bits":     3328,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         304,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$and": 50,
+            "$not": 50,
+            "$xor": 204
+         }
+      },
+      "\\f_permutation": {
+         "num_wires":         21,
+         "num_wire_bits":     6104,
+         "num_pub_wires":     15,
+         "num_pub_wire_bits": 5523,
+         "num_ports":         7,
+         "num_port_bits":     2181,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         13,
+         "num_submodules":       2,
+         "num_cells_by_type": {
+            "$and": 2,
+            "$mux": 1,
+            "$not": 2,
+            "$or": 2,
+            "$reduce_or": 1,
+            "$sdff": 2,
+            "$sdffe": 2,
+            "$xor": 1,
+            "rconst2in1": 1,
+            "round2in1": 1
+         }
+      },
+      "\\padder1": {
+         "num_wires":         11,
+         "num_wire_bits":     139,
+         "num_pub_wires":     3,
+         "num_pub_wire_bits": 131,
+         "num_ports":         3,
+         "num_port_bits":     131,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         9,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$eq": 7,
+            "$logic_not": 1,
+            "$pmux": 1
+         }
+      },
+      "\\padder": {
+         "num_wires":         29,
+         "num_wire_bits":     874,
+         "num_pub_wires":     17,
+         "num_pub_wire_bits": 791,
+         "num_ports":         10,
+         "num_port_bits":     650,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         23,
+         "num_submodules":       1,
+         "num_cells_by_type": {
+            "$and": 6,
+            "$mux": 6,
+            "$not": 4,
+            "$or": 3,
+            "$sdffe": 4,
+            "padder1": 1
+         }
+      },
+      "\\keccak": {
+         "num_wires":         19,
+         "num_wire_bits":     3865,
+         "num_pub_wires":     18,
+         "num_pub_wire_bits": 3864,
+         "num_ports":         9,
+         "num_port_bits":     585,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         4,
+         "num_submodules":       2,
+         "num_cells_by_type": {
+            "$and": 1,
+            "$sdff": 1,
+            "$sdffe": 2,
+            "f_permutation": 1,
+            "padder": 1
+         }
+      }
+   },
+      "design": {
+         "num_wires":         603,
+         "num_wire_bits":     44261,
+         "num_pub_wires":     345,
+         "num_pub_wire_bits": 32017,
+         "num_ports":         36,
+         "num_port_bits":     7015,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         418,
+         "num_submodules":       2,
+         "num_cells_by_type": {
+            "$and": 59,
+            "$eq": 7,
+            "$logic_not": 1,
+            "$mux": 7,
+            "$not": 56,
+            "$or": 70,
+            "$pmux": 1,
+            "$reduce_or": 1,
+            "$sdff": 3,
+            "$sdffe": 8,
+            "$xor": 205,
+            "f_permutation": 1,
+            "padder": 1
+         }
+      }
+}
