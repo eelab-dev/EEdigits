@@ -1,0 +1,718 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: uart_full.v
+Parsing formal SystemVerilog input from `uart_full.v' to AST representation.
+Storing AST representation for module `$abstract\uart_full'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: uart_tx.v
+Parsing formal SystemVerilog input from `uart_tx.v' to AST representation.
+Storing AST representation for module `$abstract\uart_tx'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: uart_rx.v
+Parsing formal SystemVerilog input from `uart_rx.v' to AST representation.
+Storing AST representation for module `$abstract\uart_rx'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: uart_full_formal_v2.sv
+Parsing formal SystemVerilog input from `uart_full_formal_v2.sv' to AST representation.
+Storing AST representation for module `$abstract\uart_full_formal'.
+Successfully finished Verilog frontend.
+
+5. Executing PREP pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\uart_full_formal'.
+Generating RTLIL representation for module `\uart_full_formal'.
+
+5.2.1. Analyzing design hierarchy..
+Top module:  \uart_full_formal
+Parameter \CLK_HZ = 100
+Parameter \BAUD = 10
+
+5.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\uart_full'.
+Parameter \CLK_HZ = 100
+Parameter \BAUD = 10
+Generating RTLIL representation for module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+
+5.2.3. Analyzing design hierarchy..
+Top module:  \uart_full_formal
+Used module:     $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full
+Parameter \CLK_HZ = 100
+Parameter \BAUD = 10
+
+5.2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\uart_rx'.
+Parameter \CLK_HZ = 100
+Parameter \BAUD = 10
+Generating RTLIL representation for module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Parameter \CLK_HZ = 100
+Parameter \BAUD = 10
+
+5.2.5. Executing AST frontend in derive mode using pre-parsed AST for module `\uart_tx'.
+Parameter \CLK_HZ = 100
+Parameter \BAUD = 10
+Generating RTLIL representation for module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+
+5.2.6. Analyzing design hierarchy..
+Top module:  \uart_full_formal
+Used module:     $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full
+Used module:         $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx
+Used module:         $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx
+
+5.2.7. Analyzing design hierarchy..
+Top module:  \uart_full_formal
+Used module:     $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full
+Used module:         $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx
+Used module:         $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx
+Removing unused module `$abstract\uart_full_formal'.
+Removing unused module `$abstract\uart_rx'.
+Removing unused module `$abstract\uart_tx'.
+Removing unused module `$abstract\uart_full'.
+Removed 4 unused modules.
+Module uart_full_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5.3. Executing PROC pass (convert processes to netlists).
+
+5.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 6 switch rules as full_case in process $proc$uart_tx.v:48$128 in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+Marked 8 switch rules as full_case in process $proc$uart_rx.v:51$103 in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+Marked 1 switch rules as full_case in process $proc$uart_full_formal_v2.sv:146$14 in module uart_full_formal.
+Marked 1 switch rules as full_case in process $proc$uart_full_formal_v2.sv:138$13 in module uart_full_formal.
+Marked 1 switch rules as full_case in process $proc$uart_full_formal_v2.sv:128$11 in module uart_full_formal.
+Marked 2 switch rules as full_case in process $proc$uart_full_formal_v2.sv:101$6 in module uart_full_formal.
+Removed a total of 0 dead cases.
+
+5.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 3 assignments to connections.
+
+5.3.4. Executing PROC_INIT pass (extract init attributes).
+
+5.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~43 debug messages>
+
+5.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.$proc$uart_tx.v:48$128'.
+     1/6: $0\shift_reg[7:0]
+     2/6: $0\bit_idx[2:0]
+     3/6: $0\baud_cnt[2:0]
+     4/6: $0\state[2:0]
+     5/6: $0\tx_serial[0:0]
+     6/6: $0\tx_busy[0:0]
+Creating decoders for process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+     1/13: $3$lookahead\shift_reg$102[7:0]$115
+     2/13: $3$bitselwrite$pos$uart_rx.v:96$99[2:0]$114
+     3/13: $2$lookahead\shift_reg$102[7:0]$109
+     4/13: $2$bitselwrite$pos$uart_rx.v:96$99[2:0]$108
+     5/13: $1$lookahead\shift_reg$102[7:0]$107
+     6/13: $0\rx_valid[0:0]
+     7/13: $1$bitselwrite$pos$uart_rx.v:96$99[2:0]$106
+     8/13: $0\stop_ok[0:0]
+     9/13: $0\bit_idx[2:0]
+    10/13: $0\baud_cnt[3:0]
+    11/13: $0\state[2:0]
+    12/13: $0\rx_busy[0:0]
+    13/13: $0\rx_data[7:0]
+Creating decoders for process `\uart_full_formal.$proc$uart_full_formal_v2.sv:154$18'.
+     1/24: $assert$uart_full_formal_v2.sv:271$98_EN
+     2/24: $assert$uart_full_formal_v2.sv:253$95_EN
+     3/24: $assert$uart_full_formal_v2.sv:246$91_EN
+     4/24: $assert$uart_full_formal_v2.sv:231$85_EN
+     5/24: $assert$uart_full_formal_v2.sv:230$81_EN
+     6/24: $assert$uart_full_formal_v2.sv:229$77_EN
+     7/24: $assert$uart_full_formal_v2.sv:228$73_EN
+     8/24: $assert$uart_full_formal_v2.sv:227$69_EN
+     9/24: $assert$uart_full_formal_v2.sv:226$65_EN
+    10/24: $assert$uart_full_formal_v2.sv:225$61_EN
+    11/24: $assert$uart_full_formal_v2.sv:224$57_EN
+    12/24: $assert$uart_full_formal_v2.sv:211$53_EN
+    13/24: $assert$uart_full_formal_v2.sv:202$47_EN
+    14/24: $assert$uart_full_formal_v2.sv:183$41_EN
+    15/24: $assert$uart_full_formal_v2.sv:174$38_EN
+    16/24: $assert$uart_full_formal_v2.sv:173$36_EN
+    17/24: $cover$uart_full_formal_v2.sv:167$34_EN
+    18/24: $cover$uart_full_formal_v2.sv:166$32_EN
+    19/24: $cover$uart_full_formal_v2.sv:165$30_EN
+    20/24: $cover$uart_full_formal_v2.sv:164$28_EN
+    21/24: $cover$uart_full_formal_v2.sv:163$26_EN
+    22/24: $cover$uart_full_formal_v2.sv:162$24_EN
+    23/24: $cover$uart_full_formal_v2.sv:161$22_EN
+    24/24: $cover$uart_full_formal_v2.sv:160$20_EN
+Creating decoders for process `\uart_full_formal.$proc$uart_full_formal_v2.sv:146$14'.
+     1/2: $assume$uart_full_formal_v2.sv:148$16_EN
+     2/2: $assume$uart_full_formal_v2.sv:147$15_EN
+Creating decoders for process `\uart_full_formal.$proc$uart_full_formal_v2.sv:138$13'.
+     1/1: $0\rx_valid_seen[0:0]
+Creating decoders for process `\uart_full_formal.$proc$uart_full_formal_v2.sv:128$11'.
+     1/1: $0\cycle_cnt[31:0]
+Creating decoders for process `\uart_full_formal.$proc$uart_full_formal_v2.sv:101$6'.
+     1/4: $0\active[0:0]
+     2/4: $0\phase_cnt[31:0]
+     3/4: $0\tx_latched[7:0]
+     4/4: $0\fired[0:0]
+
+5.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+5.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.\tx_busy' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.$proc$uart_tx.v:48$128'.
+  created $dff cell `$procdff$496' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.\tx_serial' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.$proc$uart_tx.v:48$128'.
+  created $dff cell `$procdff$497' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.\state' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.$proc$uart_tx.v:48$128'.
+  created $dff cell `$procdff$498' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.\baud_cnt' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.$proc$uart_tx.v:48$128'.
+  created $dff cell `$procdff$499' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.\bit_idx' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.$proc$uart_tx.v:48$128'.
+  created $dff cell `$procdff$500' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.\shift_reg' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.$proc$uart_tx.v:48$128'.
+  created $dff cell `$procdff$501' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.\rx_data' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+  created $dff cell `$procdff$502' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.\rx_valid' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+  created $dff cell `$procdff$503' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.\rx_busy' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+  created $dff cell `$procdff$504' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.\state' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+  created $dff cell `$procdff$505' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.\baud_cnt' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+  created $dff cell `$procdff$506' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.\bit_idx' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+  created $dff cell `$procdff$507' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.\shift_reg' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+  created $dff cell `$procdff$508' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.\stop_ok' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+  created $dff cell `$procdff$509' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$bitselwrite$pos$uart_rx.v:96$99' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+  created $dff cell `$procdff$510' with positive edge clock.
+Creating register for signal `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$lookahead\shift_reg$102' using process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+  created $dff cell `$procdff$511' with positive edge clock.
+Creating register for signal `\uart_full_formal.\rx_valid_seen' using process `\uart_full_formal.$proc$uart_full_formal_v2.sv:138$13'.
+  created $ff cell `$procdff$512' with global clock.
+Creating register for signal `\uart_full_formal.\cycle_cnt' using process `\uart_full_formal.$proc$uart_full_formal_v2.sv:128$11'.
+  created $ff cell `$procdff$513' with global clock.
+Creating register for signal `\uart_full_formal.\fired' using process `\uart_full_formal.$proc$uart_full_formal_v2.sv:101$6'.
+  created $ff cell `$procdff$514' with global clock.
+Creating register for signal `\uart_full_formal.\tx_latched' using process `\uart_full_formal.$proc$uart_full_formal_v2.sv:101$6'.
+  created $ff cell `$procdff$515' with global clock.
+Creating register for signal `\uart_full_formal.\phase_cnt' using process `\uart_full_formal.$proc$uart_full_formal_v2.sv:101$6'.
+  created $ff cell `$procdff$516' with global clock.
+Creating register for signal `\uart_full_formal.\active' using process `\uart_full_formal.$proc$uart_full_formal_v2.sv:101$6'.
+  created $ff cell `$procdff$517' with global clock.
+
+5.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 7 empty switches in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.$proc$uart_tx.v:48$128'.
+Removing empty process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.$proc$uart_tx.v:48$128'.
+Found and cleaned up 11 empty switches in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+Removing empty process `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$proc$uart_rx.v:51$103'.
+Found and cleaned up 16 empty switches in `\uart_full_formal.$proc$uart_full_formal_v2.sv:154$18'.
+Removing empty process `uart_full_formal.$proc$uart_full_formal_v2.sv:154$18'.
+Found and cleaned up 1 empty switch in `\uart_full_formal.$proc$uart_full_formal_v2.sv:146$14'.
+Removing empty process `uart_full_formal.$proc$uart_full_formal_v2.sv:146$14'.
+Found and cleaned up 2 empty switches in `\uart_full_formal.$proc$uart_full_formal_v2.sv:138$13'.
+Removing empty process `uart_full_formal.$proc$uart_full_formal_v2.sv:138$13'.
+Found and cleaned up 2 empty switches in `\uart_full_formal.$proc$uart_full_formal_v2.sv:128$11'.
+Removing empty process `uart_full_formal.$proc$uart_full_formal_v2.sv:128$11'.
+Found and cleaned up 4 empty switches in `\uart_full_formal.$proc$uart_full_formal_v2.sv:101$6'.
+Removing empty process `uart_full_formal.$proc$uart_full_formal_v2.sv:101$6'.
+Cleaned up 43 empty switches.
+
+5.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+<suppressed ~16 debug messages>
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+<suppressed ~9 debug messages>
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full.
+Optimizing module uart_full_formal.
+<suppressed ~42 debug messages>
+
+5.4. Executing FUTURE pass.
+
+5.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full.
+Optimizing module uart_full_formal.
+
+5.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx..
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx..
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full..
+Finding unused cells or wires in module \uart_full_formal..
+Removed 33 unused cells and 219 unused wires.
+<suppressed ~38 debug messages>
+
+5.7. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx...
+Checking module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx...
+Checking module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full...
+Checking module uart_full_formal...
+Warning: Wire uart_full_formal.\clk is used but has no driver.
+Warning: Wire uart_full_formal.\rst is used but has no driver.
+Found and reported 2 problems.
+
+5.8. Executing OPT pass (performing simple optimizations).
+
+5.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full.
+Optimizing module uart_full_formal.
+
+5.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Computing hashes of 27 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Computing hashes of 19 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+<suppressed ~24 debug messages>
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Computing hashes of 83 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Computing hashes of 64 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+<suppressed ~57 debug messages>
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Computing hashes of 2 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Finding identical cells in module `\uart_full_formal'.
+Computing hashes of 147 cells of `\uart_full_formal'.
+Finding duplicate cells in `\uart_full_formal'.
+Computing hashes of 143 cells of `\uart_full_formal'.
+Finding duplicate cells in `\uart_full_formal'.
+<suppressed ~12 debug messages>
+Removed a total of 31 cells.
+
+5.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$248.
+    dead port 1/2 on $mux $procmux$231.
+    dead port 2/2 on $mux $procmux$228.
+Running muxtree optimizer on module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \uart_full_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$491: \fired -> 1'1
+  Analyzing evaluation results.
+Removed 3 multiplexer ports.
+<suppressed ~151 debug messages>
+
+5.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+    New ctrl vector for $pmux cell $procmux$183: { $procmux$219_CMP $auto$opt_reduce.cc:137:opt_pmux$519 }
+    New ctrl vector for $pmux cell $procmux$203: { $procmux$195_CMP $procmux$191_CMP $auto$opt_reduce.cc:137:opt_pmux$521 }
+    New ctrl vector for $pmux cell $procmux$139: $procmux$219_CMP
+    New ctrl vector for $pmux cell $procmux$215: $procmux$219_CMP
+  Optimizing cells in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+  Optimizing cells in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+  Optimizing cells in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full.
+  Optimizing cells in module \uart_full_formal.
+  Optimizing cells in module \uart_full_formal.
+Performed a total of 5 changes.
+
+5.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Computing hashes of 21 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Computing hashes of 61 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Computing hashes of 59 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Computing hashes of 2 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Finding identical cells in module `\uart_full_formal'.
+Computing hashes of 142 cells of `\uart_full_formal'.
+Finding duplicate cells in `\uart_full_formal'.
+Computing hashes of 133 cells of `\uart_full_formal'.
+Finding duplicate cells in `\uart_full_formal'.
+Computing hashes of 132 cells of `\uart_full_formal'.
+Finding duplicate cells in `\uart_full_formal'.
+<suppressed ~30 debug messages>
+Removed a total of 12 cells.
+
+5.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx..
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx..
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full..
+Finding unused cells or wires in module \uart_full_formal..
+Removed 0 unused cells and 47 unused wires.
+<suppressed ~3 debug messages>
+
+5.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full.
+Optimizing module uart_full_formal.
+
+5.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \uart_full_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~130 debug messages>
+
+5.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+  Optimizing cells in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+    New ctrl vector for $pmux cell $procmux$301: { $procmux$279_CMP $procmux$313_CMP $auto$opt_reduce.cc:137:opt_pmux$523 }
+  Optimizing cells in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+  Optimizing cells in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full.
+  Optimizing cells in module \uart_full_formal.
+Performed a total of 1 changes.
+
+5.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Computing hashes of 21 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Computing hashes of 60 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Computing hashes of 2 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Finding identical cells in module `\uart_full_formal'.
+Computing hashes of 132 cells of `\uart_full_formal'.
+Finding duplicate cells in `\uart_full_formal'.
+Removed a total of 0 cells.
+
+5.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx..
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx..
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full..
+Finding unused cells or wires in module \uart_full_formal..
+
+5.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full.
+Optimizing module uart_full_formal.
+
+5.8.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.8.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \uart_full_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~129 debug messages>
+
+5.8.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+  Optimizing cells in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+  Optimizing cells in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full.
+  Optimizing cells in module \uart_full_formal.
+Performed a total of 0 changes.
+
+5.8.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Computing hashes of 21 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Computing hashes of 60 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Computing hashes of 2 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Finding identical cells in module `\uart_full_formal'.
+Computing hashes of 132 cells of `\uart_full_formal'.
+Finding duplicate cells in `\uart_full_formal'.
+Removed a total of 0 cells.
+
+5.8.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx..
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx..
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full..
+Finding unused cells or wires in module \uart_full_formal..
+
+5.8.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full.
+Optimizing module uart_full_formal.
+
+5.8.20. Finished fast OPT passes. (There is nothing left to do.)
+
+5.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.$procmux$191_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.$procmux$195_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.$procmux$204_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$eq$uart_rx.v:48$100 ($eq).
+Converting cell $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$neg$uart_rx.v:96$120 ($neg) from signed to unsigned.
+Removed top 1 bits (of 4) from port A of cell $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$neg$uart_rx.v:96$120 ($neg).
+Removed top 1 bits (of 3) from port B of cell $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$procmux$350_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$procmux$354_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.$procmux$368_CMP0 ($eq).
+Removed top 30 bits (of 32) from port B of cell uart_full_formal.$add$uart_full_formal_v2.sv:114$8 ($add).
+Removed top 24 bits (of 32) from port B of cell uart_full_formal.$eq$uart_full_formal_v2.sv:117$9 ($eq).
+Removed top 30 bits (of 32) from port B of cell uart_full_formal.$add$uart_full_formal_v2.sv:130$12 ($add).
+Removed top 30 bits (of 32) from port B of cell uart_full_formal.$ge$uart_full_formal_v2.sv:201$43 ($ge).
+Removed top 31 bits (of 32) from port B of cell uart_full_formal.$ge$uart_full_formal_v2.sv:210$49 ($ge).
+Removed top 27 bits (of 32) from port B of cell uart_full_formal.$lt$uart_full_formal_v2.sv:210$51 ($lt).
+Removed top 27 bits (of 32) from port B of cell uart_full_formal.$eq$uart_full_formal_v2.sv:224$55 ($eq).
+Removed top 26 bits (of 32) from port B of cell uart_full_formal.$eq$uart_full_formal_v2.sv:225$59 ($eq).
+Removed top 25 bits (of 32) from port B of cell uart_full_formal.$eq$uart_full_formal_v2.sv:226$63 ($eq).
+Removed top 25 bits (of 32) from port B of cell uart_full_formal.$eq$uart_full_formal_v2.sv:227$67 ($eq).
+Removed top 25 bits (of 32) from port B of cell uart_full_formal.$eq$uart_full_formal_v2.sv:228$71 ($eq).
+Removed top 24 bits (of 32) from port B of cell uart_full_formal.$eq$uart_full_formal_v2.sv:229$75 ($eq).
+Removed top 24 bits (of 32) from port B of cell uart_full_formal.$eq$uart_full_formal_v2.sv:230$79 ($eq).
+Removed top 24 bits (of 32) from port B of cell uart_full_formal.$eq$uart_full_formal_v2.sv:231$83 ($eq).
+Removed top 24 bits (of 32) from port B of cell uart_full_formal.$ge$uart_full_formal_v2.sv:245$87 ($ge).
+Removed top 24 bits (of 32) from port B of cell uart_full_formal.$lt$uart_full_formal_v2.sv:245$89 ($lt).
+Removed top 24 bits (of 32) from port B of cell uart_full_formal.$eq$uart_full_formal_v2.sv:270$97 ($eq).
+
+5.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx..
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx..
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full..
+Finding unused cells or wires in module \uart_full_formal..
+
+5.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.12. Executing OPT pass (performing simple optimizations).
+
+5.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+Optimizing module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full.
+Optimizing module uart_full_formal.
+
+5.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Computing hashes of 21 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx'.
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Computing hashes of 60 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx'.
+Finding identical cells in module `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Computing hashes of 2 cells of `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Finding duplicate cells in `$paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full'.
+Finding identical cells in module `\uart_full_formal'.
+Computing hashes of 132 cells of `\uart_full_formal'.
+Finding duplicate cells in `\uart_full_formal'.
+Removed a total of 0 cells.
+
+5.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx..
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx..
+Finding unused cells or wires in module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full..
+Finding unused cells or wires in module \uart_full_formal..
+
+5.12.4. Finished fast OPT passes.
+
+5.13. Executing SORT pass.
+
+5.14. Printing statistics.
+
+=== $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       10 wires
+       24 wire bits
+       10 public wires
+       24 public wire bits
+       10 ports
+       24 port bits
+        2 submodules
+        1   $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx
+        1   $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx
+
+=== $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       63 wires
+      212 wire bits
+       13 public wires
+       34 public wire bits
+        6 ports
+       13 port bits
+       60 cells
+        2   $add
+        1   $and
+        8   $dff
+        6   $eq
+        1   $logic_and
+        1   $logic_not
+       30   $mux
+        1   $neg
+        1   $not
+        1   $or
+        5   $pmux
+        1   $reduce_or
+        2   $shift
+
+=== $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       26 wires
+       69 wire bits
+        9 public wires
+       25 public wire bits
+        6 ports
+       13 port bits
+       21 cells
+        4   $dff
+        3   $eq
+        1   $logic_not
+        9   $mux
+        2   $pmux
+        2   $reduce_or
+
+=== uart_full_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      113 wires
+      427 wire bits
+       16 public wires
+       99 public wire bits
+      131 cells
+        2   $add
+        1   $anyseq
+       26   $check
+       20   $eq
+        6   $ff
+        3   $ge
+        1   $initstate
+       17   $logic_and
+        4   $logic_not
+        2   $lt
+       45   $mux
+        4   $not
+        1 submodules
+        1   $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      212 uart_full_formal
+       60   $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx
+       21   $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx
+
+        +----------Count including submodules.
+        | 
+      212 wires
+      732 wire bits
+       48 public wires
+      182 public wire bits
+       22 ports
+       50 port bits
+        - memories
+        - memory bits
+        - processes
+      212 cells
+        4   $add
+        1   $and
+        1   $anyseq
+       26   $check
+       12   $dff
+       29   $eq
+        6   $ff
+        3   $ge
+        1   $initstate
+       18   $logic_and
+        6   $logic_not
+        2   $lt
+       84   $mux
+        1   $neg
+        5   $not
+        1   $or
+        7   $pmux
+        3   $reduce_or
+        2   $shift
+        1 submodules
+        1   $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full
+
+5.15. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full...
+Checking module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx...
+Checking module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx...
+Checking module uart_full_formal...
+Warning: Wire uart_full_formal.\clk is used but has no driver.
+Warning: Wire uart_full_formal.\rst is used but has no driver.
+Found and reported 2 problems.
+
+6. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `uart_full_formal'. Setting top module to uart_full_formal.
+
+6.1. Analyzing design hierarchy..
+Top module:  \uart_full_formal
+Used module:     $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full
+Used module:         $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx
+Used module:         $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx
+
+6.2. Analyzing design hierarchy..
+Top module:  \uart_full_formal
+Used module:     $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full
+Used module:         $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx
+Used module:         $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx
+Removed 0 unused modules.
+Module uart_full_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+7. Executing jny backend.
+
+8. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 2 unique messages, 4 total
+End of script. Logfile hash: 98c9080227, CPU: user 0.04s system 0.04s, MEM: 16.87 MB peak
+Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+Time spent: 17% 7x opt_expr (0 sec), 14% 6x opt_clean (0 sec), ...

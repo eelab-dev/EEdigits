@@ -1,5 +1,0 @@
-
-read_verilog -sv /workspaces/digital-tools/examples/uart/uart_full/uart_full.v /workspaces/digital-tools/examples/uart/uart_full/uart_tx.v /workspaces/digital-tools/examples/uart/uart_full/uart_rx.v
-hierarchy -check -top uart_full
-proc; opt;
-stat -json -top uart_full

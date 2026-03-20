@@ -342,6 +342,6 @@ Optimizing module $paramod$8c6d73870dd18573f9816bd7cabf1c517392c779\generic_dpra
 }
 
 Warnings: 1 unique messages, 1 total
-End of script. Logfile hash: be1dcfb9ef, CPU: user 0.01s system 0.01s, MEM: 15.38 MB peak
+End of script. Logfile hash: be1dcfb9ef, CPU: user 0.02s system 0.02s, MEM: 15.12 MB peak
 Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
-Time spent: 40% 4x read_verilog (0 sec), 25% 4x opt_expr (0 sec), ...
+Time spent: 34% 4x read_verilog (0 sec), 24% 4x opt_expr (0 sec), ...

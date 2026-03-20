@@ -13,14 +13,14 @@ Parsing SystemVerilog input from `/workspaces/digital-tools/examples/uart/uart_f
 Generating RTLIL representation for module `\uart_full'.
 Successfully finished Verilog frontend.
 
-2. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/uart/uart_full/uart_tx.v
-Parsing SystemVerilog input from `/workspaces/digital-tools/examples/uart/uart_full/uart_tx.v' to AST representation.
-Generating RTLIL representation for module `\uart_tx'.
-Successfully finished Verilog frontend.
-
-3. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/uart/uart_full/uart_rx.v
+2. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/uart/uart_full/uart_rx.v
 Parsing SystemVerilog input from `/workspaces/digital-tools/examples/uart/uart_full/uart_rx.v' to AST representation.
 Generating RTLIL representation for module `\uart_rx'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/uart/uart_full/uart_tx.v
+Parsing SystemVerilog input from `/workspaces/digital-tools/examples/uart/uart_full/uart_tx.v' to AST representation.
+Generating RTLIL representation for module `\uart_tx'.
 Successfully finished Verilog frontend.
 
 4. Executing HIERARCHY pass (managing design hierarchy).
@@ -53,8 +53,8 @@ Used module:     $paramod$7ad91cb4a00e7f80cf930fd17c51f82b06b63f61\uart_tx
 Top module:  \uart_full
 Used module:     $paramod$7ad91cb4a00e7f80cf930fd17c51f82b06b63f61\uart_rx
 Used module:     $paramod$7ad91cb4a00e7f80cf930fd17c51f82b06b63f61\uart_tx
-Removing unused module `\uart_rx'.
 Removing unused module `\uart_tx'.
+Removing unused module `\uart_rx'.
 Removed 2 unused modules.
 
 5. Executing PROC pass (convert processes to netlists).
@@ -511,6 +511,6 @@ Optimizing module uart_full.
       }
 }
 
-End of script. Logfile hash: ccf0992476, CPU: user 0.02s system 0.02s, MEM: 15.71 MB peak
+End of script. Logfile hash: 156265c085, CPU: user 0.04s system 0.01s, MEM: 15.67 MB peak
 Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
-Time spent: 24% 5x opt_expr (0 sec), 22% 4x read_verilog (0 sec), ...
+Time spent: 23% 5x opt_expr (0 sec), 20% 4x read_verilog (0 sec), ...

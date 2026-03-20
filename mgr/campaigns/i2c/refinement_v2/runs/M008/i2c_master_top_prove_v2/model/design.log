@@ -1,0 +1,962 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: i2c_master_defines.v
+Parsing formal SystemVerilog input from `i2c_master_defines.v' to AST representation.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: i2c_master_bit_ctrl_formal.v
+Parsing formal SystemVerilog input from `i2c_master_bit_ctrl_formal.v' to AST representation.
+Storing AST representation for module `$abstract\i2c_master_bit_ctrl_formal'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: i2c_master_byte_ctrl_formal.v
+Parsing formal SystemVerilog input from `i2c_master_byte_ctrl_formal.v' to AST representation.
+Storing AST representation for module `$abstract\i2c_master_byte_ctrl_formal'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: i2c_master_top_formal.v
+Parsing formal SystemVerilog input from `i2c_master_top_formal.v' to AST representation.
+Storing AST representation for module `$abstract\i2c_master_top_formal'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: i2c_master_top_prove_formal_v2.sv
+Parsing formal SystemVerilog input from `i2c_master_top_prove_formal_v2.sv' to AST representation.
+Storing AST representation for module `$abstract\i2c_master_top_prove_formal_v2'.
+Successfully finished Verilog frontend.
+
+6. Executing PREP pass.
+
+6.1. Executing HIERARCHY pass (managing design hierarchy).
+
+6.2. Executing AST frontend in derive mode using pre-parsed AST for module `\i2c_master_top_prove_formal_v2'.
+Generating RTLIL representation for module `\i2c_master_top_prove_formal_v2'.
+i2c_master_top_prove_formal_v2.sv:77: Warning: Identifier `\dut.core_en' is implicitly declared.
+i2c_master_top_prove_formal_v2.sv:77: Warning: Identifier `\dut.prer' is implicitly declared.
+i2c_master_top_prove_formal_v2.sv:87: Warning: Identifier `\dut.tip' is implicitly declared.
+i2c_master_top_prove_formal_v2.sv:98: Warning: Identifier `\dut.done' is implicitly declared.
+i2c_master_top_prove_formal_v2.sv:133: Warning: Range select [7:0] out of bounds on signal `\dut.prer': Setting all 8 result bits to undef.
+i2c_master_top_prove_formal_v2.sv:134: Warning: Range select [15:8] out of bounds on signal `\dut.prer': Setting all 8 result bits to undef.
+i2c_master_top_prove_formal_v2.sv:135: Warning: Identifier `\dut.ctr' is implicitly declared.
+i2c_master_top_prove_formal_v2.sv:136: Warning: Identifier `\dut.txr' is implicitly declared.
+i2c_master_top_prove_formal_v2.sv:137: Warning: Identifier `\dut.cr' is implicitly declared.
+i2c_master_top_prove_formal_v2.sv:140: Warning: Range select [7:4] out of bounds on signal `\dut.cr': Setting all 4 result bits to undef.
+i2c_master_top_prove_formal_v2.sv:143: Warning: Identifier `\dut.rd' is implicitly declared.
+i2c_master_top_prove_formal_v2.sv:143: Warning: Identifier `\dut.wr' is implicitly declared.
+i2c_master_top_prove_formal_v2.sv:144: Warning: Identifier `\dut.irq_flag' is implicitly declared.
+i2c_master_top_prove_formal_v2.sv:144: Warning: Identifier `\dut.ien' is implicitly declared.
+i2c_master_top_prove_formal_v2.sv:139: Warning: Identifier `\dut.i2c_al' is implicitly declared.
+i2c_master_top_prove_formal_v2.sv:140: Warning: Range select [7:4] out of bounds on signal `\dut.cr': Setting all 4 result bits to undef.
+
+6.2.1. Analyzing design hierarchy..
+Top module:  \i2c_master_top_prove_formal_v2
+
+6.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\i2c_master_top_formal'.
+Generating RTLIL representation for module `\i2c_master_top_formal'.
+
+6.2.3. Analyzing design hierarchy..
+Top module:  \i2c_master_top_prove_formal_v2
+Used module:     \i2c_master_top_formal
+
+6.2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\i2c_master_byte_ctrl_formal'.
+Generating RTLIL representation for module `\i2c_master_byte_ctrl_formal'.
+
+6.2.5. Analyzing design hierarchy..
+Top module:  \i2c_master_top_prove_formal_v2
+Used module:     \i2c_master_top_formal
+Used module:         \i2c_master_byte_ctrl_formal
+
+6.2.6. Executing AST frontend in derive mode using pre-parsed AST for module `\i2c_master_bit_ctrl_formal'.
+Generating RTLIL representation for module `\i2c_master_bit_ctrl_formal'.
+
+6.2.7. Analyzing design hierarchy..
+Top module:  \i2c_master_top_prove_formal_v2
+Used module:     \i2c_master_top_formal
+Used module:         \i2c_master_byte_ctrl_formal
+Used module:             \i2c_master_bit_ctrl_formal
+
+6.2.8. Analyzing design hierarchy..
+Top module:  \i2c_master_top_prove_formal_v2
+Used module:     \i2c_master_top_formal
+Used module:         \i2c_master_byte_ctrl_formal
+Used module:             \i2c_master_bit_ctrl_formal
+Removing unused module `$abstract\i2c_master_top_prove_formal_v2'.
+Removing unused module `$abstract\i2c_master_top_formal'.
+Removing unused module `$abstract\i2c_master_byte_ctrl_formal'.
+Removing unused module `$abstract\i2c_master_bit_ctrl_formal'.
+Removed 4 unused modules.
+Module i2c_master_top_prove_formal_v2 directly or indirectly contains formal properties -> setting "keep" attribute.
+
+6.3. Executing PROC pass (convert processes to netlists).
+
+6.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$i2c_master_bit_ctrl_formal.v:382$310 in module i2c_master_bit_ctrl_formal.
+Marked 2 switch rules as full_case in process $proc$i2c_master_bit_ctrl_formal.v:346$297 in module i2c_master_bit_ctrl_formal.
+Marked 2 switch rules as full_case in process $proc$i2c_master_bit_ctrl_formal.v:338$294 in module i2c_master_bit_ctrl_formal.
+Marked 2 switch rules as full_case in process $proc$i2c_master_bit_ctrl_formal.v:327$289 in module i2c_master_bit_ctrl_formal.
+Marked 2 switch rules as full_case in process $proc$i2c_master_bit_ctrl_formal.v:308$281 in module i2c_master_bit_ctrl_formal.
+Marked 2 switch rules as full_case in process $proc$i2c_master_bit_ctrl_formal.v:278$269 in module i2c_master_bit_ctrl_formal.
+Marked 2 switch rules as full_case in process $proc$i2c_master_bit_ctrl_formal.v:259$265 in module i2c_master_bit_ctrl_formal.
+Marked 3 switch rules as full_case in process $proc$i2c_master_bit_ctrl_formal.v:252$257 in module i2c_master_bit_ctrl_formal.
+Marked 2 switch rules as full_case in process $proc$i2c_master_bit_ctrl_formal.v:233$255 in module i2c_master_bit_ctrl_formal.
+Marked 3 switch rules as full_case in process $proc$i2c_master_bit_ctrl_formal.v:206$246 in module i2c_master_bit_ctrl_formal.
+Marked 1 switch rules as full_case in process $proc$i2c_master_bit_ctrl_formal.v:196$234 in module i2c_master_bit_ctrl_formal.
+Marked 11 switch rules as full_case in process $proc$i2c_master_byte_ctrl_formal.v:199$230 in module i2c_master_byte_ctrl_formal.
+Marked 3 switch rules as full_case in process $proc$i2c_master_byte_ctrl_formal.v:182$225 in module i2c_master_byte_ctrl_formal.
+Marked 3 switch rules as full_case in process $proc$i2c_master_byte_ctrl_formal.v:171$223 in module i2c_master_byte_ctrl_formal.
+Marked 2 switch rules as full_case in process $proc$i2c_master_top_formal.v:284$216 in module i2c_master_top_formal.
+Marked 2 switch rules as full_case in process $proc$i2c_master_top_formal.v:259$206 in module i2c_master_top_formal.
+Marked 3 switch rules as full_case in process $proc$i2c_master_top_formal.v:200$201 in module i2c_master_top_formal.
+Marked 2 switch rules as full_case in process $proc$i2c_master_top_formal.v:176$199 in module i2c_master_top_formal.
+Removed 1 dead cases from process $proc$i2c_master_top_formal.v:160$198 in module i2c_master_top_formal.
+Marked 1 switch rules as full_case in process $proc$i2c_master_top_formal.v:160$198 in module i2c_master_top_formal.
+Marked 5 switch rules as full_case in process $proc$i2c_master_top_prove_formal_v2.sv:86$67 in module i2c_master_top_prove_formal_v2.
+Marked 1 switch rules as full_case in process $proc$i2c_master_top_prove_formal_v2.sv:58$40 in module i2c_master_top_prove_formal_v2.
+Removed a total of 1 dead cases.
+
+6.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 29 redundant assignments.
+Promoted 24 assignments to connections.
+
+6.3.4. Executing PROC_INIT pass (extract init attributes).
+
+6.3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \nReset in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:382$310'.
+Found async reset \nReset in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:346$297'.
+Found async reset \nReset in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:338$294'.
+Found async reset \nReset in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:327$289'.
+Found async reset \nReset in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:308$281'.
+Found async reset \nReset in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:278$269'.
+Found async reset \nReset in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:259$265'.
+Found async reset \nReset in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:252$257'.
+Found async reset \nReset in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:233$255'.
+Found async reset \nReset in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:206$246'.
+Found async reset \nReset in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:196$234'.
+Found async reset \nReset in `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:199$230'.
+Found async reset \nReset in `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:182$225'.
+Found async reset \nReset in `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:171$223'.
+Found async reset \rst_i in `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:284$216'.
+Found async reset \rst_i in `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:259$206'.
+Found async reset \rst_i in `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:200$201'.
+Found async reset \rst_i in `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:176$199'.
+
+6.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~69 debug messages>
+
+6.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:382$310'.
+     1/5: $0\cmd_ack[0:0]
+     2/5: $0\sda_chk[0:0]
+     3/5: $0\c_state[17:0]
+     4/5: $0\sda_oen[0:0]
+     5/5: $0\scl_oen[0:0]
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:356$307'.
+     1/1: $0\dout[0:0]
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:346$297'.
+     1/1: $0\al[0:0]
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:338$294'.
+     1/1: $0\cmd_stop[0:0]
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:327$289'.
+     1/1: $0\busy[0:0]
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:308$281'.
+     1/2: $0\sto_condition[0:0]
+     2/2: $0\sta_condition[0:0]
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:278$269'.
+     1/4: $0\dSDA[0:0]
+     2/4: $0\dSCL[0:0]
+     3/4: $0\sSDA[0:0]
+     4/4: $0\sSCL[0:0]
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:259$265'.
+     1/2: $0\fSDA[2:0]
+     2/2: $0\fSCL[2:0]
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:252$257'.
+     1/1: $0\filter_cnt[13:0]
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:233$255'.
+     1/2: $0\cSDA[1:0]
+     2/2: $0\cSCL[1:0]
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:206$246'.
+     1/2: $0\clk_en[0:0]
+     2/2: $0\cnt[15:0]
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:196$234'.
+     1/1: $0\slave_wait[0:0]
+Creating decoders for process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:191$233'.
+Creating decoders for process `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:199$230'.
+     1/7: $0\cmd_ack[0:0]
+     2/7: $0\ld[0:0]
+     3/7: $0\shift[0:0]
+     4/7: $0\core_txd[0:0]
+     5/7: $0\c_state[4:0]
+     6/7: $0\core_cmd[3:0]
+     7/7: $0\ack_out[0:0]
+Creating decoders for process `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:182$225'.
+     1/1: $0\dcnt[2:0]
+Creating decoders for process `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:171$223'.
+     1/1: $0\sr[7:0]
+Creating decoders for process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:284$216'.
+     1/1: $0\wb_inta_o[0:0]
+Creating decoders for process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:259$206'.
+     1/4: $0\irq_flag[0:0]
+     2/4: $0\tip[0:0]
+     3/4: $0\rxack[0:0]
+     4/4: $0\al[0:0]
+Creating decoders for process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:200$201'.
+     1/4: $0\cr[7:0] [7:4]
+     2/4: $0\cr[7:0] [3]
+     3/4: $0\cr[7:0] [2:1]
+     4/4: $0\cr[7:0] [0]
+Creating decoders for process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:176$199'.
+     1/4: $0\prer[15:0] [15:8]
+     2/4: $0\prer[15:0] [7:0]
+     3/4: $0\ctr[7:0]
+     4/4: $0\txr[7:0]
+Creating decoders for process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:160$198'.
+     1/1: $0\wb_dat_o[7:0]
+Creating decoders for process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:156$194'.
+Creating decoders for process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:152$165'.
+     1/9: $cover$i2c_master_top_prove_formal_v2.sv:162$190_EN
+     2/9: $cover$i2c_master_top_prove_formal_v2.sv:161$189_EN
+     3/9: $cover$i2c_master_top_prove_formal_v2.sv:160$188_EN
+     4/9: $cover$i2c_master_top_prove_formal_v2.sv:159$183_EN
+     5/9: $cover$i2c_master_top_prove_formal_v2.sv:158$182_EN
+     6/9: $cover$i2c_master_top_prove_formal_v2.sv:157$179_EN
+     7/9: $cover$i2c_master_top_prove_formal_v2.sv:156$176_EN
+     8/9: $cover$i2c_master_top_prove_formal_v2.sv:155$173_EN
+     9/9: $cover$i2c_master_top_prove_formal_v2.sv:154$172_EN
+Creating decoders for process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+     1/11: $assert$i2c_master_top_prove_formal_v2.sv:147$144_EN
+     2/11: $assert$i2c_master_top_prove_formal_v2.sv:144$141_EN
+     3/11: $assert$i2c_master_top_prove_formal_v2.sv:143$138_EN
+     4/11: $assert$i2c_master_top_prove_formal_v2.sv:140$136_EN
+     5/11: $assert$i2c_master_top_prove_formal_v2.sv:137$134_EN
+     6/11: $assert$i2c_master_top_prove_formal_v2.sv:136$132_EN
+     7/11: $assert$i2c_master_top_prove_formal_v2.sv:135$130_EN
+     8/11: $assert$i2c_master_top_prove_formal_v2.sv:134$128_EN
+     9/11: $assert$i2c_master_top_prove_formal_v2.sv:133$126_EN
+    10/11: $assert$i2c_master_top_prove_formal_v2.sv:129$120_EN
+    11/11: $assert$i2c_master_top_prove_formal_v2.sv:125$115_EN
+Creating decoders for process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:86$67'.
+     1/6: $assert$i2c_master_top_prove_formal_v2.sv:111$82_EN
+     2/6: $assert$i2c_master_top_prove_formal_v2.sv:101$72_EN
+     3/6: $0\tip_watchdog[9:0]
+     4/6: $0\tip_watchdog_active[0:0]
+     5/6: $0\cmd_watchdog[9:0]
+     6/6: $0\cmd_watchdog_active[0:0]
+Creating decoders for process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:68$48'.
+     1/2: $assume$i2c_master_top_prove_formal_v2.sv:71$56_EN
+     2/2: $assume$i2c_master_top_prove_formal_v2.sv:70$54_EN
+Creating decoders for process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:58$40'.
+     1/4: $assume$i2c_master_top_prove_formal_v2.sv:64$46_EN
+     2/4: $assume$i2c_master_top_prove_formal_v2.sv:63$44_EN
+     3/4: $assume$i2c_master_top_prove_formal_v2.sv:61$42_EN
+     4/4: $assume$i2c_master_top_prove_formal_v2.sv:60$41_EN
+
+6.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+6.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\i2c_master_bit_ctrl_formal.\cmd_ack' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:382$310'.
+  created $adff cell `$procdff$878' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\scl_oen' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:382$310'.
+  created $adff cell `$procdff$883' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\sda_oen' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:382$310'.
+  created $adff cell `$procdff$888' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\c_state' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:382$310'.
+  created $adff cell `$procdff$893' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\sda_chk' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:382$310'.
+  created $adff cell `$procdff$898' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\dout' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:356$307'.
+  created $dff cell `$procdff$899' with positive edge clock.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\al' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:346$297'.
+  created $adff cell `$procdff$904' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\cmd_stop' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:338$294'.
+  created $adff cell `$procdff$909' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\busy' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:327$289'.
+  created $adff cell `$procdff$914' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\sta_condition' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:308$281'.
+  created $adff cell `$procdff$919' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\sto_condition' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:308$281'.
+  created $adff cell `$procdff$924' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\sSCL' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:278$269'.
+  created $adff cell `$procdff$929' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\sSDA' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:278$269'.
+  created $adff cell `$procdff$934' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\dSCL' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:278$269'.
+  created $adff cell `$procdff$939' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\dSDA' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:278$269'.
+  created $adff cell `$procdff$944' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\fSCL' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:259$265'.
+  created $adff cell `$procdff$949' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\fSDA' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:259$265'.
+  created $adff cell `$procdff$954' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\filter_cnt' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:252$257'.
+  created $adff cell `$procdff$959' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\cSCL' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:233$255'.
+  created $adff cell `$procdff$964' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\cSDA' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:233$255'.
+  created $adff cell `$procdff$969' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\clk_en' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:206$246'.
+  created $adff cell `$procdff$974' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\cnt' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:206$246'.
+  created $adff cell `$procdff$979' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\slave_wait' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:196$234'.
+  created $adff cell `$procdff$984' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_bit_ctrl_formal.\dscl_oen' using process `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:191$233'.
+  created $dff cell `$procdff$985' with positive edge clock.
+Creating register for signal `\i2c_master_byte_ctrl_formal.\cmd_ack' using process `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:199$230'.
+  created $adff cell `$procdff$990' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_byte_ctrl_formal.\ack_out' using process `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:199$230'.
+  created $adff cell `$procdff$995' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_byte_ctrl_formal.\core_cmd' using process `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:199$230'.
+  created $adff cell `$procdff$1000' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_byte_ctrl_formal.\core_txd' using process `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:199$230'.
+  created $adff cell `$procdff$1005' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_byte_ctrl_formal.\shift' using process `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:199$230'.
+  created $adff cell `$procdff$1010' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_byte_ctrl_formal.\ld' using process `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:199$230'.
+  created $adff cell `$procdff$1015' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_byte_ctrl_formal.\c_state' using process `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:199$230'.
+  created $adff cell `$procdff$1020' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_byte_ctrl_formal.\dcnt' using process `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:182$225'.
+  created $adff cell `$procdff$1025' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_byte_ctrl_formal.\sr' using process `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:171$223'.
+  created $adff cell `$procdff$1030' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_top_formal.\wb_inta_o' using process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:284$216'.
+  created $adff cell `$procdff$1035' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_top_formal.\rxack' using process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:259$206'.
+  created $adff cell `$procdff$1040' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_top_formal.\tip' using process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:259$206'.
+  created $adff cell `$procdff$1045' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_top_formal.\irq_flag' using process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:259$206'.
+  created $adff cell `$procdff$1050' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_top_formal.\al' using process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:259$206'.
+  created $adff cell `$procdff$1055' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_top_formal.\cr' using process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:200$201'.
+  created $adff cell `$procdff$1060' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_top_formal.\prer' using process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:176$199'.
+  created $adff cell `$procdff$1065' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_top_formal.\ctr' using process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:176$199'.
+  created $adff cell `$procdff$1070' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_top_formal.\txr' using process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:176$199'.
+  created $adff cell `$procdff$1075' with positive edge clock and positive level reset.
+Creating register for signal `\i2c_master_top_formal.\wb_dat_o' using process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:160$198'.
+  created $dff cell `$procdff$1076' with positive edge clock.
+Creating register for signal `\i2c_master_top_formal.\wb_ack_o' using process `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:156$194'.
+  created $dff cell `$procdff$1077' with positive edge clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:159$23$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:152$165'.
+  created $ff cell `$procdff$1078' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:125$5$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1079' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:132$7$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1080' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:132$8$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1081' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:133$9$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1082' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:133$10$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1083' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:134$11$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1084' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:134$12$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1085' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:135$13$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1086' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:135$14$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1087' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:136$15$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1088' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:136$16$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1089' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:137$17$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1090' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:137$18$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1091' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:139$19$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1092' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:140$20$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1093' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.$past$i2c_master_top_prove_formal_v2.sv:146$21$0' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+  created $ff cell `$procdff$1094' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.\cmd_watchdog_active' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:86$67'.
+  created $ff cell `$procdff$1095' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.\cmd_watchdog' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:86$67'.
+  created $ff cell `$procdff$1096' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.\tip_watchdog_active' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:86$67'.
+  created $ff cell `$procdff$1097' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.\tip_watchdog' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:86$67'.
+  created $ff cell `$procdff$1098' with global clock.
+Creating register for signal `\i2c_master_top_prove_formal_v2.\tip_q' using process `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:86$67'.
+  created $ff cell `$procdff$1099' with global clock.
+
+6.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 4 empty switches in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:382$310'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:382$310'.
+Found and cleaned up 1 empty switch in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:356$307'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:356$307'.
+Found and cleaned up 1 empty switch in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:346$297'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:346$297'.
+Found and cleaned up 2 empty switches in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:338$294'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:338$294'.
+Found and cleaned up 1 empty switch in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:327$289'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:327$289'.
+Found and cleaned up 1 empty switch in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:308$281'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:308$281'.
+Found and cleaned up 1 empty switch in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:278$269'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:278$269'.
+Found and cleaned up 2 empty switches in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:259$265'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:259$265'.
+Found and cleaned up 2 empty switches in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:252$257'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:252$257'.
+Found and cleaned up 1 empty switch in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:233$255'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:233$255'.
+Found and cleaned up 2 empty switches in `\i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:206$246'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:206$246'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:196$234'.
+Removing empty process `i2c_master_bit_ctrl_formal.$proc$i2c_master_bit_ctrl_formal.v:191$233'.
+Found and cleaned up 15 empty switches in `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:199$230'.
+Removing empty process `i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:199$230'.
+Found and cleaned up 3 empty switches in `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:182$225'.
+Removing empty process `i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:182$225'.
+Found and cleaned up 3 empty switches in `\i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:171$223'.
+Removing empty process `i2c_master_byte_ctrl_formal.$proc$i2c_master_byte_ctrl_formal.v:171$223'.
+Found and cleaned up 1 empty switch in `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:284$216'.
+Removing empty process `i2c_master_top_formal.$proc$i2c_master_top_formal.v:284$216'.
+Found and cleaned up 1 empty switch in `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:259$206'.
+Removing empty process `i2c_master_top_formal.$proc$i2c_master_top_formal.v:259$206'.
+Found and cleaned up 4 empty switches in `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:200$201'.
+Removing empty process `i2c_master_top_formal.$proc$i2c_master_top_formal.v:200$201'.
+Found and cleaned up 3 empty switches in `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:176$199'.
+Removing empty process `i2c_master_top_formal.$proc$i2c_master_top_formal.v:176$199'.
+Found and cleaned up 1 empty switch in `\i2c_master_top_formal.$proc$i2c_master_top_formal.v:160$198'.
+Removing empty process `i2c_master_top_formal.$proc$i2c_master_top_formal.v:160$198'.
+Removing empty process `i2c_master_top_formal.$proc$i2c_master_top_formal.v:156$194'.
+Found and cleaned up 1 empty switch in `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:152$165'.
+Removing empty process `i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:152$165'.
+Found and cleaned up 10 empty switches in `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+Removing empty process `i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:117$85'.
+Found and cleaned up 7 empty switches in `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:86$67'.
+Removing empty process `i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:86$67'.
+Found and cleaned up 1 empty switch in `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:68$48'.
+Removing empty process `i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:68$48'.
+Found and cleaned up 1 empty switch in `\i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:58$40'.
+Removing empty process `i2c_master_top_prove_formal_v2.$proc$i2c_master_top_prove_formal_v2.sv:58$40'.
+Cleaned up 69 empty switches.
+
+6.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2c_master_bit_ctrl_formal.
+<suppressed ~49 debug messages>
+Optimizing module i2c_master_byte_ctrl_formal.
+<suppressed ~26 debug messages>
+Optimizing module i2c_master_top_formal.
+<suppressed ~21 debug messages>
+Optimizing module i2c_master_top_prove_formal_v2.
+<suppressed ~28 debug messages>
+
+6.4. Executing FUTURE pass.
+
+6.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2c_master_bit_ctrl_formal.
+Optimizing module i2c_master_byte_ctrl_formal.
+Optimizing module i2c_master_top_formal.
+Optimizing module i2c_master_top_prove_formal_v2.
+
+6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2c_master_bit_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_byte_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_top_formal..
+Finding unused cells or wires in module \i2c_master_top_prove_formal_v2..
+Removed 64 unused cells and 397 unused wires.
+<suppressed ~69 debug messages>
+
+6.7. Executing CHECK pass (checking for obvious problems).
+Checking module i2c_master_bit_ctrl_formal...
+Checking module i2c_master_byte_ctrl_formal...
+Checking module i2c_master_top_formal...
+Checking module i2c_master_top_prove_formal_v2...
+Warning: Wire i2c_master_top_prove_formal_v2.\wb_clk_i is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.prer is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.ctr is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.txr is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.cr is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.rd is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.wr is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.core_en is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.i2c_al is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.ien is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.done is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.irq_flag is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.tip is used but has no driver.
+Found and reported 13 problems.
+
+6.8. Executing OPT pass (performing simple optimizations).
+
+6.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2c_master_bit_ctrl_formal.
+Optimizing module i2c_master_byte_ctrl_formal.
+Optimizing module i2c_master_top_formal.
+Optimizing module i2c_master_top_prove_formal_v2.
+
+6.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i2c_master_bit_ctrl_formal'.
+Computing hashes of 175 cells of `\i2c_master_bit_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_bit_ctrl_formal'.
+Computing hashes of 131 cells of `\i2c_master_bit_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_bit_ctrl_formal'.
+<suppressed ~132 debug messages>
+Finding identical cells in module `\i2c_master_byte_ctrl_formal'.
+Computing hashes of 95 cells of `\i2c_master_byte_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_byte_ctrl_formal'.
+Computing hashes of 80 cells of `\i2c_master_byte_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_byte_ctrl_formal'.
+<suppressed ~45 debug messages>
+Finding identical cells in module `\i2c_master_top_formal'.
+Computing hashes of 71 cells of `\i2c_master_top_formal'.
+Finding duplicate cells in `\i2c_master_top_formal'.
+Computing hashes of 66 cells of `\i2c_master_top_formal'.
+Finding duplicate cells in `\i2c_master_top_formal'.
+<suppressed ~15 debug messages>
+Finding identical cells in module `\i2c_master_top_prove_formal_v2'.
+Computing hashes of 218 cells of `\i2c_master_top_prove_formal_v2'.
+Finding duplicate cells in `\i2c_master_top_prove_formal_v2'.
+Computing hashes of 200 cells of `\i2c_master_top_prove_formal_v2'.
+Finding duplicate cells in `\i2c_master_top_prove_formal_v2'.
+Computing hashes of 195 cells of `\i2c_master_top_prove_formal_v2'.
+Finding duplicate cells in `\i2c_master_top_prove_formal_v2'.
+Computing hashes of 194 cells of `\i2c_master_top_prove_formal_v2'.
+Finding duplicate cells in `\i2c_master_top_prove_formal_v2'.
+Computing hashes of 193 cells of `\i2c_master_top_prove_formal_v2'.
+Finding duplicate cells in `\i2c_master_top_prove_formal_v2'.
+<suppressed ~75 debug messages>
+Removed a total of 89 cells.
+
+6.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \i2c_master_bit_ctrl_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2c_master_byte_ctrl_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2c_master_top_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2c_master_top_prove_formal_v2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~264 debug messages>
+
+6.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \i2c_master_bit_ctrl_formal.
+    New ctrl vector for $pmux cell $procmux$389: { $auto$opt_reduce.cc:137:opt_pmux$1103 $auto$opt_reduce.cc:137:opt_pmux$1101 }
+    New ctrl vector for $pmux cell $procmux$365: { $auto$opt_reduce.cc:137:opt_pmux$1109 $auto$opt_reduce.cc:137:opt_pmux$1107 $auto$opt_reduce.cc:137:opt_pmux$1105 }
+    New ctrl vector for $pmux cell $procmux$334: { $procmux$358_CMP $procmux$382_CMP $procmux$405_CMP $procmux$404_CMP $procmux$403_CMP $procmux$401_CMP $procmux$400_CMP $procmux$399_CMP $procmux$397_CMP $procmux$396_CMP $procmux$395_CMP $procmux$393_CMP $procmux$392_CMP $procmux$391_CMP $auto$opt_reduce.cc:137:opt_pmux$1111 }
+    New ctrl vector for $pmux cell $procmux$314: $auto$opt_reduce.cc:137:opt_pmux$1113
+  Optimizing cells in module \i2c_master_bit_ctrl_formal.
+  Optimizing cells in module \i2c_master_byte_ctrl_formal.
+  Optimizing cells in module \i2c_master_top_formal.
+  Optimizing cells in module \i2c_master_top_prove_formal_v2.
+Performed a total of 4 changes.
+
+6.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i2c_master_bit_ctrl_formal'.
+Computing hashes of 138 cells of `\i2c_master_bit_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_bit_ctrl_formal'.
+Computing hashes of 137 cells of `\i2c_master_bit_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_bit_ctrl_formal'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\i2c_master_byte_ctrl_formal'.
+Computing hashes of 80 cells of `\i2c_master_byte_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_byte_ctrl_formal'.
+Computing hashes of 78 cells of `\i2c_master_byte_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_byte_ctrl_formal'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\i2c_master_top_formal'.
+Computing hashes of 66 cells of `\i2c_master_top_formal'.
+Finding duplicate cells in `\i2c_master_top_formal'.
+Finding identical cells in module `\i2c_master_top_prove_formal_v2'.
+Computing hashes of 193 cells of `\i2c_master_top_prove_formal_v2'.
+Finding duplicate cells in `\i2c_master_top_prove_formal_v2'.
+Computing hashes of 179 cells of `\i2c_master_top_prove_formal_v2'.
+Finding duplicate cells in `\i2c_master_top_prove_formal_v2'.
+<suppressed ~42 debug messages>
+Removed a total of 17 cells.
+
+6.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2c_master_bit_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_byte_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_top_formal..
+Finding unused cells or wires in module \i2c_master_top_prove_formal_v2..
+Removed 0 unused cells and 106 unused wires.
+<suppressed ~4 debug messages>
+
+6.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2c_master_bit_ctrl_formal.
+Optimizing module i2c_master_byte_ctrl_formal.
+Optimizing module i2c_master_top_formal.
+Optimizing module i2c_master_top_prove_formal_v2.
+
+6.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \i2c_master_bit_ctrl_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2c_master_byte_ctrl_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2c_master_top_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \i2c_master_top_prove_formal_v2..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~238 debug messages>
+
+6.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \i2c_master_bit_ctrl_formal.
+  Optimizing cells in module \i2c_master_byte_ctrl_formal.
+  Optimizing cells in module \i2c_master_top_formal.
+  Optimizing cells in module \i2c_master_top_prove_formal_v2.
+Performed a total of 0 changes.
+
+6.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i2c_master_bit_ctrl_formal'.
+Computing hashes of 137 cells of `\i2c_master_bit_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_bit_ctrl_formal'.
+Finding identical cells in module `\i2c_master_byte_ctrl_formal'.
+Computing hashes of 78 cells of `\i2c_master_byte_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_byte_ctrl_formal'.
+Finding identical cells in module `\i2c_master_top_formal'.
+Computing hashes of 66 cells of `\i2c_master_top_formal'.
+Finding duplicate cells in `\i2c_master_top_formal'.
+Finding identical cells in module `\i2c_master_top_prove_formal_v2'.
+Computing hashes of 179 cells of `\i2c_master_top_prove_formal_v2'.
+Finding duplicate cells in `\i2c_master_top_prove_formal_v2'.
+Removed a total of 0 cells.
+
+6.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2c_master_bit_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_byte_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_top_formal..
+Finding unused cells or wires in module \i2c_master_top_prove_formal_v2..
+
+6.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2c_master_bit_ctrl_formal.
+Optimizing module i2c_master_byte_ctrl_formal.
+Optimizing module i2c_master_top_formal.
+Optimizing module i2c_master_top_prove_formal_v2.
+
+6.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+6.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 15 bits (of 16) from port B of cell i2c_master_bit_ctrl_formal.$sub$i2c_master_bit_ctrl_formal.v:224$254 ($sub).
+Removed top 31 bits (of 32) from port B of cell i2c_master_bit_ctrl_formal.$sub$i2c_master_bit_ctrl_formal.v:256$264 ($sub).
+Removed top 18 bits (of 32) from port Y of cell i2c_master_bit_ctrl_formal.$sub$i2c_master_bit_ctrl_formal.v:256$264 ($sub).
+Removed top 4 bits (of 18) from mux cell i2c_master_bit_ctrl_formal.$procmux$353 ($pmux).
+Removed top 1 bits (of 4) from port B of cell i2c_master_bit_ctrl_formal.$procmux$355_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell i2c_master_bit_ctrl_formal.$procmux$356_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell i2c_master_bit_ctrl_formal.$procmux$357_CMP0 ($eq).
+Removed top 17 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$382_CMP0 ($eq).
+Removed top 1 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$390_CMP0 ($eq).
+Removed top 2 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$391_CMP0 ($eq).
+Removed top 3 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$392_CMP0 ($eq).
+Removed top 4 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$393_CMP0 ($eq).
+Removed top 5 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$394_CMP0 ($eq).
+Removed top 6 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$395_CMP0 ($eq).
+Removed top 7 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$396_CMP0 ($eq).
+Removed top 8 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$397_CMP0 ($eq).
+Removed top 9 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$398_CMP0 ($eq).
+Removed top 10 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$399_CMP0 ($eq).
+Removed top 11 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$400_CMP0 ($eq).
+Removed top 12 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$401_CMP0 ($eq).
+Removed top 13 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$402_CMP0 ($eq).
+Removed top 14 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$403_CMP0 ($eq).
+Removed top 15 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$404_CMP0 ($eq).
+Removed top 16 bits (of 18) from port B of cell i2c_master_bit_ctrl_formal.$procmux$405_CMP0 ($eq).
+Removed top 4 bits (of 18) from wire i2c_master_bit_ctrl_formal.$procmux$353_Y.
+Removed top 18 bits (of 32) from wire i2c_master_bit_ctrl_formal.$sub$i2c_master_bit_ctrl_formal.v:256$264_Y.
+Removed top 2 bits (of 3) from port B of cell i2c_master_byte_ctrl_formal.$sub$i2c_master_byte_ctrl_formal.v:190$227 ($sub).
+Removed top 1 bits (of 5) from mux cell i2c_master_byte_ctrl_formal.$procmux$547 ($mux).
+Removed top 1 bits (of 5) from mux cell i2c_master_byte_ctrl_formal.$procmux$553 ($mux).
+Removed top 2 bits (of 5) from mux cell i2c_master_byte_ctrl_formal.$procmux$559 ($mux).
+Removed top 2 bits (of 4) from mux cell i2c_master_byte_ctrl_formal.$procmux$586 ($mux).
+Removed top 3 bits (of 5) from port B of cell i2c_master_byte_ctrl_formal.$procmux$596_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell i2c_master_byte_ctrl_formal.$procmux$602_CMP0 ($eq).
+Removed top 4 bits (of 5) from port B of cell i2c_master_byte_ctrl_formal.$procmux$608_CMP0 ($eq).
+Removed top 1 bits (of 4) from mux cell i2c_master_byte_ctrl_formal.$procmux$610 ($mux).
+Removed top 1 bits (of 5) from port B of cell i2c_master_byte_ctrl_formal.$procmux$630_CMP0 ($eq).
+Removed top 1 bits (of 5) from wire i2c_master_byte_ctrl_formal.$procmux$547_Y.
+Removed top 2 bits (of 4) from wire i2c_master_byte_ctrl_formal.$procmux$586_Y.
+Removed top 1 bits (of 5) from wire i2c_master_byte_ctrl_formal.$procmux$553_Y.
+Removed top 2 bits (of 5) from wire i2c_master_byte_ctrl_formal.$procmux$559_Y.
+Removed top 1 bits (of 4) from wire i2c_master_byte_ctrl_formal.$procmux$610_Y.
+Removed top 1 bits (of 3) from port B of cell i2c_master_top_formal.$procmux$738_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell i2c_master_top_formal.$procmux$739_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell i2c_master_top_formal.$procmux$740_CMP0 ($eq).
+Removed top 9 bits (of 10) from port B of cell i2c_master_top_prove_formal_v2.$sub$i2c_master_top_prove_formal_v2.sv:102$74 ($sub).
+Removed top 13 bits (of 16) from port B of cell i2c_master_top_prove_formal_v2.$le$i2c_master_top_prove_formal_v2.sv:105$77 ($le).
+Removed top 9 bits (of 10) from port B of cell i2c_master_top_prove_formal_v2.$sub$i2c_master_top_prove_formal_v2.sv:112$84 ($sub).
+Removed top 2 bits (of 3) from port B of cell i2c_master_top_prove_formal_v2.$eq$i2c_master_top_prove_formal_v2.sv:134$151 ($eq).
+Removed top 1 bits (of 3) from port B of cell i2c_master_top_prove_formal_v2.$eq$i2c_master_top_prove_formal_v2.sv:155$174 ($eq).
+Removed top 1 bits (of 3) from port B of cell i2c_master_top_prove_formal_v2.$eq$i2c_master_top_prove_formal_v2.sv:156$177 ($eq).
+
+6.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2c_master_bit_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_byte_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_top_formal..
+Finding unused cells or wires in module \i2c_master_top_prove_formal_v2..
+Removed 0 unused cells and 7 unused wires.
+<suppressed ~2 debug messages>
+
+6.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.12. Executing OPT pass (performing simple optimizations).
+
+6.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2c_master_bit_ctrl_formal.
+Optimizing module i2c_master_byte_ctrl_formal.
+Optimizing module i2c_master_top_formal.
+Optimizing module i2c_master_top_prove_formal_v2.
+
+6.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i2c_master_bit_ctrl_formal'.
+Computing hashes of 137 cells of `\i2c_master_bit_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_bit_ctrl_formal'.
+Finding identical cells in module `\i2c_master_byte_ctrl_formal'.
+Computing hashes of 78 cells of `\i2c_master_byte_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_byte_ctrl_formal'.
+Computing hashes of 77 cells of `\i2c_master_byte_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_byte_ctrl_formal'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\i2c_master_top_formal'.
+Computing hashes of 66 cells of `\i2c_master_top_formal'.
+Finding duplicate cells in `\i2c_master_top_formal'.
+Finding identical cells in module `\i2c_master_top_prove_formal_v2'.
+Computing hashes of 179 cells of `\i2c_master_top_prove_formal_v2'.
+Finding duplicate cells in `\i2c_master_top_prove_formal_v2'.
+Removed a total of 1 cells.
+
+6.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2c_master_bit_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_byte_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_top_formal..
+Finding unused cells or wires in module \i2c_master_top_prove_formal_v2..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+6.12.4. Finished fast OPT passes.
+
+6.13. Executing SORT pass.
+
+6.14. Printing statistics.
+
+=== i2c_master_bit_ctrl_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      148 wires
+      397 wire bits
+       36 public wires
+      105 public wire bits
+       17 ports
+       35 port bits
+      137 cells
+       22   $adff
+       17   $and
+        2   $dff
+       21   $eq
+        3   $logic_not
+        4   $logic_or
+       34   $mux
+        7   $not
+        8   $or
+        4   $pmux
+        4   $reduce_and
+        9   $reduce_or
+        2   $sub
+
+=== i2c_master_byte_ctrl_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       98 wires
+      274 wire bits
+       32 public wires
+       77 public wire bits
+       22 ports
+       51 port bits
+       76 cells
+        9   $adff
+        1   $and
+        5   $eq
+        1   $logic_not
+       48   $mux
+        1   $not
+        3   $or
+        6   $pmux
+        1   $reduce_or
+        1   $sub
+        1 submodules
+        1   i2c_master_bit_ctrl_formal
+
+=== i2c_master_top_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       90 wires
+      266 wire bits
+       41 public wires
+      107 public wire bits
+       17 ports
+       33 port bits
+       65 cells
+        9   $adff
+        6   $and
+        2   $dff
+        7   $eq
+        1   $logic_and
+        1   $logic_not
+       30   $mux
+        1   $ne
+        3   $not
+        4   $or
+        1   $pmux
+        1 submodules
+        1   i2c_master_byte_ctrl_formal
+
+=== i2c_master_top_prove_formal_v2 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      166 wires
+      325 wire bits
+       38 public wires
+       72 public wire bits
+      178 cells
+        9   $anyseq
+       32   $check
+       12   $eq
+       22   $ff
+        1   $initstate
+        1   $le
+       26   $logic_and
+        9   $logic_not
+        8   $logic_or
+       45   $mux
+        8   $not
+        3   $reduce_bool
+        2   $sub
+        1 submodules
+        1   i2c_master_top_formal
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      456 i2c_master_top_prove_formal_v2
+       65 i2c_master_top_formal
+       76   i2c_master_byte_ctrl_formal
+      137     i2c_master_bit_ctrl_formal
+
+        +----------Count including submodules.
+        | 
+      502 wires
+     1262 wire bits
+      147 public wires
+      361 public wire bits
+       56 ports
+      119 port bits
+        - memories
+        - memory bits
+        - processes
+      456 cells
+       40   $adff
+       24   $and
+        9   $anyseq
+       32   $check
+        4   $dff
+       45   $eq
+       22   $ff
+        1   $initstate
+        1   $le
+       27   $logic_and
+       14   $logic_not
+       12   $logic_or
+      157   $mux
+        1   $ne
+       19   $not
+       15   $or
+       11   $pmux
+        4   $reduce_and
+        3   $reduce_bool
+       10   $reduce_or
+        5   $sub
+        1 submodules
+        1   i2c_master_top_formal
+
+6.15. Executing CHECK pass (checking for obvious problems).
+Checking module i2c_master_bit_ctrl_formal...
+Checking module i2c_master_byte_ctrl_formal...
+Checking module i2c_master_top_formal...
+Checking module i2c_master_top_prove_formal_v2...
+Warning: Wire i2c_master_top_prove_formal_v2.\wb_clk_i is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.wr is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.rd is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.i2c_al is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.ien is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.core_en is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.prer is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.tip is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.cr is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.txr is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.ctr is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.irq_flag is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal_v2.\dut.done is used but has no driver.
+Found and reported 13 problems.
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `i2c_master_top_prove_formal_v2'. Setting top module to i2c_master_top_prove_formal_v2.
+
+7.1. Analyzing design hierarchy..
+Top module:  \i2c_master_top_prove_formal_v2
+Used module:     \i2c_master_top_formal
+Used module:         \i2c_master_byte_ctrl_formal
+Used module:             \i2c_master_bit_ctrl_formal
+
+7.2. Analyzing design hierarchy..
+Top module:  \i2c_master_top_prove_formal_v2
+Used module:     \i2c_master_top_formal
+Used module:         \i2c_master_byte_ctrl_formal
+Used module:             \i2c_master_bit_ctrl_formal
+Removed 0 unused modules.
+Module i2c_master_top_prove_formal_v2 directly or indirectly contains formal properties -> setting "keep" attribute.
+
+8. Executing jny backend.
+
+9. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 28 unique messages, 42 total
+End of script. Logfile hash: b7a84b4950, CPU: user 0.08s system 0.03s, MEM: 18.13 MB peak
+Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+Time spent: 16% 5x opt_clean (0 sec), 15% 6x opt_expr (0 sec), ...

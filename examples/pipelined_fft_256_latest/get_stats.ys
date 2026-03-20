@@ -1,0 +1,21 @@
+# get_stats.ys for pipelined FFT-256
+
+read_verilog -sv -I . \
+  WROM256.v \
+  bufram256c.v \
+  cnorm.v \
+  fft16.v \
+  fft256.v \
+  mpuc1307.v \
+  mpuc541.v \
+  mpuc707.v \
+  mpuc924_383.v \
+  ram256.v \
+  ram2x256.v \
+  rotator256_v.v
+
+hierarchy -check -top FFT256
+
+proc; opt;
+
+stat -json -top FFT256

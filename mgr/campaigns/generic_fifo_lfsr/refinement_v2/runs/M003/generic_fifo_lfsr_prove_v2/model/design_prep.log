@@ -1,0 +1,100 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Found 0 SCCs in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Found 0 SCCs in module generic_fifo_lfsr_prove_formal.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+Replacing $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$procdff$265 ($adff): ARST=\nReset, D=$0\full[0:0], Q=\full
+Replacing $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$procdff$270 ($adff): ARST=\nReset, D=$0\empty[0:0], Q=\empty
+Replacing $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$procdff$275 ($adff): ARST=\nReset, D=$0\wp_wrap[0:0], Q=\wp_wrap
+Replacing $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$procdff$280 ($adff): ARST=\nReset, D=$0\wp[15:0], Q=\wp
+Replacing $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$procdff$285 ($adff): ARST=\nReset, D=$0\rp_wrap[0:0], Q=\rp_wrap
+Replacing $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$procdff$290 ($adff): ARST=\nReset, D=$0\rp[15:0], Q=\rp
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram..
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr..
+Finding unused cells or wires in module \generic_fifo_lfsr_prove_formal..
+Removed 25 unused cells and 25 unused wires.
+<suppressed ~26 debug messages>
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram..
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr..
+Finding unused cells or wires in module \generic_fifo_lfsr_prove_formal..
+Removed 8 unused cells and 8 unused wires.
+<suppressed ~11 debug messages>
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram...
+Checking module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr...
+Checking module generic_fifo_lfsr_prove_formal...
+Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+Found and reported 1 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Optimizing module generic_fifo_lfsr_prove_formal.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Computing hashes of 12 cells of `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Finding duplicate cells in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Finding identical cells in module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Computing hashes of 40 cells of `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Finding duplicate cells in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Finding identical cells in module `\generic_fifo_lfsr_prove_formal'.
+Computing hashes of 94 cells of `\generic_fifo_lfsr_prove_formal'.
+Finding duplicate cells in `\generic_fifo_lfsr_prove_formal'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram..
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr..
+Finding unused cells or wires in module \generic_fifo_lfsr_prove_formal..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram..
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr..
+Finding unused cells or wires in module \generic_fifo_lfsr_prove_formal..
+Removed 0 unused cells and 10 unused wires.
+<suppressed ~3 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 653b027d83, CPU: user 0.01s system 0.02s, MEM: 14.75 MB peak
+Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+Time spent: 32% 4x opt_clean (0 sec), 13% 2x read_rtlil (0 sec), ...

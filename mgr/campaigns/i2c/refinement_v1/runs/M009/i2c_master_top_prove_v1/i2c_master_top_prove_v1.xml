@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-03-19T06:38:25" hostname="641808cb3e01" package="i2c_master_top_prove_v1" id="0" name="default" tests="15" errors="0" failures="2" time="0" skipped="14">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="FAIL"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<failure type="FAIL" message="Task returned status FAIL." />
+</testcase>
+<testcase classname="default" name="Property ASSERT in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:124.9-124.35" time="0" type="ASSERT" location="i2c_master_top_prove_formal.sv:124.9-124.35" id="_witness_.check_assert_i2c_master_top_prove_formal_sv_124_55">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:134.9-134.35" time="0" type="ASSERT" location="i2c_master_top_prove_formal.sv:134.9-134.35" id="_witness_.check_assert_i2c_master_top_prove_formal_sv_134_65">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:143.5-143.30" time="0" type="ASSERT" location="i2c_master_top_prove_formal.sv:143.5-143.30" id="_witness_.check_assert_i2c_master_top_prove_formal_sv_143_70">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:144.5-144.30" time="0" type="ASSERT" location="i2c_master_top_prove_formal.sv:144.5-144.30" id="_witness_.check_assert_i2c_master_top_prove_formal_sv_144_72">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:147.5-147.58" time="0" type="ASSERT" location="i2c_master_top_prove_formal.sv:147.5-147.58" id="_witness_.check_assert_i2c_master_top_prove_formal_sv_147_74">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:148.5-148.58" time="0" type="ASSERT" location="i2c_master_top_prove_formal.sv:148.5-148.58" id="_witness_.check_assert_i2c_master_top_prove_formal_sv_148_78">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:152.7-152.68" time="0" type="ASSERT" location="i2c_master_top_prove_formal.sv:152.7-152.68" id="_witness_.check_assert_i2c_master_top_prove_formal_sv_152_83">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:157.7-157.32" time="0" type="ASSERT" location="i2c_master_top_prove_formal.sv:157.7-157.32" id="_witness_.check_assert_i2c_master_top_prove_formal_sv_157_88" tracefile="engine_0/trace.vcd">
+<failure type="ASSERT" message="Property ASSERT in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:157.7-157.32 failed. Trace file: engine_0/trace.vcd" />
+</testcase>
+<testcase classname="default" name="Property COVER in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:165.7-165.22" time="0" type="COVER" location="i2c_master_top_prove_formal.sv:165.7-165.22" id="_witness_.check_cover_i2c_master_top_prove_formal_sv_165_100">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:167.7-167.34" time="0" type="COVER" location="i2c_master_top_prove_formal.sv:167.7-167.34" id="_witness_.check_cover_i2c_master_top_prove_formal_sv_167_101">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:168.7-168.34" time="0" type="COVER" location="i2c_master_top_prove_formal.sv:168.7-168.34" id="_witness_.check_cover_i2c_master_top_prove_formal_sv_168_103">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:170.7-170.31" time="0" type="COVER" location="i2c_master_top_prove_formal.sv:170.7-170.31" id="_witness_.check_cover_i2c_master_top_prove_formal_sv_170_105">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:172.7-172.24" time="0" type="COVER" location="i2c_master_top_prove_formal.sv:172.7-172.24" id="_witness_.check_cover_i2c_master_top_prove_formal_sv_172_107">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:173.7-173.28" time="0" type="COVER" location="i2c_master_top_prove_formal.sv:173.7-173.28" id="_witness_.check_cover_i2c_master_top_prove_formal_sv_173_108">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in i2c_master_top_prove_formal at i2c_master_top_prove_formal.sv:174.7-174.22" time="0" type="COVER" location="i2c_master_top_prove_formal.sv:174.7-174.22" id="_witness_.check_cover_i2c_master_top_prove_formal_sv_174_113">
+<skipped />
+</testcase>
+<system-out>SBY  6:38:23 [i2c_master_top_prove_v1] Removing directory '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M009/i2c_master_top_prove_v1'.
+SBY  6:38:24 [i2c_master_top_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M009/i2c_master_defines.v' to '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M009/i2c_master_top_prove_v1/src/i2c_master_defines.v'.
+SBY  6:38:24 [i2c_master_top_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M009/i2c_master_bit_ctrl_formal.v' to '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M009/i2c_master_top_prove_v1/src/i2c_master_bit_ctrl_formal.v'.
+SBY  6:38:24 [i2c_master_top_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M009/i2c_master_byte_ctrl_formal.v' to '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M009/i2c_master_top_prove_v1/src/i2c_master_byte_ctrl_formal.v'.
+SBY  6:38:24 [i2c_master_top_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M009/i2c_master_top_formal.v' to '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M009/i2c_master_top_prove_v1/src/i2c_master_top_formal.v'.
+SBY  6:38:24 [i2c_master_top_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M009/i2c_master_top_prove_formal.sv' to '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M009/i2c_master_top_prove_v1/src/i2c_master_top_prove_formal.sv'.
+SBY  6:38:24 [i2c_master_top_prove_v1] engine_0: smtbmc yices
+SBY  6:38:24 [i2c_master_top_prove_v1] base: starting process &quot;cd i2c_master_top_prove_v1/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY  6:38:24 [i2c_master_top_prove_v1] base: i2c_master_top_prove_formal.sv:96: Warning: Identifier `\dut.core_en' is implicitly declared.
+SBY  6:38:24 [i2c_master_top_prove_v1] base: i2c_master_top_prove_formal.sv:96: Warning: Identifier `\dut.prer' is implicitly declared.
+SBY  6:38:24 [i2c_master_top_prove_v1] base: i2c_master_top_prove_formal.sv:110: Warning: Identifier `\dut.tip' is implicitly declared.
+SBY  6:38:24 [i2c_master_top_prove_v1] base: i2c_master_top_prove_formal.sv:121: Warning: Identifier `\dut.done' is implicitly declared.
+SBY  6:38:24 [i2c_master_top_prove_v1] base: Warning: Wire i2c_master_top_prove_formal.\wb_clk_i is used but has no driver.
+SBY  6:38:24 [i2c_master_top_prove_v1] base: Warning: Wire i2c_master_top_prove_formal.\dut.core_en is used but has no driver.
+SBY  6:38:24 [i2c_master_top_prove_v1] base: Warning: Wire i2c_master_top_prove_formal.\dut.prer is used but has no driver.
+SBY  6:38:24 [i2c_master_top_prove_v1] base: Warning: Wire i2c_master_top_prove_formal.\dut.tip is used but has no driver.
+SBY  6:38:24 [i2c_master_top_prove_v1] base: Warning: Wire i2c_master_top_prove_formal.\dut.done is used but has no driver.
+SBY  6:38:24 [i2c_master_top_prove_v1] base: finished (returncode=0)
+SBY  6:38:24 [i2c_master_top_prove_v1] prep: starting process &quot;cd i2c_master_top_prove_v1/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY  6:38:25 [i2c_master_top_prove_v1] prep: Warning: Wire i2c_master_top_prove_formal.\wb_clk_i is used but has no driver.
+SBY  6:38:25 [i2c_master_top_prove_v1] prep: Warning: Wire i2c_master_top_prove_formal.\dut.core_en is used but has no driver.
+SBY  6:38:25 [i2c_master_top_prove_v1] prep: Warning: Wire i2c_master_top_prove_formal.\dut.tip is used but has no driver.
+SBY  6:38:25 [i2c_master_top_prove_v1] prep: Warning: Wire i2c_master_top_prove_formal.\dut.done is used but has no driver.
+SBY  6:38:25 [i2c_master_top_prove_v1] prep: Warning: Wire i2c_master_top_prove_formal.\dut.prer is used but has no driver.
+SBY  6:38:25 [i2c_master_top_prove_v1] prep: finished (returncode=0)
+SBY  6:38:25 [i2c_master_top_prove_v1] smt2: starting process &quot;cd i2c_master_top_prove_v1/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY  6:38:25 [i2c_master_top_prove_v1] smt2: finished (returncode=0)
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: starting process &quot;cd i2c_master_top_prove_v1; yosys-smtbmc -s yices --presat --unroll --noprogress -t 80  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: ##   0:00:00  Solver: yices
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: ##   0:00:00  BMC failed!
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: ##   0:00:00  Assert failed in i2c_master_top_prove_formal: i2c_master_top_prove_formal.sv:157.7-157.32 (_witness_.check_assert_i2c_master_top_prove_formal_sv_157_88)
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: ##   0:00:00  Status: failed
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: finished (returncode=1)
+SBY  6:38:25 [i2c_master_top_prove_v1] engine_0: Status returned by engine: FAIL
+SBY  6:38:25 [i2c_master_top_prove_v1] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY  6:38:25 [i2c_master_top_prove_v1] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:38:25 [i2c_master_top_prove_v1] summary: engine_0 (smtbmc yices) returned FAIL
+SBY  6:38:25 [i2c_master_top_prove_v1] summary: counterexample trace: i2c_master_top_prove_v1/engine_0/trace.vcd
+SBY  6:38:25 [i2c_master_top_prove_v1] summary:   failed assertion i2c_master_top_prove_formal._witness_.check_assert_i2c_master_top_prove_formal_sv_157_88 at i2c_master_top_prove_formal.sv:157.7-157.32
+SBY  6:38:25 [i2c_master_top_prove_v1] DONE (FAIL, rc=2)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

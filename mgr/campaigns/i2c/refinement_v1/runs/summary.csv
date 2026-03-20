@@ -1,0 +1,11 @@
+mutant_id,mutation_class,line_no,original_snippet,mutated_snippet,result,run_dir
+M001,predicate_inversion,183,      else if (wb_rst_i),      else if (!(wb_rst_i)),SURVIVED,/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M001
+M002,predicate_inversion,190,        if (wb_wacc),        if (!(wb_wacc)),SURVIVED,/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M002
+M003,predicate_inversion,203,      else if (wb_rst_i),      else if (!(wb_rst_i)),SURVIVED,/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M003
+M004,predicate_inversion,205,      else if (wb_wacc),      else if (!(wb_wacc)),SURVIVED,/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M004
+M005,predicate_inversion,212,            if (done | i2c_al),            if (!(done | i2c_al)),SURVIVED,/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M005
+M006,predicate_inversion,267,      else if (wb_rst_i),      else if (!(wb_rst_i)),SURVIVED,/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M006
+M007,predicate_inversion,287,      else if (wb_rst_i),      else if (!(wb_rst_i)),SURVIVED,/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M007
+M008,equality_flip,207,            if (core_en & (wb_adr_i == 3'b100) ),            if (core_en & (wb_adr_i != 3'b100) ),SURVIVED,/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M008
+M009,bit_literal_flip,82,    parameter logic ARST_LVL = 1'b0; // asynchronous reset level,    parameter logic ARST_LVL = 1'b1; // asynchronous reset level,KILLED,/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M009
+M010,bit_literal_flip,108,    output scl_pad_o;       // SCL-line output (always 1'b0),    output scl_pad_o;       // SCL-line output (always 1'b1),SURVIVED,/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/runs/M010

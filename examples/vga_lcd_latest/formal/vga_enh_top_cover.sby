@@ -1,0 +1,45 @@
+[options]
+mode bmc
+depth 50
+
+[engines]
+smtbmc yices
+
+[script]
+read -formal generic_dpram.v
+read -formal generic_spram.v
+read -formal vga_clkgen.v
+read -formal vga_colproc.v
+read -formal vga_csm_pb.v
+read -formal vga_cur_cregs.v
+read -formal vga_curproc.v
+read -formal vga_fifo.v
+read -formal vga_fifo_dc.v
+read -formal vga_pgen.v
+read -formal vga_tgen.v
+read -formal vga_vtim.v
+read -formal vga_wb_master.v
+read -formal vga_wb_slave.v
+read -formal vga_enh_top.v
+read -formal vga_enh_top_cover_formal.sv
+prep -top vga_enh_top_cover_formal
+
+[files]
+../timescale.v
+../vga_defines.v
+../generic_dpram.v
+../generic_spram.v
+../vga_clkgen.v
+../vga_colproc.v
+../vga_csm_pb.v
+../vga_cur_cregs.v
+../vga_curproc.v
+../vga_fifo.v
+../vga_fifo_dc.v
+../vga_pgen.v
+../vga_tgen.v
+../vga_vtim.v
+../vga_wb_master.v
+../vga_wb_slave.v
+../vga_enh_top.v
+vga_enh_top_cover_formal.sv

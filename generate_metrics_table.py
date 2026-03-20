@@ -1,8 +1,24 @@
+#!/usr/bin/env python3
+"""
+generate_metrics_table.py  –  Batch complexity profiler for all benchmark designs.
+
+Walks the examples/ directory tree, finds every design_stats.json produced by
+Yosys (via manage_formal.py or a manual 'yosys -s get_stats.ys' run), computes
+structural metrics for each design, pretty-prints a table to stdout, and saves
+the results to metrics_table.csv.
+
+Usage:
+  python3 generate_metrics_table.py
+
+Output:
+  metrics_table.csv  (written to the current directory)
+"""
+
 import os
 import csv
 from extract_complexity_metrics import analyze_complexity
 
-ROOT = "examples"
+ROOT = "examples"  # root directory to scan for design_stats.json files
 
 results = []
 

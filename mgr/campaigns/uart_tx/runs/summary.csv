@@ -1,0 +1,21 @@
+mutant_id,mutation_class,line_no,original_snippet,mutated_snippet,result,run_dir
+M001,constant_perturbation,41,    reg [$clog2(BaudDiv)-1:0] baud_cnt;     // Baud rate counter,    reg [$clog2(BaudDiv)-2:0] baud_cnt;     // Baud rate counter,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M001
+M002,constant_perturbation,42,    reg [2:0] bit_idx;                      // Current bit index (0-7),    reg [3:0] bit_idx;                      // Current bit index (0-7),SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M002
+M003,equality_flip,46,    wire baud_tick = (baud_cnt == BaudDiv - 1);,    wire baud_tick = (baud_cnt != BaudDiv - 1);,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M003
+M004,constant_perturbation,46,    wire baud_tick = (baud_cnt == BaudDiv - 1);,    wire baud_tick = (baud_cnt == BaudDiv - 2);,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M004
+M005,predicate_inversion,49,        if (rst) begin,        if (!(rst)) begin,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M005
+M006,constant_perturbation,51,            tx_serial <= 1'b1;,            tx_serial <= 2'b1;,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M006
+M007,constant_perturbation,52,            tx_busy   <= 1'b0;,            tx_busy   <= 2'b0;,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M007
+M008,constant_perturbation,53,            baud_cnt  <= {($clog2(BaudDiv)){1'b0}};,            baud_cnt  <= {($clog2(BaudDiv)){2'b0}};,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M008
+M009,constant_perturbation,54,            bit_idx   <= 3'd0;,            bit_idx   <= 3'd1;,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M009
+M010,constant_perturbation,55,            shift_reg <= 8'd0;,            shift_reg <= 8'd1;,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M010
+M011,constant_perturbation,60,                    tx_serial <= 1'b1;  // Line idles high,                    tx_serial <= 2'b1;  // Line idles high,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M011
+M012,constant_perturbation,61,                    tx_busy   <= 1'b0;  // Not busy,                    tx_busy   <= 2'b0;  // Not busy,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M012
+M013,constant_perturbation,62,                    baud_cnt  <= {($clog2(BaudDiv)){1'b0}};,                    baud_cnt  <= {($clog2(BaudDiv)){2'b0}};,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M013
+M014,constant_perturbation,63,                    bit_idx   <= 3'd0;,                    bit_idx   <= 3'd1;,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M014
+M015,predicate_inversion,64,                    if (tx_start) begin,                    if (!(tx_start)) begin,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M015
+M016,constant_perturbation,66,                        tx_busy   <= 1'b1;,                        tx_busy   <= 2'b1;,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M016
+M017,constant_perturbation,73,                    tx_serial <= 1'b0;  // Start bit is always 0,                    tx_serial <= 2'b0;  // Start bit is always 0,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M017
+M018,predicate_inversion,74,                    if (baud_tick) begin,                    if (!(baud_tick)) begin,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M018
+M019,constant_perturbation,75,                        baud_cnt <= {($clog2(BaudDiv)){1'b0}};,                        baud_cnt <= {($clog2(BaudDiv)){2'b0}};,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M019
+M020,constant_perturbation,78,                        baud_cnt <= baud_cnt + 1'b1;,                        baud_cnt <= baud_cnt + 2'b1;,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/runs/M020

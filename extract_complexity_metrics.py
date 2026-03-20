@@ -1,13 +1,39 @@
+#!/usr/bin/env python3
+"""
+extract_complexity_metrics.py  –  Structural complexity profiler.
+
+Reads a Yosys 'stat -json' file and computes the following metrics:
+
+  D_A         Arithmetic density   = arith_cells / total_logic_cells
+  D_M         Mux/control density  = mux_cells   / total_logic_cells
+  W           Average internal word width (bits per internal wire)
+  W_norm      W normalised to W_REF=64  (clamped at 1.0)
+  D_R         Total memory bits (from num_memory_bits)
+  D_R_norm    D_R normalised to DR_REF=1Mbit (clamped at 1.0)
+  I_C         Interface complexity = port_bits / total_wire_bits
+  CHI_ANALYTIC Raw analytic score: (D_A*W) + D_M + (D_R/I_C)
+  CHI_NORM    Weighted normalised score used by select_solver():
+              0.40*W_norm + 0.35*D_M + 0.15*D_A + 0.05*D_R_norm + 0.05*I_C
+
+Usage (standalone):
+  python3 extract_complexity_metrics.py <design_stats.json>
+
+Usage (as library):
+  from extract_complexity_metrics import analyze_complexity
+  metrics = analyze_complexity("path/to/design_stats.json")
+"""
+
 import json
 import sys
 
 # -----------------------------
 # Normalization / weighting knobs
 # -----------------------------
-W_REF = 64
-DR_REF = 1048576   # 1 Mbit reference
-EPS = 1e-9
+W_REF = 64          # Reference word width for W_norm (64-bit = 1.0)
+DR_REF = 1048576    # Reference memory size for D_R_norm (1 Mbit = 1.0)
+EPS = 1e-9          # Small epsilon to avoid division by zero
 
+# Weights for CHI_NORM (must sum to 1.0)
 W_WEIGHT = 0.40
 DM_WEIGHT = 0.35
 DA_WEIGHT = 0.15
@@ -16,12 +42,23 @@ IC_WEIGHT = 0.05
 
 
 def analyze_complexity(filename):
+    """
+    Compute structural complexity metrics from a Yosys stat-JSON file.
+
+    Args:
+        filename: path to a JSON file produced by 'yosys stat -json'
+                  (or extracted by extract_stat_json.py).
+
+    Returns:
+        dict with keys: D_A, D_M, W, W_norm, D_R, D_R_norm, I_C,
+                        Logic_Cells, CHI_ANALYTIC, CHI_NORM.
+    """
     with open(filename, "r") as f:
         stats = json.load(f)
 
     design = stats["design"]
 
-    # Define cell categories
+    # Cell categories for density computation
     arith_types = [
         "$add", "$sub", "$mul", "$alu",
         "$shl", "$shr", "$lt", "$le",
@@ -32,7 +69,8 @@ def analyze_complexity(filename):
 
     cells = design["num_cells_by_type"]
 
-    # Total logic cells: remove ignored memory-init cells and submodule refs
+    # Total logic cells: strip memory-init pseudo-cells and submodule references
+    # (cells without a '$' prefix are hierarchical instantiations, not primitives)
     total_logic_cells = design["num_cells"]
     for cell_type, count in cells.items():
         if cell_type in ignored_types:

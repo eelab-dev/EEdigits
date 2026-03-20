@@ -1,3 +1,29 @@
+#!/usr/bin/env python3
+"""
+manage_formal.py  –  Predictive Solver Portfolio (PSP) orchestrator.
+
+Pipeline (run in order):
+  1. run_yosys_stats()      – invoke Yosys on the RTL to produce a full log
+                              containing a 'stat -json' block.
+  2. extract_clean_json()   – strip the JSON stats block from the raw log
+                              using extract_stat_json.py.
+  3. analyze_complexity()   – compute structural complexity metrics
+                              (D_A, D_M, W, D_R, I_C, CHI_NORM) from the JSON.
+  4. select_solver()        – pick the best SMT backend based on the metrics.
+  5. generate_sby()         – write a SymbiYosys (.sby) config ready to run.
+
+Usage:
+  python3 manage_formal.py <top_module> <k_depth> <rtl_files...>
+      [--formal_sv <harness.sv>]
+      [--formal_top <formal_top_module>]
+      [--prep_flags <extra_yosys_prep_flags>]
+
+Exceptions handled separately:
+  - up8_minimal  : requires --prep_flags "-chparam MEM_SIZE 65536" and
+                   special read flags in the [script] section (see up8 README).
+  - generic_fifo : use RTL from examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/
+"""
+
 import os
 import sys
 import subprocess
@@ -6,7 +32,13 @@ from extract_complexity_metrics import analyze_complexity
 
 
 def run_yosys_stats(top_module, v_files, ys_file, dump_file):
-    """Run Yosys and save the full log."""
+    """
+    Write a temporary Yosys script, run it, and save the full stdout log.
+
+    The script runs: read_verilog -> hierarchy -> proc/opt -> stat -json.
+    The full log (including the embedded JSON stats block) is written to
+    dump_file for downstream parsing by extract_clean_json().
+    """
     yosys_script = f"""
 read_verilog -sv {' '.join(v_files)}
 hierarchy -check -top {top_module}
@@ -39,52 +71,76 @@ stat -json -top {top_module}
 
 
 def extract_clean_json(dump_file, json_file, extractor_script):
-    """Use the existing extractor script to produce clean JSON."""
+    """
+    Parse the raw Yosys log and isolate the 'stat -json' JSON block.
+
+    Calls extract_stat_json.py with the log on stdin; the clean JSON is
+    written to json_file and returned for consumption by analyze_complexity().
+    """
     print("[FRAMEWORK] Extracting clean JSON statistics...")
 
-    with open(dump_file, "r") as fin, open(json_file, "w") as fout:
-        subprocess.run(
-            ["python3", extractor_script],
-            stdin=fin,
-            stdout=fout,
-            text=True,
-            check=True
-        )
+    subprocess.run(
+        ["python3", extractor_script, dump_file, json_file],
+        check=True
+    )
 
     return json_file
 
 
 def select_solver(metrics, k_depth):
-    """Rule-based solver selector based on current 6-benchmark evidence."""
+    """
+    Rule-based solver selection using structural metrics.
+
+    Current evidence from 8 benchmarks suggests:
+      - Bitwuzla is best for very wide datapaths and symbolic-pointer style cases.
+      - Yices is best for control-heavy, memory-heavy, and moderate-width pipelined logic.
+      - chi_norm is a summary score, not a direct solver selector.
+
+    Decision priority (first matching rule wins):
+      1. W_norm > 0.50  (very wide datapath)                -> Bitwuzla
+      2. D_M   > 0.35   (high mux/control density)          -> Yices
+      3. I_C   > 0.35 AND W_norm < 0.10  (symbolic-pointer) -> Bitwuzla
+      4. D_A   > 0.30 AND W_norm < 0.25  (pipelined arith)  -> Yices
+      5. D_R_norm > 0.30  (memory-heavy)                    -> Yices
+      Default                                               -> Yices
+    """
     w_norm = metrics["W_norm"]
     da = metrics["D_A"]
     dm = metrics["D_M"]
     dr_norm = metrics["D_R_norm"]
     ic = metrics["I_C"]
-    chi = metrics["CHI_NORM"]
 
+    # 1. Very wide datapaths -> Bitwuzla
     if w_norm > 0.50:
         return "smtbmc bitwuzla", f"Wide-word datapath detected (W_norm={w_norm:.2f})."
 
+    # 2. High mux/control density -> Yices
     if dm > 0.35:
         return "smtbmc yices", f"High control density detected (D_M={dm:.2f})."
 
-    if da > 0.25:
-        return "smtbmc bitwuzla", f"Arithmetic-heavy datapath detected (D_A={da:.2f})."
+    # 3. Symbolic-pointer / high-index narrow designs -> Bitwuzla
+    if ic > 0.35 and w_norm < 0.10:
+        return "smtbmc bitwuzla", f"High index complexity with narrow datapath detected (I_C={ic:.2f}, W_norm={w_norm:.2f})."
 
-    if ic > 0.35:
-        return "smtbmc bitwuzla", f"High index/interface complexity detected (I_C={ic:.2f})."
+    # 4. Arithmetic-heavy but not wide -> Yices
+    if da > 0.30 and w_norm < 0.25:
+        return "smtbmc yices", f"Arithmetic-heavy moderate-width pipeline detected (D_A={da:.2f}, W_norm={w_norm:.2f})."
 
+    # 5. Memory-heavy -> Yices
     if dr_norm > 0.30:
         return "smtbmc yices", f"Memory-heavy design detected (D_R_norm={dr_norm:.2f})."
 
-    if chi > 0.25:
-        return "smtbmc bitwuzla", f"Elevated normalized complexity detected (Chi={chi:.2f})."
-
-    return "smtbmc yices", f"Defaulting to Yices for general control-oriented RTL (Chi={chi:.2f})."
+    # Default
+    return "smtbmc yices", "Defaulting to Yices for general control-oriented or mixed RTL."
 
 def generate_sby(top_module, v_files, engine, k_depth, sby_file, formal_sv=None, formal_top=None, prep_flags=""):
-    """Write the .sby configuration file."""
+    """
+    Write a SymbiYosys (.sby) configuration file.
+
+    The [script] section uses bare filenames (sby copies all [files] into its
+    working directory before running Yosys), so only the basename is needed.
+    The [files] section uses paths relative to the .sby file location.
+    """
     sby_dir = os.path.dirname(sby_file)
 
     # [script] section: read RTL by basename, then read formal harness if provided

@@ -1,5 +1,0 @@
-
-read_verilog -sv /workspaces/digital-tools/examples/generic_fifo_lfsr/timescale.v /workspaces/digital-tools/examples/generic_fifo_lfsr/generic_dpram_formal.v /workspaces/digital-tools/examples/generic_fifo_lfsr/generic_fifo_lfsr.v
-hierarchy -check -top generic_fifo_lfsr
-proc; opt;
-stat -json -top generic_fifo_lfsr

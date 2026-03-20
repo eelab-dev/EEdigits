@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-03-19T06:44:17" hostname="641808cb3e01" package="generic_fifo_lfsr_prove_v1" id="0" name="default" tests="8" errors="0" failures="2" time="0" skipped="7">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="FAIL"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<failure type="FAIL" message="Task returned status FAIL." />
+</testcase>
+<testcase classname="default" name="Property ASSERT in generic_fifo_lfsr_prove_formal at generic_fifo_lfsr_prove_formal.sv:127.9-127.34" time="0" type="ASSERT" location="generic_fifo_lfsr_prove_formal.sv:127.9-127.34" id="_witness_.check_assert_generic_fifo_lfsr_prove_formal_sv_127_76">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in generic_fifo_lfsr_prove_formal at generic_fifo_lfsr_prove_formal.sv:132.9-132.39" time="0" type="ASSERT" location="generic_fifo_lfsr_prove_formal.sv:132.9-132.39" id="_witness_.check_assert_generic_fifo_lfsr_prove_formal_sv_132_78">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in generic_fifo_lfsr_prove_formal at generic_fifo_lfsr_prove_formal.sv:78.7-78.40" time="0" type="ASSERT" location="generic_fifo_lfsr_prove_formal.sv:78.7-78.40" id="_witness_.check_assert_generic_fifo_lfsr_prove_formal_sv_78_44">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in generic_fifo_lfsr_prove_formal at generic_fifo_lfsr_prove_formal.sv:79.7-79.43" time="0" type="ASSERT" location="generic_fifo_lfsr_prove_formal.sv:79.7-79.43" id="_witness_.check_assert_generic_fifo_lfsr_prove_formal_sv_79_46" tracefile="engine_0/trace.vcd">
+<failure type="ASSERT" message="Property ASSERT in generic_fifo_lfsr_prove_formal at generic_fifo_lfsr_prove_formal.sv:79.7-79.43 failed. Trace file: engine_0/trace.vcd" />
+</testcase>
+<testcase classname="default" name="Property ASSERT in generic_fifo_lfsr_prove_formal at generic_fifo_lfsr_prove_formal.sv:80.7-80.50" time="0" type="ASSERT" location="generic_fifo_lfsr_prove_formal.sv:80.7-80.50" id="_witness_.check_assert_generic_fifo_lfsr_prove_formal_sv_80_49">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in generic_fifo_lfsr_prove_formal at generic_fifo_lfsr_prove_formal.sv:140.7-140.26" time="0" type="COVER" location="generic_fifo_lfsr_prove_formal.sv:140.7-140.26" id="_witness_.check_cover_generic_fifo_lfsr_prove_formal_sv_140_88">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in generic_fifo_lfsr_prove_formal at generic_fifo_lfsr_prove_formal.sv:141.7-141.66" time="0" type="COVER" location="generic_fifo_lfsr_prove_formal.sv:141.7-141.66" id="_witness_.check_cover_generic_fifo_lfsr_prove_formal_sv_141_89">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in generic_fifo_lfsr_prove_formal at generic_fifo_lfsr_prove_formal.sv:142.7-142.46" time="0" type="COVER" location="generic_fifo_lfsr_prove_formal.sv:142.7-142.46" id="_witness_.check_cover_generic_fifo_lfsr_prove_formal_sv_142_93">
+<skipped />
+</testcase>
+<system-out>SBY  6:44:17 [generic_fifo_lfsr_prove_v1] Removing directory '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M003/generic_fifo_lfsr_prove_v1'.
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M003/timescale.v' to '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M003/generic_fifo_lfsr_prove_v1/src/timescale.v'.
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M003/generic_fifo_lfsr.v' to '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M003/generic_fifo_lfsr_prove_v1/src/generic_fifo_lfsr.v'.
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M003/generic_dpram_formal.v' to '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M003/generic_fifo_lfsr_prove_v1/src/generic_dpram_formal.v'.
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M003/generic_fifo_lfsr_prove_formal.sv' to '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M003/generic_fifo_lfsr_prove_v1/src/generic_fifo_lfsr_prove_formal.sv'.
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: smtbmc --nopresat z3
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] base: starting process &quot;cd generic_fifo_lfsr_prove_v1/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] base: Warning: Encountered `translate_off' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using a portable and standards-compliant construct such as `ifdef is recommended!
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] base: Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] base: finished (returncode=0)
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] prep: starting process &quot;cd generic_fifo_lfsr_prove_v1/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] prep: Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] prep: finished (returncode=0)
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] smt2: starting process &quot;cd generic_fifo_lfsr_prove_v1/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] smt2: finished (returncode=0)
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: starting process &quot;cd generic_fifo_lfsr_prove_v1; yosys-smtbmc -s z3 --noprogress -t 15  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Solver: z3
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  BMC failed!
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Value for anyconst generic_fifo_lfsr_prove_formal.watched_data (generic_fifo_lfsr_prove_formal.sv:86.35-86.47): 2
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Assert failed in generic_fifo_lfsr_prove_formal: generic_fifo_lfsr_prove_formal.sv:79.7-79.43 (_witness_.check_assert_generic_fifo_lfsr_prove_formal_sv_79_46)
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: ##   0:00:00  Status: failed
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: finished (returncode=1)
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] engine_0: Status returned by engine: FAIL
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] summary: engine_0 (smtbmc --nopresat z3) returned FAIL
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] summary: counterexample trace: generic_fifo_lfsr_prove_v1/engine_0/trace.vcd
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] summary:   failed assertion generic_fifo_lfsr_prove_formal._witness_.check_assert_generic_fifo_lfsr_prove_formal_sv_79_46 at generic_fifo_lfsr_prove_formal.sv:79.7-79.43 step 4
+SBY  6:44:17 [generic_fifo_lfsr_prove_v1] DONE (FAIL, rc=2)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>
