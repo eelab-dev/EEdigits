@@ -1,7 +1,6 @@
-# Agentic Formal Verification Toolchain
+# PRAMANA — Proof-centric RTL Agentic Model for Assurance, Narrative, and Automation
 
-An automated, agent-driven formal verification workflow for RTL designs.
-The workflow consists of three agents running in sequence:
+**PRAMANA** takes its name from Sanskrit, where it means *measure*, *proof*, or *means of knowledge*. The tool aims to execute the hardware verification lifecycle autonomously — from harness quality assessment through solver selection to failure explanation — as a fully closed-loop agentic system. This repository implements the foundational tier of that vision: autonomous formal verification via three cooperating agents.
 
 | Agent | Name | Purpose |
 |---|---|---|
@@ -563,13 +562,13 @@ sby -f examples/up8_minimal/formal/up8_isa_step_z3.sby
 
 All 8 benchmarks verified against Table 4 (observed ASL in s/step, lower = faster).
 
-| Design | W_norm | D_A | D_M | I_C | DR_norm | Rule fired | PSP pick | Table 4 winner | ✓? |
-|---|---|---|---|---|---|---|---|---|---|
-| I2C Master | 0.047 | 0.143 | 0.390 | 0.122 | 0.000 | D_M > 0.35 | yices | yices (0.038) | ✓ |
-| UART (Full) | 0.047 | 0.239 | 0.349 | 0.143 | 0.000 | default | yices | yices (0.008) | ✓ |
-| Sync. FIFO | 0.031 | 0.132 | 0.289 | 0.423 | 0.000 | I_C > 0.35 ∧ W_norm < 0.10 | bitwuzla | bitwuzla (2.733) | ✓ |
-| SDRAM Controller | 0.062 | 0.180 | 0.384 | 0.161 | 0.000 | D_M > 0.35 | yices | yices (0.024) | ✓ |
-| Pipelined FFT 256 | 0.156 | 0.374 | 0.096 | 0.054 | 0.035 | D_A > 0.30 ∧ W_norm < 0.25 | yices | yices (0.613) | ✓ |
-| SHA3 (Keccak) | 1.000 | 0.017 | 0.019 | 0.158 | 0.000 | W_norm > 0.50 | bitwuzla | bitwuzla (0.250) | ✓ |
-| VGA LCD | 0.078 | 0.146 | 0.257 | 0.326 | 0.016 | default | yices | yices (0.150) | ✓ |
-| uP8 (Add/ISA) | 0.094 | 0.224 | 0.598 | 0.033 | 0.500 | D_M > 0.35 | yices | yices (0.044/0.556) | ✓ |
+| Design | W_norm | D_A | D_M | I_C | DR_norm | Rule fired | PSP pick | Table 4 winner |
+|---|---|---|---|---|---|---|---|---|
+| I2C Master | 0.047 | 0.143 | 0.390 | 0.122 | 0.000 | D_M > 0.35 | yices | yices (0.038) |
+| UART (Full) | 0.047 | 0.239 | 0.349 | 0.143 | 0.000 | default | yices | yices (0.008) |
+| Sync. FIFO | 0.031 | 0.132 | 0.289 | 0.423 | 0.000 | I_C > 0.35 ∧ W_norm < 0.10 | bitwuzla | bitwuzla (2.733) |
+| SDRAM Controller | 0.062 | 0.180 | 0.384 | 0.161 | 0.000 | D_M > 0.35 | yices | yices (0.024) |
+| Pipelined FFT 256 | 0.156 | 0.374 | 0.096 | 0.054 | 0.035 | D_A > 0.30 ∧ W_norm < 0.25 | yices | yices (0.613) |
+| SHA3 (Keccak) | 1.000 | 0.017 | 0.019 | 0.158 | 0.000 | W_norm > 0.50 | bitwuzla | bitwuzla (0.250) |
+| VGA LCD | 0.078 | 0.146 | 0.257 | 0.326 | 0.016 | default | yices | yices (0.150) |
+| uP8 (Add/ISA) | 0.094 | 0.224 | 0.598 | 0.033 | 0.500 | D_M > 0.35 | yices | yices (0.044/0.556) |
