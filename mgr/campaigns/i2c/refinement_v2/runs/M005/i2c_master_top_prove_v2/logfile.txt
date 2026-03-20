@@ -1,0 +1,77 @@
+SBY  7:19:55 [i2c_master_top_prove_v2] Removing directory '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M005/i2c_master_top_prove_v2'.
+SBY  7:19:55 [i2c_master_top_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M005/i2c_master_defines.v' to '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M005/i2c_master_top_prove_v2/src/i2c_master_defines.v'.
+SBY  7:19:55 [i2c_master_top_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M005/i2c_master_bit_ctrl_formal.v' to '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M005/i2c_master_top_prove_v2/src/i2c_master_bit_ctrl_formal.v'.
+SBY  7:19:55 [i2c_master_top_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M005/i2c_master_byte_ctrl_formal.v' to '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M005/i2c_master_top_prove_v2/src/i2c_master_byte_ctrl_formal.v'.
+SBY  7:19:55 [i2c_master_top_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M005/i2c_master_top_formal.v' to '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M005/i2c_master_top_prove_v2/src/i2c_master_top_formal.v'.
+SBY  7:19:55 [i2c_master_top_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M005/i2c_master_top_prove_formal_v2.sv' to '/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M005/i2c_master_top_prove_v2/src/i2c_master_top_prove_formal_v2.sv'.
+SBY  7:19:55 [i2c_master_top_prove_v2] engine_0: smtbmc yices
+SBY  7:19:55 [i2c_master_top_prove_v2] base: starting process "cd i2c_master_top_prove_v2/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:77: Warning: Identifier `\dut.core_en' is implicitly declared.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:77: Warning: Identifier `\dut.prer' is implicitly declared.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:87: Warning: Identifier `\dut.tip' is implicitly declared.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:98: Warning: Identifier `\dut.done' is implicitly declared.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:133: Warning: Range select [7:0] out of bounds on signal `\dut.prer': Setting all 8 result bits to undef.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:134: Warning: Range select [15:8] out of bounds on signal `\dut.prer': Setting all 8 result bits to undef.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:135: Warning: Identifier `\dut.ctr' is implicitly declared.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:136: Warning: Identifier `\dut.txr' is implicitly declared.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:137: Warning: Identifier `\dut.cr' is implicitly declared.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:140: Warning: Range select [7:4] out of bounds on signal `\dut.cr': Setting all 4 result bits to undef.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:143: Warning: Identifier `\dut.rd' is implicitly declared.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:143: Warning: Identifier `\dut.wr' is implicitly declared.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:144: Warning: Identifier `\dut.irq_flag' is implicitly declared.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:144: Warning: Identifier `\dut.ien' is implicitly declared.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: i2c_master_top_prove_formal_v2.sv:139: Warning: Identifier `\dut.i2c_al' is implicitly declared.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\wb_clk_i is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\dut.prer is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\dut.ctr is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\dut.txr is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\dut.cr is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\dut.rd is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\dut.wr is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\dut.core_en is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\dut.i2c_al is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\dut.ien is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\dut.done is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\dut.irq_flag is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: Warning: Wire i2c_master_top_prove_formal_v2.\dut.tip is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] base: finished (returncode=0)
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: starting process "cd i2c_master_top_prove_v2/model; yosys -ql design_prep.log design_prep.ys"
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\wb_clk_i is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\dut.wr is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\dut.rd is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\dut.i2c_al is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\dut.ien is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\dut.irq_flag is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\dut.core_en is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\dut.done is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\dut.prer is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\dut.tip is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\dut.cr is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\dut.txr is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: Warning: Wire i2c_master_top_prove_formal_v2.\dut.ctr is used but has no driver.
+SBY  7:19:56 [i2c_master_top_prove_v2] prep: finished (returncode=0)
+SBY  7:19:56 [i2c_master_top_prove_v2] smt2: starting process "cd i2c_master_top_prove_v2/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  7:19:56 [i2c_master_top_prove_v2] smt2: finished (returncode=0)
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: starting process "cd i2c_master_top_prove_v2; yosys-smtbmc -s yices --presat --unroll --noprogress -t 120  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Solver: yices
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  BMC failed!
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Assert failed in i2c_master_top_prove_formal_v2: i2c_master_top_prove_formal_v2.sv:140.9-140.50 (_witness_.check_assert_i2c_master_top_prove_formal_v2_sv_140_136)
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: ##   0:00:00  Status: failed
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: finished (returncode=1)
+SBY  7:19:56 [i2c_master_top_prove_v2] engine_0: Status returned by engine: FAIL
+SBY  7:19:56 [i2c_master_top_prove_v2] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+SBY  7:19:56 [i2c_master_top_prove_v2] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  7:19:56 [i2c_master_top_prove_v2] summary: engine_0 (smtbmc yices) returned FAIL
+SBY  7:19:56 [i2c_master_top_prove_v2] summary: counterexample trace: i2c_master_top_prove_v2/engine_0/trace.vcd
+SBY  7:19:56 [i2c_master_top_prove_v2] summary:   failed assertion i2c_master_top_prove_formal_v2._witness_.check_assert_i2c_master_top_prove_formal_v2_sv_140_136 at i2c_master_top_prove_formal_v2.sv:140.9-140.50 step 2
+SBY  7:19:56 [i2c_master_top_prove_v2] DONE (FAIL, rc=2)

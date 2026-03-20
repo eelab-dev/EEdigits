@@ -161,7 +161,7 @@ module up8_cpu #(
     reg        alu_c;
 
     integer k;
-    always @* begin
+    always_comb begin
         pc_next = pc;
         z_next = z;
         c_next = c;

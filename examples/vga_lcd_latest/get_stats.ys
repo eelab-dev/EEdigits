@@ -1,0 +1,26 @@
+# get_stats.ys for VGA LCD
+
+read_verilog -sv -I . \
+  timescale.v \
+  vga_defines.v \
+  generic_dpram.v \
+  generic_spram.v \
+  vga_clkgen.v \
+  vga_colproc.v \
+  vga_csm_pb.v \
+  vga_cur_cregs.v \
+  vga_curproc.v \
+  vga_fifo.v \
+  vga_fifo_dc.v \
+  vga_pgen.v \
+  vga_tgen.v \
+  vga_vtim.v \
+  vga_wb_master.v \
+  vga_wb_slave.v \
+  vga_enh_top.v
+
+hierarchy -check -top vga_enh_top
+
+proc; opt;
+
+stat -json -top vga_enh_top

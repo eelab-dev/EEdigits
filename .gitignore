@@ -16,4 +16,5 @@ examples/**/synthesis/*_synth.v
 
 # Common generated output folders
 examples/**/build/
-examples/**/waves/
+examples/**/waves/__pycache__/
+*.pyc

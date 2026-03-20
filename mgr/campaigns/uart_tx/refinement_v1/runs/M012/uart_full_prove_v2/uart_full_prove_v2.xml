@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-03-18T14:37:20" hostname="641808cb3e01" package="uart_full_prove_v2" id="0" name="default" tests="24" errors="0" failures="0" time="3" skipped="8">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:173.9-173.33" time="0" type="ASSERT" location="uart_full_formal_v2.sv:173.9-173.33" id="_witness_.check_assert_uart_full_formal_v2_sv_173_36">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:174.9-174.39" time="0" type="ASSERT" location="uart_full_formal_v2.sv:174.9-174.39" id="_witness_.check_assert_uart_full_formal_v2_sv_174_38">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:183.9-183.35" time="0" type="ASSERT" location="uart_full_formal_v2.sv:183.9-183.35" id="_witness_.check_assert_uart_full_formal_v2_sv_183_41">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:202.9-202.33" time="0" type="ASSERT" location="uart_full_formal_v2.sv:202.9-202.33" id="_witness_.check_assert_uart_full_formal_v2_sv_202_47">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:211.9-211.35" time="0" type="ASSERT" location="uart_full_formal_v2.sv:211.9-211.35" id="_witness_.check_assert_uart_full_formal_v2_sv_211_53">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:224.65-224.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:224.65-224.100" id="_witness_.check_assert_uart_full_formal_v2_sv_224_57">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:225.65-225.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:225.65-225.100" id="_witness_.check_assert_uart_full_formal_v2_sv_225_61">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:226.65-226.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:226.65-226.100" id="_witness_.check_assert_uart_full_formal_v2_sv_226_65">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:227.65-227.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:227.65-227.100" id="_witness_.check_assert_uart_full_formal_v2_sv_227_69">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:228.65-228.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:228.65-228.100" id="_witness_.check_assert_uart_full_formal_v2_sv_228_73">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:229.65-229.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:229.65-229.100" id="_witness_.check_assert_uart_full_formal_v2_sv_229_77">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:230.65-230.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:230.65-230.100" id="_witness_.check_assert_uart_full_formal_v2_sv_230_81">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:231.65-231.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:231.65-231.100" id="_witness_.check_assert_uart_full_formal_v2_sv_231_85">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:246.9-246.35" time="0" type="ASSERT" location="uart_full_formal_v2.sv:246.9-246.35" id="_witness_.check_assert_uart_full_formal_v2_sv_246_91">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:253.9-253.33" time="0" type="ASSERT" location="uart_full_formal_v2.sv:253.9-253.33" id="_witness_.check_assert_uart_full_formal_v2_sv_253_95">
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:271.9-271.31" time="0" type="ASSERT" location="uart_full_formal_v2.sv:271.9-271.31" id="_witness_.check_assert_uart_full_formal_v2_sv_271_98">
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:160.7-160.32" time="0" type="COVER" location="uart_full_formal_v2.sv:160.7-160.32" id="_witness_.check_cover_uart_full_formal_v2_sv_160_20">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:161.7-161.32" time="0" type="COVER" location="uart_full_formal_v2.sv:161.7-161.32" id="_witness_.check_cover_uart_full_formal_v2_sv_161_22">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:162.7-162.32" time="0" type="COVER" location="uart_full_formal_v2.sv:162.7-162.32" id="_witness_.check_cover_uart_full_formal_v2_sv_162_24">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:163.7-163.32" time="0" type="COVER" location="uart_full_formal_v2.sv:163.7-163.32" id="_witness_.check_cover_uart_full_formal_v2_sv_163_26">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:164.7-164.32" time="0" type="COVER" location="uart_full_formal_v2.sv:164.7-164.32" id="_witness_.check_cover_uart_full_formal_v2_sv_164_28">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:165.7-165.32" time="0" type="COVER" location="uart_full_formal_v2.sv:165.7-165.32" id="_witness_.check_cover_uart_full_formal_v2_sv_165_30">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:166.7-166.33" time="0" type="COVER" location="uart_full_formal_v2.sv:166.7-166.33" id="_witness_.check_cover_uart_full_formal_v2_sv_166_32">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:167.7-167.33" time="0" type="COVER" location="uart_full_formal_v2.sv:167.7-167.33" id="_witness_.check_cover_uart_full_formal_v2_sv_167_34">
+<skipped />
+</testcase>
+<system-out>SBY 14:37:13 [uart_full_prove_v2] Removing directory '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M012/uart_full_prove_v2'.
+SBY 14:37:13 [uart_full_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M012/uart_full.v' to '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M012/uart_full_prove_v2/src/uart_full.v'.
+SBY 14:37:13 [uart_full_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M012/uart_tx.v' to '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M012/uart_full_prove_v2/src/uart_tx.v'.
+SBY 14:37:13 [uart_full_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M012/uart_rx.v' to '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M012/uart_full_prove_v2/src/uart_rx.v'.
+SBY 14:37:13 [uart_full_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M012/uart_full_formal_v2.sv' to '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M012/uart_full_prove_v2/src/uart_full_formal_v2.sv'.
+SBY 14:37:13 [uart_full_prove_v2] engine_0: smtbmc yices
+SBY 14:37:13 [uart_full_prove_v2] base: starting process &quot;cd uart_full_prove_v2/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 14:37:13 [uart_full_prove_v2] base: Warning: Wire uart_full_formal.\clk is used but has no driver.
+SBY 14:37:13 [uart_full_prove_v2] base: Warning: Wire uart_full_formal.\rst is used but has no driver.
+SBY 14:37:13 [uart_full_prove_v2] base: finished (returncode=0)
+SBY 14:37:13 [uart_full_prove_v2] prep: starting process &quot;cd uart_full_prove_v2/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 14:37:14 [uart_full_prove_v2] prep: Warning: Wire uart_full_formal.\clk is used but has no driver.
+SBY 14:37:14 [uart_full_prove_v2] prep: Warning: Wire uart_full_formal.\rst is used but has no driver.
+SBY 14:37:14 [uart_full_prove_v2] prep: finished (returncode=0)
+SBY 14:37:14 [uart_full_prove_v2] smt2: starting process &quot;cd uart_full_prove_v2/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 14:37:14 [uart_full_prove_v2] smt2: finished (returncode=0)
+SBY 14:37:14 [uart_full_prove_v2] engine_0: starting process &quot;cd uart_full_prove_v2; yosys-smtbmc -s yices --presat --unroll --noprogress -t 150  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Solver: yices
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 13..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 14..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 14..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 15..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 15..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 16..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 16..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 17..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 17..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 18..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 18..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 19..
+SBY 14:37:14 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 19..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 20..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 20..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 21..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 21..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 22..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 22..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 23..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 23..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 24..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 24..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 25..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 25..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 26..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 26..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 27..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 27..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 28..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 28..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 29..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 29..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 30..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 30..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 31..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 31..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 32..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 32..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 33..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 33..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 34..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 34..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 35..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 35..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 36..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 36..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 37..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 37..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 38..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 38..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 39..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 39..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 40..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 40..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 41..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 41..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 42..
+SBY 14:37:15 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 42..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 43..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 43..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 44..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 44..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 45..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 45..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 46..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 46..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 47..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 47..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 48..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 48..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 49..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 49..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 50..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 50..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 51..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 51..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 52..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 52..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 53..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 53..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 54..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 54..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 55..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 55..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 56..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 56..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 57..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 57..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 58..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 58..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 59..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 59..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 60..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 60..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 61..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 61..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 62..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 62..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 63..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 63..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 64..
+SBY 14:37:16 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 64..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 65..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 65..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 66..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 66..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 67..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 67..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 68..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 68..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 69..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 69..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 70..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 70..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 71..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 71..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 72..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 72..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 73..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 73..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 74..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 74..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 75..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 75..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 76..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 76..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 77..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 77..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 78..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 78..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 79..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 79..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 80..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 80..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 81..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 81..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 82..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 82..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 83..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 83..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 84..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 84..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 85..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 85..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 86..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 86..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 87..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 87..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 88..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 88..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 89..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 89..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 90..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 90..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 91..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 91..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 92..
+SBY 14:37:17 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 92..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 93..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 93..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 94..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 94..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 95..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 95..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 96..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 96..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 97..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 97..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 98..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 98..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 99..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 99..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 100..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 100..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 101..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 101..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 102..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 102..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 103..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 103..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 104..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 104..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 105..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 105..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 106..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 106..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 107..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 107..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 108..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 108..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 109..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 109..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 110..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 110..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 111..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 111..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 112..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 112..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 113..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 113..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 114..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 114..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 115..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 115..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 116..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 116..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 117..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 117..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 118..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 118..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 119..
+SBY 14:37:18 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 119..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 120..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 120..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 121..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 121..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 122..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 122..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 123..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 123..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 124..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 124..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 125..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 125..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 126..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 126..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 127..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 127..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 128..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 128..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 129..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 129..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assumptions in step 130..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:01  Checking assertions in step 130..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 131..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 131..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 132..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 132..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 133..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 133..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 134..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 134..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 135..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 135..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 136..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 136..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 137..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 137..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 138..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 138..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 139..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 139..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 140..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 140..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 141..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 141..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 142..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 142..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 143..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 143..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 144..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 144..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 145..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 145..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 146..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 146..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 147..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 147..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 148..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 148..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assumptions in step 149..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Checking assertions in step 149..
+SBY 14:37:19 [uart_full_prove_v2] engine_0: ##   0:00:02  Status: passed
+SBY 14:37:19 [uart_full_prove_v2] engine_0: finished (returncode=0)
+SBY 14:37:20 [uart_full_prove_v2] engine_0: Status returned by engine: pass
+SBY 14:37:20 [uart_full_prove_v2] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:06 (6)
+SBY 14:37:20 [uart_full_prove_v2] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY 14:37:20 [uart_full_prove_v2] summary: engine_0 (smtbmc yices) returned pass
+SBY 14:37:20 [uart_full_prove_v2] summary: engine_0 did not produce any traces
+SBY 14:37:20 [uart_full_prove_v2] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

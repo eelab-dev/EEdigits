@@ -1,0 +1,587 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: timescale.v
+Parsing formal SystemVerilog input from `timescale.v' to AST representation.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: generic_dpram_formal.v
+Parsing formal SystemVerilog input from `generic_dpram_formal.v' to AST representation.
+Storing AST representation for module `$abstract\generic_dpram'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: generic_fifo_lfsr.v
+Parsing formal SystemVerilog input from `generic_fifo_lfsr.v' to AST representation.
+Warning: Encountered `translate_off' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using a portable and standards-compliant construct such as `ifdef is recommended!
+Storing AST representation for module `$abstract\generic_fifo_lfsr'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: generic_fifo_lfsr_prove_formal.sv
+Parsing formal SystemVerilog input from `generic_fifo_lfsr_prove_formal.sv' to AST representation.
+Storing AST representation for module `$abstract\generic_fifo_lfsr_prove_formal'.
+Successfully finished Verilog frontend.
+
+5. Executing PREP pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\generic_fifo_lfsr_prove_formal'.
+Generating RTLIL representation for module `\generic_fifo_lfsr_prove_formal'.
+
+5.2.1. Analyzing design hierarchy..
+Top module:  \generic_fifo_lfsr_prove_formal
+Parameter \AW = 16
+Parameter \DW = 8
+
+5.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\generic_fifo_lfsr'.
+Parameter \AW = 16
+Parameter \DW = 8
+Generating RTLIL representation for module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+
+5.2.3. Analyzing design hierarchy..
+Top module:  \generic_fifo_lfsr_prove_formal
+Used module:     $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+Parameter \AW = 16
+Parameter \DW = 8
+
+5.2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\generic_dpram'.
+Parameter \AW = 16
+Parameter \DW = 8
+Generating RTLIL representation for module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+
+5.2.5. Analyzing design hierarchy..
+Top module:  \generic_fifo_lfsr_prove_formal
+Used module:     $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+Used module:         $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram
+
+5.2.6. Analyzing design hierarchy..
+Top module:  \generic_fifo_lfsr_prove_formal
+Used module:     $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+Used module:         $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram
+Removing unused module `$abstract\generic_fifo_lfsr_prove_formal'.
+Removing unused module `$abstract\generic_fifo_lfsr'.
+Removing unused module `$abstract\generic_dpram'.
+Removed 3 unused modules.
+Module generic_fifo_lfsr_prove_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5.3. Executing PROC pass (convert processes to netlists).
+
+5.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$generic_dpram_formal.v:30$131 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Marked 1 switch rules as full_case in process $proc$generic_dpram_formal.v:24$123 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr.v:187$120 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr.v:178$118 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr.v:148$116 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr.v:142$114 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr.v:136$112 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr.v:130$110 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Marked 3 switch rules as full_case in process $proc$generic_fifo_lfsr_prove_formal.sv:94$54 in module generic_fifo_lfsr_prove_formal.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr_prove_formal.sv:64$34 in module generic_fifo_lfsr_prove_formal.
+Marked 1 switch rules as full_case in process $proc$generic_fifo_lfsr_prove_formal.sv:41$12 in module generic_fifo_lfsr_prove_formal.
+Removed a total of 0 dead cases.
+
+5.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 5 redundant assignments.
+Promoted 5 assignments to connections.
+
+5.3.4. Executing PROC_INIT pass (extract init attributes).
+
+5.3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \nReset in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:187$120'.
+Found async reset \nReset in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:178$118'.
+Found async reset \nReset in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:148$116'.
+Found async reset \nReset in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:142$114'.
+Found async reset \nReset in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:136$112'.
+Found async reset \nReset in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:130$110'.
+
+5.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~26 debug messages>
+
+5.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$proc$generic_dpram_formal.v:30$131'.
+     1/1: $0\do_o[7:0]
+Creating decoders for process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$proc$generic_dpram_formal.v:24$123'.
+     1/3: $1$memwr$\mem$generic_dpram_formal.v:26$122_EN[7:0]$130
+     2/3: $1$memwr$\mem$generic_dpram_formal.v:26$122_DATA[7:0]$129
+     3/3: $1$memwr$\mem$generic_dpram_formal.v:26$122_ADDR[15:0]$128
+Creating decoders for process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:187$120'.
+     1/1: $0\full[0:0]
+Creating decoders for process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:178$118'.
+     1/1: $0\empty[0:0]
+Creating decoders for process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:148$116'.
+     1/1: $0\wp_wrap[0:0]
+Creating decoders for process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:142$114'.
+     1/1: $0\wp[15:0]
+Creating decoders for process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:136$112'.
+     1/1: $0\rp_wrap[0:0]
+Creating decoders for process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:130$110'.
+     1/1: $0\rp[15:0]
+Creating decoders for process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:138$85'.
+     1/3: $cover$generic_fifo_lfsr_prove_formal.sv:142$93_EN
+     2/3: $cover$generic_fifo_lfsr_prove_formal.sv:141$89_EN
+     3/3: $cover$generic_fifo_lfsr_prove_formal.sv:140$88_EN
+Creating decoders for process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:122$68'.
+     1/2: $assert$generic_fifo_lfsr_prove_formal.sv:132$78_EN
+     2/2: $assert$generic_fifo_lfsr_prove_formal.sv:127$76_EN
+Creating decoders for process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:94$54'.
+     1/4: $0\watchdog[16:0]
+     2/4: $0\ahead_count[16:0]
+     3/4: $0\watched_pending[0:0]
+     4/4: $0\watched_seen[0:0]
+Creating decoders for process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:76$39'.
+     1/3: $assert$generic_fifo_lfsr_prove_formal.sv:80$49_EN
+     2/3: $assert$generic_fifo_lfsr_prove_formal.sv:79$46_EN
+     3/3: $assert$generic_fifo_lfsr_prove_formal.sv:78$44_EN
+Creating decoders for process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:64$34'.
+     1/1: $0\shadow_count[16:0]
+Creating decoders for process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:52$19'.
+     1/2: $assume$generic_fifo_lfsr_prove_formal.sv:55$27_EN
+     2/2: $assume$generic_fifo_lfsr_prove_formal.sv:54$24_EN
+Creating decoders for process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:41$12'.
+     1/4: $assume$generic_fifo_lfsr_prove_formal.sv:47$17_EN
+     2/4: $assume$generic_fifo_lfsr_prove_formal.sv:46$16_EN
+     3/4: $assume$generic_fifo_lfsr_prove_formal.sv:44$15_EN
+     4/4: $assume$generic_fifo_lfsr_prove_formal.sv:43$13_EN
+
+5.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+5.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.\do_o' using process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$proc$generic_dpram_formal.v:30$131'.
+  created $dff cell `$procdff$256' with positive edge clock.
+Creating register for signal `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$memwr$\mem$generic_dpram_formal.v:26$122_ADDR' using process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$proc$generic_dpram_formal.v:24$123'.
+  created $dff cell `$procdff$257' with positive edge clock.
+Creating register for signal `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$memwr$\mem$generic_dpram_formal.v:26$122_DATA' using process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$proc$generic_dpram_formal.v:24$123'.
+  created $dff cell `$procdff$258' with positive edge clock.
+Creating register for signal `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$memwr$\mem$generic_dpram_formal.v:26$122_EN' using process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$proc$generic_dpram_formal.v:24$123'.
+  created $dff cell `$procdff$259' with positive edge clock.
+Creating register for signal `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.\full' using process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:187$120'.
+  created $adff cell `$procdff$264' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.\empty' using process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:178$118'.
+  created $adff cell `$procdff$269' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.\wp_wrap' using process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:148$116'.
+  created $adff cell `$procdff$274' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.\wp' using process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:142$114'.
+  created $adff cell `$procdff$279' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.\rp_wrap' using process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:136$112'.
+  created $adff cell `$procdff$284' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.\rp' using process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:130$110'.
+  created $adff cell `$procdff$289' with positive edge clock and positive level reset.
+Creating register for signal `\generic_fifo_lfsr_prove_formal.$past$generic_fifo_lfsr_prove_formal.sv:125$5$0' using process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:122$68'.
+  created $ff cell `$procdff$290' with global clock.
+Creating register for signal `\generic_fifo_lfsr_prove_formal.$past$generic_fifo_lfsr_prove_formal.sv:126$6$0' using process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:122$68'.
+  created $ff cell `$procdff$291' with global clock.
+Creating register for signal `\generic_fifo_lfsr_prove_formal.\watched_seen' using process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:94$54'.
+  created $ff cell `$procdff$292' with global clock.
+Creating register for signal `\generic_fifo_lfsr_prove_formal.\watched_pending' using process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:94$54'.
+  created $ff cell `$procdff$293' with global clock.
+Creating register for signal `\generic_fifo_lfsr_prove_formal.\ahead_count' using process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:94$54'.
+  created $ff cell `$procdff$294' with global clock.
+Creating register for signal `\generic_fifo_lfsr_prove_formal.\watchdog' using process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:94$54'.
+  created $ff cell `$procdff$295' with global clock.
+Creating register for signal `\generic_fifo_lfsr_prove_formal.\shadow_count' using process `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:64$34'.
+  created $ff cell `$procdff$296' with global clock.
+
+5.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$proc$generic_dpram_formal.v:30$131'.
+Removing empty process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$proc$generic_dpram_formal.v:30$131'.
+Found and cleaned up 1 empty switch in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$proc$generic_dpram_formal.v:24$123'.
+Removing empty process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.$proc$generic_dpram_formal.v:24$123'.
+Found and cleaned up 1 empty switch in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:187$120'.
+Removing empty process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:187$120'.
+Found and cleaned up 1 empty switch in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:178$118'.
+Removing empty process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:178$118'.
+Found and cleaned up 1 empty switch in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:148$116'.
+Removing empty process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:148$116'.
+Found and cleaned up 2 empty switches in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:142$114'.
+Removing empty process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:142$114'.
+Found and cleaned up 1 empty switch in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:136$112'.
+Removing empty process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:136$112'.
+Found and cleaned up 2 empty switches in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:130$110'.
+Removing empty process `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:130$110'.
+Found and cleaned up 1 empty switch in `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:138$85'.
+Removing empty process `generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:138$85'.
+Found and cleaned up 3 empty switches in `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:122$68'.
+Removing empty process `generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:122$68'.
+Found and cleaned up 6 empty switches in `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:94$54'.
+Removing empty process `generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:94$54'.
+Found and cleaned up 1 empty switch in `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:76$39'.
+Removing empty process `generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:76$39'.
+Found and cleaned up 2 empty switches in `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:64$34'.
+Removing empty process `generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:64$34'.
+Found and cleaned up 1 empty switch in `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:52$19'.
+Removing empty process `generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:52$19'.
+Found and cleaned up 1 empty switch in `\generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:41$12'.
+Removing empty process `generic_fifo_lfsr_prove_formal.$proc$generic_fifo_lfsr_prove_formal.sv:41$12'.
+Cleaned up 26 empty switches.
+
+5.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+<suppressed ~12 debug messages>
+Optimizing module generic_fifo_lfsr_prove_formal.
+<suppressed ~3 debug messages>
+
+5.4. Executing FUTURE pass.
+
+5.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Optimizing module generic_fifo_lfsr_prove_formal.
+
+5.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram..
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr..
+Finding unused cells or wires in module \generic_fifo_lfsr_prove_formal..
+Removed 15 unused cells and 116 unused wires.
+<suppressed ~18 debug messages>
+
+5.7. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram...
+Checking module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr...
+Checking module generic_fifo_lfsr_prove_formal...
+Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+Found and reported 1 problems.
+
+5.8. Executing OPT pass (performing simple optimizations).
+
+5.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Optimizing module generic_fifo_lfsr_prove_formal.
+
+5.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Computing hashes of 11 cells of `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Finding duplicate cells in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Finding identical cells in module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Computing hashes of 29 cells of `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Finding duplicate cells in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Computing hashes of 28 cells of `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Finding duplicate cells in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\generic_fifo_lfsr_prove_formal'.
+Computing hashes of 128 cells of `\generic_fifo_lfsr_prove_formal'.
+Finding duplicate cells in `\generic_fifo_lfsr_prove_formal'.
+Computing hashes of 118 cells of `\generic_fifo_lfsr_prove_formal'.
+Finding duplicate cells in `\generic_fifo_lfsr_prove_formal'.
+Computing hashes of 114 cells of `\generic_fifo_lfsr_prove_formal'.
+Finding duplicate cells in `\generic_fifo_lfsr_prove_formal'.
+Computing hashes of 112 cells of `\generic_fifo_lfsr_prove_formal'.
+Finding duplicate cells in `\generic_fifo_lfsr_prove_formal'.
+Computing hashes of 110 cells of `\generic_fifo_lfsr_prove_formal'.
+Finding duplicate cells in `\generic_fifo_lfsr_prove_formal'.
+<suppressed ~54 debug messages>
+Removed a total of 19 cells.
+
+5.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \generic_fifo_lfsr_prove_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$213: \watched_pending -> 1'0
+      Replacing known input bits on port A of cell $procmux$211: \watched_pending -> 1'1
+      Replacing known input bits on port B of cell $procmux$209: \watched_pending -> 1'1
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~78 debug messages>
+
+5.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+    Consolidated identical input bits for $mux cell $procmux$141:
+      Old ports: A=8'00000000, B=8'11111111, Y=$0$memwr$\mem$generic_dpram_formal.v:26$122_EN[7:0]$126
+      New ports: A=1'0, B=1'1, Y=$0$memwr$\mem$generic_dpram_formal.v:26$122_EN[7:0]$126 [0]
+      New connections: $0$memwr$\mem$generic_dpram_formal.v:26$122_EN[7:0]$126 [7:1] = { $0$memwr$\mem$generic_dpram_formal.v:26$122_EN[7:0]$126 [0] $0$memwr$\mem$generic_dpram_formal.v:26$122_EN[7:0]$126 [0] $0$memwr$\mem$generic_dpram_formal.v:26$122_EN[7:0]$126 [0] $0$memwr$\mem$generic_dpram_formal.v:26$122_EN[7:0]$126 [0] $0$memwr$\mem$generic_dpram_formal.v:26$122_EN[7:0]$126 [0] $0$memwr$\mem$generic_dpram_formal.v:26$122_EN[7:0]$126 [0] $0$memwr$\mem$generic_dpram_formal.v:26$122_EN[7:0]$126 [0] }
+  Optimizing cells in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+  Optimizing cells in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+  Optimizing cells in module \generic_fifo_lfsr_prove_formal.
+Performed a total of 1 changes.
+
+5.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Computing hashes of 11 cells of `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Finding duplicate cells in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Finding identical cells in module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Computing hashes of 28 cells of `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Finding duplicate cells in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Finding identical cells in module `\generic_fifo_lfsr_prove_formal'.
+Computing hashes of 110 cells of `\generic_fifo_lfsr_prove_formal'.
+Finding duplicate cells in `\generic_fifo_lfsr_prove_formal'.
+Computing hashes of 102 cells of `\generic_fifo_lfsr_prove_formal'.
+Finding duplicate cells in `\generic_fifo_lfsr_prove_formal'.
+<suppressed ~24 debug messages>
+Removed a total of 8 cells.
+
+5.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram..
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr..
+Finding unused cells or wires in module \generic_fifo_lfsr_prove_formal..
+Removed 0 unused cells and 27 unused wires.
+<suppressed ~2 debug messages>
+
+5.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Optimizing module generic_fifo_lfsr_prove_formal.
+
+5.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \generic_fifo_lfsr_prove_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~62 debug messages>
+
+5.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+  Optimizing cells in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+  Optimizing cells in module \generic_fifo_lfsr_prove_formal.
+Performed a total of 0 changes.
+
+5.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Computing hashes of 11 cells of `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Finding duplicate cells in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Finding identical cells in module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Computing hashes of 28 cells of `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Finding duplicate cells in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Finding identical cells in module `\generic_fifo_lfsr_prove_formal'.
+Computing hashes of 102 cells of `\generic_fifo_lfsr_prove_formal'.
+Finding duplicate cells in `\generic_fifo_lfsr_prove_formal'.
+Removed a total of 0 cells.
+
+5.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram..
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr..
+Finding unused cells or wires in module \generic_fifo_lfsr_prove_formal..
+
+5.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Optimizing module generic_fifo_lfsr_prove_formal.
+
+5.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+5.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 15 bits (of 16) from port B of cell $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$add$generic_fifo_lfsr.v:122$96 ($add).
+Removed top 15 bits (of 16) from port B of cell $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$add$generic_fifo_lfsr.v:123$97 ($add).
+Removed top 15 bits (of 32) from port B of cell generic_fifo_lfsr_prove_formal.$le$generic_fifo_lfsr_prove_formal.sv:78$45 ($le).
+Removed top 16 bits (of 17) from port B of cell generic_fifo_lfsr_prove_formal.$sub$generic_fifo_lfsr_prove_formal.sv:104$63 ($sub).
+Removed top 15 bits (of 32) from port B of cell generic_fifo_lfsr_prove_formal.$lt$generic_fifo_lfsr_prove_formal.sv:132$79 ($lt).
+Removed top 31 bits (of 32) from port B of cell generic_fifo_lfsr_prove_formal.$gt$generic_fifo_lfsr_prove_formal.sv:141$91 ($gt).
+Removed top 1 bits (of 2) from port B of cell generic_fifo_lfsr_prove_formal.$procmux$235_CMP0 ($eq).
+
+5.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram..
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr..
+Finding unused cells or wires in module \generic_fifo_lfsr_prove_formal..
+
+5.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.12. Executing OPT pass (performing simple optimizations).
+
+5.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Optimizing module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Optimizing module generic_fifo_lfsr_prove_formal.
+
+5.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Computing hashes of 10 cells of `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Finding duplicate cells in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+Finding identical cells in module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Computing hashes of 28 cells of `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Finding duplicate cells in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+Finding identical cells in module `\generic_fifo_lfsr_prove_formal'.
+Computing hashes of 102 cells of `\generic_fifo_lfsr_prove_formal'.
+Finding duplicate cells in `\generic_fifo_lfsr_prove_formal'.
+Removed a total of 0 cells.
+
+5.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram..
+Finding unused cells or wires in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr..
+Finding unused cells or wires in module \generic_fifo_lfsr_prove_formal..
+
+5.12.4. Finished fast OPT passes.
+
+5.13. Executing SORT pass.
+
+5.14. Printing statistics.
+
+=== $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       21 wires
+      115 wire bits
+       12 public wires
+       56 public wire bits
+       12 ports
+       56 port bits
+       10 cells
+        1   $dff
+        2   $logic_and
+        1   $logic_or
+        1   $mem_v2
+        5   $mux
+
+=== $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       38 wires
+      172 wire bits
+       23 public wires
+       97 public wire bits
+       11 ports
+       25 port bits
+       27 cells
+        2   $add
+        6   $adff
+        2   $and
+        2   $eq
+        2   $logic_and
+        8   $mux
+        1   $ne
+        2   $reduce_and
+        2   $xor
+        1 submodules
+        1   $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram
+
+=== generic_fifo_lfsr_prove_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       93 wires
+      418 wire bits
+       20 public wires
+       89 public wire bits
+      101 cells
+        2   $add
+        1   $anyconst
+        6   $anyseq
+       14   $check
+        7   $eq
+        7   $ff
+        1   $gt
+        1   $initstate
+        1   $le
+       16   $logic_and
+       11   $logic_not
+        1   $logic_or
+        1   $lt
+       26   $mux
+        1   $ne
+        1   $pmux
+        1   $reduce_bool
+        3   $sub
+        1 submodules
+        1   $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      138 generic_fifo_lfsr_prove_formal
+       27 $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+       10   $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram
+
+        +----------Count including submodules.
+        | 
+      152 wires
+      705 wire bits
+       55 public wires
+      242 public wire bits
+       23 ports
+       81 port bits
+        - memories
+        - memory bits
+        - processes
+      138 cells
+        4   $add
+        6   $adff
+        2   $and
+        1   $anyconst
+        6   $anyseq
+       14   $check
+        1   $dff
+        9   $eq
+        7   $ff
+        1   $gt
+        1   $initstate
+        1   $le
+       20   $logic_and
+       11   $logic_not
+        2   $logic_or
+        1   $lt
+        1   $mem_v2
+       39   $mux
+        2   $ne
+        1   $pmux
+        2   $reduce_and
+        1   $reduce_bool
+        3   $sub
+        2   $xor
+        1 submodules
+        1   $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+
+5.15. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram...
+Checking module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr...
+Checking module generic_fifo_lfsr_prove_formal...
+Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+Found and reported 1 problems.
+
+6. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `generic_fifo_lfsr_prove_formal'. Setting top module to generic_fifo_lfsr_prove_formal.
+
+6.1. Analyzing design hierarchy..
+Top module:  \generic_fifo_lfsr_prove_formal
+Used module:     $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+Used module:         $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram
+
+6.2. Analyzing design hierarchy..
+Top module:  \generic_fifo_lfsr_prove_formal
+Used module:     $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+Used module:         $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram
+Removed 0 unused modules.
+Module generic_fifo_lfsr_prove_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+7. Executing jny backend.
+
+8. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 2 unique messages, 3 total
+End of script. Logfile hash: 696a799678, CPU: user 0.07s system 0.04s, MEM: 18.77 MB peak
+Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+Time spent: 17% 5x opt_clean (0 sec), 16% 6x opt_expr (0 sec), ...

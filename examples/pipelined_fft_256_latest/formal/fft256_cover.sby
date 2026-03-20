@@ -1,0 +1,38 @@
+[options]
+mode cover
+depth 15
+
+[engines]
+smtbmc yices
+
+[script]
+read -formal WROM256.v
+read -formal bufram256c.v
+read -formal cnorm.v
+read -formal fft16.v
+read -formal fft256.v
+read -formal mpuc1307.v
+read -formal mpuc541.v
+read -formal mpuc707.v
+read -formal mpuc924_383.v
+read -formal ram256.v
+read -formal ram2x256.v
+read -formal rotator256_v.v
+read -formal fft256_cover_formal.sv
+prep -top fft256_cover_formal
+
+[files]
+../FFT256_CONFIG.inc
+../WROM256.v
+../bufram256c.v
+../cnorm.v
+../fft16.v
+../fft256.v
+../mpuc1307.v
+../mpuc541.v
+../mpuc707.v
+../mpuc924_383.v
+../ram256.v
+../ram2x256.v
+../rotator256_v.v
+fft256_cover_formal.sv

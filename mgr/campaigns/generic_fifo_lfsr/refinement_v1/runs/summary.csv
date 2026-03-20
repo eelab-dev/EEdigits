@@ -1,0 +1,6 @@
+mutant_id,mutation_class,line_no,original_snippet,mutated_snippet,result,run_dir
+M001,predicate_inversion,131,      if (~nReset)    rp <= #1 0;,      if (!(~nReset))    rp <= #1 0;,INVALID,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M001
+M002,predicate_inversion,132,      else if (rst)   rp <= #1 0;,      else if (!(rst))   rp <= #1 0;,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M002
+M003,predicate_inversion,133,      else if (frreq) rp <= #1 rp_next;,      else if (!(frreq)) rp <= #1 rp_next;,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M003
+M004,predicate_inversion,137,      if (~nReset)    rp_wrap <= #1 1'b0;,      if (!(~nReset))    rp_wrap <= #1 1'b0;,INVALID,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M004
+M005,predicate_inversion,138,      else if (rst)   rp_wrap <= #1 1'b0;,      else if (!(rst))   rp_wrap <= #1 1'b0;,INCONCLUSIVE,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M005

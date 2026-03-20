@@ -1,0 +1,56 @@
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] Removing directory '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_fifo_lfsr_prove_yices_d15_aw16'.
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/../timescale.v' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_fifo_lfsr_prove_yices_d15_aw16/src/timescale.v'.
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/../generic_fifo_lfsr.v' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_fifo_lfsr_prove_yices_d15_aw16/src/generic_fifo_lfsr.v'.
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_dpram_formal.v' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_fifo_lfsr_prove_yices_d15_aw16/src/generic_dpram_formal.v'.
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_fifo_lfsr_prove_formal.sv' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_fifo_lfsr_prove_yices_d15_aw16/src/generic_fifo_lfsr_prove_formal.sv'.
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: smtbmc yices
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] base: starting process "cd generic_fifo_lfsr_prove_yices_d15_aw16/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] base: Warning: Encountered `translate_off' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using a portable and standards-compliant construct such as `ifdef is recommended!
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] base: Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] base: finished (returncode=0)
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] prep: starting process "cd generic_fifo_lfsr_prove_yices_d15_aw16/model; yosys -ql design_prep.log design_prep.ys"
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] prep: Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] prep: finished (returncode=0)
+SBY 10:37:44 [generic_fifo_lfsr_prove_yices_d15_aw16] smt2: starting process "cd generic_fifo_lfsr_prove_yices_d15_aw16/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] smt2: finished (returncode=0)
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: starting process "cd generic_fifo_lfsr_prove_yices_d15_aw16; yosys-smtbmc -s yices --presat --unroll --noprogress -t 15  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Solver: yices
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 10:37:45 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 10:37:47 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:02  Checking assumptions in step 12..
+SBY 10:37:47 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:02  Checking assertions in step 12..
+SBY 10:37:52 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:07  Checking assumptions in step 13..
+SBY 10:37:52 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:07  Checking assertions in step 13..
+SBY 10:38:02 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:17  Checking assumptions in step 14..
+SBY 10:38:02 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:17  Checking assertions in step 14..
+SBY 10:38:26 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: ##   0:00:41  Status: passed
+SBY 10:38:26 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: finished (returncode=0)
+SBY 10:38:26 [generic_fifo_lfsr_prove_yices_d15_aw16] engine_0: Status returned by engine: pass
+SBY 10:38:26 [generic_fifo_lfsr_prove_yices_d15_aw16] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:41 (41)
+SBY 10:38:26 [generic_fifo_lfsr_prove_yices_d15_aw16] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:41 (41)
+SBY 10:38:26 [generic_fifo_lfsr_prove_yices_d15_aw16] summary: engine_0 (smtbmc yices) returned pass
+SBY 10:38:26 [generic_fifo_lfsr_prove_yices_d15_aw16] summary: engine_0 did not produce any traces
+SBY 10:38:26 [generic_fifo_lfsr_prove_yices_d15_aw16] DONE (PASS, rc=0)
+TIME_SEC=42.03

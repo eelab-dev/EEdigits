@@ -1,0 +1,41 @@
+SBY  8:41:00 [generic_fifo_lfsr_prove] Removing directory '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_fifo_lfsr_prove'.
+SBY  8:41:00 [generic_fifo_lfsr_prove] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/../timescale.v' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_fifo_lfsr_prove/src/timescale.v'.
+SBY  8:41:00 [generic_fifo_lfsr_prove] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/../generic_fifo_lfsr.v' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_fifo_lfsr_prove/src/generic_fifo_lfsr.v'.
+SBY  8:41:00 [generic_fifo_lfsr_prove] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_dpram_formal.v' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_fifo_lfsr_prove/src/generic_dpram_formal.v'.
+SBY  8:41:00 [generic_fifo_lfsr_prove] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_fifo_lfsr_prove_formal.sv' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/formal/generic_fifo_lfsr_prove/src/generic_fifo_lfsr_prove_formal.sv'.
+SBY  8:41:00 [generic_fifo_lfsr_prove] engine_0: smtbmc --nopresat z3
+SBY  8:41:00 [generic_fifo_lfsr_prove] base: starting process "cd generic_fifo_lfsr_prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  8:41:00 [generic_fifo_lfsr_prove] base: Warning: Encountered `translate_off' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using a portable and standards-compliant construct such as `ifdef is recommended!
+SBY  8:41:00 [generic_fifo_lfsr_prove] base: Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+SBY  8:41:00 [generic_fifo_lfsr_prove] base: finished (returncode=0)
+SBY  8:41:00 [generic_fifo_lfsr_prove] prep: starting process "cd generic_fifo_lfsr_prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY  8:41:01 [generic_fifo_lfsr_prove] prep: Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+SBY  8:41:01 [generic_fifo_lfsr_prove] prep: finished (returncode=0)
+SBY  8:41:01 [generic_fifo_lfsr_prove] smt2: starting process "cd generic_fifo_lfsr_prove/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  8:41:01 [generic_fifo_lfsr_prove] smt2: finished (returncode=0)
+SBY  8:41:01 [generic_fifo_lfsr_prove] engine_0: starting process "cd generic_fifo_lfsr_prove; yosys-smtbmc -s z3 --noprogress -t 15  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  8:41:01 [generic_fifo_lfsr_prove] engine_0: ##   0:00:00  Solver: z3
+SBY  8:41:01 [generic_fifo_lfsr_prove] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  8:41:01 [generic_fifo_lfsr_prove] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY  8:41:01 [generic_fifo_lfsr_prove] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY  8:41:01 [generic_fifo_lfsr_prove] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY  8:41:01 [generic_fifo_lfsr_prove] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY  8:41:01 [generic_fifo_lfsr_prove] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY  8:41:01 [generic_fifo_lfsr_prove] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY  8:41:01 [generic_fifo_lfsr_prove] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY  8:41:01 [generic_fifo_lfsr_prove] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY  8:41:02 [generic_fifo_lfsr_prove] engine_0: ##   0:00:01  Checking assertions in step 9..
+SBY  8:41:04 [generic_fifo_lfsr_prove] engine_0: ##   0:00:02  Checking assertions in step 10..
+SBY  8:41:08 [generic_fifo_lfsr_prove] engine_0: ##   0:00:07  Checking assertions in step 11..
+SBY  8:41:16 [generic_fifo_lfsr_prove] engine_0: ##   0:00:14  Checking assertions in step 12..
+SBY  8:41:34 [generic_fifo_lfsr_prove] engine_0: ##   0:00:33  Checking assertions in step 13..
+SBY  8:42:08 [generic_fifo_lfsr_prove] engine_0: ##   0:01:07  Checking assertions in step 14..
+SBY  8:42:56 [generic_fifo_lfsr_prove] engine_0: ##   0:01:55  Status: passed
+SBY  8:42:56 [generic_fifo_lfsr_prove] engine_0: finished (returncode=0)
+SBY  8:42:56 [generic_fifo_lfsr_prove] engine_0: Status returned by engine: pass
+SBY  8:42:56 [generic_fifo_lfsr_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:01:56 (116)
+SBY  8:42:56 [generic_fifo_lfsr_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:01:55 (115)
+SBY  8:42:56 [generic_fifo_lfsr_prove] summary: engine_0 (smtbmc --nopresat z3) returned pass
+SBY  8:42:56 [generic_fifo_lfsr_prove] summary: engine_0 did not produce any traces
+SBY  8:42:56 [generic_fifo_lfsr_prove] DONE (PASS, rc=0)
+TIME_SEC=116.55

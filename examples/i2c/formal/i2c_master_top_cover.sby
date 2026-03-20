@@ -1,0 +1,21 @@
+[options]
+mode cover
+depth 160
+
+[engines]
+smtbmc bitwuzla
+
+[script]
+read -formal i2c_master_defines.v
+read -formal i2c_master_bit_ctrl_formal.v
+read -formal i2c_master_byte_ctrl_formal.v
+read -formal i2c_master_top_formal.v
+read -formal i2c_master_top_cover_formal.sv
+prep -top i2c_master_top_cover_formal
+
+[files]
+../i2c_master_defines.v
+../i2c_master_bit_ctrl_formal.v
+../i2c_master_byte_ctrl_formal.v
+../i2c_master_top_formal.v
+i2c_master_top_cover_formal.sv

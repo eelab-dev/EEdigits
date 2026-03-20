@@ -1,0 +1,6 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+engine_0 (smtbmc --nopresat z3) returned FAIL
+counterexample trace: engine_0/trace.vcd
+counterexample trace: engine_0/trace.yw
+  failed assertion generic_fifo_lfsr_prove_formal_v2._witness_.check_assert_generic_fifo_lfsr_prove_formal_v2_sv_132_70 at generic_fifo_lfsr_prove_formal_v2.sv:132.9-132.49 step 3

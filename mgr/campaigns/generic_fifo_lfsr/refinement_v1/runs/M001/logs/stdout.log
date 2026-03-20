@@ -1,0 +1,16 @@
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] Removing directory '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M001/generic_fifo_lfsr_prove_v1'.
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M001/timescale.v' to '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M001/generic_fifo_lfsr_prove_v1/src/timescale.v'.
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M001/generic_fifo_lfsr.v' to '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M001/generic_fifo_lfsr_prove_v1/src/generic_fifo_lfsr.v'.
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M001/generic_dpram_formal.v' to '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M001/generic_fifo_lfsr_prove_v1/src/generic_dpram_formal.v'.
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] Copy '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M001/generic_fifo_lfsr_prove_formal.sv' to '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M001/generic_fifo_lfsr_prove_v1/src/generic_fifo_lfsr_prove_formal.sv'.
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] engine_0: smtbmc --nopresat z3
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] base: starting process "cd generic_fifo_lfsr_prove_v1/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] base: Warning: Encountered `translate_off' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using a portable and standards-compliant construct such as `ifdef is recommended!
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] base: ERROR: Async reset \nReset yields non-constant value 16'mmmmmmmmmmmmmmmm for signal \rp.
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] base: finished (returncode=1)
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] base: task failed. ERROR.
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] summary: engine_0 (smtbmc --nopresat z3) did not return a status
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] summary: engine_0 did not produce any traces
+SBY  6:44:15 [generic_fifo_lfsr_prove_v1] DONE (ERROR, rc=16)

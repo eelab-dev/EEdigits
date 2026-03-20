@@ -1,0 +1,193 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `i2c_master_top_prove_formal_v2'. Setting top module to i2c_master_top_prove_formal_v2.
+
+2.1. Analyzing design hierarchy..
+Top module:  \i2c_master_top_prove_formal_v2
+Used module:     \i2c_master_top_formal
+Used module:         \i2c_master_byte_ctrl_formal
+Used module:             \i2c_master_bit_ctrl_formal
+
+2.2. Analyzing design hierarchy..
+Top module:  \i2c_master_top_prove_formal_v2
+Used module:     \i2c_master_top_formal
+Used module:         \i2c_master_byte_ctrl_formal
+Used module:             \i2c_master_bit_ctrl_formal
+Removed 0 unused modules.
+Module i2c_master_top_prove_formal_v2 directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== i2c_master_bit_ctrl_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      193 wires
+      544 wire bits
+       58 public wires
+      178 public wire bits
+       17 ports
+       35 port bits
+      183 cells
+       17   $and
+       24   $anyinit
+        1   $assume
+       21   $eq
+        3   $logic_not
+        4   $logic_or
+       78   $mux
+        8   $not
+        8   $or
+        4   $pmux
+        4   $reduce_and
+        9   $reduce_or
+        2   $sub
+
+=== i2c_master_byte_ctrl_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      117 wires
+      325 wire bits
+       41 public wires
+      102 public wire bits
+       22 ports
+       51 port bits
+       96 cells
+        1   $and
+        9   $anyinit
+        1   $assume
+        5   $eq
+        1   $logic_not
+       66   $mux
+        2   $not
+        3   $or
+        6   $pmux
+        1   $reduce_or
+        1   $sub
+        1 submodules
+        1   i2c_master_bit_ctrl_formal
+
+=== i2c_master_top_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      109 wires
+      364 wire bits
+       51 public wires
+      160 public wire bits
+       17 ports
+       33 port bits
+       85 cells
+        6   $and
+       11   $anyinit
+        1   $anyseq
+        1   $assume
+        7   $eq
+        1   $logic_and
+        1   $logic_not
+       48   $mux
+        4   $not
+        4   $or
+        1   $pmux
+        1 submodules
+        1   i2c_master_byte_ctrl_formal
+
+=== i2c_master_top_prove_formal_v2 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      168 wires
+      344 wire bits
+       58 public wires
+      144 public wire bits
+      185 cells
+       21   $anyinit
+       26   $anyseq
+       17   $assert
+        7   $assume
+       12   $eq
+        1   $initstate
+        1   $le
+       25   $logic_and
+        8   $logic_not
+        8   $logic_or
+       45   $mux
+        9   $not
+        3   $reduce_bool
+        2   $sub
+        1 submodules
+        1   i2c_master_top_formal
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      549 i2c_master_top_prove_formal_v2
+       85 i2c_master_top_formal
+       96   i2c_master_byte_ctrl_formal
+      183     i2c_master_bit_ctrl_formal
+
+        +----------Count including submodules.
+        | 
+      587 wires
+     1577 wire bits
+      208 public wires
+      584 public wire bits
+       56 ports
+      119 port bits
+        - memories
+        - memory bits
+        - processes
+      549 cells
+       24   $and
+       65   $anyinit
+       27   $anyseq
+       17   $assert
+       10   $assume
+       45   $eq
+        1   $initstate
+        1   $le
+       26   $logic_and
+       13   $logic_not
+       12   $logic_or
+      237   $mux
+       23   $not
+       15   $or
+       11   $pmux
+        4   $reduce_and
+        3   $reduce_bool
+       10   $reduce_or
+        5   $sub
+        1 submodules
+        1   i2c_master_top_formal
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module i2c_master_bit_ctrl_formal.
+Creating SMT-LIBv2 representation of module i2c_master_byte_ctrl_formal.
+Creating SMT-LIBv2 representation of module i2c_master_top_formal.
+Creating SMT-LIBv2 representation of module i2c_master_top_prove_formal_v2.
+
+End of script. Logfile hash: 673ddece40, CPU: user 0.01s system 0.02s, MEM: 14.53 MB peak
+Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+Time spent: 46% 2x write_smt2 (0 sec), 46% 2x read_rtlil (0 sec), ...

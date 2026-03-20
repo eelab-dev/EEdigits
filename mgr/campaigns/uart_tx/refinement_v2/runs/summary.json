@@ -1,0 +1,196 @@
+{
+  "total_mutants": 20,
+  "counts": {
+    "KILLED": 18,
+    "SURVIVED": 2
+  },
+  "raw_kill_rate": 0.9,
+  "effective_mutants": 20,
+  "effective_kill_rate": 0.9,
+  "survived_mutants": [
+    "M017",
+    "M019"
+  ],
+  "rows": [
+    {
+      "mutant_id": "M001",
+      "mutation_class": "state_retarget",
+      "line_no": 67,
+      "original_snippet": "                        state     <= SStart;",
+      "mutated_snippet": "                        state     <= SIdle;",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M001"
+    },
+    {
+      "mutant_id": "M002",
+      "mutation_class": "state_retarget",
+      "line_no": 76,
+      "original_snippet": "                        state    <= SData;  // Move to data transmission",
+      "mutated_snippet": "                        state    <= SIdle;  // Move to data transmission",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M002"
+    },
+    {
+      "mutant_id": "M003",
+      "mutation_class": "state_retarget",
+      "line_no": 90,
+      "original_snippet": "                            state   <= SStop;  // All 8 bits sent, move to stop bit",
+      "mutated_snippet": "                            state   <= SIdle;  // All 8 bits sent, move to stop bit",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M003"
+    },
+    {
+      "mutant_id": "M004",
+      "mutation_class": "state_retarget",
+      "line_no": 104,
+      "original_snippet": "                        state    <= SIdle;  // Transmission complete",
+      "mutated_snippet": "                        state    <= SStart;  // Transmission complete",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M004"
+    },
+    {
+      "mutant_id": "M005",
+      "mutation_class": "predicate_inversion",
+      "line_no": 74,
+      "original_snippet": "                    if (baud_tick) begin",
+      "mutated_snippet": "                    if (!(baud_tick)) begin",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M005"
+    },
+    {
+      "mutant_id": "M006",
+      "mutation_class": "predicate_inversion",
+      "line_no": 85,
+      "original_snippet": "                    if (baud_tick) begin",
+      "mutated_snippet": "                    if (!(baud_tick)) begin",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M006"
+    },
+    {
+      "mutant_id": "M007",
+      "mutation_class": "predicate_inversion",
+      "line_no": 88,
+      "original_snippet": "                        if (bit_idx == 3'd7) begin",
+      "mutated_snippet": "                        if (!(bit_idx == 3'd7)) begin",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M007"
+    },
+    {
+      "mutant_id": "M008",
+      "mutation_class": "predicate_inversion",
+      "line_no": 102,
+      "original_snippet": "                    if (baud_tick) begin",
+      "mutated_snippet": "                    if (!(baud_tick)) begin",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M008"
+    },
+    {
+      "mutant_id": "M009",
+      "mutation_class": "predicate_inversion",
+      "line_no": 64,
+      "original_snippet": "                    if (tx_start) begin",
+      "mutated_snippet": "                    if (!(tx_start)) begin",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M009"
+    },
+    {
+      "mutant_id": "M010",
+      "mutation_class": "equality_flip",
+      "line_no": 88,
+      "original_snippet": "                        if (bit_idx == 3'd7) begin",
+      "mutated_snippet": "                        if (bit_idx != 3'd7) begin",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M010"
+    },
+    {
+      "mutant_id": "M011",
+      "mutation_class": "equality_flip",
+      "line_no": 46,
+      "original_snippet": "    wire baud_tick = (baud_cnt == BaudDiv - 1);",
+      "mutated_snippet": "    wire baud_tick = (baud_cnt != BaudDiv - 1);",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M011"
+    },
+    {
+      "mutant_id": "M012",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 60,
+      "original_snippet": "                    tx_serial <= 1'b1;  // Line idles high",
+      "mutated_snippet": "                    tx_serial <= 1'b0;  // Line idles high",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M012"
+    },
+    {
+      "mutant_id": "M013",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 61,
+      "original_snippet": "                    tx_busy   <= 1'b0;  // Not busy",
+      "mutated_snippet": "                    tx_busy   <= 1'b1;  // Not busy",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M013"
+    },
+    {
+      "mutant_id": "M014",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 63,
+      "original_snippet": "                    bit_idx   <= 3'd0;",
+      "mutated_snippet": "                    bit_idx   <= 3'd1;",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M014"
+    },
+    {
+      "mutant_id": "M015",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 66,
+      "original_snippet": "                        tx_busy   <= 1'b1;",
+      "mutated_snippet": "                        tx_busy   <= 1'b0;",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M015"
+    },
+    {
+      "mutant_id": "M016",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 73,
+      "original_snippet": "                    tx_serial <= 1'b0;  // Start bit is always 0",
+      "mutated_snippet": "                    tx_serial <= 1'b1;  // Start bit is always 0",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M016"
+    },
+    {
+      "mutant_id": "M017",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 87,
+      "original_snippet": "                        shift_reg <= {1'b0, shift_reg[7:1]};  // Shift right",
+      "mutated_snippet": "                        shift_reg <= {1'b1, shift_reg[7:1]};  // Shift right",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M017"
+    },
+    {
+      "mutant_id": "M018",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 88,
+      "original_snippet": "                        if (bit_idx == 3'd7) begin",
+      "mutated_snippet": "                        if (bit_idx == 3'd6) begin",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M018"
+    },
+    {
+      "mutant_id": "M019",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 89,
+      "original_snippet": "                            bit_idx <= 3'd0;",
+      "mutated_snippet": "                            bit_idx <= 3'd1;",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M019"
+    },
+    {
+      "mutant_id": "M020",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 92,
+      "original_snippet": "                            bit_idx <= bit_idx + 1'b1;  // Next bit",
+      "mutated_snippet": "                            bit_idx <= bit_idx + 1'b0;  // Next bit",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M020"
+    }
+  ]
+}

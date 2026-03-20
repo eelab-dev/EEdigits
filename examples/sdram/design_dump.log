@@ -1,0 +1,690 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+
+-- Executing script file `/workspaces/digital-tools/examples/sdram/temp_stats.ys' --
+
+1. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/sdram/iobuf_stub.v
+Parsing SystemVerilog input from `/workspaces/digital-tools/examples/sdram/iobuf_stub.v' to AST representation.
+Generating RTLIL representation for module `\IOBUF'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/sdram/oddr2_stub.v
+Parsing SystemVerilog input from `/workspaces/digital-tools/examples/sdram/oddr2_stub.v' to AST representation.
+Generating RTLIL representation for module `\ODDR2'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /workspaces/digital-tools/examples/sdram/sdram.v
+Parsing SystemVerilog input from `/workspaces/digital-tools/examples/sdram/sdram.v' to AST representation.
+/workspaces/digital-tools/examples/sdram/sdram.v:728: Warning: Yosys has only limited support for tri-state logic at the moment.
+Generating RTLIL representation for module `\sdram'.
+Warning: Replacing memory \active_row_q with list of registers. See /workspaces/digital-tools/examples/sdram/sdram.v:476
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \sdram
+
+4.2. Analyzing design hierarchy..
+Top module:  \sdram
+Removed 0 unused modules.
+
+5. Executing PROC pass (convert processes to netlists).
+
+5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:663$134 in module sdram.
+Marked 2 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:647$132 in module sdram.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:635$130 in module sdram.
+Marked 8 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89 in module sdram.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:452$87 in module sdram.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:445$86 in module sdram.
+Marked 2 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:432$83 in module sdram.
+Marked 2 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:424$80 in module sdram.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:412$79 in module sdram.
+Marked 2 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:402$77 in module sdram.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:394$73 in module sdram.
+Marked 1 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:387$72 in module sdram.
+Removed 1 dead cases from process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:326$55 in module sdram.
+Marked 4 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:326$55 in module sdram.
+Removed 3 dead cases from process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9 in module sdram.
+Marked 18 switch rules as full_case in process $proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9 in module sdram.
+Removed a total of 4 dead cases.
+
+5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 8 redundant assignments.
+Promoted 18 assignments to connections.
+
+5.4. Executing PROC_INIT pass (extract init attributes).
+
+5.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_i in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:663$134'.
+Found async reset \rst_i in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:647$132'.
+Found async reset \rst_i in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:635$130'.
+Found async reset \rst_i in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+Found async reset \rst_i in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:452$87'.
+Found async reset \rst_i in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:445$86'.
+Found async reset \rst_i in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:432$83'.
+Found async reset \rst_i in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:424$80'.
+Found async reset \rst_i in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:412$79'.
+Found async reset \rst_i in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:402$77'.
+Found async reset \rst_i in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:394$73'.
+Found async reset \rst_i in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:387$72'.
+
+5.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~38 debug messages>
+
+5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:663$134'.
+     1/1: $0\ack_q[0:0]
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:647$132'.
+     1/1: $0\data_buffer_q[15:0]
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:635$130'.
+     1/1: $0\rd_q[3:0]
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+     1/27: $0\addr_q[12:0] [12:11]
+     2/27: $3$bitselwrite$pos$/workspaces/digital-tools/examples/sdram/sdram.v:564$3[1:0]$119
+     3/27: $0\addr_q[12:0] [9:0]
+     4/27: $3$lookahead\row_open_q$88[3:0]$120
+     5/27: $0\addr_q[12:0] [10]
+     6/27: $2$mem2reg_wr$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:541$8_DATA[12:0]$103
+     7/27: $2$mem2reg_wr$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:541$8_ADDR[1:0]$102
+     8/27: $2$bitselwrite$pos$/workspaces/digital-tools/examples/sdram/sdram.v:564$3[1:0]$101
+     9/27: $2$bitselwrite$pos$/workspaces/digital-tools/examples/sdram/sdram.v:542$2[1:0]$100
+    10/27: $1$lookahead\row_open_q$88[3:0]$99
+    11/27: $1$mem2reg_wr$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:541$8_DATA[12:0]$98
+    12/27: $1$mem2reg_wr$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:541$8_ADDR[1:0]$97
+    13/27: $1$bitselwrite$pos$/workspaces/digital-tools/examples/sdram/sdram.v:564$3[1:0]$96
+    14/27: $1$bitselwrite$pos$/workspaces/digital-tools/examples/sdram/sdram.v:542$2[1:0]$95
+    15/27: $1\idx[31:0]
+    16/27: $0\active_row_q[3][12:0]
+    17/27: $0\active_row_q[2][12:0]
+    18/27: $0\active_row_q[1][12:0]
+    19/27: $0\active_row_q[0][12:0]
+    20/27: $0\dqm_buffer_q[1:0]
+    21/27: $0\bank_q[1:0]
+    22/27: $0\cke_q[0:0]
+    23/27: $0\dqm_q[1:0]
+    24/27: $0\data_rd_en_q[0:0]
+    25/27: $0\data_q[15:0]
+    26/27: $2$lookahead\row_open_q$88[3:0]$104
+    27/27: $0\command_q[3:0]
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:452$87'.
+     1/1: $0\sample_data_q[15:0]
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:445$86'.
+     1/1: $0\sample_data0_q[15:0]
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:432$83'.
+     1/1: $0\refresh_q[0:0]
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:424$80'.
+     1/1: $0\refresh_timer_q[16:0]
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:412$79'.
+     1/1: $0\delay_q[3:0]
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:402$77'.
+     1/1: $0\state_q[3:0]
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:394$73'.
+     1/1: $0\delay_state_q[3:0]
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:387$72'.
+     1/1: $0\target_state_q[3:0]
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:326$55'.
+     1/8: $3\delay_r[3:0]
+     2/8: $3$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:348$7_DATA[12:0]$67
+     3/8: $2\delay_r[3:0]
+     4/8: $2$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:348$7_DATA[12:0]$66
+     5/8: $2$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:348$7_ADDR[1:0]$65
+     6/8: $1\delay_r[3:0]
+     7/8: $1$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:348$7_DATA[12:0]$59
+     8/8: $1$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:348$7_ADDR[1:0]$58
+Creating decoders for process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9'.
+     1/37: $13\next_state_r[3:0]
+     2/37: $12\next_state_r[3:0]
+     3/37: $3$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:281$6_DATA[12:0]$50
+     4/37: $11\next_state_r[3:0]
+     5/37: $2$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:281$6_DATA[12:0]$49
+     6/37: $2$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:281$6_ADDR[1:0]$48
+     7/37: $10\next_state_r[3:0]
+     8/37: $3$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:259$5_DATA[12:0]$40
+     9/37: $9\next_state_r[3:0]
+    10/37: $2$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:259$5_DATA[12:0]$39
+    11/37: $2$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:259$5_ADDR[1:0]$38
+    12/37: $7\target_state_r[3:0]
+    13/37: $6\target_state_r[3:0]
+    14/37: $5\target_state_r[3:0]
+    15/37: $8\next_state_r[3:0]
+    16/37: $7\next_state_r[3:0]
+    17/37: $6\next_state_r[3:0]
+    18/37: $4\target_state_r[3:0]
+    19/37: $4$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:204$4_DATA[12:0]$28
+    20/37: $3\target_state_r[3:0]
+    21/37: $5\next_state_r[3:0]
+    22/37: $3$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:204$4_DATA[12:0]$27
+    23/37: $3$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:204$4_ADDR[1:0]$26
+    24/37: $4\next_state_r[3:0]
+    25/37: $2\target_state_r[3:0]
+    26/37: $3\next_state_r[3:0]
+    27/37: $2$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:204$4_DATA[12:0]$23
+    28/37: $2$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:204$4_ADDR[1:0]$22
+    29/37: $2\next_state_r[3:0]
+    30/37: $1\next_state_r[3:0]
+    31/37: $1$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:281$6_DATA[12:0]$21
+    32/37: $1$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:281$6_ADDR[1:0]$20
+    33/37: $1$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:259$5_DATA[12:0]$19
+    34/37: $1$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:259$5_ADDR[1:0]$18
+    35/37: $1$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:204$4_DATA[12:0]$17
+    36/37: $1$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:204$4_ADDR[1:0]$16
+    37/37: $1\target_state_r[3:0]
+
+5.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\sdram.\delay_r' from process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:326$55'.
+No latch inferred for signal `\sdram.$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:348$7_ADDR' from process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:326$55'.
+No latch inferred for signal `\sdram.$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:348$7_DATA' from process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:326$55'.
+No latch inferred for signal `\sdram.\next_state_r' from process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9'.
+No latch inferred for signal `\sdram.\target_state_r' from process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9'.
+No latch inferred for signal `\sdram.$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:204$4_ADDR' from process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9'.
+No latch inferred for signal `\sdram.$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:204$4_DATA' from process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9'.
+No latch inferred for signal `\sdram.$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:259$5_ADDR' from process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9'.
+No latch inferred for signal `\sdram.$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:259$5_DATA' from process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9'.
+No latch inferred for signal `\sdram.$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:281$6_ADDR' from process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9'.
+No latch inferred for signal `\sdram.$mem2reg_rd$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:281$6_DATA' from process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9'.
+
+5.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\sdram.\ack_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:663$134'.
+  created $adff cell `$procdff$1020' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\data_buffer_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:647$132'.
+  created $adff cell `$procdff$1023' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\rd_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:635$130'.
+  created $adff cell `$procdff$1026' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\command_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1029' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\addr_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1032' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\data_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1035' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\data_rd_en_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1038' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\dqm_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1041' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\cke_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1044' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\bank_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1047' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\dqm_buffer_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1050' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\row_open_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1053' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\idx' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1056' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.$bitselwrite$pos$/workspaces/digital-tools/examples/sdram/sdram.v:542$2' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1059' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.$bitselwrite$pos$/workspaces/digital-tools/examples/sdram/sdram.v:564$3' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1062' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\active_row_q[0]' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1065' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\active_row_q[1]' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1068' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\active_row_q[2]' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1071' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\active_row_q[3]' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1074' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.$mem2reg_wr$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:541$8_ADDR' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1077' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.$mem2reg_wr$\active_row_q$/workspaces/digital-tools/examples/sdram/sdram.v:541$8_DATA' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1080' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.$lookahead\row_open_q$88' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+  created $adff cell `$procdff$1083' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\sample_data_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:452$87'.
+  created $adff cell `$procdff$1086' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\sample_data0_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:445$86'.
+  created $adff cell `$procdff$1089' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\refresh_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:432$83'.
+  created $adff cell `$procdff$1092' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\refresh_timer_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:424$80'.
+  created $adff cell `$procdff$1095' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\delay_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:412$79'.
+  created $adff cell `$procdff$1098' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\state_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:402$77'.
+  created $adff cell `$procdff$1101' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\delay_state_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:394$73'.
+  created $adff cell `$procdff$1104' with positive edge clock and positive level reset.
+Creating register for signal `\sdram.\target_state_q' using process `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:387$72'.
+  created $adff cell `$procdff$1107' with positive edge clock and positive level reset.
+
+5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:663$134'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:663$134'.
+Found and cleaned up 2 empty switches in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:647$132'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:647$132'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:635$130'.
+Found and cleaned up 7 empty switches in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:463$89'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:452$87'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:445$86'.
+Found and cleaned up 2 empty switches in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:432$83'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:432$83'.
+Found and cleaned up 1 empty switch in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:424$80'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:424$80'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:412$79'.
+Found and cleaned up 1 empty switch in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:402$77'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:402$77'.
+Found and cleaned up 1 empty switch in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:394$73'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:394$73'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:387$72'.
+Found and cleaned up 4 empty switches in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:326$55'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:326$55'.
+Found and cleaned up 18 empty switches in `\sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9'.
+Removing empty process `sdram.$proc$/workspaces/digital-tools/examples/sdram/sdram.v:168$9'.
+Cleaned up 38 empty switches.
+
+5.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sdram.
+<suppressed ~48 debug messages>
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sdram.
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sdram'.
+Computing hashes of 416 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+Computing hashes of 281 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+Computing hashes of 277 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+Computing hashes of 274 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+Computing hashes of 272 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+<suppressed ~432 debug messages>
+Removed a total of 144 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sdram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$593.
+    dead port 2/2 on $mux $procmux$593.
+    dead port 1/2 on $mux $procmux$591.
+    dead port 2/2 on $mux $procmux$591.
+    dead port 2/2 on $mux $procmux$582.
+    dead port 1/2 on $mux $procmux$1005.
+    dead port 2/2 on $mux $procmux$1005.
+    dead port 1/2 on $mux $procmux$994.
+    dead port 2/2 on $mux $procmux$994.
+    dead port 2/2 on $mux $procmux$555.
+    dead port 2/2 on $mux $procmux$553.
+    dead port 1/2 on $mux $procmux$541.
+    dead port 2/2 on $mux $procmux$541.
+    dead port 1/2 on $mux $procmux$983.
+    dead port 2/2 on $mux $procmux$983.
+    dead port 1/2 on $mux $procmux$539.
+    dead port 2/2 on $mux $procmux$539.
+    dead port 1/2 on $mux $procmux$532.
+    dead port 2/2 on $mux $procmux$532.
+    dead port 1/2 on $mux $procmux$530.
+    dead port 2/2 on $mux $procmux$530.
+    dead port 2/2 on $mux $procmux$523.
+    dead port 1/2 on $mux $procmux$975.
+    dead port 2/2 on $mux $procmux$975.
+    dead port 1/2 on $mux $procmux$967.
+    dead port 2/2 on $mux $procmux$967.
+    dead port 1/2 on $mux $procmux$961.
+    dead port 2/2 on $mux $procmux$961.
+    dead port 2/2 on $mux $procmux$500.
+    dead port 2/2 on $mux $procmux$498.
+    dead port 2/2 on $mux $procmux$488.
+    dead port 1/2 on $mux $procmux$480.
+    dead port 2/2 on $mux $procmux$480.
+    dead port 1/2 on $mux $procmux$474.
+    dead port 2/2 on $mux $procmux$474.
+    dead port 1/2 on $mux $procmux$461.
+    dead port 2/2 on $mux $procmux$461.
+    dead port 1/2 on $mux $procmux$459.
+    dead port 2/2 on $mux $procmux$459.
+    dead port 1/2 on $mux $procmux$452.
+    dead port 2/2 on $mux $procmux$452.
+    dead port 1/2 on $mux $procmux$450.
+    dead port 2/2 on $mux $procmux$450.
+    dead port 2/2 on $mux $procmux$443.
+    dead port 2/2 on $mux $procmux$943.
+    dead port 1/2 on $mux $procmux$928.
+    dead port 2/2 on $mux $procmux$928.
+    dead port 1/2 on $mux $procmux$926.
+    dead port 2/2 on $mux $procmux$926.
+    dead port 2/2 on $mux $procmux$420.
+    dead port 1/2 on $mux $procmux$914.
+    dead port 2/2 on $mux $procmux$914.
+    dead port 2/2 on $mux $procmux$418.
+    dead port 1/2 on $mux $procmux$912.
+    dead port 2/2 on $mux $procmux$912.
+    dead port 2/2 on $mux $procmux$900.
+    dead port 2/2 on $mux $procmux$886.
+    dead port 2/2 on $mux $procmux$872.
+    dead port 2/2 on $mux $procmux$870.
+    dead port 1/2 on $mux $procmux$855.
+    dead port 2/2 on $mux $procmux$855.
+    dead port 1/2 on $mux $procmux$853.
+    dead port 2/2 on $mux $procmux$853.
+    dead port 1/2 on $mux $procmux$850.
+    dead port 2/2 on $mux $procmux$850.
+    dead port 1/2 on $mux $procmux$838.
+    dead port 2/2 on $mux $procmux$838.
+    dead port 1/2 on $mux $procmux$836.
+    dead port 2/2 on $mux $procmux$836.
+    dead port 1/2 on $mux $procmux$833.
+    dead port 2/2 on $mux $procmux$833.
+    dead port 2/2 on $mux $procmux$821.
+    dead port 1/2 on $mux $procmux$819.
+    dead port 2/2 on $mux $procmux$804.
+    dead port 1/2 on $mux $procmux$802.
+    dead port 1/2 on $mux $procmux$261.
+    dead port 2/2 on $mux $procmux$261.
+    dead port 1/2 on $mux $procmux$253.
+    dead port 2/2 on $mux $procmux$253.
+    dead port 2/2 on $mux $procmux$765.
+    dead port 1/2 on $mux $procmux$246.
+    dead port 2/2 on $mux $procmux$246.
+    dead port 1/2 on $mux $procmux$238.
+    dead port 2/2 on $mux $procmux$238.
+    dead port 1/2 on $mux $procmux$763.
+    dead port 2/2 on $mux $procmux$760.
+    dead port 2/2 on $mux $procmux$745.
+    dead port 2/2 on $mux $procmux$207.
+    dead port 1/2 on $mux $procmux$743.
+    dead port 2/2 on $mux $procmux$740.
+    dead port 2/2 on $mux $procmux$725.
+    dead port 1/2 on $mux $procmux$723.
+    dead port 1/2 on $mux $procmux$177.
+    dead port 2/2 on $mux $procmux$177.
+    dead port 2/2 on $mux $procmux$720.
+    dead port 1/2 on $mux $procmux$175.
+    dead port 2/2 on $mux $procmux$175.
+    dead port 2/2 on $mux $procmux$718.
+    dead port 2/2 on $mux $procmux$702.
+    dead port 1/2 on $mux $procmux$700.
+    dead port 2/2 on $mux $procmux$697.
+    dead port 1/2 on $mux $procmux$695.
+    dead port 2/2 on $mux $procmux$679.
+    dead port 1/2 on $mux $procmux$677.
+    dead port 1/2 on $mux $procmux$620.
+    dead port 1/2 on $mux $procmux$628.
+    dead port 2/2 on $mux $procmux$674.
+    dead port 1/2 on $mux $procmux$672.
+    dead port 2/2 on $mux $procmux$656.
+    dead port 2/2 on $mux $procmux$625.
+    dead port 1/2 on $mux $procmux$654.
+    dead port 2/2 on $mux $procmux$651.
+    dead port 1/2 on $mux $procmux$602.
+    dead port 2/2 on $mux $procmux$602.
+    dead port 1/2 on $mux $procmux$649.
+    dead port 1/2 on $mux $procmux$604.
+    dead port 2/2 on $mux $procmux$604.
+    dead port 1/2 on $mux $procmux$623.
+    dead port 2/2 on $mux $procmux$646.
+    dead port 2/2 on $mux $procmux$630.
+Removed 120 multiplexer ports.
+<suppressed ~236 debug messages>
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sdram.
+    New ctrl vector for $pmux cell $procmux$354: { $procmux$951_CMP $auto$opt_reduce.cc:137:opt_pmux$1109 }
+    New ctrl vector for $pmux cell $procmux$314: { $procmux$956_CMP $procmux$949_CMP $auto$opt_reduce.cc:137:opt_pmux$1111 $procmux$968_CMP }
+    New ctrl vector for $pmux cell $procmux$464: { $procmux$984_CMP $auto$opt_reduce.cc:137:opt_pmux$1113 $procmux$948_CMP $procmux$947_CMP }
+    New ctrl vector for $pmux cell $procmux$180: { $procmux$956_CMP $procmux$954_CMP $auto$opt_reduce.cc:137:opt_pmux$1117 $auto$opt_reduce.cc:137:opt_pmux$1115 }
+    New ctrl vector for $pmux cell $procmux$153: { $procmux$956_CMP $procmux$954_CMP $auto$opt_reduce.cc:137:opt_pmux$1119 }
+  Optimizing cells in module \sdram.
+Performed a total of 5 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sdram'.
+Computing hashes of 194 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+Computing hashes of 188 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+Computing hashes of 187 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+Computing hashes of 186 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+Computing hashes of 185 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+Computing hashes of 184 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+<suppressed ~30 debug messages>
+Removed a total of 10 cells.
+
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$1065 ($adff) from module sdram (D = \addr_i [24:12], Q = \active_row_q[0]).
+Adding EN signal on $procdff$1023 ($adff) from module sdram (D = $procmux$150_Y, Q = \data_buffer_q).
+Handling D = Q on $procdff$1056 ($adff) from module sdram (removing D path).
+Adding EN signal on $procdff$1047 ($adff) from module sdram (D = $procmux$314_Y, Q = \bank_q).
+Adding EN signal on $procdff$1068 ($adff) from module sdram (D = \addr_i [24:12], Q = \active_row_q[1]).
+Adding EN signal on $procdff$1044 ($adff) from module sdram (D = 1'1, Q = \cke_q).
+Adding EN signal on $procdff$1029 ($adff) from module sdram (D = $procmux$376_Y, Q = \command_q).
+Adding EN signal on $procdff$1032 ($adff) from module sdram (D = { $procmux$153_Y $procmux$180_Y }, Q = { \addr_q [12:11] \addr_q [9:0] }).
+Adding EN signal on $procdff$1032 ($adff) from module sdram (D = $procmux$217_Y, Q = \addr_q [10]).
+Adding EN signal on $procdff$1050 ($adff) from module sdram (D = $not$/workspaces/digital-tools/examples/sdram/sdram.v:607$129_Y, Q = \dqm_buffer_q).
+Adding EN signal on $procdff$1071 ($adff) from module sdram (D = \addr_i [24:12], Q = \active_row_q[2]).
+Adding EN signal on $procdff$1035 ($adff) from module sdram (D = $procmux$363_Y, Q = \data_q).
+Adding EN signal on $procdff$1104 ($adff) from module sdram (D = \next_state_r, Q = \delay_state_q).
+Adding EN signal on $procdff$1038 ($adff) from module sdram (D = $procmux$354_Y, Q = \data_rd_en_q).
+Adding EN signal on $procdff$1053 ($adff) from module sdram (D = $procmux$371_Y, Q = \row_open_q).
+Adding EN signal on $procdff$1074 ($adff) from module sdram (D = \addr_i [24:12], Q = \active_row_q[3]).
+Adding EN signal on $procdff$1041 ($adff) from module sdram (D = $procmux$349_Y, Q = \dqm_q).
+Adding EN signal on $procdff$1092 ($adff) from module sdram (D = $procmux$400_Y, Q = \refresh_q).
+Setting constant 0-bit at position 0 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 1 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 1-bit at position 2 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 3 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 4 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 5 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 6 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 7 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 8 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 9 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 10 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 11 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 12 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 13 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 14 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 15 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 16 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 17 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 18 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 19 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 20 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 21 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 22 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 23 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 24 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 25 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 26 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 27 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 28 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 29 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 30 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 0-bit at position 31 on $procdff$1056 ($dlatch) from module sdram.
+Setting constant 1-bit at position 0 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 1 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 2 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 3 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 4 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 5 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 6 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 7 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 8 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 9 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 10 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 11 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 12 on $procdff$1080 ($adff) from module sdram.
+Setting constant 1-bit at position 0 on $procdff$1062 ($adff) from module sdram.
+Setting constant 1-bit at position 1 on $procdff$1062 ($adff) from module sdram.
+Setting constant 1-bit at position 0 on $procdff$1083 ($adff) from module sdram.
+Setting constant 1-bit at position 1 on $procdff$1083 ($adff) from module sdram.
+Setting constant 1-bit at position 2 on $procdff$1083 ($adff) from module sdram.
+Setting constant 1-bit at position 3 on $procdff$1083 ($adff) from module sdram.
+
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sdram..
+Removed 12 unused cells and 492 unused wires.
+<suppressed ~13 debug messages>
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sdram.
+<suppressed ~10 debug messages>
+
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sdram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~93 debug messages>
+
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sdram.
+Performed a total of 0 changes.
+
+6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sdram'.
+Computing hashes of 195 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+Computing hashes of 190 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sdram..
+Removed 1 unused cells and 7 unused wires.
+<suppressed ~2 debug messages>
+
+6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sdram.
+
+6.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sdram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~93 debug messages>
+
+6.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sdram.
+Performed a total of 0 changes.
+
+6.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sdram'.
+Computing hashes of 189 cells of `\sdram'.
+Finding duplicate cells in `\sdram'.
+Removed a total of 0 cells.
+
+6.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sdram..
+
+6.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sdram.
+
+6.23. Finished fast OPT passes. (There is nothing left to do.)
+{
+   "creator": "Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)",
+   "invocation": "stat -json -top sdram ",
+   "modules": {
+      "\\sdram": {
+         "num_wires":         194,
+         "num_wire_bits":     908,
+         "num_pub_wires":     53,
+         "num_pub_wire_bits": 418,
+         "num_ports":         21,
+         "num_port_bits":     146,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         189,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$adff": 8,
+            "$adffe": 17,
+            "$and": 1,
+            "$eq": 22,
+            "$logic_and": 9,
+            "$logic_not": 5,
+            "$logic_or": 2,
+            "$mux": 54,
+            "$ne": 7,
+            "$neg": 1,
+            "$not": 7,
+            "$or": 2,
+            "$pmux": 12,
+            "$reduce_and": 8,
+            "$reduce_bool": 6,
+            "$reduce_or": 6,
+            "$shift": 2,
+            "$shiftx": 1,
+            "$sub": 2,
+            "IOBUF": 16,
+            "ODDR2": 1
+         }
+      }
+   },
+      "design": {
+         "num_wires":         194,
+         "num_wire_bits":     908,
+         "num_pub_wires":     53,
+         "num_pub_wire_bits": 418,
+         "num_ports":         21,
+         "num_port_bits":     146,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         189,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$adff": 8,
+            "$adffe": 17,
+            "$and": 1,
+            "$eq": 22,
+            "$logic_and": 9,
+            "$logic_not": 5,
+            "$logic_or": 2,
+            "$mux": 54,
+            "$ne": 7,
+            "$neg": 1,
+            "$not": 7,
+            "$or": 2,
+            "$pmux": 12,
+            "$reduce_and": 8,
+            "$reduce_bool": 6,
+            "$reduce_or": 6,
+            "$shift": 2,
+            "$shiftx": 1,
+            "$sub": 2,
+            "IOBUF": 16,
+            "ODDR2": 1
+         }
+      }
+}
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 89aad83295, CPU: user 0.06s system 0.01s, MEM: 17.02 MB peak
+Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+Time spent: 33% 4x read_verilog (0 sec), 16% 5x opt_expr (0 sec), ...

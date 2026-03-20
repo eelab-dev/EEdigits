@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-03-18T14:36:33" hostname="641808cb3e01" package="uart_full_prove_v2" id="0" name="default" tests="24" errors="0" failures="2" time="0" skipped="23">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="FAIL"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+<failure type="FAIL" message="Task returned status FAIL." />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:173.9-173.33" time="0" type="ASSERT" location="uart_full_formal_v2.sv:173.9-173.33" id="_witness_.check_assert_uart_full_formal_v2_sv_173_36">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:174.9-174.39" time="0" type="ASSERT" location="uart_full_formal_v2.sv:174.9-174.39" id="_witness_.check_assert_uart_full_formal_v2_sv_174_38">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:183.9-183.35" time="0" type="ASSERT" location="uart_full_formal_v2.sv:183.9-183.35" id="_witness_.check_assert_uart_full_formal_v2_sv_183_41" tracefile="engine_0/trace.vcd">
+<failure type="ASSERT" message="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:183.9-183.35 failed. Trace file: engine_0/trace.vcd" />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:202.9-202.33" time="0" type="ASSERT" location="uart_full_formal_v2.sv:202.9-202.33" id="_witness_.check_assert_uart_full_formal_v2_sv_202_47">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:211.9-211.35" time="0" type="ASSERT" location="uart_full_formal_v2.sv:211.9-211.35" id="_witness_.check_assert_uart_full_formal_v2_sv_211_53">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:224.65-224.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:224.65-224.100" id="_witness_.check_assert_uart_full_formal_v2_sv_224_57">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:225.65-225.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:225.65-225.100" id="_witness_.check_assert_uart_full_formal_v2_sv_225_61">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:226.65-226.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:226.65-226.100" id="_witness_.check_assert_uart_full_formal_v2_sv_226_65">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:227.65-227.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:227.65-227.100" id="_witness_.check_assert_uart_full_formal_v2_sv_227_69">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:228.65-228.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:228.65-228.100" id="_witness_.check_assert_uart_full_formal_v2_sv_228_73">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:229.65-229.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:229.65-229.100" id="_witness_.check_assert_uart_full_formal_v2_sv_229_77">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:230.65-230.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:230.65-230.100" id="_witness_.check_assert_uart_full_formal_v2_sv_230_81">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:231.65-231.100" time="0" type="ASSERT" location="uart_full_formal_v2.sv:231.65-231.100" id="_witness_.check_assert_uart_full_formal_v2_sv_231_85">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:246.9-246.35" time="0" type="ASSERT" location="uart_full_formal_v2.sv:246.9-246.35" id="_witness_.check_assert_uart_full_formal_v2_sv_246_91">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:253.9-253.33" time="0" type="ASSERT" location="uart_full_formal_v2.sv:253.9-253.33" id="_witness_.check_assert_uart_full_formal_v2_sv_253_95">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in uart_full_formal at uart_full_formal_v2.sv:271.9-271.31" time="0" type="ASSERT" location="uart_full_formal_v2.sv:271.9-271.31" id="_witness_.check_assert_uart_full_formal_v2_sv_271_98">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:160.7-160.32" time="0" type="COVER" location="uart_full_formal_v2.sv:160.7-160.32" id="_witness_.check_cover_uart_full_formal_v2_sv_160_20">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:161.7-161.32" time="0" type="COVER" location="uart_full_formal_v2.sv:161.7-161.32" id="_witness_.check_cover_uart_full_formal_v2_sv_161_22">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:162.7-162.32" time="0" type="COVER" location="uart_full_formal_v2.sv:162.7-162.32" id="_witness_.check_cover_uart_full_formal_v2_sv_162_24">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:163.7-163.32" time="0" type="COVER" location="uart_full_formal_v2.sv:163.7-163.32" id="_witness_.check_cover_uart_full_formal_v2_sv_163_26">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:164.7-164.32" time="0" type="COVER" location="uart_full_formal_v2.sv:164.7-164.32" id="_witness_.check_cover_uart_full_formal_v2_sv_164_28">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:165.7-165.32" time="0" type="COVER" location="uart_full_formal_v2.sv:165.7-165.32" id="_witness_.check_cover_uart_full_formal_v2_sv_165_30">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:166.7-166.33" time="0" type="COVER" location="uart_full_formal_v2.sv:166.7-166.33" id="_witness_.check_cover_uart_full_formal_v2_sv_166_32">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property COVER in uart_full_formal at uart_full_formal_v2.sv:167.7-167.33" time="0" type="COVER" location="uart_full_formal_v2.sv:167.7-167.33" id="_witness_.check_cover_uart_full_formal_v2_sv_167_34">
+<skipped />
+</testcase>
+<system-out>SBY 14:36:32 [uart_full_prove_v2] Removing directory '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M005/uart_full_prove_v2'.
+SBY 14:36:32 [uart_full_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M005/uart_full.v' to '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M005/uart_full_prove_v2/src/uart_full.v'.
+SBY 14:36:32 [uart_full_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M005/uart_tx.v' to '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M005/uart_full_prove_v2/src/uart_tx.v'.
+SBY 14:36:32 [uart_full_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M005/uart_rx.v' to '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M005/uart_full_prove_v2/src/uart_rx.v'.
+SBY 14:36:32 [uart_full_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M005/uart_full_formal_v2.sv' to '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M005/uart_full_prove_v2/src/uart_full_formal_v2.sv'.
+SBY 14:36:32 [uart_full_prove_v2] engine_0: smtbmc yices
+SBY 14:36:32 [uart_full_prove_v2] base: starting process &quot;cd uart_full_prove_v2/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 14:36:32 [uart_full_prove_v2] base: Warning: Wire uart_full_formal.\clk is used but has no driver.
+SBY 14:36:32 [uart_full_prove_v2] base: Warning: Wire uart_full_formal.\rst is used but has no driver.
+SBY 14:36:33 [uart_full_prove_v2] base: finished (returncode=0)
+SBY 14:36:33 [uart_full_prove_v2] prep: starting process &quot;cd uart_full_prove_v2/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 14:36:33 [uart_full_prove_v2] prep: Warning: Wire uart_full_formal.\clk is used but has no driver.
+SBY 14:36:33 [uart_full_prove_v2] prep: Warning: Wire uart_full_formal.\rst is used but has no driver.
+SBY 14:36:33 [uart_full_prove_v2] prep: finished (returncode=0)
+SBY 14:36:33 [uart_full_prove_v2] smt2: starting process &quot;cd uart_full_prove_v2/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 14:36:33 [uart_full_prove_v2] smt2: finished (returncode=0)
+SBY 14:36:33 [uart_full_prove_v2] engine_0: starting process &quot;cd uart_full_prove_v2; yosys-smtbmc -s yices --presat --unroll --noprogress -t 150  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 14:36:33 [uart_full_prove_v2] engine_0: ##   0:00:00  Solver: yices
+SBY 14:36:33 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 14:36:33 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 14:36:33 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 14:36:33 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 14:36:33 [uart_full_prove_v2] engine_0: ##   0:00:00  BMC failed!
+SBY 14:36:33 [uart_full_prove_v2] engine_0: ##   0:00:00  Assert failed in uart_full_formal: uart_full_formal_v2.sv:183.9-183.35 (_witness_.check_assert_uart_full_formal_v2_sv_183_41)
+SBY 14:36:33 [uart_full_prove_v2] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 14:36:33 [uart_full_prove_v2] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 14:36:33 [uart_full_prove_v2] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 14:36:33 [uart_full_prove_v2] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 14:36:33 [uart_full_prove_v2] engine_0: ##   0:00:00  Status: failed
+SBY 14:36:33 [uart_full_prove_v2] engine_0: finished (returncode=1)
+SBY 14:36:33 [uart_full_prove_v2] engine_0: Status returned by engine: FAIL
+SBY 14:36:33 [uart_full_prove_v2] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 14:36:33 [uart_full_prove_v2] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 14:36:33 [uart_full_prove_v2] summary: engine_0 (smtbmc yices) returned FAIL
+SBY 14:36:33 [uart_full_prove_v2] summary: counterexample trace: uart_full_prove_v2/engine_0/trace.vcd
+SBY 14:36:33 [uart_full_prove_v2] summary:   failed assertion uart_full_formal._witness_.check_assert_uart_full_formal_v2_sv_183_41 at uart_full_formal_v2.sv:183.9-183.35 step 1
+SBY 14:36:33 [uart_full_prove_v2] DONE (FAIL, rc=2)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

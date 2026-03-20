@@ -1,0 +1,148 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module i2c_master_bit_ctrl_formal.
+Found 0 SCCs in module i2c_master_byte_ctrl_formal.
+Found 0 SCCs in module i2c_master_top_formal.
+Found 0 SCCs in module i2c_master_top_prove_formal.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+Replacing i2c_master_bit_ctrl_formal.$procdff$765 ($adff): ARST=\nReset, D=$0\cmd_ack[0:0], Q=\cmd_ack
+Replacing i2c_master_bit_ctrl_formal.$procdff$770 ($adff): ARST=\nReset, D=$0\scl_oen[0:0], Q=\scl_oen
+Replacing i2c_master_bit_ctrl_formal.$procdff$775 ($adff): ARST=\nReset, D=$0\sda_oen[0:0], Q=\sda_oen
+Replacing i2c_master_bit_ctrl_formal.$procdff$780 ($adff): ARST=\nReset, D=$0\c_state[17:0], Q=\c_state
+Replacing i2c_master_bit_ctrl_formal.$procdff$785 ($adff): ARST=\nReset, D=$0\sda_chk[0:0], Q=\sda_chk
+Replacing i2c_master_bit_ctrl_formal.$procdff$791 ($adff): ARST=\nReset, D=$0\al[0:0], Q=\al
+Replacing i2c_master_bit_ctrl_formal.$procdff$796 ($adff): ARST=\nReset, D=$0\cmd_stop[0:0], Q=\cmd_stop
+Replacing i2c_master_bit_ctrl_formal.$procdff$801 ($adff): ARST=\nReset, D=$0\busy[0:0], Q=\busy
+Replacing i2c_master_bit_ctrl_formal.$procdff$806 ($adff): ARST=\nReset, D=$0\sta_condition[0:0], Q=\sta_condition
+Replacing i2c_master_bit_ctrl_formal.$procdff$811 ($adff): ARST=\nReset, D=$0\sto_condition[0:0], Q=\sto_condition
+Replacing i2c_master_bit_ctrl_formal.$procdff$816 ($adff): ARST=\nReset, D=$0\sSCL[0:0], Q=\sSCL
+Replacing i2c_master_bit_ctrl_formal.$procdff$821 ($adff): ARST=\nReset, D=$0\sSDA[0:0], Q=\sSDA
+Replacing i2c_master_bit_ctrl_formal.$procdff$826 ($adff): ARST=\nReset, D=$0\dSCL[0:0], Q=\dSCL
+Replacing i2c_master_bit_ctrl_formal.$procdff$831 ($adff): ARST=\nReset, D=$0\dSDA[0:0], Q=\dSDA
+Replacing i2c_master_bit_ctrl_formal.$procdff$836 ($adff): ARST=\nReset, D=$0\fSCL[2:0], Q=\fSCL
+Replacing i2c_master_bit_ctrl_formal.$procdff$841 ($adff): ARST=\nReset, D=$0\fSDA[2:0], Q=\fSDA
+Replacing i2c_master_bit_ctrl_formal.$procdff$846 ($adff): ARST=\nReset, D=$0\filter_cnt[13:0], Q=\filter_cnt
+Replacing i2c_master_bit_ctrl_formal.$procdff$851 ($adff): ARST=\nReset, D=$0\cSCL[1:0], Q=\cSCL
+Replacing i2c_master_bit_ctrl_formal.$procdff$856 ($adff): ARST=\nReset, D=$0\cSDA[1:0], Q=\cSDA
+Replacing i2c_master_bit_ctrl_formal.$procdff$861 ($adff): ARST=\nReset, D=$0\clk_en[0:0], Q=\clk_en
+Replacing i2c_master_bit_ctrl_formal.$procdff$866 ($adff): ARST=\nReset, D=$0\cnt[15:0], Q=\cnt
+Replacing i2c_master_bit_ctrl_formal.$procdff$871 ($adff): ARST=\nReset, D=$0\slave_wait[0:0], Q=\slave_wait
+Replacing i2c_master_byte_ctrl_formal.$procdff$877 ($adff): ARST=\nReset, D=$0\cmd_ack[0:0], Q=\cmd_ack
+Replacing i2c_master_byte_ctrl_formal.$procdff$882 ($adff): ARST=\nReset, D=$0\ack_out[0:0], Q=\ack_out
+Replacing i2c_master_byte_ctrl_formal.$procdff$887 ($adff): ARST=\nReset, D=$0\core_cmd[3:0], Q=\core_cmd
+Replacing i2c_master_byte_ctrl_formal.$procdff$892 ($adff): ARST=\nReset, D=$0\core_txd[0:0], Q=\core_txd
+Replacing i2c_master_byte_ctrl_formal.$procdff$897 ($adff): ARST=\nReset, D=$0\shift[0:0], Q=\shift
+Replacing i2c_master_byte_ctrl_formal.$procdff$902 ($adff): ARST=\nReset, D=$0\ld[0:0], Q=\ld
+Replacing i2c_master_byte_ctrl_formal.$procdff$907 ($adff): ARST=\nReset, D=$0\c_state[4:0], Q=\c_state
+Replacing i2c_master_byte_ctrl_formal.$procdff$912 ($adff): ARST=\nReset, D=$0\dcnt[2:0], Q=\dcnt
+Replacing i2c_master_byte_ctrl_formal.$procdff$917 ($adff): ARST=\nReset, D=$0\sr[7:0], Q=\sr
+Replacing i2c_master_top_formal.$procdff$922 ($adff): ARST=\arst_i, D=$0\wb_inta_o[0:0], Q=\wb_inta_o
+Replacing i2c_master_top_formal.$procdff$927 ($adff): ARST=\arst_i, D=$0\rxack[0:0], Q=\rxack
+Replacing i2c_master_top_formal.$procdff$932 ($adff): ARST=\arst_i, D=$0\tip[0:0], Q=\tip
+Replacing i2c_master_top_formal.$procdff$937 ($adff): ARST=\arst_i, D=$0\irq_flag[0:0], Q=\irq_flag
+Replacing i2c_master_top_formal.$procdff$942 ($adff): ARST=\arst_i, D=$0\al[0:0], Q=\al
+Replacing i2c_master_top_formal.$procdff$947 ($adff): ARST=\arst_i, D=$0\cr[7:0], Q=\cr
+Replacing i2c_master_top_formal.$procdff$952 ($adff): ARST=\arst_i, D=$0\prer[15:0], Q=\prer
+Replacing i2c_master_top_formal.$procdff$957 ($adff): ARST=\arst_i, D=$0\ctr[7:0], Q=\ctr
+Replacing i2c_master_top_formal.$procdff$962 ($adff): ARST=\arst_i, D=$0\txr[7:0], Q=\txr
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2c_master_bit_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_byte_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_top_formal..
+Finding unused cells or wires in module \i2c_master_top_prove_formal..
+Removed 35 unused cells and 35 unused wires.
+<suppressed ~36 debug messages>
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2c_master_bit_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_byte_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_top_formal..
+Finding unused cells or wires in module \i2c_master_top_prove_formal..
+Removed 8 unused cells and 8 unused wires.
+<suppressed ~12 debug messages>
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module i2c_master_bit_ctrl_formal...
+Checking module i2c_master_byte_ctrl_formal...
+Checking module i2c_master_top_formal...
+Checking module i2c_master_top_prove_formal...
+Warning: Wire i2c_master_top_prove_formal.\wb_clk_i is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal.\dut.core_en is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal.\dut.tip is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal.\dut.done is used but has no driver.
+Warning: Wire i2c_master_top_prove_formal.\dut.prer is used but has no driver.
+Found and reported 5 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module i2c_master_bit_ctrl_formal.
+Optimizing module i2c_master_byte_ctrl_formal.
+Optimizing module i2c_master_top_formal.
+Optimizing module i2c_master_top_prove_formal.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\i2c_master_bit_ctrl_formal'.
+Computing hashes of 198 cells of `\i2c_master_bit_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_bit_ctrl_formal'.
+Finding identical cells in module `\i2c_master_byte_ctrl_formal'.
+Computing hashes of 95 cells of `\i2c_master_byte_ctrl_formal'.
+Finding duplicate cells in `\i2c_master_byte_ctrl_formal'.
+Finding identical cells in module `\i2c_master_top_formal'.
+Computing hashes of 84 cells of `\i2c_master_top_formal'.
+Finding duplicate cells in `\i2c_master_top_formal'.
+Finding identical cells in module `\i2c_master_top_prove_formal'.
+Computing hashes of 106 cells of `\i2c_master_top_prove_formal'.
+Finding duplicate cells in `\i2c_master_top_prove_formal'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2c_master_bit_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_byte_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_top_formal..
+Finding unused cells or wires in module \i2c_master_top_prove_formal..
+Removed 17 unused cells and 22 unused wires.
+<suppressed ~19 debug messages>
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \i2c_master_bit_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_byte_ctrl_formal..
+Finding unused cells or wires in module \i2c_master_top_formal..
+Finding unused cells or wires in module \i2c_master_top_prove_formal..
+Removed 0 unused cells and 42 unused wires.
+<suppressed ~4 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+Warnings: 5 unique messages, 5 total
+End of script. Logfile hash: 0e9f874be2, CPU: user 0.05s system 0.05s, MEM: 14.87 MB peak
+Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+Time spent: 31% 4x opt_clean (0 sec), 16% 2x read_rtlil (0 sec), ...

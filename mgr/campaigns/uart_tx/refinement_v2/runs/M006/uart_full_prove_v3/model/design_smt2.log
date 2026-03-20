@@ -1,0 +1,177 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `uart_full_formal_v3'. Setting top module to uart_full_formal_v3.
+
+2.1. Analyzing design hierarchy..
+Top module:  \uart_full_formal_v3
+Used module:     $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full
+Used module:         $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx
+Used module:         $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx
+
+2.2. Analyzing design hierarchy..
+Top module:  \uart_full_formal_v3
+Used module:     $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full
+Used module:         $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx
+Used module:         $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx
+Removed 0 unused modules.
+Module uart_full_formal_v3 directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       10 wires
+       24 wire bits
+       10 public wires
+       24 public wire bits
+       10 ports
+       24 port bits
+        2 submodules
+        1   $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx
+        1   $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx
+
+=== $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       64 wires
+      213 wire bits
+       13 public wires
+       34 public wire bits
+        6 ports
+       13 port bits
+       62 cells
+        2   $add
+        1   $and
+        8   $anyinit
+        1   $assume
+        6   $eq
+        1   $logic_and
+        1   $logic_not
+       30   $mux
+        1   $neg
+        2   $not
+        1   $or
+        5   $pmux
+        1   $reduce_or
+        2   $shift
+
+=== $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       46 wires
+      134 wire bits
+       11 public wires
+       32 public wire bits
+        6 ports
+       13 port bits
+       43 cells
+        2   $add
+        6   $anyinit
+        1   $assume
+        5   $eq
+        1   $logic_not
+       19   $mux
+        1   $not
+        6   $pmux
+        2   $reduce_or
+
+=== uart_full_formal_v3 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      110 wires
+      424 wire bits
+       16 public wires
+       99 public wire bits
+      124 cells
+        2   $add
+        6   $anyinit
+        3   $anyseq
+       18   $assert
+        2   $assume
+       19   $eq
+        3   $ge
+        1   $initstate
+       17   $logic_and
+        3   $logic_not
+        2   $lt
+       45   $mux
+        3   $not
+        1 submodules
+        1   $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      229 uart_full_formal_v3
+       62   $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx
+       43   $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx
+
+        +----------Count including submodules.
+        | 
+      230 wires
+      795 wire bits
+       50 public wires
+      189 public wire bits
+       22 ports
+       50 port bits
+        - memories
+        - memory bits
+        - processes
+      229 cells
+        6   $add
+        1   $and
+       20   $anyinit
+        3   $anyseq
+       18   $assert
+        4   $assume
+       30   $eq
+        3   $ge
+        1   $initstate
+       18   $logic_and
+        5   $logic_not
+        2   $lt
+       94   $mux
+        1   $neg
+        6   $not
+        1   $or
+       11   $pmux
+        3   $reduce_or
+        2   $shift
+        1 submodules
+        1   $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_rx.
+Creating SMT-LIBv2 representation of module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_tx.
+Creating SMT-LIBv2 representation of module $paramod$9246a2b651990f767445b4b7347abbb4f4301e89\uart_full.
+Creating SMT-LIBv2 representation of module uart_full_formal_v3.
+
+End of script. Logfile hash: ad300c0d0b, CPU: user 0.02s system 0.02s, MEM: 14.27 MB peak
+Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+Time spent: 64% 2x write_smt2 (0 sec), 28% 2x read_rtlil (0 sec), ...

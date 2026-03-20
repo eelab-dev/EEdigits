@@ -1,0 +1,105 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62+89 (git sha1 0ed7c5ad5-dirty, clang++ 21.1.2 -fPIC -O3)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: timescale.v
+Parsing formal SystemVerilog input from `timescale.v' to AST representation.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: generic_dpram_formal.v
+Parsing formal SystemVerilog input from `generic_dpram_formal.v' to AST representation.
+Storing AST representation for module `$abstract\generic_dpram'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: generic_fifo_lfsr.v
+Parsing formal SystemVerilog input from `generic_fifo_lfsr.v' to AST representation.
+Warning: Encountered `translate_off' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using a portable and standards-compliant construct such as `ifdef is recommended!
+Storing AST representation for module `$abstract\generic_fifo_lfsr'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: generic_fifo_lfsr_prove_formal.sv
+Parsing formal SystemVerilog input from `generic_fifo_lfsr_prove_formal.sv' to AST representation.
+Storing AST representation for module `$abstract\generic_fifo_lfsr_prove_formal'.
+Successfully finished Verilog frontend.
+
+5. Executing PREP pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\generic_fifo_lfsr_prove_formal'.
+Generating RTLIL representation for module `\generic_fifo_lfsr_prove_formal'.
+
+5.2.1. Analyzing design hierarchy..
+Top module:  \generic_fifo_lfsr_prove_formal
+Parameter \AW = 16
+Parameter \DW = 8
+
+5.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\generic_fifo_lfsr'.
+Parameter \AW = 16
+Parameter \DW = 8
+Generating RTLIL representation for module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr'.
+
+5.2.3. Analyzing design hierarchy..
+Top module:  \generic_fifo_lfsr_prove_formal
+Used module:     $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+Parameter \AW = 16
+Parameter \DW = 8
+
+5.2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\generic_dpram'.
+Parameter \AW = 16
+Parameter \DW = 8
+Generating RTLIL representation for module `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram'.
+
+5.2.5. Analyzing design hierarchy..
+Top module:  \generic_fifo_lfsr_prove_formal
+Used module:     $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+Used module:         $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram
+
+5.2.6. Analyzing design hierarchy..
+Top module:  \generic_fifo_lfsr_prove_formal
+Used module:     $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr
+Used module:         $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram
+Removing unused module `$abstract\generic_fifo_lfsr_prove_formal'.
+Removing unused module `$abstract\generic_fifo_lfsr'.
+Removing unused module `$abstract\generic_dpram'.
+Removed 3 unused modules.
+Module generic_fifo_lfsr_prove_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5.3. Executing PROC pass (convert processes to netlists).
+
+5.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$generic_dpram_formal.v:30$132 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Marked 1 switch rules as full_case in process $proc$generic_dpram_formal.v:24$124 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_dpram.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr.v:187$121 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr.v:178$119 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr.v:148$117 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr.v:142$115 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr.v:136$112 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr.v:130$110 in module $paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.
+Marked 3 switch rules as full_case in process $proc$generic_fifo_lfsr_prove_formal.sv:94$54 in module generic_fifo_lfsr_prove_formal.
+Marked 2 switch rules as full_case in process $proc$generic_fifo_lfsr_prove_formal.sv:64$34 in module generic_fifo_lfsr_prove_formal.
+Marked 1 switch rules as full_case in process $proc$generic_fifo_lfsr_prove_formal.sv:41$12 in module generic_fifo_lfsr_prove_formal.
+Removed a total of 0 dead cases.
+
+5.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 5 redundant assignments.
+Promoted 5 assignments to connections.
+
+5.3.4. Executing PROC_INIT pass (extract init attributes).
+
+5.3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \nReset in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:187$121'.
+Found async reset \nReset in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:178$119'.
+Found async reset \nReset in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:148$117'.
+Found async reset \nReset in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:142$115'.
+Found async reset \nReset in `$paramod$7bbc63adf5204af6baaa024e4d1db16426763314\generic_fifo_lfsr.$proc$generic_fifo_lfsr.v:136$112'.
+ERROR: Async reset \nReset yields non-constant value 1'm for signal \rp_wrap.

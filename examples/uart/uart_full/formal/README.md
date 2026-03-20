@@ -1,4 +1,10 @@
-# Formal verification (SymbiYosys)
+MGR workspace layout
+- tools/: scripts for mutation generation and audit execution
+- configs/: campaign configs
+- campaigns/<design>/baseline/: frozen inputs
+- campaigns/<design>/mutants/: generated mutants + manifest
+- campaigns/<design>/runs/: audit run outputs
+- campaigns/<design>/reports/: summaries and analysis# Formal verification (SymbiYosys)
 
 This folder contains a minimal SymbiYosys setup to formally verify `uart_full`:
 

@@ -1,0 +1,14 @@
+# get_stats.ys
+
+# Read *all* modules you need, in SystemVerilog mode
+read_verilog -sv timescale.v i2c_master_defines.v \
+  i2c_master_bit_ctrl.v i2c_master_byte_ctrl.v i2c_master_top.v
+
+hierarchy -check -top i2c_master_top 
+
+# RTL elaboration
+proc; opt;
+
+# Cell statistics at the $-cell level ($add, $sub, $mux, $pmux, $dff, ...)
+# stat -top i2c_master_top
+stat -json -top i2c_master_top

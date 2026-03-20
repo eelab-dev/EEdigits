@@ -1,0 +1,59 @@
+{
+  "total_mutants": 5,
+  "counts": {
+    "INVALID": 2,
+    "KILLED": 2,
+    "INCONCLUSIVE": 1
+  },
+  "raw_kill_rate": 0.4,
+  "effective_mutants": 3,
+  "effective_kill_rate": 0.6666666666666666,
+  "survived_mutants": [],
+  "rows": [
+    {
+      "mutant_id": "M001",
+      "mutation_class": "predicate_inversion",
+      "line_no": 131,
+      "original_snippet": "      if (~nReset)    rp <= #1 0;",
+      "mutated_snippet": "      if (!(~nReset))    rp <= #1 0;",
+      "result": "INVALID",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M001"
+    },
+    {
+      "mutant_id": "M002",
+      "mutation_class": "predicate_inversion",
+      "line_no": 132,
+      "original_snippet": "      else if (rst)   rp <= #1 0;",
+      "mutated_snippet": "      else if (!(rst))   rp <= #1 0;",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M002"
+    },
+    {
+      "mutant_id": "M003",
+      "mutation_class": "predicate_inversion",
+      "line_no": 133,
+      "original_snippet": "      else if (frreq) rp <= #1 rp_next;",
+      "mutated_snippet": "      else if (!(frreq)) rp <= #1 rp_next;",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M003"
+    },
+    {
+      "mutant_id": "M004",
+      "mutation_class": "predicate_inversion",
+      "line_no": 137,
+      "original_snippet": "      if (~nReset)    rp_wrap <= #1 1'b0;",
+      "mutated_snippet": "      if (!(~nReset))    rp_wrap <= #1 1'b0;",
+      "result": "INVALID",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M004"
+    },
+    {
+      "mutant_id": "M005",
+      "mutation_class": "predicate_inversion",
+      "line_no": 138,
+      "original_snippet": "      else if (rst)   rp_wrap <= #1 1'b0;",
+      "mutated_snippet": "      else if (!(rst))   rp_wrap <= #1 1'b0;",
+      "result": "INCONCLUSIVE",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/runs/M005"
+    }
+  ]
+}
