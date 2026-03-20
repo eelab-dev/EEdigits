@@ -1,9 +1,9 @@
 [options]
 mode bmc
-depth 2
+depth 45
 
 [engines]
-smtbmc z3
+smtbmc yices
 
 [script]
 # Symbolic instruction fetch and ROM-only formal mode.

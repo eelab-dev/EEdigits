@@ -1,0 +1,19 @@
+[options]
+mode bmc
+depth 15
+
+[engines]
+smtbmc --nopresat z3
+
+[script]
+read -formal timescale.v
+read -formal generic_dpram_formal.v
+read -formal generic_fifo_lfsr.v
+read -formal generic_fifo_lfsr_prove_formal.sv
+prep -top generic_fifo_lfsr_prove_formal
+
+[files]
+timescale.v
+generic_fifo_lfsr.v
+generic_dpram_formal.v
+generic_fifo_lfsr_prove_formal.sv

@@ -1,0 +1,102 @@
+{
+  "total_mutants": 10,
+  "counts": {
+    "KILLED": 10
+  },
+  "raw_kill_rate": 1.0,
+  "effective_mutants": 10,
+  "effective_kill_rate": 1.0,
+  "survived_mutants": [],
+  "rows": [
+    {
+      "mutant_id": "M003",
+      "mutation_class": "predicate_inversion",
+      "line_no": 133,
+      "original_snippet": "      else if (frreq) rp <= #1 rp_next;",
+      "mutated_snippet": "      else if (!(frreq)) rp <= #1 rp_next;",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M003"
+    },
+    {
+      "mutant_id": "M008",
+      "mutation_class": "predicate_inversion",
+      "line_no": 145,
+      "original_snippet": "      else if (fwreq) wp <= #1 wp_next;",
+      "mutated_snippet": "      else if (!(fwreq)) wp <= #1 wp_next;",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M008"
+    },
+    {
+      "mutant_id": "M017",
+      "mutation_class": "equality_flip",
+      "line_no": 126,
+      "original_snippet": "    assign empty_next   = (rp_next == wp_next) && (rp_wrap_next == wp_wrap_next);",
+      "mutated_snippet": "    assign empty_next   = (rp_next != wp_next) && (rp_wrap_next == wp_wrap_next);",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M017"
+    },
+    {
+      "mutant_id": "M018",
+      "mutation_class": "equality_flip",
+      "line_no": 127,
+      "original_snippet": "    assign full_next    = (rp_next == wp_next) && (rp_wrap_next != wp_wrap_next);",
+      "mutated_snippet": "    assign full_next    = (rp_next != wp_next) && (rp_wrap_next != wp_wrap_next);",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M018"
+    },
+    {
+      "mutant_id": "M019",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 122,
+      "original_snippet": "    assign rp_next      = rp + {{(AW-1){1'b0}}, frreq};",
+      "mutated_snippet": "    assign rp_next      = rp + {{(AW-1){1'b1}}, frreq};",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M019"
+    },
+    {
+      "mutant_id": "M020",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 123,
+      "original_snippet": "    assign wp_next      = wp + {{(AW-1){1'b0}}, fwreq};",
+      "mutated_snippet": "    assign wp_next      = wp + {{(AW-1){1'b1}}, fwreq};",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M020"
+    },
+    {
+      "mutant_id": "M021",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 137,
+      "original_snippet": "      if (~nReset)    rp_wrap <= #1 1'b0;",
+      "mutated_snippet": "      if (~nReset)    rp_wrap <= #1 1'b1;",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M021"
+    },
+    {
+      "mutant_id": "M022",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 138,
+      "original_snippet": "      else if (rst)   rp_wrap <= #1 1'b0;",
+      "mutated_snippet": "      else if (rst)   rp_wrap <= #1 1'b1;",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M022"
+    },
+    {
+      "mutant_id": "M023",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 149,
+      "original_snippet": "      if (~nReset)    wp_wrap <= #1 1'b0;",
+      "mutated_snippet": "      if (~nReset)    wp_wrap <= #1 1'b1;",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M023"
+    },
+    {
+      "mutant_id": "M024",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 150,
+      "original_snippet": "      else if (rst)   wp_wrap <= #1 1'b0;",
+      "mutated_snippet": "      else if (rst)   wp_wrap <= #1 1'b1;",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M024"
+    }
+  ]
+}

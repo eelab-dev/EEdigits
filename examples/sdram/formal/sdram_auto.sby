@@ -1,0 +1,19 @@
+[options]
+mode bmc
+depth 250
+
+[engines]
+smtbmc yices
+
+[script]
+read -formal iobuf_stub.v
+read -formal oddr2_stub.v
+read -formal sdram.v
+read -formal sdram_prove_formal.sv
+prep -top sdram_prove_formal -flatten
+
+[files]
+../iobuf_stub.v
+../oddr2_stub.v
+../sdram.v
+sdram_prove_formal.sv

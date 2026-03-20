@@ -1,0 +1,57 @@
+initial
+assume (= [active] false)
+assume (= [cycle_cnt] #b00000000000000000000000000000000)
+assume (= [dut.u_uart_rx.baud_cnt] #b0000)
+assume (= [dut.u_uart_rx.bit_idx] #b000)
+assume (= [dut.u_uart_rx.rx_busy] false)
+assume (= [dut.u_uart_rx.rx_data] #b10000000)
+assume (= [dut.u_uart_rx.rx_valid] false)
+assume (= [dut.u_uart_rx.shift_reg] #b00000000)
+assume (= [dut.u_uart_rx.state] #b000)
+assume (= [dut.u_uart_rx.stop_ok] false)
+assume (= [dut.u_uart_tx.baud_cnt] #b0000)
+assume (= [dut.u_uart_tx.bit_idx] #b000)
+assume (= [dut.u_uart_tx.shift_reg] #b00000000)
+assume (= [dut.u_uart_tx.state] #b000)
+assume (= [dut.u_uart_tx.tx_busy] false)
+assume (= [dut.u_uart_tx.tx_serial] false)
+assume (= [fired] false)
+assume (= [phase_cnt] #b10000000000000000000000000000000)
+assume (= [rx_valid_seen] false)
+assume (= [tx_latched] #b00000000)
+
+state 0
+
+state 1
+
+state 2
+
+state 3
+
+state 4
+
+state 5
+
+state 6
+
+state 7
+
+state 8
+
+state 9
+
+state 10
+
+state 11
+
+state 12
+
+state 13
+
+state 14
+
+state 15
+
+state 16
+
+state 17

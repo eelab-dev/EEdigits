@@ -1,0 +1,207 @@
+{
+  "total_mutants": 20,
+  "counts": {
+    "KILLED": 7,
+    "SURVIVED": 13
+  },
+  "raw_kill_rate": 0.35,
+  "effective_mutants": 20,
+  "effective_kill_rate": 0.35,
+  "survived_mutants": [
+    "M002",
+    "M006",
+    "M007",
+    "M008",
+    "M009",
+    "M010",
+    "M011",
+    "M012",
+    "M013",
+    "M016",
+    "M017",
+    "M019",
+    "M020"
+  ],
+  "rows": [
+    {
+      "mutant_id": "M001",
+      "mutation_class": "constant_perturbation",
+      "line_no": 41,
+      "original_snippet": "    reg [$clog2(BaudDiv)-1:0] baud_cnt;     // Baud rate counter",
+      "mutated_snippet": "    reg [$clog2(BaudDiv)-2:0] baud_cnt;     // Baud rate counter",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M001"
+    },
+    {
+      "mutant_id": "M002",
+      "mutation_class": "constant_perturbation",
+      "line_no": 42,
+      "original_snippet": "    reg [2:0] bit_idx;                      // Current bit index (0-7)",
+      "mutated_snippet": "    reg [3:0] bit_idx;                      // Current bit index (0-7)",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M002"
+    },
+    {
+      "mutant_id": "M003",
+      "mutation_class": "equality_flip",
+      "line_no": 46,
+      "original_snippet": "    wire baud_tick = (baud_cnt == BaudDiv - 1);",
+      "mutated_snippet": "    wire baud_tick = (baud_cnt != BaudDiv - 1);",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M003"
+    },
+    {
+      "mutant_id": "M004",
+      "mutation_class": "constant_perturbation",
+      "line_no": 46,
+      "original_snippet": "    wire baud_tick = (baud_cnt == BaudDiv - 1);",
+      "mutated_snippet": "    wire baud_tick = (baud_cnt == BaudDiv - 2);",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M004"
+    },
+    {
+      "mutant_id": "M005",
+      "mutation_class": "predicate_inversion",
+      "line_no": 49,
+      "original_snippet": "        if (rst) begin",
+      "mutated_snippet": "        if (!(rst)) begin",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M005"
+    },
+    {
+      "mutant_id": "M006",
+      "mutation_class": "constant_perturbation",
+      "line_no": 51,
+      "original_snippet": "            tx_serial <= 1'b1;",
+      "mutated_snippet": "            tx_serial <= 2'b1;",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M006"
+    },
+    {
+      "mutant_id": "M007",
+      "mutation_class": "constant_perturbation",
+      "line_no": 52,
+      "original_snippet": "            tx_busy   <= 1'b0;",
+      "mutated_snippet": "            tx_busy   <= 2'b0;",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M007"
+    },
+    {
+      "mutant_id": "M008",
+      "mutation_class": "constant_perturbation",
+      "line_no": 53,
+      "original_snippet": "            baud_cnt  <= {($clog2(BaudDiv)){1'b0}};",
+      "mutated_snippet": "            baud_cnt  <= {($clog2(BaudDiv)){2'b0}};",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M008"
+    },
+    {
+      "mutant_id": "M009",
+      "mutation_class": "constant_perturbation",
+      "line_no": 54,
+      "original_snippet": "            bit_idx   <= 3'd0;",
+      "mutated_snippet": "            bit_idx   <= 3'd1;",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M009"
+    },
+    {
+      "mutant_id": "M010",
+      "mutation_class": "constant_perturbation",
+      "line_no": 55,
+      "original_snippet": "            shift_reg <= 8'd0;",
+      "mutated_snippet": "            shift_reg <= 8'd1;",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M010"
+    },
+    {
+      "mutant_id": "M011",
+      "mutation_class": "constant_perturbation",
+      "line_no": 60,
+      "original_snippet": "                    tx_serial <= 1'b1;  // Line idles high",
+      "mutated_snippet": "                    tx_serial <= 2'b1;  // Line idles high",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M011"
+    },
+    {
+      "mutant_id": "M012",
+      "mutation_class": "constant_perturbation",
+      "line_no": 61,
+      "original_snippet": "                    tx_busy   <= 1'b0;  // Not busy",
+      "mutated_snippet": "                    tx_busy   <= 2'b0;  // Not busy",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M012"
+    },
+    {
+      "mutant_id": "M013",
+      "mutation_class": "constant_perturbation",
+      "line_no": 62,
+      "original_snippet": "                    baud_cnt  <= {($clog2(BaudDiv)){1'b0}};",
+      "mutated_snippet": "                    baud_cnt  <= {($clog2(BaudDiv)){2'b0}};",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M013"
+    },
+    {
+      "mutant_id": "M014",
+      "mutation_class": "constant_perturbation",
+      "line_no": 63,
+      "original_snippet": "                    bit_idx   <= 3'd0;",
+      "mutated_snippet": "                    bit_idx   <= 3'd1;",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M014"
+    },
+    {
+      "mutant_id": "M015",
+      "mutation_class": "predicate_inversion",
+      "line_no": 64,
+      "original_snippet": "                    if (tx_start) begin",
+      "mutated_snippet": "                    if (!(tx_start)) begin",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M015"
+    },
+    {
+      "mutant_id": "M016",
+      "mutation_class": "constant_perturbation",
+      "line_no": 66,
+      "original_snippet": "                        tx_busy   <= 1'b1;",
+      "mutated_snippet": "                        tx_busy   <= 2'b1;",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M016"
+    },
+    {
+      "mutant_id": "M017",
+      "mutation_class": "constant_perturbation",
+      "line_no": 73,
+      "original_snippet": "                    tx_serial <= 1'b0;  // Start bit is always 0",
+      "mutated_snippet": "                    tx_serial <= 2'b0;  // Start bit is always 0",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M017"
+    },
+    {
+      "mutant_id": "M018",
+      "mutation_class": "predicate_inversion",
+      "line_no": 74,
+      "original_snippet": "                    if (baud_tick) begin",
+      "mutated_snippet": "                    if (!(baud_tick)) begin",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M018"
+    },
+    {
+      "mutant_id": "M019",
+      "mutation_class": "constant_perturbation",
+      "line_no": 75,
+      "original_snippet": "                        baud_cnt <= {($clog2(BaudDiv)){1'b0}};",
+      "mutated_snippet": "                        baud_cnt <= {($clog2(BaudDiv)){2'b0}};",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M019"
+    },
+    {
+      "mutant_id": "M020",
+      "mutation_class": "constant_perturbation",
+      "line_no": 78,
+      "original_snippet": "                        baud_cnt <= baud_cnt + 1'b1;",
+      "mutated_snippet": "                        baud_cnt <= baud_cnt + 2'b1;",
+      "result": "SURVIVED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M020"
+    }
+  ]
+}

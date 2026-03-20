@@ -1,0 +1,102 @@
+{
+  "total_mutants": 10,
+  "counts": {
+    "KILLED": 10
+  },
+  "raw_kill_rate": 1.0,
+  "effective_mutants": 10,
+  "effective_kill_rate": 1.0,
+  "survived_mutants": [],
+  "rows": [
+    {
+      "mutant_id": "M001",
+      "mutation_class": "predicate_inversion",
+      "line_no": 183,
+      "original_snippet": "      else if (wb_rst_i)",
+      "mutated_snippet": "      else if (!(wb_rst_i))",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M001"
+    },
+    {
+      "mutant_id": "M002",
+      "mutation_class": "predicate_inversion",
+      "line_no": 190,
+      "original_snippet": "        if (wb_wacc)",
+      "mutated_snippet": "        if (!(wb_wacc))",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M002"
+    },
+    {
+      "mutant_id": "M003",
+      "mutation_class": "predicate_inversion",
+      "line_no": 203,
+      "original_snippet": "      else if (wb_rst_i)",
+      "mutated_snippet": "      else if (!(wb_rst_i))",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M003"
+    },
+    {
+      "mutant_id": "M004",
+      "mutation_class": "predicate_inversion",
+      "line_no": 205,
+      "original_snippet": "      else if (wb_wacc)",
+      "mutated_snippet": "      else if (!(wb_wacc))",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M004"
+    },
+    {
+      "mutant_id": "M005",
+      "mutation_class": "predicate_inversion",
+      "line_no": 212,
+      "original_snippet": "            if (done | i2c_al)",
+      "mutated_snippet": "            if (!(done | i2c_al))",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M005"
+    },
+    {
+      "mutant_id": "M006",
+      "mutation_class": "predicate_inversion",
+      "line_no": 267,
+      "original_snippet": "      else if (wb_rst_i)",
+      "mutated_snippet": "      else if (!(wb_rst_i))",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M006"
+    },
+    {
+      "mutant_id": "M007",
+      "mutation_class": "predicate_inversion",
+      "line_no": 287,
+      "original_snippet": "      else if (wb_rst_i)",
+      "mutated_snippet": "      else if (!(wb_rst_i))",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M007"
+    },
+    {
+      "mutant_id": "M008",
+      "mutation_class": "equality_flip",
+      "line_no": 207,
+      "original_snippet": "            if (core_en & (wb_adr_i == 3'b100) )",
+      "mutated_snippet": "            if (core_en & (wb_adr_i != 3'b100) )",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M008"
+    },
+    {
+      "mutant_id": "M009",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 82,
+      "original_snippet": "    parameter logic ARST_LVL = 1'b0; // asynchronous reset level",
+      "mutated_snippet": "    parameter logic ARST_LVL = 1'b1; // asynchronous reset level",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M009"
+    },
+    {
+      "mutant_id": "M010",
+      "mutation_class": "bit_literal_flip",
+      "line_no": 108,
+      "original_snippet": "    output scl_pad_o;       // SCL-line output (always 1'b0)",
+      "mutated_snippet": "    output scl_pad_o;       // SCL-line output (always 1'b1)",
+      "result": "KILLED",
+      "run_dir": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v2/runs/M010"
+    }
+  ]
+}

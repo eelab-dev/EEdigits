@@ -1,0 +1,161 @@
+{
+  "design": "generic_fifo_lfsr",
+  "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+  "total_mutants": 14,
+  "mutants": [
+    {
+      "mutant_id": "M001",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M001.v",
+      "line_no": 132,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (rst)   rp <= #1 0;",
+      "mutated_snippet": "      else if (!(rst))   rp <= #1 0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M002",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M002.v",
+      "line_no": 133,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (frreq) rp <= #1 rp_next;",
+      "mutated_snippet": "      else if (!(frreq)) rp <= #1 rp_next;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M003",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M003.v",
+      "line_no": 138,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (rst)   rp_wrap <= #1 1'b0;",
+      "mutated_snippet": "      else if (!(rst))   rp_wrap <= #1 1'b0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M004",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M004.v",
+      "line_no": 144,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (rst)   wp <= #1 0;",
+      "mutated_snippet": "      else if (!(rst))   wp <= #1 0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M005",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M005.v",
+      "line_no": 145,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (fwreq) wp <= #1 wp_next;",
+      "mutated_snippet": "      else if (!(fwreq)) wp <= #1 wp_next;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M006",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M006.v",
+      "line_no": 150,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (rst)   wp_wrap <= #1 1'b0;",
+      "mutated_snippet": "      else if (!(rst))   wp_wrap <= #1 1'b0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M007",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M007.v",
+      "line_no": 181,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (rst)",
+      "mutated_snippet": "      else if (!(rst))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M008",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M008.v",
+      "line_no": 190,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (rst)",
+      "mutated_snippet": "      else if (!(rst))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M009",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M009.v",
+      "line_no": 200,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      if (full & fwreq)",
+      "mutated_snippet": "      if (!(full & fwreq))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M010",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M010.v",
+      "line_no": 204,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      if (empty & frreq)",
+      "mutated_snippet": "      if (!(empty & frreq))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M011",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M011.v",
+      "line_no": 126,
+      "mutation_class": "equality_flip",
+      "original_snippet": "    assign empty_next   = (rp_next == wp_next) && (rp_wrap_next == wp_wrap_next);",
+      "mutated_snippet": "    assign empty_next   = (rp_next != wp_next) && (rp_wrap_next == wp_wrap_next);",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M012",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M012.v",
+      "line_no": 127,
+      "mutation_class": "equality_flip",
+      "original_snippet": "    assign full_next    = (rp_next == wp_next) && (rp_wrap_next != wp_wrap_next);",
+      "mutated_snippet": "    assign full_next    = (rp_next != wp_next) && (rp_wrap_next != wp_wrap_next);",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M013",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M013.v",
+      "line_no": 122,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "    assign rp_next      = rp + {{(AW-1){1'b0}}, frreq};",
+      "mutated_snippet": "    assign rp_next      = rp + {{(AW-1){1'b1}}, frreq};",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M014",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/mutants/mutants/generic_fifo_lfsr__M014.v",
+      "line_no": 123,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "    assign wp_next      = wp + {{(AW-1){1'b0}}, fwreq};",
+      "mutated_snippet": "    assign wp_next      = wp + {{(AW-1){1'b1}}, fwreq};",
+      "status": "generated"
+    }
+  ]
+}

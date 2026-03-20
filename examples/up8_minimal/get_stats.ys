@@ -1,0 +1,9 @@
+# get_stats.ys for up8_minimal
+
+read_verilog -sv -defer -D FORMAL up8_cpu.v
+
+hierarchy -check -top up8_cpu -chparam MEM_SIZE 65536
+
+proc; opt;
+
+stat -json -top up8_cpu

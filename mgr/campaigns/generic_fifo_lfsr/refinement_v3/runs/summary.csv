@@ -1,0 +1,11 @@
+mutant_id,mutation_class,line_no,original_snippet,mutated_snippet,result,run_dir
+M003,predicate_inversion,133,      else if (frreq) rp <= #1 rp_next;,      else if (!(frreq)) rp <= #1 rp_next;,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M003
+M008,predicate_inversion,145,      else if (fwreq) wp <= #1 wp_next;,      else if (!(fwreq)) wp <= #1 wp_next;,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M008
+M017,equality_flip,126,    assign empty_next   = (rp_next == wp_next) && (rp_wrap_next == wp_wrap_next);,    assign empty_next   = (rp_next != wp_next) && (rp_wrap_next == wp_wrap_next);,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M017
+M018,equality_flip,127,    assign full_next    = (rp_next == wp_next) && (rp_wrap_next != wp_wrap_next);,    assign full_next    = (rp_next != wp_next) && (rp_wrap_next != wp_wrap_next);,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M018
+M019,bit_literal_flip,122,"    assign rp_next      = rp + {{(AW-1){1'b0}}, frreq};","    assign rp_next      = rp + {{(AW-1){1'b1}}, frreq};",KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M019
+M020,bit_literal_flip,123,"    assign wp_next      = wp + {{(AW-1){1'b0}}, fwreq};","    assign wp_next      = wp + {{(AW-1){1'b1}}, fwreq};",KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M020
+M021,bit_literal_flip,137,      if (~nReset)    rp_wrap <= #1 1'b0;,      if (~nReset)    rp_wrap <= #1 1'b1;,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M021
+M022,bit_literal_flip,138,      else if (rst)   rp_wrap <= #1 1'b0;,      else if (rst)   rp_wrap <= #1 1'b1;,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M022
+M023,bit_literal_flip,149,      if (~nReset)    wp_wrap <= #1 1'b0;,      if (~nReset)    wp_wrap <= #1 1'b1;,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M023
+M024,bit_literal_flip,150,      else if (rst)   wp_wrap <= #1 1'b0;,      else if (rst)   wp_wrap <= #1 1'b1;,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M024

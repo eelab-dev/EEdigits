@@ -1,0 +1,9 @@
+# get_stats.ys for generic_fifo_lfsr
+
+read_verilog -sv timescale.v generic_dpram.v generic_fifo_lfsr.v
+
+hierarchy -check -top generic_fifo_lfsr
+
+proc; opt;
+
+stat -json -top generic_fifo_lfsr

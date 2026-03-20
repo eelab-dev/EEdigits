@@ -1,0 +1,34 @@
+[tasks]
+prove
+cover
+
+[options]
+prove: mode prove
+prove: depth 80
+cover: mode cover
+cover: depth 120
+
+[engines]
+smtbmc yices
+
+[script]
+read -formal keccak.v
+read -formal padder.v
+read -formal padder1.v
+read -formal f_permutation.v
+read -formal round2in1.v
+read -formal rconst2in1.v
+prove: read -formal sha3_keccak_prove_formal.sv
+cover: read -formal sha3_keccak_cover_formal.sv
+prove: prep -top sha3_keccak_prove_formal
+cover: prep -top sha3_keccak_cover_formal
+
+[files]
+../keccak.v
+../padder.v
+../padder1.v
+../f_permutation.v
+../round2in1.v
+../rconst2in1.v
+sha3_keccak_prove_formal.sv
+sha3_keccak_cover_formal.sv

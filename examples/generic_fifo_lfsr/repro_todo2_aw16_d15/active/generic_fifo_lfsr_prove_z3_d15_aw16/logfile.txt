@@ -1,0 +1,55 @@
+SBY 13:48:03 [generic_fifo_lfsr_prove_z3_d15_aw16] Removing directory '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr_prove_z3_d15_aw16'.
+SBY 13:48:03 [generic_fifo_lfsr_prove_z3_d15_aw16] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/timescale.v' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr_prove_z3_d15_aw16/src/timescale.v'.
+SBY 13:48:03 [generic_fifo_lfsr_prove_z3_d15_aw16] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr.v' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr_prove_z3_d15_aw16/src/generic_fifo_lfsr.v'.
+SBY 13:48:03 [generic_fifo_lfsr_prove_z3_d15_aw16] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_dpram_formal.v' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr_prove_z3_d15_aw16/src/generic_dpram_formal.v'.
+SBY 13:48:03 [generic_fifo_lfsr_prove_z3_d15_aw16] Copy '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr_prove_formal.sv' to '/workspaces/digital-tools/examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/generic_fifo_lfsr_prove_z3_d15_aw16/src/generic_fifo_lfsr_prove_formal.sv'.
+SBY 13:48:03 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: smtbmc cvc5
+SBY 13:48:03 [generic_fifo_lfsr_prove_z3_d15_aw16] base: starting process "cd generic_fifo_lfsr_prove_z3_d15_aw16/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 13:48:03 [generic_fifo_lfsr_prove_z3_d15_aw16] base: Warning: Encountered `translate_off' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using a portable and standards-compliant construct such as `ifdef is recommended!
+SBY 13:48:03 [generic_fifo_lfsr_prove_z3_d15_aw16] base: Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+SBY 13:48:03 [generic_fifo_lfsr_prove_z3_d15_aw16] base: finished (returncode=0)
+SBY 13:48:03 [generic_fifo_lfsr_prove_z3_d15_aw16] prep: starting process "cd generic_fifo_lfsr_prove_z3_d15_aw16/model; yosys -ql design_prep.log design_prep.ys"
+SBY 13:48:03 [generic_fifo_lfsr_prove_z3_d15_aw16] prep: Warning: Wire generic_fifo_lfsr_prove_formal.\clk is used but has no driver.
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] prep: finished (returncode=0)
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] smt2: starting process "cd generic_fifo_lfsr_prove_z3_d15_aw16/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] smt2: finished (returncode=0)
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: starting process "cd generic_fifo_lfsr_prove_z3_d15_aw16; yosys-smtbmc -s cvc5 --presat --unroll --noprogress -t 15  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Solver: cvc5
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 13:48:04 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 13:48:05 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 13:48:05 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 13:48:06 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:02  Checking assumptions in step 6..
+SBY 13:48:06 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:02  Checking assertions in step 6..
+SBY 13:48:12 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:08  Checking assumptions in step 7..
+SBY 13:48:12 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:08  Checking assertions in step 7..
+SBY 13:48:38 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:34  Checking assumptions in step 8..
+SBY 13:48:38 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:00:34  Checking assertions in step 8..
+SBY 13:49:38 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:01:34  waiting for solver (1 minute)
+SBY 13:51:25 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:03:20  Checking assumptions in step 9..
+SBY 13:51:25 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:03:21  Checking assertions in step 9..
+SBY 13:52:25 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:04:21  waiting for solver (1 minute)
+SBY 13:56:25 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:08:21  waiting for solver (5 minutes)
+SBY 14:01:08 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:13:04  Checking assumptions in step 10..
+SBY 14:01:09 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:13:05  Checking assertions in step 10..
+SBY 14:02:09 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:14:05  waiting for solver (1 minute)
+SBY 14:06:09 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:18:05  waiting for solver (5 minutes)
+SBY 14:11:09 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:23:05  waiting for solver (10 minutes)
+SBY 14:16:09 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:28:05  waiting for solver (15 minutes)
+SBY 14:31:09 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:43:04  waiting for solver (30 minutes)
+SBY 14:44:46 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:56:41  Checking assumptions in step 11..
+SBY 14:44:47 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:56:43  Checking assertions in step 11..
+SBY 14:45:47 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   0:57:43  waiting for solver (1 minute)
+SBY 14:49:47 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   1:01:43  waiting for solver (5 minutes)
+SBY 14:54:47 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   1:06:43  waiting for solver (10 minutes)
+SBY 14:59:47 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   1:11:42  waiting for solver (15 minutes)
+SBY 15:14:47 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: ##   1:26:42  waiting for solver (30 minutes)
+SBY 15:35:15 [generic_fifo_lfsr_prove_z3_d15_aw16] engine_0: terminating process
