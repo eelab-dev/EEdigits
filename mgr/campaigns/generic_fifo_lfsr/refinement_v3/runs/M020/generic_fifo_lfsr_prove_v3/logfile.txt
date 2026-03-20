@@ -1,0 +1,43 @@
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] Removing directory '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M020/generic_fifo_lfsr_prove_v3'.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] Copy '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M020/timescale.v' to '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M020/generic_fifo_lfsr_prove_v3/src/timescale.v'.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] Copy '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M020/generic_fifo_lfsr.v' to '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M020/generic_fifo_lfsr_prove_v3/src/generic_fifo_lfsr.v'.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] Copy '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M020/generic_dpram_formal.v' to '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M020/generic_fifo_lfsr_prove_v3/src/generic_dpram_formal.v'.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] Copy '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M020/generic_fifo_lfsr_prove_formal_v2.sv' to '/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs/M020/generic_fifo_lfsr_prove_v3/src/generic_fifo_lfsr_prove_formal_v2.sv'.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] engine_0: smtbmc --nopresat z3
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] base: starting process "cd generic_fifo_lfsr_prove_v3/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] base: Warning: Encountered `translate_off' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using a portable and standards-compliant construct such as `ifdef is recommended!
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] base: generic_fifo_lfsr_prove_formal_v2.sv:77: Warning: Range [8:1] select out of bounds on signal `\phase': Setting 3 MSB bits to undef.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] base: generic_fifo_lfsr_prove_formal_v2.sv:132: Warning: Identifier `\dut.wp' is implicitly declared.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] base: generic_fifo_lfsr_prove_formal_v2.sv:135: Warning: Identifier `\dut.rp' is implicitly declared.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] base: Warning: Wire generic_fifo_lfsr_prove_formal_v2.\clk is used but has no driver.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] base: Warning: Wire generic_fifo_lfsr_prove_formal_v2.\dut.wp is used but has no driver.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] base: Warning: Wire generic_fifo_lfsr_prove_formal_v2.\dut.rp is used but has no driver.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] base: finished (returncode=0)
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] prep: starting process "cd generic_fifo_lfsr_prove_v3/model; yosys -ql design_prep.log design_prep.ys"
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] prep: Warning: Wire generic_fifo_lfsr_prove_formal_v2.\clk is used but has no driver.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] prep: Warning: Wire generic_fifo_lfsr_prove_formal_v2.\dut.rp is used but has no driver.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] prep: Warning: Wire generic_fifo_lfsr_prove_formal_v2.\dut.wp is used but has no driver.
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] prep: finished (returncode=0)
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] smt2: starting process "cd generic_fifo_lfsr_prove_v3/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] smt2: finished (returncode=0)
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] engine_0: starting process "cd generic_fifo_lfsr_prove_v3; yosys-smtbmc -s z3 --noprogress -t 40  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 10:46:30 [generic_fifo_lfsr_prove_v3] engine_0: ##   0:00:00  Solver: z3
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: ##   0:00:00  BMC failed!
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: ##   0:00:00  Value for anyconst generic_fifo_lfsr_prove_formal_v2.watched_data (generic_fifo_lfsr_prove_formal_v2.sv:24.35-24.47): 0
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: ##   0:00:00  Assert failed in generic_fifo_lfsr_prove_formal_v2: generic_fifo_lfsr_prove_formal_v2.sv:127.7-127.43 (_witness_.check_assert_generic_fifo_lfsr_prove_formal_v2_sv_127_64)
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: ##   0:00:00  Status: failed
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: finished (returncode=1)
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] engine_0: Status returned by engine: FAIL
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] summary: engine_0 (smtbmc --nopresat z3) returned FAIL
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] summary: counterexample trace: generic_fifo_lfsr_prove_v3/engine_0/trace.vcd
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] summary:   failed assertion generic_fifo_lfsr_prove_formal_v2._witness_.check_assert_generic_fifo_lfsr_prove_formal_v2_sv_127_64 at generic_fifo_lfsr_prove_formal_v2.sv:127.7-127.43 step 2
+SBY 10:46:31 [generic_fifo_lfsr_prove_v3] DONE (FAIL, rc=2)

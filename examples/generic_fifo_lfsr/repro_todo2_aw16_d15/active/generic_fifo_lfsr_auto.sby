@@ -1,6 +1,6 @@
 [options]
 mode bmc
-depth 15
+depth 40
 
 [engines]
 smtbmc bitwuzla

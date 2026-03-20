@@ -1,5 +1,0 @@
-
-read_verilog -sv /workspaces/digital-tools/examples/i2c/i2c_master_defines.v /workspaces/digital-tools/examples/i2c/i2c_master_bit_ctrl_formal.v /workspaces/digital-tools/examples/i2c/i2c_master_byte_ctrl_formal.v /workspaces/digital-tools/examples/i2c/i2c_master_top_formal.v
-hierarchy -check -top i2c_master_top_formal
-proc; opt;
-stat -json -top i2c_master_top_formal

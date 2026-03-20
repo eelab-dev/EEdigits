@@ -1,0 +1,117 @@
+{
+  "design": "i2c_master_top_formal",
+  "source_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/i2c_master_top_formal.v",
+  "total_mutants": 10,
+  "mutants": [
+    {
+      "mutant_id": "M001",
+      "design": "i2c_master_top_formal",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/i2c_master_top_formal.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/mutants/mutants/i2c_master_top_formal__M001.v",
+      "line_no": 183,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (wb_rst_i)",
+      "mutated_snippet": "      else if (!(wb_rst_i))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M002",
+      "design": "i2c_master_top_formal",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/i2c_master_top_formal.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/mutants/mutants/i2c_master_top_formal__M002.v",
+      "line_no": 190,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        if (wb_wacc)",
+      "mutated_snippet": "        if (!(wb_wacc))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M003",
+      "design": "i2c_master_top_formal",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/i2c_master_top_formal.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/mutants/mutants/i2c_master_top_formal__M003.v",
+      "line_no": 203,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (wb_rst_i)",
+      "mutated_snippet": "      else if (!(wb_rst_i))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M004",
+      "design": "i2c_master_top_formal",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/i2c_master_top_formal.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/mutants/mutants/i2c_master_top_formal__M004.v",
+      "line_no": 205,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (wb_wacc)",
+      "mutated_snippet": "      else if (!(wb_wacc))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M005",
+      "design": "i2c_master_top_formal",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/i2c_master_top_formal.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/mutants/mutants/i2c_master_top_formal__M005.v",
+      "line_no": 212,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "            if (done | i2c_al)",
+      "mutated_snippet": "            if (!(done | i2c_al))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M006",
+      "design": "i2c_master_top_formal",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/i2c_master_top_formal.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/mutants/mutants/i2c_master_top_formal__M006.v",
+      "line_no": 267,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (wb_rst_i)",
+      "mutated_snippet": "      else if (!(wb_rst_i))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M007",
+      "design": "i2c_master_top_formal",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/i2c_master_top_formal.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/mutants/mutants/i2c_master_top_formal__M007.v",
+      "line_no": 287,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (wb_rst_i)",
+      "mutated_snippet": "      else if (!(wb_rst_i))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M008",
+      "design": "i2c_master_top_formal",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/i2c_master_top_formal.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/mutants/mutants/i2c_master_top_formal__M008.v",
+      "line_no": 207,
+      "mutation_class": "equality_flip",
+      "original_snippet": "            if (core_en & (wb_adr_i == 3'b100) )",
+      "mutated_snippet": "            if (core_en & (wb_adr_i != 3'b100) )",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M009",
+      "design": "i2c_master_top_formal",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/i2c_master_top_formal.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/mutants/mutants/i2c_master_top_formal__M009.v",
+      "line_no": 82,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "    parameter logic ARST_LVL = 1'b0; // asynchronous reset level",
+      "mutated_snippet": "    parameter logic ARST_LVL = 1'b1; // asynchronous reset level",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M010",
+      "design": "i2c_master_top_formal",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/i2c_master_top_formal.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/i2c/refinement_v1/mutants/mutants/i2c_master_top_formal__M010.v",
+      "line_no": 108,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "    output scl_pad_o;       // SCL-line output (always 1'b0)",
+      "mutated_snippet": "    output scl_pad_o;       // SCL-line output (always 1'b1)",
+      "status": "generated"
+    }
+  ]
+}

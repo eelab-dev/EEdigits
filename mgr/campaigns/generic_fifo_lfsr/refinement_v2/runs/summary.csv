@@ -1,0 +1,15 @@
+mutant_id,mutation_class,line_no,original_snippet,mutated_snippet,result,run_dir
+M001,predicate_inversion,132,      else if (rst)   rp <= #1 0;,      else if (!(rst))   rp <= #1 0;,INVALID,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M001
+M002,predicate_inversion,133,      else if (frreq) rp <= #1 rp_next;,      else if (!(frreq)) rp <= #1 rp_next;,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M002
+M003,predicate_inversion,138,      else if (rst)   rp_wrap <= #1 1'b0;,      else if (!(rst))   rp_wrap <= #1 1'b0;,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M003
+M004,predicate_inversion,144,      else if (rst)   wp <= #1 0;,      else if (!(rst))   wp <= #1 0;,INVALID,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M004
+M005,predicate_inversion,145,      else if (fwreq) wp <= #1 wp_next;,      else if (!(fwreq)) wp <= #1 wp_next;,SURVIVED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M005
+M006,predicate_inversion,150,      else if (rst)   wp_wrap <= #1 1'b0;,      else if (!(rst))   wp_wrap <= #1 1'b0;,INVALID,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M006
+M007,predicate_inversion,181,      else if (rst),      else if (!(rst)),KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M007
+M008,predicate_inversion,190,      else if (rst),      else if (!(rst)),KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M008
+M009,predicate_inversion,200,      if (full & fwreq),      if (!(full & fwreq)),INVALID,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M009
+M010,predicate_inversion,204,      if (empty & frreq),      if (!(empty & frreq)),SURVIVED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M010
+M011,equality_flip,126,    assign empty_next   = (rp_next == wp_next) && (rp_wrap_next == wp_wrap_next);,    assign empty_next   = (rp_next != wp_next) && (rp_wrap_next == wp_wrap_next);,INVALID,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M011
+M012,equality_flip,127,    assign full_next    = (rp_next == wp_next) && (rp_wrap_next != wp_wrap_next);,    assign full_next    = (rp_next != wp_next) && (rp_wrap_next != wp_wrap_next);,KILLED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M012
+M013,bit_literal_flip,122,"    assign rp_next      = rp + {{(AW-1){1'b0}}, frreq};","    assign rp_next      = rp + {{(AW-1){1'b1}}, frreq};",INVALID,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M013
+M014,bit_literal_flip,123,"    assign wp_next      = wp + {{(AW-1){1'b0}}, fwreq};","    assign wp_next      = wp + {{(AW-1){1'b1}}, fwreq};",SURVIVED,/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v2/runs/M014

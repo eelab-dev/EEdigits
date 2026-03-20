@@ -1,0 +1,21 @@
+mutant_id,mutation_class,line_no,original_snippet,mutated_snippet,result,run_dir
+M001,state_retarget,67,                        state     <= SStart;,                        state     <= SIdle;,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M001
+M002,state_retarget,76,                        state    <= SData;  // Move to data transmission,                        state    <= SIdle;  // Move to data transmission,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M002
+M003,state_retarget,90,"                            state   <= SStop;  // All 8 bits sent, move to stop bit","                            state   <= SIdle;  // All 8 bits sent, move to stop bit",KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M003
+M004,state_retarget,104,                        state    <= SIdle;  // Transmission complete,                        state    <= SStart;  // Transmission complete,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M004
+M005,predicate_inversion,74,                    if (baud_tick) begin,                    if (!(baud_tick)) begin,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M005
+M006,predicate_inversion,85,                    if (baud_tick) begin,                    if (!(baud_tick)) begin,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M006
+M007,predicate_inversion,88,                        if (bit_idx == 3'd7) begin,                        if (!(bit_idx == 3'd7)) begin,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M007
+M008,predicate_inversion,102,                    if (baud_tick) begin,                    if (!(baud_tick)) begin,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M008
+M009,predicate_inversion,64,                    if (tx_start) begin,                    if (!(tx_start)) begin,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M009
+M010,equality_flip,88,                        if (bit_idx == 3'd7) begin,                        if (bit_idx != 3'd7) begin,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M010
+M011,equality_flip,46,    wire baud_tick = (baud_cnt == BaudDiv - 1);,    wire baud_tick = (baud_cnt != BaudDiv - 1);,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M011
+M012,bit_literal_flip,60,                    tx_serial <= 1'b1;  // Line idles high,                    tx_serial <= 1'b0;  // Line idles high,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M012
+M013,bit_literal_flip,61,                    tx_busy   <= 1'b0;  // Not busy,                    tx_busy   <= 1'b1;  // Not busy,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M013
+M014,bit_literal_flip,63,                    bit_idx   <= 3'd0;,                    bit_idx   <= 3'd1;,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M014
+M015,bit_literal_flip,66,                        tx_busy   <= 1'b1;,                        tx_busy   <= 1'b0;,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M015
+M016,bit_literal_flip,73,                    tx_serial <= 1'b0;  // Start bit is always 0,                    tx_serial <= 1'b1;  // Start bit is always 0,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M016
+M017,bit_literal_flip,87,"                        shift_reg <= {1'b0, shift_reg[7:1]};  // Shift right","                        shift_reg <= {1'b1, shift_reg[7:1]};  // Shift right",SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M017
+M018,bit_literal_flip,88,                        if (bit_idx == 3'd7) begin,                        if (bit_idx == 3'd6) begin,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M018
+M019,bit_literal_flip,89,                            bit_idx <= 3'd0;,                            bit_idx <= 3'd1;,SURVIVED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M019
+M020,bit_literal_flip,92,                            bit_idx <= bit_idx + 1'b1;  // Next bit,                            bit_idx <= bit_idx + 1'b0;  // Next bit,KILLED,/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v2/runs/M020

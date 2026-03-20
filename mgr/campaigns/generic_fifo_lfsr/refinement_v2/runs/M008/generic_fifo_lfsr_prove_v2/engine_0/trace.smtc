@@ -1,0 +1,25 @@
+initial
+assume (= [_witness_.anyinit_procdff_291] true)
+assume (= [_witness_.anyinit_procdff_292] false)
+assume (= [ahead_count] #b00000000000000000)
+assume (= [dut._witness_.anyinit_procdff_265] false)
+assume (= [dut._witness_.anyinit_procdff_270] false)
+assume (= [dut._witness_.anyinit_procdff_275] false)
+assume (= [dut._witness_.anyinit_procdff_280] #x0000)
+assume (= [dut._witness_.anyinit_procdff_285] false)
+assume (= [dut._witness_.anyinit_procdff_290] #x4000)
+assume (= [dut.fiforam.do_o] #x00)
+assume (= [shadow_count] #b00000000000000000)
+assume (= [watchdog] #b00000000000000000)
+assume (= [watched_pending] false)
+assume (= [watched_seen] true)
+assume (= (select [dut.fiforam.mem] #x0000) #x01)
+assume (= (select [dut.fiforam.mem] #x0001) #x00)
+
+state 0
+
+state 1
+
+state 2
+
+state 3

@@ -1,0 +1,43 @@
+SBY 14:36:29 [uart_full_prove_v2] Removing directory '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M003/uart_full_prove_v2'.
+SBY 14:36:29 [uart_full_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M003/uart_full.v' to '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M003/uart_full_prove_v2/src/uart_full.v'.
+SBY 14:36:29 [uart_full_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M003/uart_tx.v' to '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M003/uart_full_prove_v2/src/uart_tx.v'.
+SBY 14:36:29 [uart_full_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M003/uart_rx.v' to '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M003/uart_full_prove_v2/src/uart_rx.v'.
+SBY 14:36:29 [uart_full_prove_v2] Copy '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M003/uart_full_formal_v2.sv' to '/workspaces/digital-tools/mgr/campaigns/uart_tx/refinement_v1/runs/M003/uart_full_prove_v2/src/uart_full_formal_v2.sv'.
+SBY 14:36:29 [uart_full_prove_v2] engine_0: smtbmc yices
+SBY 14:36:29 [uart_full_prove_v2] base: starting process "cd uart_full_prove_v2/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 14:36:29 [uart_full_prove_v2] base: Warning: Wire uart_full_formal.\clk is used but has no driver.
+SBY 14:36:29 [uart_full_prove_v2] base: Warning: Wire uart_full_formal.\rst is used but has no driver.
+SBY 14:36:29 [uart_full_prove_v2] base: finished (returncode=0)
+SBY 14:36:29 [uart_full_prove_v2] prep: starting process "cd uart_full_prove_v2/model; yosys -ql design_prep.log design_prep.ys"
+SBY 14:36:30 [uart_full_prove_v2] prep: Warning: Wire uart_full_formal.\clk is used but has no driver.
+SBY 14:36:30 [uart_full_prove_v2] prep: Warning: Wire uart_full_formal.\rst is used but has no driver.
+SBY 14:36:30 [uart_full_prove_v2] prep: finished (returncode=0)
+SBY 14:36:30 [uart_full_prove_v2] smt2: starting process "cd uart_full_prove_v2/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 14:36:30 [uart_full_prove_v2] smt2: finished (returncode=0)
+SBY 14:36:30 [uart_full_prove_v2] engine_0: starting process "cd uart_full_prove_v2; yosys-smtbmc -s yices --presat --unroll --noprogress -t 150  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Solver: yices
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  BMC failed!
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Assert failed in uart_full_formal: uart_full_formal_v2.sv:211.9-211.35 (_witness_.check_assert_uart_full_formal_v2_sv_211_53)
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY 14:36:30 [uart_full_prove_v2] engine_0: ##   0:00:00  Status: failed
+SBY 14:36:30 [uart_full_prove_v2] engine_0: finished (returncode=1)
+SBY 14:36:30 [uart_full_prove_v2] engine_0: Status returned by engine: FAIL
+SBY 14:36:30 [uart_full_prove_v2] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 14:36:30 [uart_full_prove_v2] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+SBY 14:36:30 [uart_full_prove_v2] summary: engine_0 (smtbmc yices) returned FAIL
+SBY 14:36:30 [uart_full_prove_v2] summary: counterexample trace: uart_full_prove_v2/engine_0/trace.vcd
+SBY 14:36:30 [uart_full_prove_v2] summary:   failed assertion uart_full_formal._witness_.check_assert_uart_full_formal_v2_sv_211_53 at uart_full_formal_v2.sv:211.9-211.35 step 4
+SBY 14:36:30 [uart_full_prove_v2] DONE (FAIL, rc=2)

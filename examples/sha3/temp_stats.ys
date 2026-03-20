@@ -1,5 +1,0 @@
-
-read_verilog -sv /workspaces/digital-tools/examples/sha3/keccak.v /workspaces/digital-tools/examples/sha3/padder.v /workspaces/digital-tools/examples/sha3/padder1.v /workspaces/digital-tools/examples/sha3/f_permutation.v /workspaces/digital-tools/examples/sha3/round2in1.v /workspaces/digital-tools/examples/sha3/rconst2in1.v
-hierarchy -check -top keccak
-proc; opt;
-stat -json -top keccak

@@ -1,0 +1,6 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:00:08 (8)
+Elapsed process time [H:MM:SS (secs)]: 0:00:03 (3)
+engine_0 (smtbmc yices) returned FAIL
+counterexample trace: engine_0/trace.vcd
+counterexample trace: engine_0/trace.yw
+  failed assertion uart_full_formal_v3._witness_.check_assert_uart_full_formal_v3_sv_127_93 at uart_full_formal_v3.sv:127.9-127.35 step 94

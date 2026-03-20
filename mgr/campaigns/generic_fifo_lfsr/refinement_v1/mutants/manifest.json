@@ -1,0 +1,62 @@
+{
+  "design": "generic_fifo_lfsr",
+  "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/generic_fifo_lfsr.v",
+  "total_mutants": 5,
+  "mutants": [
+    {
+      "mutant_id": "M001",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/mutants/mutants/generic_fifo_lfsr__M001.v",
+      "line_no": 131,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      if (~nReset)    rp <= #1 0;",
+      "mutated_snippet": "      if (!(~nReset))    rp <= #1 0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M002",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/mutants/mutants/generic_fifo_lfsr__M002.v",
+      "line_no": 132,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (rst)   rp <= #1 0;",
+      "mutated_snippet": "      else if (!(rst))   rp <= #1 0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M003",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/mutants/mutants/generic_fifo_lfsr__M003.v",
+      "line_no": 133,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (frreq) rp <= #1 rp_next;",
+      "mutated_snippet": "      else if (!(frreq)) rp <= #1 rp_next;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M004",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/mutants/mutants/generic_fifo_lfsr__M004.v",
+      "line_no": 137,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      if (~nReset)    rp_wrap <= #1 1'b0;",
+      "mutated_snippet": "      if (!(~nReset))    rp_wrap <= #1 1'b0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M005",
+      "design": "generic_fifo_lfsr",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/generic_fifo_lfsr.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/generic_fifo_lfsr/refinement_v1/mutants/mutants/generic_fifo_lfsr__M005.v",
+      "line_no": 138,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (rst)   rp_wrap <= #1 1'b0;",
+      "mutated_snippet": "      else if (!(rst))   rp_wrap <= #1 1'b0;",
+      "status": "generated"
+    }
+  ]
+}

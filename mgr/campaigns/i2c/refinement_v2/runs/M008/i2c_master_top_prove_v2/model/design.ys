@@ -1,0 +1,12 @@
+# running in i2c_master_top_prove_v2/src/
+read -formal i2c_master_defines.v
+read -formal i2c_master_bit_ctrl_formal.v
+read -formal i2c_master_byte_ctrl_formal.v
+read -formal i2c_master_top_formal.v
+read -formal i2c_master_top_prove_formal_v2.sv
+prep -top i2c_master_top_prove_formal_v2
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

@@ -1,0 +1,6 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:00:01 (1)
+Elapsed process time [H:MM:SS (secs)]: 0:00:00 (0)
+engine_0 (smtbmc yices) returned FAIL
+counterexample trace: engine_0/trace.vcd
+counterexample trace: engine_0/trace.yw
+  failed assertion i2c_master_top_prove_formal_v2._witness_.check_assert_i2c_master_top_prove_formal_v2_sv_140_136 at i2c_master_top_prove_formal_v2.sv:140.9-140.50 step 2

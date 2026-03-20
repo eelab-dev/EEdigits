@@ -1,0 +1,11 @@
+# running in uart_full_prove/src/
+read -formal uart_full.v
+read -formal uart_tx.v
+read -formal uart_rx.v
+read -formal uart_full_formal.sv
+prep -top uart_full_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il
