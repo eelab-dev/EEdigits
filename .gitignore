@@ -18,3 +18,16 @@ examples/**/synthesis/*_synth.v
 examples/**/build/
 examples/**/waves/__pycache__/
 *.pyc
+
+# MGR campaign run artifacts (solver outputs per mutant)
+mgr/campaigns/**/runs/
+mgr/campaigns/**/model/
+
+# Solver model artifacts in examples (sby output dirs)
+examples/**/model/
+examples/**/archive/*.log
+
+# PSP intermediate / generated files
+examples/**/temp_stats.ys
+temp_stats.ys
+metrics_table.csv
