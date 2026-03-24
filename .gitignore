@@ -31,3 +31,5 @@ examples/**/archive/*.log
 examples/**/temp_stats.ys
 temp_stats.ys
 metrics_table.csv
+examples/**/design_dump.log
+examples/**/design_dump_*.log
