@@ -1,7 +1,7 @@
 {
     "name": "Digital Tools",
     "build": {
-        "dockerfile": "../Docker/Dockerfile",
+        "dockerfile": "danchitnis/eedigits:latest",
         "context": ".."
     },
     "remoteUser": "coder",
