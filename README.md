@@ -31,6 +31,8 @@
 
 ## Prerequisites
 
+**It is recomned to use the VSCode devcontainer for a pre-configured environment.** The most convient method is to open this repository on GitHub with the "Open with Codespaces" button, which will launch a cloud-based devcontainer. Alternatively, you can set up the devcontainer locally with Docker and VSCode's Remote Containers extension. If you prefer a local setup without Docker, ensure all the tools listed below are installed and available on your system.
+
 The following tools must be installed and available on `PATH`:
 
 | Tool | Purpose | Install reference |
