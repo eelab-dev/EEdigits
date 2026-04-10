@@ -1,0 +1,7 @@
+1. Assertion fires at cycle 1. First deviance at cycle 1: `OVF` retains 1'b1 instead of being cleared to 0.
+
+2. `OVF`
+
+3. `overflow_flag_error`
+
+4. The predicate inversion turns `if (START)` into `if (!START)`, so when ED=1 and START=1 the clear path is skipped and SHIFT=2'b00 matches no case arm, leaving `OVF` stuck at its initial value of 1 instead of being cleared.

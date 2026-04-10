@@ -60,7 +60,7 @@ module uart_tx #(
                     tx_serial <= 1'b1;  // Line idles high
                     tx_busy   <= 1'b0;  // Not busy
                     baud_cnt  <= {($clog2(BaudDiv)){1'b0}};
-                    bit_idx   <= 3'd0;
+                    bit_idx  <= 3'd0;
                     if (tx_start) begin
                         shift_reg <= tx_data;  // Latch data to transmit
                         tx_busy   <= 1'b1;

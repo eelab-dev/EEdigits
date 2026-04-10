@@ -1,0 +1,25 @@
+{
+  "case_id": "C8",
+  "design": "sha3",
+  "target_module": "keccak",
+  "mutant_id": "M006",
+  "mutation_class": "constant_perturbation",
+  "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+  "source_line": 34,
+  "original_snippet": "        i <= {i[9:0], state & f_ack};",
+  "mutated_snippet": "        i <= {i[8:0], state & f_ack};",
+  "failing_assertion_name": "A_liveness",
+  "failing_assertion_text": "assert(out_ready)",
+  "failing_assertion_file": "sha3_keccak_prove_formal.sv",
+  "failing_assertion_line": 95,
+  "first_bad_cycle": 27,
+  "key_signals": [
+    "i",
+    "f_ack",
+    "state",
+    "out_ready",
+    "cyc_since_last"
+  ],
+  "root_cause_class": "pointer_index_bug",
+  "trace_path": "/workspaces/digital-tools/mgr/campaigns/sha3/runs/r3/M006/sha3_prove/engine_0/trace_tb.v"
+}

@@ -1,0 +1,25 @@
+{
+  "case_id": "C5",
+  "design": "vga_lcd",
+  "target_module": "vga_vtim",
+  "mutant_id": "M003",
+  "mutation_class": "predicate_inversion",
+  "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+  "source_line": 136,
+  "original_snippet": "                if (cnt_done)",
+  "mutated_snippet": "                if (!(cnt_done))",
+  "failing_assertion_name": "A_gate_live",
+  "failing_assertion_text": "assert(cycle_ctr < MaxGateRiseDelay)",
+  "failing_assertion_file": "vga_vtim_prove_formal.sv",
+  "failing_assertion_line": 151,
+  "first_bad_cycle": 7,
+  "key_signals": [
+    "cnt_done",
+    "state",
+    "Gate",
+    "gate_ever_high",
+    "cycle_ctr"
+  ],
+  "root_cause_class": "missing_state_transition",
+  "trace_path": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/runs/r2/M003/vga_vtim_prove/engine_0/trace_tb.v"
+}

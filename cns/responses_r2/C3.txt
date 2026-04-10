@@ -1,0 +1,7 @@
+1. Assertion fires at cycle 1. First deviance at cycle 1: `RDY` remains 1 instead of updating to $past(START)=0.
+
+2. `RDY`
+
+3. `stuck_signal`
+
+4. Inverting the ED guard means the register-update block executes only when ED=0; at cycle 0 ED=1 so the block is skipped and `RDY` retains its initial value of 1 instead of being written from START=0.

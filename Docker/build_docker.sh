@@ -8,9 +8,18 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="${SCRIPT_DIR}/.."
 
 # Image name
-IMAGE_REPO="danchitnis/digital-tools"
+IMAGE_REPO="danchitnis/eedigits"
 IMAGE_TAG="${IMAGE_TAG:-latest}"
 IMAGE_NAME="${IMAGE_REPO}:${IMAGE_TAG}"
+
+# Parse arguments
+NO_CACHE=""
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --no-cache) NO_CACHE="--no-cache"; shift ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+done
 
 echo "Building Docker image: $IMAGE_NAME"
 
@@ -25,6 +34,7 @@ else
 fi
 
 docker build \
+	$NO_CACHE \
 	"${build_args[@]}" \
 	-t "$IMAGE_NAME" \
 	-f "${SCRIPT_DIR}/Dockerfile" \

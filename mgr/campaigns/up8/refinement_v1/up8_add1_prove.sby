@@ -1,0 +1,20 @@
+[options]
+mode bmc
+depth 45
+
+[engines]
+smtbmc yices
+
+[script]
+# Preprocessor flags required by up8_cpu.v:
+#   FORMAL          — disables file-based ROM init
+#   UP8_INLINE_ROM  — enables the `up8_inline_rom.vh` include
+#   UP8_FORMAL_ROMONLY — restricts ROM to formal subset
+read -formal -D FORMAL -D UP8_INLINE_ROM -D UP8_FORMAL_ROMONLY -I . up8_cpu.v
+read -formal up8_add1_formal.sv
+prep -top up8_add1_formal
+
+[files]
+up8_cpu.v
+up8_add1_formal.sv
+up8_inline_rom.vh

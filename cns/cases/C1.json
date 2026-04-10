@@ -1,0 +1,23 @@
+{
+  "case_id": "C1",
+  "design": "pipelined_fft_256",
+  "target_module": "cnorm",
+  "mutant_id": "M006",
+  "mutation_class": "predicate_inversion",
+  "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+  "source_line": 116,
+  "original_snippet": "                if (START)",
+  "mutated_snippet": "                if (!(START))",
+  "failing_assertion_name": "A_ovf_clr",
+  "failing_assertion_text": "assert(OVF == 1b0)",
+  "failing_assertion_file": "cnorm_prove_formal.sv",
+  "failing_assertion_line": 64,
+  "first_bad_cycle": 1,
+  "key_signals": [
+    "OVF",
+    "START",
+    "ED"
+  ],
+  "root_cause_class": "overflow_flag_error",
+  "trace_path": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/runs/r2/M006/cnorm_prove/engine_0/trace_tb.v"
+}

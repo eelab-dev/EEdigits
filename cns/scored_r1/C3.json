@@ -1,0 +1,13 @@
+{
+  "case_id": "C3",
+  "correct_cycle": 1,
+  "correct_signal": 1,
+  "correct_mechanism": 0,
+  "unsupported_claims": 0,
+  "overall_faithful": 0,
+  "found_cycles": [
+    0
+  ],
+  "gt_cycle": 1,
+  "gt_mechanism": "stuck_signal"
+}

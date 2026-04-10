@@ -1,0 +1,119 @@
+[FAILING ASSERTION]
+assert(rx_data == rx_latched)
+(property name: A_data_integrity, file: uart_rx_formal.sv:124)
+
+[MUTATION APPLIED]
+Original :                     if (baud_tick) begin
+Mutated  :                     if (!(baud_tick)) begin
+(module: uart_rx, source line: 98, class: predicate_inversion)
+
+[RTL CONTEXT]
+      86 |                         state    <= SData;  // Valid start bit, move to data
+      87 |                     end else begin
+      88 |                         baud_cnt <= baud_cnt + 1'b1;
+      89 |                     end
+      90 |                 end
+      91 | 
+      92 |                 SData: begin
+      93 |                     // Data bits: sample at middle of each bit period
+      94 |                     rx_busy <= 1'b1;
+      95 |                     if (baud_mid) begin
+      96 |                         shift_reg[bit_idx] <= rx_serial;  // Sample bit at middle
+      97 |                     end
+>>>   98 |                     if (baud_tick) begin
+      99 |                         baud_cnt <= {($clog2(BaudDiv)){1'b0}};
+     100 |                         if (bit_idx == 3'd7) begin
+     101 |                             bit_idx <= 3'd0;
+     102 |                             state   <= SStop;  // All 8 bits received
+     103 |                         end else begin
+     104 |                             bit_idx <= bit_idx + 1'b1;  // Next bit
+     105 |                         end
+     106 |                     end else begin
+     107 |                         baud_cnt <= baud_cnt + 1'b1;
+     108 |                     end
+     109 |                 end
+     110 | 
+
+[COUNTEREXAMPLE TRACE]
+Cycle |         active |       baud_cnt |        bit_idx |        rx_busy |        rx_data |       rx_valid |      shift_reg |          state |        stop_ok |          fired |          phase |     rx_latched |     rx_payload
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    0 |           1'b0 |        4'b0000 |         3'b000 |           1'b0 |    8'b10000000 |           1'b0 |    8'b00000000 |         3'b000 |           1'b0 |           1'b0 |     7'b0000000 |    8'b00000000 |    8'b00000000
+    1 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000010
+    2 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    3 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    4 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    5 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    6 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    7 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    8 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    9 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   10 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   11 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   12 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   13 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   14 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   15 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   16 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   17 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   18 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   19 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   20 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   21 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   22 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   23 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   24 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   25 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   26 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   27 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   28 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   29 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   30 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   31 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+
+[ASSERTION FIRED AT STEP]  ← R1  (step-anchor refinement)
+The BMC counterexample ends at step 31: the failing assertion above
+fires at cycle 31.  The trace covers cycles 0 through 31.
+The mutation may cause a signal to deviate from its expected value as early as
+cycle 1, but the PROPERTY FAILURE occurs at cycle 31.
+For liveness-style assertions ("eventually X must be true within N steps"),
+report 31 as the first-bad cycle, NOT the first cycle of wire divergence.
+
+Task:
+Identify and state concisely:
+1. The cycle at which the assertion fires (this is cycle 31).  Also
+   note the first cycle in 0..31 where a signal first deviates from
+   its expected value.  If the assertion is a liveness time-out, report 31.
+2. The signal(s) directly responsible for the assertion failure (name them exactly
+   as they appear in the trace).
+3. The failure mechanism class — choose the MOST SPECIFIC applicable class:  ← R2
+
+   missing_state_transition : An FSM state register fails to advance to the next
+     encoded state because the transition guard is false/inverted.
+     Symptom: the state register holds the same encoded value for extra cycles.
+
+   stuck_signal : A DATA register (not the FSM state) retains a stale value
+     because its write-enable or update condition is false/inverted.  The FSM may
+     be advancing normally; only this one data register is frozen.
+     Symptom: one output or pipeline register stays constant while others change.
+
+   overflow_flag_error : A flag (OVF, carry, overflow, shift indicator) is set
+     or cleared under the wrong arithmetic or comparison condition.
+
+   handshake_failure : A dedicated one-per-period completion/acknowledge/tick
+     signal is inverted so the receiver acts on every NON-completion cycle instead
+     of the single completion cycle.  The signal is a periodic strobe, not a
+     free-running counter terminal-count.
+
+   pointer_index_bug : A shift-register slice width or array index expression is
+     wrong (e.g. i[8:0] instead of i[9:0]), so a one-hot or binary counter can
+     never reach the required bit position regardless of elapsed time.
+
+   timing_progression_error : A free-running counter's terminal-count comparison
+     is wrong (e.g. != instead of ==), causing a timer to fire at the wrong period
+     or never.  Use ONLY when the counter is free-running AND the error is NOT
+     caused by an inverted handshake strobe or a pointer/index width mismatch.
+
+4. A one-sentence root-cause explanation.
+
+STRICT RULE: Do not mention any signal, event, or internal state that is not
+visible in the trace or RTL context above.

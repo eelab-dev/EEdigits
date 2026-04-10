@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 200
+
+[engines]
+smtbmc yices
+
+[script]
+read -formal sdram.v
+read -formal sdram_prove_formal.sv
+prep -top sdram_prove_formal -flatten
+
+[files]
+sdram.v
+sdram_prove_formal.sv

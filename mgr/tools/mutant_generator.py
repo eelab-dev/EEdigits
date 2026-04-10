@@ -416,6 +416,8 @@ def main() -> None:
     parser.add_argument("--out", required=True, help="Output directory for mutants and manifest")
     parser.add_argument("--design", required=True, help="Design name, e.g. uart_tx")
     parser.add_argument("--max-mutants", type=int, default=30, help="Maximum mutants to emit")
+    parser.add_argument("--exclude-classes", nargs="*", default=[], metavar="CLASS",
+                        help="Mutation classes to exclude, e.g. arithmetic_step_flip")
     args = parser.parse_args()
 
     rtl_path = Path(args.rtl).resolve()
@@ -434,6 +436,12 @@ def main() -> None:
         candidates.extend(generate_mutations_for_line(line, idx, state_symbols, contexts[idx]))
 
     candidates.sort(key=lambda c: (-c.priority, c.line_no, c.mutation_class, c.mutated_snippet))
+
+    if args.exclude_classes:
+        excluded = set(args.exclude_classes)
+        before = len(candidates)
+        candidates = [c for c in candidates if c.mutation_class not in excluded]
+        print(f"[INFO] Excluded {before - len(candidates)} candidates from classes: {excluded}")
 
     mutant_counter = 1
     seen_mutants: Set[str] = set()

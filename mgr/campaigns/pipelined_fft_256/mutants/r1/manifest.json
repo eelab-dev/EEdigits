@@ -1,0 +1,227 @@
+{
+  "design": "cnorm",
+  "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+  "total_mutants": 20,
+  "mutants": [
+    {
+      "mutant_id": "M001",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M001.v",
+      "line_no": 93,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "            if (ED)      begin",
+      "mutated_snippet": "            if (!(ED))      begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M002",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M002.v",
+      "line_no": 101,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        if (ED)      begin",
+      "mutated_snippet": "        if (!(ED))      begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M003",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M003.v",
+      "line_no": 102,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "            if (diri[nb+3] && ~diri[0])    // <0 with LSB=00",
+      "mutated_snippet": "            if (!(diri[nb+3] && ~diri[0]))    // <0 with LSB=00",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M004",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M004.v",
+      "line_no": 105,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "            if (diii[nb+3] && ~diii[0])",
+      "mutated_snippet": "            if (!(diii[nb+3] && ~diii[0]))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M005",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M005.v",
+      "line_no": 114,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "              if (ED)      begin",
+      "mutated_snippet": "              if (!(ED))      begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M006",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M006.v",
+      "line_no": 116,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                if (START)",
+      "mutated_snippet": "                if (!(START))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M007",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M007.v",
+      "line_no": 120,
+      "mutation_class": "equality_flip",
+      "original_snippet": "                    2'b01 : OVF<= (DR[nb+3] != DR[nb+2]) || (DI[nb+3] != DI[nb+2]);",
+      "mutated_snippet": "                    2'b01 : OVF<= (DR[nb+3] == DR[nb+2]) || (DI[nb+3] != DI[nb+2]);",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M008",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M008.v",
+      "line_no": 121,
+      "mutation_class": "equality_flip",
+      "original_snippet": "                    2'b10 : OVF<= (DR[nb+3] != DR[nb+2]) || (DI[nb+3] != DI[nb+2]) ||",
+      "mutated_snippet": "                    2'b10 : OVF<= (DR[nb+3] == DR[nb+2]) || (DI[nb+3] != DI[nb+2]) ||",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M009",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M009.v",
+      "line_no": 122,
+      "mutation_class": "equality_flip",
+      "original_snippet": "                        (DR[nb+3] != DR[nb+1]) || (DI[nb+3] != DI[nb+1]);",
+      "mutated_snippet": "                        (DR[nb+3] == DR[nb+1]) || (DI[nb+3] != DI[nb+1]);",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M010",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M010.v",
+      "line_no": 123,
+      "mutation_class": "equality_flip",
+      "original_snippet": "                    2'b11 : OVF<= (DR[nb+3] != DR[nb+2]) || (DI[nb+3] != DI[nb+2])||",
+      "mutated_snippet": "                    2'b11 : OVF<= (DR[nb+3] == DR[nb+2]) || (DI[nb+3] != DI[nb+2])||",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M011",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M011.v",
+      "line_no": 124,
+      "mutation_class": "equality_flip",
+      "original_snippet": "                        (DR[nb+3] != DR[nb]) || (DI[nb+3] != DI[nb]) ||",
+      "mutated_snippet": "                        (DR[nb+3] == DR[nb]) || (DI[nb+3] != DI[nb]) ||",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M012",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M012.v",
+      "line_no": 125,
+      "mutation_class": "equality_flip",
+      "original_snippet": "                        (DR[nb+3] != DR[nb+1]) || (DI[nb+3] != DI[nb+1]);",
+      "mutated_snippet": "                        (DR[nb+3] == DR[nb+1]) || (DI[nb+3] != DI[nb+1]);",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M013",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M013.v",
+      "line_no": 67,
+      "mutation_class": "arithmetic_step_flip",
+      "original_snippet": "    output [nb+1:0] DOR ;",
+      "mutated_snippet": "    output [nb+ 0:0] DOR ;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M014",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M014.v",
+      "line_no": 69,
+      "mutation_class": "arithmetic_step_flip",
+      "original_snippet": "    output [nb+1:0] DOI ;",
+      "mutated_snippet": "    output [nb+ 0:0] DOI ;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M015",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M015.v",
+      "line_no": 122,
+      "mutation_class": "arithmetic_step_flip",
+      "original_snippet": "                        (DR[nb+3] != DR[nb+1]) || (DI[nb+3] != DI[nb+1]);",
+      "mutated_snippet": "                        (DR[nb+3] != DR[nb+ 0]) || (DI[nb+3] != DI[nb+1]);",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M016",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M016.v",
+      "line_no": 125,
+      "mutation_class": "arithmetic_step_flip",
+      "original_snippet": "                        (DR[nb+3] != DR[nb+1]) || (DI[nb+3] != DI[nb+1]);",
+      "mutated_snippet": "                        (DR[nb+3] != DR[nb+ 0]) || (DI[nb+3] != DI[nb+1]);",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M017",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M017.v",
+      "line_no": 102,
+      "mutation_class": "index_shift",
+      "original_snippet": "            if (diri[nb+3] && ~diri[0])    // <0 with LSB=00",
+      "mutated_snippet": "            if (diri[nb+3] && ~diri[1])    // <0 with LSB=00",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M018",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M018.v",
+      "line_no": 105,
+      "mutation_class": "index_shift",
+      "original_snippet": "            if (diii[nb+3] && ~diii[0])",
+      "mutated_snippet": "            if (diii[nb+3] && ~diii[1])",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M019",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M019.v",
+      "line_no": 67,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "    output [nb+1:0] DOR ;",
+      "mutated_snippet": "    output [nb+0:0] DOR ;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M020",
+      "design": "cnorm",
+      "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/mutants/r1/mutants/cnorm__M020.v",
+      "line_no": 69,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "    output [nb+1:0] DOI ;",
+      "mutated_snippet": "    output [nb+0:0] DOI ;",
+      "status": "generated"
+    }
+  ]
+}

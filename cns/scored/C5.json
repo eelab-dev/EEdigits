@@ -1,0 +1,13 @@
+{
+  "case_id": "C5",
+  "gt_cycle": 7,
+  "cns_cycle": 1,
+  "correct_cycle": 0,
+  "gt_mechanism": "missing_state_transition",
+  "cns_mechanism": "missing_state_transition",
+  "correct_signal": 1,
+  "correct_mechanism": 1,
+  "unsupported_claims": 0,
+  "overall_faithful": 0,
+  "notes": "Cycle WRONG: CNS=1, GT=7. CNS identified cycle 1 as divergence but liveness assertion fires at cycle 7. Signal OK. Mechanism correct. U=0 (sync_state/MaxGateRiseDelay visible in RTL/assertion context)."
+}

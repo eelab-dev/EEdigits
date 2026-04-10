@@ -1,0 +1,24 @@
+{
+  "case_id": "C2",
+  "design": "pipelined_fft_256",
+  "target_module": "cnorm",
+  "mutant_id": "M007",
+  "mutation_class": "equality_flip",
+  "source_file": "/workspaces/digital-tools/examples/pipelined_fft_256_latest/cnorm.v",
+  "source_line": 120,
+  "original_snippet": "                    2b01 : OVF<= (DR[nb+3] != DR[nb+2]) || (DI[nb+3] != DI[nb+2]);",
+  "mutated_snippet": "                    2b01 : OVF<= (DR[nb+3] == DR[nb+2]) || (DI[nb+3] == DI[nb+2]);",
+  "failing_assertion_name": "A_ovf_shift1_ok",
+  "failing_assertion_text": "assert(OVF == 1b0)",
+  "failing_assertion_file": "cnorm_prove_formal.sv",
+  "failing_assertion_line": 74,
+  "first_bad_cycle": 1,
+  "key_signals": [
+    "OVF",
+    "DR",
+    "DI",
+    "SHIFT"
+  ],
+  "root_cause_class": "overflow_flag_error",
+  "trace_path": "/workspaces/digital-tools/mgr/campaigns/pipelined_fft_256/runs/r2/M007/cnorm_prove/engine_0/trace_tb.v"
+}

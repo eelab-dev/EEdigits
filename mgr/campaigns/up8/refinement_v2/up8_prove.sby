@@ -1,0 +1,18 @@
+[options]
+mode bmc
+depth 45
+
+[engines]
+smtbmc yices
+
+[script]
+# up8_cpu_live.v has `ifndef FORMAL blocks pre-stripped.
+# Still need FORMAL (for `ifdef FORMAL blocks), UP8_INLINE_ROM, UP8_FORMAL_ROMONLY.
+read -formal -D FORMAL -D UP8_INLINE_ROM -D UP8_FORMAL_ROMONLY -I . up8_cpu_live.v
+read -formal up8_add1_formal.sv
+prep -top up8_add1_formal
+
+[files]
+up8_cpu_live.v
+up8_add1_formal.sv
+up8_inline_rom.vh

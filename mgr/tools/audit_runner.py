@@ -102,10 +102,17 @@ def run_cmd(cmd: List[str], cwd: Path, timeout_sec: int) -> Dict:
             "timed_out": False,
         }
     except subprocess.TimeoutExpired as e:
+        # e.stdout/stderr are bytes even when text=True — decode defensively
+        raw_out = e.stdout or b""
+        raw_err = e.stderr or b""
+        if isinstance(raw_out, bytes):
+            raw_out = raw_out.decode("utf-8", errors="replace")
+        if isinstance(raw_err, bytes):
+            raw_err = raw_err.decode("utf-8", errors="replace")
         return {
             "returncode": -1,
-            "stdout": e.stdout or "",
-            "stderr": e.stderr or "",
+            "stdout": raw_out,
+            "stderr": raw_err,
             "timed_out": True,
         }
 

@@ -1,0 +1,4 @@
+1. First cycle of divergence: cycle 0
+2. Directly responsible signals: OVF, START, ED
+3. Failure mechanism class: overflow_flag_error
+4. Inverting the START predicate causes the OVF<=0 clear to be skipped when START=1 and ED=1, leaving OVF=1'b1 and immediately violating the assertion.

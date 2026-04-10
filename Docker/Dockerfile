@@ -19,7 +19,7 @@ RUN git clone https://github.com/steveicarus/iverilog.git .
 # Build and install
 RUN sh autoconf.sh && \
     ./configure && \
-    make -j2 && \
+    make -j$(nproc) && \
     make install
 
 # Stage 2: Yosys Builder
@@ -51,7 +51,7 @@ RUN sed -i '/#include <stdlib.h>/a #include <unistd.h>' passes/cmds/linux_perf.c
 
 # Build and install
 RUN make config-clang && \
-    make -j2 && \
+    make -j$(nproc) && \
     make install
 
 # Stage 3: Z3 Builder
@@ -71,7 +71,7 @@ RUN git clone https://github.com/Z3Prover/z3.git .
 # Build and install
 WORKDIR /build/build
 RUN cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local .. && \
-    make -j2 && \
+    make -j$(nproc) && \
     make install
 
 # Stage 4: Bitwuzla Builder
@@ -136,7 +136,7 @@ RUN set -e; \
 # Configure, build, and install (production build)
 RUN ./configure.sh production --auto-download --prefix=/usr/local --no-pyvenv && \
     cd build && \
-    make -j2 && \
+    make -j$(nproc) && \
     make install && \
     (strip /usr/local/bin/cvc5 2>/dev/null || true) && \
     (strip /usr/local/lib/libcvc5*.so* /usr/local/lib/libpoly*.so* 2>/dev/null || true)

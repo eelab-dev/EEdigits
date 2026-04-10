@@ -1,0 +1,4 @@
+1. First cycle of divergence: cycle 1
+2. Directly responsible signals: state, cnt_done, Gate, gate_ever_high, cycle_ctr
+3. Failure mechanism class: missing_state_transition
+4. The predicate_inversion on cnt_done in sync_state prevents the state machine from ever leaving sync_state, so Gate never rises, gate_ever_high remains 0, and cycle_ctr exceeds MaxGateRiseDelay.

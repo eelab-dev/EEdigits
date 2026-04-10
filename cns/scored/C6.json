@@ -1,0 +1,13 @@
+{
+  "case_id": "C6",
+  "gt_cycle": 13,
+  "cns_cycle": 1,
+  "correct_cycle": 0,
+  "gt_mechanism": "timing_progression_error",
+  "cns_mechanism": "timing_progression_error",
+  "correct_signal": 1,
+  "correct_mechanism": 1,
+  "unsupported_claims": 0,
+  "overall_faithful": 0,
+  "notes": "Cycle WRONG: CNS=1, GT=13. CNS identified cycle 1 as first divergence but data corruption only manifests at rx_valid (cycle 13). Signal OK. Mechanism correct."
+}

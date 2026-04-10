@@ -1,0 +1,4 @@
+1. First cycle of divergence: cycle 0
+2. Directly responsible signals: RDY, ED, START
+3. Failure mechanism class: missing_state_transition
+4. Inverting the ED condition prevents the always block body from executing when ED=1, so RDY is never updated to follow START, retaining a stale value of 1'b1 instead of the required $past(START).

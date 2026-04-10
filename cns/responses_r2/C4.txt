@@ -1,0 +1,7 @@
+1. Assertion fires at cycle 1. First deviance at cycle 1: at least one of `Sync`, `Gate`, `Done` becomes non-zero.
+
+2. `Sync`, `Gate`, `Done`
+
+3. `missing_state_transition`
+
+4. Inverting the rst guard causes the reset block (which should drive state to idle_state and Sync/Gate/Done to 0) to not execute when rst=1; the FSM instead remains in gdel_state (5'b00100) and the else-if(ena) branch can drive `Sync`, `Gate`, or `Done` to a non-zero value.

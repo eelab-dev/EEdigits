@@ -1,0 +1,227 @@
+{
+  "design": "sha3",
+  "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+  "total_mutants": 20,
+  "mutants": [
+    {
+      "mutant_id": "M001",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M001.v",
+      "line_no": 36,
+      "mutation_class": "equality_flip",
+      "original_snippet": "                                   * state == 1: user will not send any data */",
+      "mutated_snippet": "                                   * state != 1: user will not send any data */",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M002",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M002.v",
+      "line_no": 50,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      if (reset)",
+      "mutated_snippet": "      if (!(reset))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M003",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M003.v",
+      "line_no": 56,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      if (reset)",
+      "mutated_snippet": "      if (!(reset))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M004",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M004.v",
+      "line_no": 58,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (is_last)",
+      "mutated_snippet": "      else if (!(is_last))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M005",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M005.v",
+      "line_no": 85,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      if (reset)",
+      "mutated_snippet": "      if (!(reset))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M006",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M006.v",
+      "line_no": 87,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (i[10])",
+      "mutated_snippet": "      else if (!(i[10]))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M007",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M007.v",
+      "line_no": 17,
+      "mutation_class": "equality_flip",
+      "original_snippet": "/* \"is_last\" == 0 means byte number is 8, no matter what value \"byte_num\" is. */",
+      "mutated_snippet": "/* \"is_last\" != 0 means byte number is 8, no matter what value \"byte_num\" is. */",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M008",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M008.v",
+      "line_no": 18,
+      "mutation_class": "equality_flip",
+      "original_snippet": "/* if \"in_ready\" == 0, then \"is_last\" should be 0. */",
+      "mutated_snippet": "/* if \"in_ready\" != 0, then \"is_last\" should be 0. */",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M009",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M009.v",
+      "line_no": 19,
+      "mutation_class": "equality_flip",
+      "original_snippet": "/* the user switch to next \"in\" only if \"ack\" == 1. */",
+      "mutated_snippet": "/* the user switch to next \"in\" only if \"ack\" != 1. */",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M010",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M010.v",
+      "line_no": 36,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "                                   * state == 1: user will not send any data */",
+      "mutated_snippet": "                                   * state == 0: user will not send any data */",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M011",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M011.v",
+      "line_no": 53,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "        i <= {i[9:0], state & f_ack};",
+      "mutated_snippet": "        i <= {i[8:0], state & f_ack};",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M012",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M012.v",
+      "line_no": 57,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "        state <= 0;",
+      "mutated_snippet": "        state <= 1;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M013",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M013.v",
+      "line_no": 59,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "        state <= 1;",
+      "mutated_snippet": "        state <= 0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M014",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M014.v",
+      "line_no": 63,
+      "mutation_class": "arithmetic_step_flip",
+      "original_snippet": "      for(w=0; w<8; w=w+1)",
+      "mutated_snippet": "      for(w=0; w<8; w=w+ 0)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M015",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M015.v",
+      "line_no": 65,
+      "mutation_class": "arithmetic_step_flip",
+      "original_snippet": "          for(b=0; b<8; b=b+1)",
+      "mutated_snippet": "          for(b=0; b<8; b=b+ 0)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M016",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M016.v",
+      "line_no": 74,
+      "mutation_class": "arithmetic_step_flip",
+      "original_snippet": "      for(w=0; w<9; w=w+1)",
+      "mutated_snippet": "      for(w=0; w<9; w=w+ 0)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M017",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M017.v",
+      "line_no": 76,
+      "mutation_class": "arithmetic_step_flip",
+      "original_snippet": "          for(b=0; b<8; b=b+1)",
+      "mutated_snippet": "          for(b=0; b<8; b=b+ 0)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M018",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M018.v",
+      "line_no": 2,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": " * Copyright 2013, Homer Hsing <homer.hsing@gmail.com>",
+      "mutated_snippet": " * Copyright 2012, Homer Hsing <homer.hsing@gmail.com>",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M019",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M019.v",
+      "line_no": 8,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": " * http://www.apache.org/licenses/LICENSE-2.0",
+      "mutated_snippet": " * http://www.apache.org/licenses/LICENSE-1.0",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M020",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/baseline/keccak.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r1/mutants/keccak__M020.v",
+      "line_no": 17,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "/* \"is_last\" == 0 means byte number is 8, no matter what value \"byte_num\" is. */",
+      "mutated_snippet": "/* \"is_last\" == 1 means byte number is 8, no matter what value \"byte_num\" is. */",
+      "status": "generated"
+    }
+  ]
+}

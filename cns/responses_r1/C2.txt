@@ -1,0 +1,4 @@
+1. First cycle of divergence: cycle 0
+2. Directly responsible signals: OVF, DR, DI, SHIFT, ED
+3. Failure mechanism class: overflow_flag_error
+4. Flipping != to == in the SHIFT=2'b01 branch causes OVF to be asserted when DR[nb+3]==DR[nb+2] or DI[nb+3]==DI[nb+2], falsely signaling overflow when the sign bits are equal and no overflow exists.

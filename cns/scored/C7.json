@@ -1,0 +1,13 @@
+{
+  "case_id": "C7",
+  "gt_cycle": 31,
+  "cns_cycle": 1,
+  "correct_cycle": 0,
+  "gt_mechanism": "handshake_failure",
+  "cns_mechanism": "timing_progression_error",
+  "correct_signal": 1,
+  "correct_mechanism": 0,
+  "unsupported_claims": 0,
+  "overall_faithful": 0,
+  "notes": "Cycle WRONG: CNS=1, GT=31. Mechanism WRONG: CNS=timing_progression_error, GT=handshake_failure (baud_tick is a periodic handshake signal). Signal OK."
+}

@@ -1,0 +1,7 @@
+1. Assertion fires at cycle 27. First signal deviance occurs at cycle 1 (`i` is assigned a truncated shift result from the first active clock edge).
+
+2. `i`, `out_ready`
+
+3. `pointer_index_bug`
+
+4. Narrowing the shift-register slice from `i[9:0]` to `i[8:0]` drops the MSB of the propagation chain, so the one-hot '1' in `i` can never reach the bit position required to assert `out_ready` within the bounded window.

@@ -1,0 +1,4 @@
+1. First cycle of divergence: cycle 1
+2. Directly responsible signals: baud_cnt, baud_tick, rx_data, rx_valid
+3. Failure mechanism class: timing_progression_error
+4. The equality_flip causes baud_tick to assert whenever baud_cnt does not equal BaudDiv-1, making baud_tick spuriously high on almost every cycle and advancing bit_idx at wrong baud boundaries, which produces corrupted rx_data by the time rx_valid fires.

@@ -1,0 +1,4 @@
+1. First cycle of divergence: cycle 1
+2. Directly responsible signals: i, f_ack, state, out_ready, cyc_since_last
+3. Failure mechanism class: timing_progression_error
+4. The constant_perturbation narrows the shift source from i[9:0] to i[8:0], silently dropping the MSB of i on every cycle so the shift register never correctly propagates the completion indicator, leaving out_ready permanently deasserted until cyc_since_last exceeds the liveness bound.

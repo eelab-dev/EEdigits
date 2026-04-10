@@ -1,0 +1,13 @@
+{
+  "case_id": "C8",
+  "gt_cycle": 27,
+  "cns_cycle": 1,
+  "correct_cycle": 0,
+  "gt_mechanism": "pointer_index_bug",
+  "cns_mechanism": "timing_progression_error",
+  "correct_signal": 1,
+  "correct_mechanism": 0,
+  "unsupported_claims": 0,
+  "overall_faithful": 0,
+  "notes": "Cycle WRONG: CNS=1, GT=27. Mechanism WRONG: CNS=timing_progression_error, GT=pointer_index_bug (i[9:0] slice is a pointer/index truncation). Signal OK."
+}

@@ -1,0 +1,227 @@
+{
+  "design": "sdram",
+  "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+  "total_mutants": 20,
+  "mutants": [
+    {
+      "mutant_id": "M001",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M001.v",
+      "line_no": 291,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        if (target_state_r == STATE_REFRESH)",
+      "mutated_snippet": "        if (!(target_state_r == STATE_REFRESH))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M002",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M002.v",
+      "line_no": 398,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "else if (state_q != STATE_DELAY && delay_r != {DELAY_W{1'b0}})",
+      "mutated_snippet": "else if (!(state_q != STATE_DELAY && delay_r != {DELAY_W{1'b0}}))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M003",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M003.v",
+      "line_no": 437,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "else if (state_q == STATE_REFRESH)",
+      "mutated_snippet": "else if (!(state_q == STATE_REFRESH))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M004",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M004.v",
+      "line_no": 550,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        if (target_state_r == STATE_REFRESH)",
+      "mutated_snippet": "        if (!(target_state_r == STATE_REFRESH))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M005",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M005.v",
+      "line_no": 650,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "else if (state_q == STATE_WRITE0)",
+      "mutated_snippet": "else if (!(state_q == STATE_WRITE0))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M006",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M006.v",
+      "line_no": 668,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "    if (state_q == STATE_WRITE1)",
+      "mutated_snippet": "    if (!(state_q == STATE_WRITE1))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M007",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M007.v",
+      "line_no": 179,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        if (refresh_q)",
+      "mutated_snippet": "        if (!(refresh_q))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M008",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M008.v",
+      "line_no": 190,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        if (refresh_q)",
+      "mutated_snippet": "        if (!(refresh_q))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M009",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M009.v",
+      "line_no": 193,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "            if (|row_open_q)",
+      "mutated_snippet": "            if (!(|row_open_q))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M010",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M010.v",
+      "line_no": 201,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        else if (stb_i && cyc_i)",
+      "mutated_snippet": "        else if (!(stb_i && cyc_i))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M011",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M011.v",
+      "line_no": 204,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "            if (row_open_q[addr_bank_w] && addr_row_w == active_row_q[addr_bank_w])",
+      "mutated_snippet": "            if (!(row_open_q[addr_bank_w] && addr_row_w == active_row_q[addr_bank_w]))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M012",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M012.v",
+      "line_no": 206,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                if (we_i)",
+      "mutated_snippet": "                if (!(we_i))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M013",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M013.v",
+      "line_no": 212,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "            else if (row_open_q[addr_bank_w])",
+      "mutated_snippet": "            else if (!(row_open_q[addr_bank_w]))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M014",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M014.v",
+      "line_no": 216,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                if (we_i)",
+      "mutated_snippet": "                if (!(we_i))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M015",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M015.v",
+      "line_no": 226,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                if (we_i)",
+      "mutated_snippet": "                if (!(we_i))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M016",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M016.v",
+      "line_no": 259,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "            if (row_open_q[addr_bank_w] && addr_row_w == active_row_q[addr_bank_w])",
+      "mutated_snippet": "            if (!(row_open_q[addr_bank_w] && addr_row_w == active_row_q[addr_bank_w]))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M017",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M017.v",
+      "line_no": 281,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "            if (row_open_q[addr_bank_w] && addr_row_w == active_row_q[addr_bank_w])",
+      "mutated_snippet": "            if (!(row_open_q[addr_bank_w] && addr_row_w == active_row_q[addr_bank_w]))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M018",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M018.v",
+      "line_no": 291,
+      "mutation_class": "equality_flip",
+      "original_snippet": "        if (target_state_r == STATE_REFRESH)",
+      "mutated_snippet": "        if (target_state_r != STATE_REFRESH)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M019",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M019.v",
+      "line_no": 348,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "            if (row_open_q[addr_bank_w] && addr_row_w == active_row_q[addr_bank_w])",
+      "mutated_snippet": "            if (!(row_open_q[addr_bank_w] && addr_row_w == active_row_q[addr_bank_w]))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M020",
+      "design": "sdram",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sdram/baseline/sdram.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sdram/mutants/r1/mutants/sdram__M020.v",
+      "line_no": 388,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "if (rst_i)",
+      "mutated_snippet": "if (!(rst_i))",
+      "status": "generated"
+    }
+  ]
+}

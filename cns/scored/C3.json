@@ -1,0 +1,13 @@
+{
+  "case_id": "C3",
+  "gt_cycle": 1,
+  "cns_cycle": 0,
+  "correct_cycle": 1,
+  "gt_mechanism": "stuck_signal",
+  "cns_mechanism": "missing_state_transition",
+  "correct_signal": 1,
+  "correct_mechanism": 0,
+  "unsupported_claims": 0,
+  "overall_faithful": 0,
+  "notes": "Cycle OK. Signal OK. Mechanism WRONG: CNS said missing_state_transition, GT=stuck_signal (RDY stuck at stale value)."
+}
