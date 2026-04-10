@@ -39,7 +39,7 @@ The following tools must be installed and available on `PATH`:
 | `sby` (SymbiYosys) | Formal verification runner | [yosys-install.md](yosys-install.md) |
 | `smtbmc` with Yices / Z3 / Bitwuzla backends | SMT solvers | [z3-install.md](z3-install.md) |
 | Python 3.9+ | Script execution | system package manager |
-| `anthropic` Python package | Agent IV (CNS) LLM calls | `pip install anthropic` |
+| LLM SDK (e.g. `anthropic`) | Agent IV (CNS) LLM calls | `pip install anthropic` or equivalent |
 | LLM API key | Agent IV (CNS) narrative generation | set `LLM_API_KEY` env var |
 
 Verify tool availability:
@@ -809,8 +809,10 @@ and the signal trace — and produces a concise, structured root-cause narrative
 
 ### Prerequisites
 
+Install the LLM SDK you intend to use (the default backend uses `anthropic`) and set the API key:
+
 ```bash
-pip install anthropic
+pip install anthropic   # or whichever SDK your model provider requires
 export LLM_API_KEY=<your-key>
 ```
 
