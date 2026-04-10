@@ -3,7 +3,7 @@
 cns_agent.py — Causal Narrative Synthesis for formal-verification failures.
 
 Usage:
-    python3 cns_agent.py --case cns/cases/C1.json [--model claude-opus-4-5]
+    python3 cns_agent.py --case cns/cases/C1.json [--model <model-id>]
     python3 cns_agent.py --all                      # run all cases in cns/cases/
     python3 cns_agent.py --score                    # score existing responses vs GT
 
@@ -12,9 +12,9 @@ Outputs:
     cns/scored/<case_id>.json      — per-case binary scores
 
 Environment:
-    ANTHROPIC_API_KEY — if set, calls the Anthropic API.
-                         If absent, writes cns/responses/<case_id>.prompt
-                         so the prompt can be pasted manually.
+    LLM_API_KEY — if set, calls the LLM API.
+                  If absent, writes cns/responses/<case_id>.prompt
+                  so the prompt can be pasted manually.
 """
 
 from __future__ import annotations
@@ -260,14 +260,14 @@ def build_prompt(case: dict) -> str:
 # API call
 # ---------------------------------------------------------------------------
 
-def call_anthropic(prompt: str, model: str) -> str:
+def call_llm(prompt: str, model: str) -> str:
     try:
         import anthropic  # type: ignore
     except ImportError:
         print("[cns_agent] anthropic package not installed. Run: pip install anthropic", file=sys.stderr)
         sys.exit(1)
 
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    client = anthropic.Anthropic(api_key=os.environ["LLM_API_KEY"])
     message = client.messages.create(
         model=model,
         max_tokens=1024,
@@ -287,16 +287,16 @@ def run_case(case: dict, model: str) -> str:
 
     prompt = build_prompt(case)
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    api_key = os.environ.get("LLM_API_KEY", "")
     if api_key:
         print(f"[cns_agent] {case_id}: calling {model} …")
-        response = call_anthropic(prompt, model)
+        response = call_llm(prompt, model)
         resp_file.write_text(response)
         print(f"[cns_agent] {case_id}: saved → {resp_file}")
     else:
         prompt_file = RESP_DIR / f"{case_id}.prompt"
         prompt_file.write_text(prompt)
-        print(f"[cns_agent] {case_id}: ANTHROPIC_API_KEY not set. Prompt saved → {prompt_file}")
+        print(f"[cns_agent] {case_id}: LLM_API_KEY not set. Prompt saved → {prompt_file}")
         response = ""
 
     return response
@@ -502,7 +502,7 @@ def main() -> None:
     group.add_argument("--case",  metavar="FILE",  help="Path to a single case JSON file")
     group.add_argument("--all",   action="store_true", help="Run all cases in cns/cases/")
     group.add_argument("--score", action="store_true", help="Score existing responses vs ground truth")
-    parser.add_argument("--model", default=DEFAULT_MODEL, help=f"Anthropic model (default: {DEFAULT_MODEL})")
+    parser.add_argument("--model", default=DEFAULT_MODEL, help=f"LLM model ID (default: {DEFAULT_MODEL})")
     parser.add_argument(
         "--round", type=int, default=2,
         help="Refinement round number; controls output subdirectory (default: 2)",

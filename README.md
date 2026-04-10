@@ -40,6 +40,7 @@ The following tools must be installed and available on `PATH`:
 | `smtbmc` with Yices / Z3 / Bitwuzla backends | SMT solvers | [z3-install.md](z3-install.md) |
 | Python 3.9+ | Script execution | system package manager |
 | `anthropic` Python package | Agent IV (CNS) LLM calls | `pip install anthropic` |
+| LLM API key | Agent IV (CNS) narrative generation | set `LLM_API_KEY` env var |
 
 Verify tool availability:
 
@@ -52,12 +53,12 @@ python3 --version
 For CNS, set your API key:
 
 ```bash
-export ANTHROPIC_API_KEY=<your-key>
+export LLM_API_KEY=<your-key>
 ```
 
-> **Human-readable note:** Agents II and III require only the open-source tools
+> **Note:** Agents II and III require only the open-source tools
 > listed above — no LLM or API key is needed. Agent IV (CNS) requires an
-> Anthropic API key to generate narratives. All pre-computed CNS responses for the
+> API key to generate narratives. All pre-computed CNS responses for the
 > 8 benchmark cases are already committed to the repository (in `cns/responses_r2/`),
 > so scoring and inspection can be done without re-running the LLM.
 
@@ -791,8 +792,8 @@ All 8 benchmarks verified against Table 4 (observed ASL in s/step, lower = faste
 
 ## Agent IV — Causal Narrative Synthesis (CNS)
 
-> **Human note:** This agent calls an LLM (Anthropic Claude) to generate explanations.
-> To reproduce results, you need an `ANTHROPIC_API_KEY` environment variable.
+> **Note:** This agent calls an LLM to generate explanations.
+> To reproduce results, set the `LLM_API_KEY` environment variable.
 > Without it, `cns_agent.py` writes prompts to disk so they can be submitted manually
 > or via another API client.
 
@@ -810,7 +811,7 @@ and the signal trace — and produces a concise, structured root-cause narrative
 
 ```bash
 pip install anthropic
-export ANTHROPIC_API_KEY=<your-key>
+export LLM_API_KEY=<your-key>
 ```
 
 ### Input Format
