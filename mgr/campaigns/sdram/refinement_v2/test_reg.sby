@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 5
+
+[engines]
+smtbmc yices
+
+[script]
+read -formal sdram.v
+read -formal test_reg.sv
+prep -top sdram_prove_formal
+
+[files]
+sdram.v
+test_reg.sv

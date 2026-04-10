@@ -1,0 +1,7 @@
+1. Assertion fires at cycle 31. First signal deviance occurs at cycle 1 (`bit_idx` and `baud_cnt` update on every non-`baud_tick` cycle instead of the boundary cycle).
+
+2. `bit_idx`, `shift_reg`, `rx_data`
+
+3. `handshake_failure`
+
+4. Inverting the `baud_tick` guard in `SData` causes `baud_cnt` to reset and `bit_idx` to increment on every cycle where `baud_tick` is low (i.e., every non-boundary cycle), scrambling the bit ordering in `shift_reg` and corrupting `rx_data`.

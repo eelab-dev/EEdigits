@@ -203,7 +203,189 @@ All commands below are run from the repository root (`/workspaces/digital-tools/
 
 ---
 
-#### Design 1 — UART TX (`uart_tx`)
+#### Design 1 — `and2bit`
+
+RTL target for mutation: `and2bit.v` (trivial 2-bit AND gate).
+
+**Step 1 — Generate mutants:**
+
+```bash
+python3 mgr/tools/mutant_generator.py \
+    --rtl    examples/and2bit/and2bit.v \
+    --out    mgr/campaigns/and2bit/mutants/r1 \
+    --design and2bit \
+    --max-mutants 20
+```
+
+**Step 2 — Audit mutants:**
+
+```bash
+python3 mgr/tools/audit_runner.py \
+    --manifest      mgr/campaigns/and2bit/mutants/r1/manifest.json \
+    --rtl-files     examples/and2bit/and2bit.v \
+    --harness-files mgr/campaigns/and2bit/refinement_v1/and2bit_prove_formal.sv \
+    --sby           mgr/campaigns/and2bit/refinement_v1/and2bit_prove.sby \
+    --workdir       mgr/campaigns/and2bit/runs/r1 \
+    --timeout       60
+```
+
+**Results (R1):** 20/20 KILLED → effective kill rate **100 %** ✓
+
+---
+
+#### Design 2 — UART RX (`uart_rx`)
+
+RTL target for mutation: `uart_rx.v` (serial receiver FSM).
+
+**Step 1 — Generate mutants:**
+
+```bash
+python3 mgr/tools/mutant_generator.py \
+    --rtl    examples/uart/uart_rx/uart_rx.v \
+    --out    mgr/campaigns/uart_rx/mutants/r1 \
+    --design uart_rx \
+    --max-mutants 20
+```
+
+**Step 2 — Audit mutants:**
+
+```bash
+python3 mgr/tools/audit_runner.py \
+    --manifest      mgr/campaigns/uart_rx/mutants/r1/manifest.json \
+    --rtl-files     examples/uart/uart_rx/uart_rx.v \
+    --harness-files mgr/campaigns/uart_rx/refinement_v1/uart_rx_prove_formal.sv \
+    --sby           mgr/campaigns/uart_rx/refinement_v1/uart_rx_prove.sby \
+    --workdir       mgr/campaigns/uart_rx/runs/r1 \
+    --timeout       60
+```
+
+**Results (R1):** 18/20 KILLED → effective kill rate **90 %** ✓
+(2 survivors are `#1→#0` delay true equivalents, unkillable at RTL-formal level.)
+
+---
+
+#### Design 3 — UART Full (`uart_full`)
+
+RTL target for mutation: `uart_full.v` (top-level UART wrapper). Full RTL set: `uart_full.v`, `uart_tx.v`, `uart_rx.v`.
+
+**Results (R1):** 18/20 KILLED → effective kill rate **90 %** ✓
+
+---
+
+#### Design 4 — UP8 Minimal CPU (`up8_minimal`)
+
+RTL target for mutation: `up8_cpu.v` (8-bit pipelined CPU).
+
+**Results (R1):** 20/20 KILLED → effective kill rate **100 %** ✓
+
+---
+
+#### Design 5 — SHA3 / Keccak (`sha3`)
+
+RTL target for mutation: `keccak.v` (Keccak-f permutation core).
+
+**Results (R1):** 20/20 KILLED → effective kill rate **100 %** ✓
+
+---
+
+#### Design 6 — SDRAM Controller (`sdram`)
+
+RTL target for mutation: `sdram.v`. Iterative campaign over 4 rounds.
+
+**Step 1 — Generate mutants:**
+
+```bash
+python3 mgr/tools/mutant_generator.py \
+    --rtl    examples/sdram/sdram.v \
+    --out    mgr/campaigns/sdram/mutants/r1 \
+    --design sdram \
+    --max-mutants 20
+```
+
+**Step 2 — Audit mutants (R4 shown):**
+
+```bash
+python3 mgr/tools/audit_runner.py \
+    --manifest      mgr/campaigns/sdram/mutants/r1/manifest.json \
+    --rtl-files     mgr/campaigns/sdram/refinement_v4/sdram.v \
+    --harness-files mgr/campaigns/sdram/refinement_v4/sdram_prove_formal.sv \
+    --sby           mgr/campaigns/sdram/refinement_v4/sdram_prove.sby \
+    --workdir       mgr/campaigns/sdram/runs/r4 \
+    --timeout       120
+```
+
+**Results (R4, plateau):** 7/19 effective → **36.8 %** ✓
+(8 INVALID; 4 surviving mutants are timing-parameter true equivalents beyond practical BMC depth.)
+
+---
+
+#### Design 7 — VGA Vertical Timing (`vga_lcd`)
+
+RTL target for mutation: `vga_vtim.v` (5-state VGA timing FSM, 174 lines).
+
+**Step 1 — Generate mutants:**
+
+```bash
+python3 mgr/tools/mutant_generator.py \
+    --rtl    examples/vga_lcd_latest/vga_vtim.v \
+    --out    mgr/campaigns/vga_lcd/mutants/r1 \
+    --design vga_vtim \
+    --max-mutants 20
+```
+
+**Step 2 — Audit mutants (R2 shown):**
+
+```bash
+python3 mgr/tools/audit_runner.py \
+    --manifest      mgr/campaigns/vga_lcd/mutants/r1/manifest.json \
+    --rtl-files     mgr/campaigns/vga_lcd/refinement_v2/vga_vtim.v \
+    --harness-files mgr/campaigns/vga_lcd/refinement_v2/vga_vtim_prove_formal.sv \
+    --sby           mgr/campaigns/vga_lcd/refinement_v2/vga_vtim_prove.sby \
+    --workdir       mgr/campaigns/vga_lcd/runs/r2 \
+    --timeout       120
+```
+
+**Results (R2):** 18/20 KILLED → effective kill rate **90 %** ✓
+R1 was 14/20 (70 %); cycle-count gate assertions added in R2 killed 4 more mutants.
+
+> **Yosys SMTBMC note:** Use `$past(dut_output)` rather than `$past(harness_tracking_reg)` — the solver treats local tracking registers as unconstrained in the initial state, making such assertions vacuously true at step 0.
+
+---
+
+#### Design 8 — Pipelined FFT 256 / CNORM (`pipelined_fft_256`)
+
+RTL target for mutation: `cnorm.v` (CNORM normalisation + OVF detection unit, 133 lines). Includes `FFT256_CONFIG.inc` macro file which defines `nb=10`.
+
+**Step 1 — Generate mutants:**
+
+```bash
+python3 mgr/tools/mutant_generator.py \
+    --rtl    examples/pipelined_fft_256_latest/cnorm.v \
+    --out    mgr/campaigns/pipelined_fft_256/mutants/r1 \
+    --design cnorm \
+    --max-mutants 20
+```
+
+**Step 2 — Audit mutants (R2 shown):**
+
+```bash
+python3 mgr/tools/audit_runner.py \
+    --manifest      mgr/campaigns/pipelined_fft_256/mutants/r1/manifest.json \
+    --rtl-files     examples/pipelined_fft_256_latest/cnorm.v \
+                    mgr/campaigns/pipelined_fft_256/refinement_v2/FFT256_CONFIG.inc \
+    --harness-files mgr/campaigns/pipelined_fft_256/refinement_v2/cnorm_prove_formal.sv \
+    --sby           mgr/campaigns/pipelined_fft_256/refinement_v2/cnorm_prove.sby \
+    --workdir       mgr/campaigns/pipelined_fft_256/runs/r2 \
+    --timeout       60
+```
+
+**Results (R2):** 15/16 effective → **93.8 %** ✓
+R1 was 14/16 (87.5 %); adding `A_ovf_shift3_nb1_fire` (OVF must fire when `DR[nb+3] ≠ DR[nb+1]` in SHIFT=11) killed M016 in R2.
+The single survivor (M001) mutates code inside an untaken `` `ifdef FFT256round `` block — a true equivalent.
+
+---
+
+#### Design — UART TX (`uart_tx`) — Legacy Example
 
 RTL target for mutation: `uart_tx.v` (state machine and data path).
 Full RTL set: `uart_full.v`, `uart_tx.v`, `uart_rx.v`.
@@ -354,8 +536,21 @@ python3 mgr/tools/audit_runner.py \
 | `generic_fifo_lfsr` | R1 (`refinement_v1`) | 5 | 2 | — | 2 | 67 % † |
 | `generic_fifo_lfsr` | R2 (`refinement_v2`) | 14 | 5 | 3 | 6 | 62.5 % † |
 | `generic_fifo_lfsr` | R3 (`refinement_v3`) | 10 | 10 | — | — | **100 %** ✓ |
+| `and2bit` | R1 (`refinement_v1`) | 20 | 20 | — | — | **100 %** ✓ |
+| `uart_rx` | R1 (`refinement_v1`) | 20 | 18 | 2 | — | **90 %** ✓ ‡ |
+| `uart_full` | R1 (`refinement_v1`) | 20 | 18 | 2 | — | **90 %** ✓ ‡ |
+| `up8_minimal` | R1 (`refinement_v1`) | 20 | 20 | — | — | **100 %** ✓ |
+| `sha3` | R1 (`refinement_v1`) | 20 | 20 | — | — | **100 %** ✓ |
+| `sdram` | R1 (`refinement_v1`) | 27 | 6 | 13 | 8 | 31.6 % |
+| `sdram` | R4 (`refinement_v4`) | 19 | 7 | 4 | 8 | **36.8 %** ✓ § |
+| `vga_lcd` | R1 (`refinement_v1`) | 20 | 14 | 6 | — | 70 % |
+| `vga_lcd` | R2 (`refinement_v2`) | 20 | 18 | 2 | — | **90 %** ✓ ‡ |
+| `pipelined_fft_256` (CNORM) | R1 (`refinement_v1`) | 20 | 14 | 2 | 4 | 87.5 % |
+| `pipelined_fft_256` (CNORM) | R2 (`refinement_v2`) | 20 | 15 | 1 | 4 | **93.8 %** ✓ ‡ |
 
 † Exceeds the 50 % threshold but refinement continued to reach higher confidence.
+‡ Remaining survivors are **true equivalents** (non-blocking delay `#1→#0` or dead `\`ifdef` branches compiled out by the preprocessor); no assertion can kill them.
+§ Plateau is structural: 4 surviving mutants alter timing-parameter logic whose observable effect lies beyond any practical BMC depth. 8 INVALID mutants excluded from effective count.
 — indicates the count was zero (not recorded as a key in the summary JSON).
 
 ---

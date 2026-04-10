@@ -1,0 +1,227 @@
+{
+  "design": "uart_rx",
+  "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+  "total_mutants": 20,
+  "mutants": [
+    {
+      "mutant_id": "M001",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M001.v",
+      "line_no": 71,
+      "mutation_class": "state_retarget",
+      "original_snippet": "                        state   <= SStart;  // Detected potential start bit",
+      "mutated_snippet": "                        state   <= SIdle;  // Detected potential start bit",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M002",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M002.v",
+      "line_no": 81,
+      "mutation_class": "state_retarget",
+      "original_snippet": "                        state    <= SIdle;",
+      "mutated_snippet": "                        state    <= SStart;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M003",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M003.v",
+      "line_no": 86,
+      "mutation_class": "state_retarget",
+      "original_snippet": "                        state    <= SData;  // Valid start bit, move to data",
+      "mutated_snippet": "                        state    <= SIdle;  // Valid start bit, move to data",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M004",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M004.v",
+      "line_no": 102,
+      "mutation_class": "state_retarget",
+      "original_snippet": "                            state   <= SStop;  // All 8 bits received",
+      "mutated_snippet": "                            state   <= SIdle;  // All 8 bits received",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M005",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M005.v",
+      "line_no": 119,
+      "mutation_class": "state_retarget",
+      "original_snippet": "                        state    <= SIdle;",
+      "mutated_snippet": "                        state    <= SStart;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M006",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M006.v",
+      "line_no": 84,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                    end else if (baud_tick) begin",
+      "mutated_snippet": "                    end else if (!(baud_tick)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M007",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M007.v",
+      "line_no": 98,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                    if (baud_tick) begin",
+      "mutated_snippet": "                    if (!(baud_tick)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M008",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M008.v",
+      "line_no": 100,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                        if (bit_idx == 3'd7) begin",
+      "mutated_snippet": "                        if (!(bit_idx == 3'd7)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M009",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M009.v",
+      "line_no": 117,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                    if (baud_tick) begin",
+      "mutated_snippet": "                    if (!(baud_tick)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M010",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M010.v",
+      "line_no": 70,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                    if (rx_serial == 1'b0) begin",
+      "mutated_snippet": "                    if (!(rx_serial == 1'b0)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M011",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M011.v",
+      "line_no": 79,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                    if (baud_mid && (rx_serial == 1'b1)) begin",
+      "mutated_snippet": "                    if (!(baud_mid && (rx_serial == 1'b1))) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M012",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M012.v",
+      "line_no": 95,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                    if (baud_mid) begin",
+      "mutated_snippet": "                    if (!(baud_mid)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M013",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M013.v",
+      "line_no": 100,
+      "mutation_class": "equality_flip",
+      "original_snippet": "                        if (bit_idx == 3'd7) begin",
+      "mutated_snippet": "                        if (bit_idx != 3'd7) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M014",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M014.v",
+      "line_no": 114,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                    if (baud_mid) begin",
+      "mutated_snippet": "                    if (!(baud_mid)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M015",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M015.v",
+      "line_no": 121,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                        if (stop_ok) begin",
+      "mutated_snippet": "                        if (!(stop_ok)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M016",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M016.v",
+      "line_no": 49,
+      "mutation_class": "equality_flip",
+      "original_snippet": "    wire baud_tick = (baud_cnt == BaudDiv - 1);    // End of bit period",
+      "mutated_snippet": "    wire baud_tick = (baud_cnt != BaudDiv - 1);    // End of bit period",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M017",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M017.v",
+      "line_no": 68,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "                    bit_idx  <= 3'd0;",
+      "mutated_snippet": "                    bit_idx  <= 3'd1;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M018",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M018.v",
+      "line_no": 70,
+      "mutation_class": "equality_flip",
+      "original_snippet": "                    if (rx_serial == 1'b0) begin",
+      "mutated_snippet": "                    if (rx_serial != 1'b0) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M019",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M019.v",
+      "line_no": 79,
+      "mutation_class": "equality_flip",
+      "original_snippet": "                    if (baud_mid && (rx_serial == 1'b1)) begin",
+      "mutated_snippet": "                    if (baud_mid && (rx_serial != 1'b1)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M020",
+      "design": "uart_rx",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/mutants/r1/mutants/uart_rx__M020.v",
+      "line_no": 100,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "                        if (bit_idx == 3'd7) begin",
+      "mutated_snippet": "                        if (bit_idx == 3'd6) begin",
+      "status": "generated"
+    }
+  ]
+}

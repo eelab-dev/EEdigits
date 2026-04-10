@@ -1,0 +1,52 @@
+[FAILING ASSERTION]
+assert(RDY == $past(START))
+(property name: A_rdy, file: cnorm_prove_formal.sv:57)
+
+[MUTATION APPLIED]
+Original :               if (ED)      begin
+Mutated  :               if (!(ED))  begin
+(module: cnorm, source line: 114, class: predicate_inversion)
+
+[RTL CONTEXT]
+     102 |             if (diri[nb+3] && ~diri[0])    // <0 with LSB=00
+     103 |                 dir<=diri;
+     104 |             else   dir<=diri+2;
+     105 |             if (diii[nb+3] && ~diii[0])
+     106 |                 dii<=diii;
+     107 |             else   dii<=diii+2;
+     108 |         end
+     109 |     end
+     110 | 
+     111 |     `endif
+     112 | 
+     113 |  always @( posedge CLK )     begin
+>>>  114 |               if (ED)      begin
+     115 |                 RDY<=START;
+     116 |                 if (START)
+     117 |                     OVF<=0;
+     118 |                 else
+     119 |                     case (SHIFT)
+     120 |                     2'b01 : OVF<= (DR[nb+3] != DR[nb+2]) || (DI[nb+3] != DI[nb+2]);
+     121 |                     2'b10 : OVF<= (DR[nb+3] != DR[nb+2]) || (DI[nb+3] != DI[nb+2]) ||
+     122 |                         (DR[nb+3] != DR[nb+1]) || (DI[nb+3] != DI[nb+1]);
+     123 |                     2'b11 : OVF<= (DR[nb+3] != DR[nb+2]) || (DI[nb+3] != DI[nb+2])||
+     124 |                         (DR[nb+3] != DR[nb]) || (DI[nb+3] != DI[nb]) ||
+     125 |                         (DR[nb+3] != DR[nb+1]) || (DI[nb+3] != DI[nb+1]);
+     126 |                     endcase
+
+[COUNTEREXAMPLE TRACE]
+Cycle |            OVF |            RDY |            dii |            dir |             DI |             DR |             ED |          SHIFT |          START
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+    0 |           1'b0 |           1'b1 | 14'b0000000000 | 14'b0000000000 | 14'b1110101000 | 14'b1110101000 |           1'b1 |          2'b00 |           1'b0
+    1 |              - |              - |              - |              - | 14'b0000000000 | 14'b0000000000 |           1'b0 |          2'b00 |           1'b0
+
+Task:
+Identify and state concisely:
+1. The first cycle where behaviour diverges from the spec (give cycle number).
+2. The signal(s) directly responsible for the assertion failure (name them exactly as they appear in the trace).
+3. The failure mechanism class — choose exactly one from:
+   missing_state_transition | stuck_signal | overflow_flag_error |
+   handshake_failure | pointer_index_bug | timing_progression_error
+4. A one-sentence root-cause explanation.
+
+STRICT RULE: Do not mention any signal, event, or internal state that is not visible in the trace or RTL context above.

@@ -1,0 +1,13 @@
+{
+  "case_id": "C5",
+  "correct_cycle": 0,
+  "correct_signal": 1,
+  "correct_mechanism": 1,
+  "unsupported_claims": 1,
+  "overall_faithful": 0,
+  "found_cycles": [
+    1
+  ],
+  "gt_cycle": 7,
+  "gt_mechanism": "missing_state_transition"
+}

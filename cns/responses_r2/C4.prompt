@@ -1,0 +1,89 @@
+[FAILING ASSERTION]
+assert(Sync === 1b0 && Gate === 1b0 && Done === 1b0)
+(property name: A_rst, file: vga_vtim_prove_formal.sv:128)
+
+[MUTATION APPLIED]
+Original :       if (rst)
+Mutated  :       if (!(rst))
+(module: vga_vtim, source line: 109, class: predicate_inversion)
+
+[RTL CONTEXT]
+      97 | 
+      98 |     assign cnt_len_nxt = {1'b0, cnt_len} -17'h1;
+      99 |     assign cnt_len_done = cnt_len_nxt[16];
+     100 | 
+     101 |     reg [4:0] state;
+     102 |     parameter [4:0] idle_state = 5'b00001;
+     103 |     parameter [4:0] sync_state = 5'b00010;
+     104 |     parameter [4:0] gdel_state = 5'b00100;
+     105 |     parameter [4:0] gate_state = 5'b01000;
+     106 |     parameter [4:0] len_state  = 5'b10000;
+     107 | 
+     108 |     always @(posedge clk)
+>>>  109 |       if (rst)
+     110 |         begin
+     111 |             state   <= #1 idle_state;
+     112 |             cnt     <= #1 16'h0;
+     113 |             cnt_len <= #1 16'b0;
+     114 |             Sync    <= #1 1'b0;
+     115 |             Gate    <= #1 1'b0;
+     116 |             Done    <= #1 1'b0;
+     117 |         end
+     118 |       else if (ena)
+     119 |         begin
+     120 |             cnt     <= #1 cnt_nxt[15:0];
+     121 |             cnt_len <= #1 cnt_len_nxt[15:0];
+
+[COUNTEREXAMPLE TRACE]
+Cycle |      cycle_ctr | done_ever_fire |     done_twice |           Done |           Gate |           Sync |            cnt |        cnt_len |          state | gate_ever_high |  gate_fell_ctr | sync_ever_high
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    0 |    8'b00000000 |           1'b0 |           1'b0 |           1'b0 |           1'b0 |           1'b0 | 16'b0000000000 | 16'b1000000000 |       5'b00100 |           1'b0 |    8'b00000000 |           1'b0
+    1 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              -
+
+[ASSERTION FIRED AT STEP]  ← R1  (step-anchor refinement)
+The BMC counterexample ends at step 1: the failing assertion above
+fires at cycle 1.  The trace covers cycles 0 through 1.
+The mutation may cause a signal to deviate from its expected value as early as
+cycle 1, but the PROPERTY FAILURE occurs at cycle 1.
+For liveness-style assertions ("eventually X must be true within N steps"),
+report 1 as the first-bad cycle, NOT the first cycle of wire divergence.
+
+Task:
+Identify and state concisely:
+1. The cycle at which the assertion fires (this is cycle 1).  Also
+   note the first cycle in 0..1 where a signal first deviates from
+   its expected value.  If the assertion is a liveness time-out, report 1.
+2. The signal(s) directly responsible for the assertion failure (name them exactly
+   as they appear in the trace).
+3. The failure mechanism class — choose the MOST SPECIFIC applicable class:  ← R2
+
+   missing_state_transition : An FSM state register fails to advance to the next
+     encoded state because the transition guard is false/inverted.
+     Symptom: the state register holds the same encoded value for extra cycles.
+
+   stuck_signal : A DATA register (not the FSM state) retains a stale value
+     because its write-enable or update condition is false/inverted.  The FSM may
+     be advancing normally; only this one data register is frozen.
+     Symptom: one output or pipeline register stays constant while others change.
+
+   overflow_flag_error : A flag (OVF, carry, overflow, shift indicator) is set
+     or cleared under the wrong arithmetic or comparison condition.
+
+   handshake_failure : A dedicated one-per-period completion/acknowledge/tick
+     signal is inverted so the receiver acts on every NON-completion cycle instead
+     of the single completion cycle.  The signal is a periodic strobe, not a
+     free-running counter terminal-count.
+
+   pointer_index_bug : A shift-register slice width or array index expression is
+     wrong (e.g. i[8:0] instead of i[9:0]), so a one-hot or binary counter can
+     never reach the required bit position regardless of elapsed time.
+
+   timing_progression_error : A free-running counter's terminal-count comparison
+     is wrong (e.g. != instead of ==), causing a timer to fire at the wrong period
+     or never.  Use ONLY when the counter is free-running AND the error is NOT
+     caused by an inverted handshake strobe or a pointer/index width mismatch.
+
+4. A one-sentence root-cause explanation.
+
+STRICT RULE: Do not mention any signal, event, or internal state that is not
+visible in the trace or RTL context above.

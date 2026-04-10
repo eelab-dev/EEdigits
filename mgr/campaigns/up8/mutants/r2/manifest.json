@@ -1,0 +1,227 @@
+{
+  "design": "up8",
+  "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+  "total_mutants": 20,
+  "mutants": [
+    {
+      "mutant_id": "M001",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M001.v",
+      "line_no": 144,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        if (halted) begin",
+      "mutated_snippet": "        if (!(halted)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M002",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M002.v",
+      "line_no": 147,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_nop) begin",
+      "mutated_snippet": "        end else if (!(is_nop)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M003",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M003.v",
+      "line_no": 150,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_halt) begin",
+      "mutated_snippet": "        end else if (!(is_halt)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M004",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M004.v",
+      "line_no": 154,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_mov) begin",
+      "mutated_snippet": "        end else if (!(is_mov)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M005",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M005.v",
+      "line_no": 158,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_movi) begin",
+      "mutated_snippet": "        end else if (!(is_movi)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M006",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M006.v",
+      "line_no": 162,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_load) begin",
+      "mutated_snippet": "        end else if (!(is_load)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M007",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M007.v",
+      "line_no": 166,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_store) begin",
+      "mutated_snippet": "        end else if (!(is_store)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M008",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M008.v",
+      "line_no": 169,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_add) begin",
+      "mutated_snippet": "        end else if (!(is_add)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M009",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M009.v",
+      "line_no": 178,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_addi) begin",
+      "mutated_snippet": "        end else if (!(is_addi)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M010",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M010.v",
+      "line_no": 187,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_sub) begin",
+      "mutated_snippet": "        end else if (!(is_sub)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M011",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M011.v",
+      "line_no": 197,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_subi) begin",
+      "mutated_snippet": "        end else if (!(is_subi)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M012",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M012.v",
+      "line_no": 206,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_jmp) begin",
+      "mutated_snippet": "        end else if (!(is_jmp)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M013",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M013.v",
+      "line_no": 209,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_jz) begin",
+      "mutated_snippet": "        end else if (!(is_jz)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M014",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M014.v",
+      "line_no": 212,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "        end else if (is_jnz) begin",
+      "mutated_snippet": "        end else if (!(is_jnz)) begin",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M015",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M015.v",
+      "line_no": 79,
+      "mutation_class": "equality_flip",
+      "original_snippet": "    wire is_mov  = (op0[7:4] == 4'h1);",
+      "mutated_snippet": "    wire is_mov  = (op0[7:4] != 4'h1);",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M016",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M016.v",
+      "line_no": 80,
+      "mutation_class": "equality_flip",
+      "original_snippet": "    wire is_add  = (op0[7:4] == 4'h5);",
+      "mutated_snippet": "    wire is_add  = (op0[7:4] != 4'h5);",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M017",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M017.v",
+      "line_no": 81,
+      "mutation_class": "equality_flip",
+      "original_snippet": "    wire is_sub  = (op0[7:4] == 4'h7);",
+      "mutated_snippet": "    wire is_sub  = (op0[7:4] != 4'h7);",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M018",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M018.v",
+      "line_no": 83,
+      "mutation_class": "equality_flip",
+      "original_snippet": "    wire is_movi = ((op0 & 8'hFC) == 8'h20);",
+      "mutated_snippet": "    wire is_movi = ((op0 & 8'hFC) != 8'h20);",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M019",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M019.v",
+      "line_no": 84,
+      "mutation_class": "equality_flip",
+      "original_snippet": "    wire is_load = ((op0 & 8'hFC) == 8'h30);",
+      "mutated_snippet": "    wire is_load = ((op0 & 8'hFC) != 8'h30);",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M020",
+      "design": "up8",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/up8/up8_cpu_live.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/up8/mutants/r2/mutants/up8_cpu_live__M020.v",
+      "line_no": 85,
+      "mutation_class": "equality_flip",
+      "original_snippet": "    wire is_store= ((op0 & 8'hFC) == 8'h40);",
+      "mutated_snippet": "    wire is_store= ((op0 & 8'hFC) != 8'h40);",
+      "status": "generated"
+    }
+  ]
+}

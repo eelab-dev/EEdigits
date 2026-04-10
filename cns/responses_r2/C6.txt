@@ -1,0 +1,7 @@
+1. Assertion fires at cycle 13. First signal deviance occurs at cycle 1 (`baud_tick` is wrong on every non-terminal-count cycle from the start).
+
+2. `baud_tick`, `rx_data`
+
+3. `timing_progression_error`
+
+4. Replacing `==` with `!=` in the `baud_tick` definition makes it assert on every cycle except the terminal count of `baud_cnt`, causing bit sampling and `rx_data` capture to occur on the wrong baud boundaries and corrupting the received byte.

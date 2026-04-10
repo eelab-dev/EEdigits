@@ -1,0 +1,23 @@
+{
+  "case_id": "C7",
+  "design": "uart_rx",
+  "target_module": "uart_rx",
+  "mutant_id": "M007",
+  "mutation_class": "predicate_inversion",
+  "source_file": "/workspaces/digital-tools/mgr/campaigns/uart_rx/baseline/uart_rx.v",
+  "source_line": 98,
+  "original_snippet": "                    if (baud_tick) begin",
+  "mutated_snippet": "                    if (!(baud_tick)) begin",
+  "failing_assertion_name": "A_data_integrity",
+  "failing_assertion_text": "assert(rx_data == rx_latched)",
+  "failing_assertion_file": "uart_rx_formal.sv",
+  "failing_assertion_line": 124,
+  "first_bad_cycle": 31,
+  "key_signals": [
+    "baud_tick",
+    "rx_data",
+    "rx_latched"
+  ],
+  "root_cause_class": "handshake_failure",
+  "trace_path": "/workspaces/digital-tools/mgr/campaigns/uart_rx/runs/r3/M007/uart_rx_prove/engine_0/trace_tb.v"
+}

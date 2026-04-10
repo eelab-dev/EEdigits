@@ -1,0 +1,4 @@
+1. First cycle of divergence: cycle 0
+2. Directly responsible signals: state, Done, Gate, Sync
+3. Failure mechanism class: missing_state_transition
+4. Inverting the rst predicate prevents the synchronous reset branch from executing, leaving state at 5'b00100 (not idle_state) with cnt_len non-zero, allowing the state machine to drive Sync, Gate, or Done to 1'b1 instead of holding them cleared.

@@ -1,0 +1,13 @@
+{
+  "case_id": "C1",
+  "gt_cycle": 1,
+  "cns_cycle": 0,
+  "correct_cycle": 1,
+  "gt_mechanism": "overflow_flag_error",
+  "cns_mechanism": "overflow_flag_error",
+  "correct_signal": 1,
+  "correct_mechanism": 1,
+  "unsupported_claims": 0,
+  "overall_faithful": 1,
+  "notes": "Cycle 0 within \u00b11 of GT=1. All signals matched. Mechanism exact."
+}

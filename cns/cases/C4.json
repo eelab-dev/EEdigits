@@ -1,0 +1,25 @@
+{
+  "case_id": "C4",
+  "design": "vga_lcd",
+  "target_module": "vga_vtim",
+  "mutant_id": "M001",
+  "mutation_class": "predicate_inversion",
+  "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+  "source_line": 109,
+  "original_snippet": "      if (rst)",
+  "mutated_snippet": "      if (!(rst))",
+  "failing_assertion_name": "A_rst",
+  "failing_assertion_text": "assert(Sync === 1b0 && Gate === 1b0 && Done === 1b0)",
+  "failing_assertion_file": "vga_vtim_prove_formal.sv",
+  "failing_assertion_line": 128,
+  "first_bad_cycle": 1,
+  "key_signals": [
+    "rst",
+    "state",
+    "Sync",
+    "Gate",
+    "Done"
+  ],
+  "root_cause_class": "missing_state_transition",
+  "trace_path": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/runs/r2/M001/vga_vtim_prove/engine_0/trace_tb.v"
+}

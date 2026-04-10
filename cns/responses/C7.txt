@@ -1,0 +1,4 @@
+1. First cycle of divergence: cycle 1
+2. Directly responsible signals: baud_tick, rx_data, rx_valid, state
+3. Failure mechanism class: timing_progression_error
+4. The predicate_inversion causes bit_idx to advance and state to transition in SData whenever baud_tick is LOW instead of HIGH, misaligning bit advancement relative to baud_mid sampling and producing corrupted rx_data when rx_valid is asserted.

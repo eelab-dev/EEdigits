@@ -1,0 +1,18 @@
+{
+  "design": "and2bit",
+  "source_file": "/workspaces/digital-tools/mgr/campaigns/and2bit/baseline/and2bit.v",
+  "total_mutants": 1,
+  "mutants": [
+    {
+      "mutant_id": "M001",
+      "design": "and2bit",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/and2bit/baseline/and2bit.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/and2bit/mutants/r1/mutants/and2bit__M001.v",
+      "line_no": 9,
+      "mutation_class": "boolean_operator",
+      "original_snippet": "  assign y = a & b;",
+      "mutated_snippet": "  assign y = a | b;",
+      "status": "generated"
+    }
+  ]
+}

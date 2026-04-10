@@ -1,0 +1,14 @@
+{
+  "case_id": "C4",
+  "correct_cycle": 1,
+  "correct_signal": 1,
+  "correct_mechanism": 1,
+  "unsupported_claims": 0,
+  "overall_faithful": 1,
+  "found_cycles": [
+    1,
+    1
+  ],
+  "gt_cycle": 1,
+  "gt_mechanism": "missing_state_transition"
+}

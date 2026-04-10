@@ -1,0 +1,64 @@
+[FAILING ASSERTION]
+assert(rx_data == rx_latched)
+(property name: A_data_integrity, file: uart_rx_formal.sv:124)
+
+[MUTATION APPLIED]
+Original :     wire baud_tick = (baud_cnt == BaudDiv - 1);
+Mutated  :     wire baud_tick = (baud_cnt != BaudDiv - 1);
+(module: uart_rx, source line: 49, class: equality_flip)
+
+[RTL CONTEXT]
+      37 |     localparam logic [2:0] SData  = 3'd2;  // Receiving 8 data bits
+      38 |     localparam logic [2:0] SStop  = 3'd3;  // Receiving stop bit (1)  // Receiving stop bit (1)
+      39 | 
+      40 |     // Internal state registers
+      41 |     reg [2:0] state;                        // Current state
+      42 |     reg [$clog2(BaudDiv)-1:0] baud_cnt;     // Baud rate counter
+      43 |     reg [2:0] bit_idx;                      // Current bit index (0-7)
+      44 |     reg [7:0] shift_reg;                    // Shift register for received bits
+      45 |     reg       stop_ok;                      // Flag to check stop bit validity
+      46 | 
+      47 |     // Timing signals: sample at middle of bit period, tick at end
+      48 |     wire baud_mid  = (baud_cnt == (BaudDiv / 2));  // Middle of bit period
+>>>   49 |     wire baud_tick = (baud_cnt == BaudDiv - 1);    // End of bit period
+      50 | 
+      51 |     always @(posedge clk) begin
+      52 |         if (rst) begin
+      53 |             state     <= SIdle;
+      54 |             rx_data   <= 8'd0;
+      55 |             rx_valid  <= 1'b0;
+      56 |             rx_busy   <= 1'b0;
+      57 |             baud_cnt  <= {($clog2(BaudDiv)){1'b0}};
+      58 |             bit_idx   <= 3'd0;
+      59 |             shift_reg <= 8'd0;
+      60 |             stop_ok   <= 1'b1;
+      61 |         end else begin
+
+[COUNTEREXAMPLE TRACE]
+Cycle |         active |       baud_cnt |        bit_idx |        rx_busy |        rx_data |       rx_valid |      shift_reg |          state |        stop_ok |          fired |          phase |     rx_latched |     rx_payload
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    0 |           1'b0 |        4'b0000 |         3'b000 |           1'b0 |    8'b10000000 |           1'b0 |    8'b00000000 |         3'b000 |           1'b0 |           1'b0 |     7'b0000000 |    8'b00000000 |    8'b00000000
+    1 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b10000000
+    2 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    3 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    4 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    5 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    6 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    7 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    8 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    9 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   10 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   11 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   12 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   13 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+
+Task:
+Identify and state concisely:
+1. The first cycle where behaviour diverges from the spec (give cycle number).
+2. The signal(s) directly responsible for the assertion failure (name them exactly as they appear in the trace).
+3. The failure mechanism class — choose exactly one from:
+   missing_state_transition | stuck_signal | overflow_flag_error |
+   handshake_failure | pointer_index_bug | timing_progression_error
+4. A one-sentence root-cause explanation.
+
+STRICT RULE: Do not mention any signal, event, or internal state that is not visible in the trace or RTL context above.

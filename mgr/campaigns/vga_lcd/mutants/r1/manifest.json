@@ -1,0 +1,227 @@
+{
+  "design": "vga_vtim",
+  "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+  "total_mutants": 20,
+  "mutants": [
+    {
+      "mutant_id": "M001",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M001.v",
+      "line_no": 109,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      if (rst)",
+      "mutated_snippet": "      if (!(rst))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M002",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M002.v",
+      "line_no": 118,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (ena)",
+      "mutated_snippet": "      else if (!(ena))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M003",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M003.v",
+      "line_no": 136,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                if (cnt_done)",
+      "mutated_snippet": "                if (!(cnt_done))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M004",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M004.v",
+      "line_no": 145,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                if (cnt_done)",
+      "mutated_snippet": "                if (!(cnt_done))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M005",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M005.v",
+      "line_no": 154,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                if (cnt_done)",
+      "mutated_snippet": "                if (!(cnt_done))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M006",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M006.v",
+      "line_no": 162,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "                if (cnt_len_done)",
+      "mutated_snippet": "                if (!(cnt_len_done))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M007",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M007.v",
+      "line_no": 95,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "    assign cnt_nxt = {1'b0, cnt} -17'h1;",
+      "mutated_snippet": "    assign cnt_nxt = {1'b1, cnt} -17'h1;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M008",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M008.v",
+      "line_no": 98,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "    assign cnt_len_nxt = {1'b0, cnt_len} -17'h1;",
+      "mutated_snippet": "    assign cnt_len_nxt = {1'b1, cnt_len} -17'h1;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M009",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M009.v",
+      "line_no": 114,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "            Sync    <= #1 1'b0;",
+      "mutated_snippet": "            Sync    <= #1 1'b1;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M010",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M010.v",
+      "line_no": 115,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "            Gate    <= #1 1'b0;",
+      "mutated_snippet": "            Gate    <= #1 1'b1;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M011",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M011.v",
+      "line_no": 116,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "            Done    <= #1 1'b0;",
+      "mutated_snippet": "            Done    <= #1 1'b1;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M012",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M012.v",
+      "line_no": 123,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "            Done    <= #1 1'b0;",
+      "mutated_snippet": "            Done    <= #1 1'b1;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M013",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M013.v",
+      "line_no": 132,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "                    Sync    <= #1 1'b1;",
+      "mutated_snippet": "                    Sync    <= #1 1'b0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M014",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M014.v",
+      "line_no": 141,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "                      Sync  <= #1 1'b0;",
+      "mutated_snippet": "                      Sync  <= #1 1'b1;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M015",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M015.v",
+      "line_no": 150,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "                      Gate  <= #1 1'b1;",
+      "mutated_snippet": "                      Gate  <= #1 1'b0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M016",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M016.v",
+      "line_no": 158,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "                      Gate  <= #1 1'b0;",
+      "mutated_snippet": "                      Gate  <= #1 1'b1;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M017",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M017.v",
+      "line_no": 168,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "                      Sync    <= #1 1'b1;",
+      "mutated_snippet": "                      Sync    <= #1 1'b0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M018",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M018.v",
+      "line_no": 169,
+      "mutation_class": "bit_literal_flip",
+      "original_snippet": "                      Done    <= #1 1'b1;",
+      "mutated_snippet": "                      Done    <= #1 1'b0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M019",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M019.v",
+      "line_no": 111,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "            state   <= #1 idle_state;",
+      "mutated_snippet": "            state   <= #0 idle_state;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M020",
+      "design": "vga_vtim",
+      "source_file": "/workspaces/digital-tools/examples/vga_lcd_latest/vga_vtim.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/vga_lcd/mutants/r1/mutants/vga_vtim__M020.v",
+      "line_no": 128,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "                    state   <= #1 sync_state;",
+      "mutated_snippet": "                    state   <= #0 sync_state;",
+      "status": "generated"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+1. Assertion fires at cycle 1. First deviance at cycle 1: `OVF` is set to 1 instead of remaining 0.
+
+2. `OVF`
+
+3. `overflow_flag_error`
+
+4. Flipping `!=` to `==` in the SHIFT=2'b01 case inverts the overflow condition, so `OVF` is asserted when the top two sign bits of DR and DI are equal (no actual overflow) rather than when they differ (true overflow), producing a spurious 1.

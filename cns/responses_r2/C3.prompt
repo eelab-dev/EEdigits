@@ -1,0 +1,89 @@
+[FAILING ASSERTION]
+assert(RDY == $past(START))
+(property name: A_rdy, file: cnorm_prove_formal.sv:57)
+
+[MUTATION APPLIED]
+Original :               if (ED)      begin
+Mutated  :               if (!(ED))  begin
+(module: cnorm, source line: 114, class: predicate_inversion)
+
+[RTL CONTEXT]
+     102 |             if (diri[nb+3] && ~diri[0])    // <0 with LSB=00
+     103 |                 dir<=diri;
+     104 |             else   dir<=diri+2;
+     105 |             if (diii[nb+3] && ~diii[0])
+     106 |                 dii<=diii;
+     107 |             else   dii<=diii+2;
+     108 |         end
+     109 |     end
+     110 | 
+     111 |     `endif
+     112 | 
+     113 |  always @( posedge CLK )     begin
+>>>  114 |               if (ED)      begin
+     115 |                 RDY<=START;
+     116 |                 if (START)
+     117 |                     OVF<=0;
+     118 |                 else
+     119 |                     case (SHIFT)
+     120 |                     2'b01 : OVF<= (DR[nb+3] != DR[nb+2]) || (DI[nb+3] != DI[nb+2]);
+     121 |                     2'b10 : OVF<= (DR[nb+3] != DR[nb+2]) || (DI[nb+3] != DI[nb+2]) ||
+     122 |                         (DR[nb+3] != DR[nb+1]) || (DI[nb+3] != DI[nb+1]);
+     123 |                     2'b11 : OVF<= (DR[nb+3] != DR[nb+2]) || (DI[nb+3] != DI[nb+2])||
+     124 |                         (DR[nb+3] != DR[nb]) || (DI[nb+3] != DI[nb]) ||
+     125 |                         (DR[nb+3] != DR[nb+1]) || (DI[nb+3] != DI[nb+1]);
+     126 |                     endcase
+
+[COUNTEREXAMPLE TRACE]
+Cycle |            OVF |            RDY |            dii |            dir |             DI |             DR |             ED |          SHIFT |          START
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+    0 |           1'b0 |           1'b1 | 14'b0000000000 | 14'b0000000000 | 14'b1110101000 | 14'b1110101000 |           1'b1 |          2'b00 |           1'b0
+    1 |              - |              - |              - |              - | 14'b0000000000 | 14'b0000000000 |           1'b0 |          2'b00 |           1'b0
+
+[ASSERTION FIRED AT STEP]  ← R1  (step-anchor refinement)
+The BMC counterexample ends at step 1: the failing assertion above
+fires at cycle 1.  The trace covers cycles 0 through 1.
+The mutation may cause a signal to deviate from its expected value as early as
+cycle 1, but the PROPERTY FAILURE occurs at cycle 1.
+For liveness-style assertions ("eventually X must be true within N steps"),
+report 1 as the first-bad cycle, NOT the first cycle of wire divergence.
+
+Task:
+Identify and state concisely:
+1. The cycle at which the assertion fires (this is cycle 1).  Also
+   note the first cycle in 0..1 where a signal first deviates from
+   its expected value.  If the assertion is a liveness time-out, report 1.
+2. The signal(s) directly responsible for the assertion failure (name them exactly
+   as they appear in the trace).
+3. The failure mechanism class — choose the MOST SPECIFIC applicable class:  ← R2
+
+   missing_state_transition : An FSM state register fails to advance to the next
+     encoded state because the transition guard is false/inverted.
+     Symptom: the state register holds the same encoded value for extra cycles.
+
+   stuck_signal : A DATA register (not the FSM state) retains a stale value
+     because its write-enable or update condition is false/inverted.  The FSM may
+     be advancing normally; only this one data register is frozen.
+     Symptom: one output or pipeline register stays constant while others change.
+
+   overflow_flag_error : A flag (OVF, carry, overflow, shift indicator) is set
+     or cleared under the wrong arithmetic or comparison condition.
+
+   handshake_failure : A dedicated one-per-period completion/acknowledge/tick
+     signal is inverted so the receiver acts on every NON-completion cycle instead
+     of the single completion cycle.  The signal is a periodic strobe, not a
+     free-running counter terminal-count.
+
+   pointer_index_bug : A shift-register slice width or array index expression is
+     wrong (e.g. i[8:0] instead of i[9:0]), so a one-hot or binary counter can
+     never reach the required bit position regardless of elapsed time.
+
+   timing_progression_error : A free-running counter's terminal-count comparison
+     is wrong (e.g. != instead of ==), causing a timer to fire at the wrong period
+     or never.  Use ONLY when the counter is free-running AND the error is NOT
+     caused by an inverted handshake strobe or a pointer/index width mismatch.
+
+4. A one-sentence root-cause explanation.
+
+STRICT RULE: Do not mention any signal, event, or internal state that is not
+visible in the trace or RTL context above.

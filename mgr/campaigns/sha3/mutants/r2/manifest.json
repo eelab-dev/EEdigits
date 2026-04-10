@@ -1,0 +1,227 @@
+{
+  "design": "sha3",
+  "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+  "total_mutants": 20,
+  "mutants": [
+    {
+      "mutant_id": "M001",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M001.v",
+      "line_no": 31,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      if (reset)",
+      "mutated_snippet": "      if (!(reset))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M002",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M002.v",
+      "line_no": 37,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      if (reset)",
+      "mutated_snippet": "      if (!(reset))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M003",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M003.v",
+      "line_no": 39,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (is_last)",
+      "mutated_snippet": "      else if (!(is_last))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M004",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M004.v",
+      "line_no": 66,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      if (reset)",
+      "mutated_snippet": "      if (!(reset))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M005",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M005.v",
+      "line_no": 68,
+      "mutation_class": "predicate_inversion",
+      "original_snippet": "      else if (i[10])",
+      "mutated_snippet": "      else if (!(i[10]))",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M006",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M006.v",
+      "line_no": 34,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "        i <= {i[9:0], state & f_ack};",
+      "mutated_snippet": "        i <= {i[8:0], state & f_ack};",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M007",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M007.v",
+      "line_no": 38,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "        state <= 0;",
+      "mutated_snippet": "        state <= 1;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M008",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M008.v",
+      "line_no": 40,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "        state <= 1;",
+      "mutated_snippet": "        state <= 0;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M009",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M009.v",
+      "line_no": 3,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "`define LOW_POS(w,b)      ((w)*64 + (b)*8)",
+      "mutated_snippet": "`define LOW_POS(w,b)      ((w)*63 + (b)*8)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M010",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M010.v",
+      "line_no": 4,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "`define LOW_POS2(w,b)     `LOW_POS(w,7-b)",
+      "mutated_snippet": "`define LOW_POS2(w,b)     `LOW_POS(w,6-b)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M011",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M011.v",
+      "line_no": 5,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "`define HIGH_POS(w,b)     (`LOW_POS(w,b) + 7)",
+      "mutated_snippet": "`define HIGH_POS(w,b)     (`LOW_POS(w,b) + 6)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M012",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M012.v",
+      "line_no": 6,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "`define HIGH_POS2(w,b)    (`LOW_POS2(w,b) + 7)",
+      "mutated_snippet": "`define HIGH_POS2(w,b)    (`LOW_POS2(w,b) + 6)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M013",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M013.v",
+      "line_no": 28,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "    assign out1 = f_out[1599:1599-511];",
+      "mutated_snippet": "    assign out1 = f_out[1598:1599-511];",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M014",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M014.v",
+      "line_no": 32,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "        i <= 0;",
+      "mutated_snippet": "        i <= 1;",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M015",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M015.v",
+      "line_no": 34,
+      "mutation_class": "boolean_operator",
+      "original_snippet": "        i <= {i[9:0], state & f_ack};",
+      "mutated_snippet": "        i <= {i[9:0], state | f_ack};",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M016",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M016.v",
+      "line_no": 44,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "      for(w=0; w<8; w=w+1)",
+      "mutated_snippet": "      for(w=1; w<8; w=w+1)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M017",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M017.v",
+      "line_no": 46,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "          for(b=0; b<8; b=b+1)",
+      "mutated_snippet": "          for(b=1; b<8; b=b+1)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M018",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M018.v",
+      "line_no": 55,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "      for(w=0; w<9; w=w+1)",
+      "mutated_snippet": "      for(w=1; w<9; w=w+1)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M019",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M019.v",
+      "line_no": 57,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "          for(b=0; b<8; b=b+1)",
+      "mutated_snippet": "          for(b=1; b<8; b=b+1)",
+      "status": "generated"
+    },
+    {
+      "mutant_id": "M020",
+      "design": "sha3",
+      "source_file": "/workspaces/digital-tools/mgr/campaigns/sha3/keccak_stripped.v",
+      "mutant_file": "/workspaces/digital-tools/mgr/campaigns/sha3/mutants/r2/mutants/keccak_stripped__M020.v",
+      "line_no": 67,
+      "mutation_class": "constant_perturbation",
+      "original_snippet": "        out_ready <= 0;",
+      "mutated_snippet": "        out_ready <= 1;",
+      "status": "generated"
+    }
+  ]
+}

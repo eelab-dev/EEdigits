@@ -1,0 +1,7 @@
+1. Assertion fires at cycle 7. First signal deviance occurs at cycle 1 (state register no longer advances on `cnt_done`); since this is a liveness time-out, the first-bad cycle is 7.
+
+2. `state`, `Gate`
+
+3. `missing_state_transition`
+
+4. Inverting the `cnt_done` guard in `sync_state` prevents the FSM from transitioning to `gdel_state` (and subsequently `gate_state`), so `Gate` never rises and `cycle_ctr` exceeds `MaxGateRiseDelay`.

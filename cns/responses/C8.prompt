@@ -1,0 +1,78 @@
+[FAILING ASSERTION]
+assert(out_ready)
+(property name: A_liveness, file: sha3_keccak_prove_formal.sv:95)
+
+[MUTATION APPLIED]
+Original :         i <= {i[9:0], state & f_ack};
+Mutated  :         i <= {i[8:0], state & f_ack};
+(module: keccak, source line: 34, class: constant_perturbation)
+
+[RTL CONTEXT]
+      22 |     wire      [1599:0] f_out;
+      23 |     wire               f_out_ready;
+      24 |     wire       [511:0] out1;      
+      25 |     reg        [10:0]  i;         
+      26 |     genvar w, b;
+      27 | 
+      28 |     assign out1 = f_out[1599:1599-511];
+      29 | 
+      30 |     always @ (posedge clk)
+      31 |       if (reset)
+      32 |         i <= 0;
+      33 |       else
+>>>   34 |         i <= {i[9:0], state & f_ack};
+      35 | 
+      36 |     always @ (posedge clk)
+      37 |       if (reset)
+      38 |         state <= 0;
+      39 |       else if (is_last)
+      40 |         state <= 1;
+      41 | 
+      42 |     
+      43 |     generate
+      44 |       for(w=0; w<8; w=w+1)
+      45 |         begin : g_l0
+      46 |           for(b=0; b<8; b=b+1)
+
+[COUNTEREXAMPLE TRACE]
+Cycle |     byte_num_f | cyc_since_last |              i |      out_ready |          state |        fix_cyc |           in_f |     in_ready_f |      is_last_f |          rst_f |      seen_last |             in |       in_ready |        is_last |          reset |       byte_num
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    0 |         3'b000 |     7'b0000000 | 11'b1000000000 |           1'b1 |           1'b0 |      6'b000000 | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |           1'b0 | 64'b0000000000 |           1'b1 |           1'b1 |           1'b1 |         3'b000
+    1 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b1 |           1'b0 |         3'b000
+    2 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b1 |           1'b0 |         3'b000
+    3 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+    4 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+    5 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+    6 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+    7 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+    8 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+    9 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   10 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   11 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   12 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   13 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   14 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   15 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   16 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   17 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   18 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   19 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   20 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   21 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   22 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b1 |           1'b0 |         3'b000
+   23 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   24 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b1 |           1'b0 |         3'b000
+   25 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b0 |           1'b0 |         3'b000
+   26 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b1 |           1'b0 |         3'b000
+   27 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - | 64'b0000000000 |           1'b1 |           1'b1 |           1'b0 |         3'b000
+
+Task:
+Identify and state concisely:
+1. The first cycle where behaviour diverges from the spec (give cycle number).
+2. The signal(s) directly responsible for the assertion failure (name them exactly as they appear in the trace).
+3. The failure mechanism class — choose exactly one from:
+   missing_state_transition | stuck_signal | overflow_flag_error |
+   handshake_failure | pointer_index_bug | timing_progression_error
+4. A one-sentence root-cause explanation.
+
+STRICT RULE: Do not mention any signal, event, or internal state that is not visible in the trace or RTL context above.

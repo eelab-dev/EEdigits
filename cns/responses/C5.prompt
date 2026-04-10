@@ -1,0 +1,58 @@
+[FAILING ASSERTION]
+assert(cycle_ctr < MaxGateRiseDelay)
+(property name: A_gate_live, file: vga_vtim_prove_formal.sv:151)
+
+[MUTATION APPLIED]
+Original :                 if (cnt_done)
+Mutated  :                 if (!(cnt_done))
+(module: vga_vtim, source line: 136, class: predicate_inversion)
+
+[RTL CONTEXT]
+     124 | 
+     125 |             case (state) // synopsys full_case parallel_case
+     126 |               idle_state:
+     127 |                 begin
+     128 |                     state   <= #1 sync_state;
+     129 |                     cnt     <= #1 Tsync;
+     130 |                     cnt_len <= #1 Tlen;
+     131 | 
+     132 |                     Sync    <= #1 1'b1;
+     133 |                 end
+     134 | 
+     135 |               sync_state:
+>>>  136 |                 if (cnt_done)
+     137 |                   begin
+     138 |                       state <= #1 gdel_state;
+     139 |                       cnt   <= #1 Tgdel;
+     140 | 
+     141 |                       Sync  <= #1 1'b0;
+     142 |                   end
+     143 | 
+     144 |               gdel_state:
+     145 |                 if (cnt_done)
+     146 |                   begin
+     147 |                       state <= #1 gate_state;
+     148 |                       cnt   <= #1 Tgate;
+
+[COUNTEREXAMPLE TRACE]
+Cycle |      cycle_ctr | done_ever_fire |     done_twice |           Done |           Gate |           Sync |            cnt |        cnt_len |          state | gate_ever_high |  gate_fell_ctr | sync_ever_high
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    0 |    8'b00000000 |           1'b0 |           1'b0 |           1'b0 |           1'b0 |           1'b0 | 16'b0000000000 | 16'b0000000000 |       5'b00000 |           1'b0 |    8'b00000000 |           1'b0
+    1 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              -
+    2 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              -
+    3 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              -
+    4 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              -
+    5 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              -
+    6 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              -
+    7 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              -
+
+Task:
+Identify and state concisely:
+1. The first cycle where behaviour diverges from the spec (give cycle number).
+2. The signal(s) directly responsible for the assertion failure (name them exactly as they appear in the trace).
+3. The failure mechanism class — choose exactly one from:
+   missing_state_transition | stuck_signal | overflow_flag_error |
+   handshake_failure | pointer_index_bug | timing_progression_error
+4. A one-sentence root-cause explanation.
+
+STRICT RULE: Do not mention any signal, event, or internal state that is not visible in the trace or RTL context above.

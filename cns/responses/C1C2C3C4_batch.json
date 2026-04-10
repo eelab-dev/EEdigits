@@ -1,0 +1,30 @@
+[
+  {
+    "case_id": "C1",
+    "first_bad_cycle": 0,
+    "key_signals": ["OVF", "START", "ED"],
+    "mechanism_class": "overflow_flag_error",
+    "explanation": "Inverting the START predicate causes the OVF<=0 clear to be skipped when START=1 and ED=1, leaving OVF=1'b1 and immediately violating the assertion."
+  },
+  {
+    "case_id": "C2",
+    "first_bad_cycle": 0,
+    "key_signals": ["OVF", "DR", "DI", "SHIFT", "ED"],
+    "mechanism_class": "overflow_flag_error",
+    "explanation": "Flipping != to == in the SHIFT=2'b01 branch causes OVF to be asserted when DR[nb+3]==DR[nb+2] or DI[nb+3]==DI[nb+2], falsely signaling overflow when the sign bits are equal and no overflow exists."
+  },
+  {
+    "case_id": "C3",
+    "first_bad_cycle": 0,
+    "key_signals": ["RDY", "ED", "START"],
+    "mechanism_class": "missing_state_transition",
+    "explanation": "Inverting the ED condition prevents the always block body from executing when ED=1, so RDY is never updated to follow START, retaining a stale value of 1'b1 instead of the required $past(START)."
+  },
+  {
+    "case_id": "C4",
+    "first_bad_cycle": 0,
+    "key_signals": ["state", "Done", "Gate", "Sync"],
+    "mechanism_class": "missing_state_transition",
+    "explanation": "Inverting the rst predicate prevents the synchronous reset branch from executing, leaving state at 5'b00100 (not idle_state) with cnt_len non-zero, allowing the state machine to drive Sync, Gate, or Done to 1'b1 instead of holding them cleared."
+  }
+]

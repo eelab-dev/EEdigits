@@ -1,0 +1,82 @@
+[FAILING ASSERTION]
+assert(rx_data == rx_latched)
+(property name: A_data_integrity, file: uart_rx_formal.sv:124)
+
+[MUTATION APPLIED]
+Original :                     if (baud_tick) begin
+Mutated  :                     if (!(baud_tick)) begin
+(module: uart_rx, source line: 98, class: predicate_inversion)
+
+[RTL CONTEXT]
+      86 |                         state    <= SData;  // Valid start bit, move to data
+      87 |                     end else begin
+      88 |                         baud_cnt <= baud_cnt + 1'b1;
+      89 |                     end
+      90 |                 end
+      91 | 
+      92 |                 SData: begin
+      93 |                     // Data bits: sample at middle of each bit period
+      94 |                     rx_busy <= 1'b1;
+      95 |                     if (baud_mid) begin
+      96 |                         shift_reg[bit_idx] <= rx_serial;  // Sample bit at middle
+      97 |                     end
+>>>   98 |                     if (baud_tick) begin
+      99 |                         baud_cnt <= {($clog2(BaudDiv)){1'b0}};
+     100 |                         if (bit_idx == 3'd7) begin
+     101 |                             bit_idx <= 3'd0;
+     102 |                             state   <= SStop;  // All 8 bits received
+     103 |                         end else begin
+     104 |                             bit_idx <= bit_idx + 1'b1;  // Next bit
+     105 |                         end
+     106 |                     end else begin
+     107 |                         baud_cnt <= baud_cnt + 1'b1;
+     108 |                     end
+     109 |                 end
+     110 | 
+
+[COUNTEREXAMPLE TRACE]
+Cycle |         active |       baud_cnt |        bit_idx |        rx_busy |        rx_data |       rx_valid |      shift_reg |          state |        stop_ok |          fired |          phase |     rx_latched |     rx_payload
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    0 |           1'b0 |        4'b0000 |         3'b000 |           1'b0 |    8'b10000000 |           1'b0 |    8'b00000000 |         3'b000 |           1'b0 |           1'b0 |     7'b0000000 |    8'b00000000 |    8'b00000000
+    1 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000010
+    2 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    3 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    4 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    5 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    6 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    7 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    8 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+    9 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   10 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   11 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   12 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   13 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   14 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   15 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   16 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   17 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   18 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   19 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   20 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   21 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   22 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   23 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   24 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   25 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   26 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   27 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   28 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   29 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   30 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+   31 |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |              - |    8'b00000000
+
+Task:
+Identify and state concisely:
+1. The first cycle where behaviour diverges from the spec (give cycle number).
+2. The signal(s) directly responsible for the assertion failure (name them exactly as they appear in the trace).
+3. The failure mechanism class — choose exactly one from:
+   missing_state_transition | stuck_signal | overflow_flag_error |
+   handshake_failure | pointer_index_bug | timing_progression_error
+4. A one-sentence root-cause explanation.
+
+STRICT RULE: Do not mention any signal, event, or internal state that is not visible in the trace or RTL context above.

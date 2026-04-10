@@ -1,0 +1,16 @@
+[options]
+mode bmc
+depth 20
+
+[engines]
+smtbmc yices
+
+[script]
+read -formal cnorm.v
+read -formal cnorm_prove_formal.sv
+prep -top cnorm_prove_formal -flatten
+
+[files]
+FFT256_CONFIG.inc
+cnorm.v
+cnorm_prove_formal.sv
