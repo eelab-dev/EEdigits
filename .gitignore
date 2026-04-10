@@ -18,10 +18,13 @@ examples/**/synthesis/*_synth.v
 examples/**/build/
 examples/**/waves/__pycache__/
 *.pyc
+__pycache__/
+.venv/
 
 # MGR campaign run artifacts (solver outputs per mutant)
 mgr/campaigns/**/runs/
 mgr/campaigns/**/model/
+*.sqlite
 
 # Solver model artifacts in examples (sby output dirs)
 examples/**/model/
@@ -31,3 +34,4 @@ examples/**/archive/*.log
 examples/**/temp_stats.ys
 temp_stats.ys
 metrics_table.csv
+
