@@ -1,12 +1,12 @@
 # PRAMANA — Proof-centric RTL Agentic Model for Assurance, Narrative, and Automation
 
-**PRAMANA** takes its name from Sanskrit, where it means *measure*, *proof*, or *means of knowledge*. The tool aims to execute the hardware verification lifecycle autonomously — from harness quality assessment through solver selection to failure explanation — as a fully closed-loop agentic system. This repository implements the foundational tier of that vision: autonomous formal verification via three cooperating agents.
+**PRAMANA** takes its name from Sanskrit, where it means *measure*, *proof*, or *means of knowledge*. The tool aims to execute the hardware verification lifecycle autonomously — from harness quality assessment through solver selection to failure explanation — as a fully closed-loop agentic system. This repository implements the foundational tier of that vision: autonomous formal verification via four cooperating agents.
 
 | Agent | Name | Purpose |
 |---|---|---|
 | **Agent II** | Mutation-Guided Refinement (MGR) | Measure and improve formal harness quality via mutation analysis |
 | **Agent III** | Predictive Solver Portfolio (PSP) | Select the best SMT solver for the design; generate a ready-to-run `.sby` file |
-| **Agent IV** | Causal Narrative Synthesis (CNS) | Explain formal failures in human-readable language (future work) |
+| **Agent IV** | Causal Narrative Synthesis (CNS) | Explain formal verification failures with causal, step-by-step narratives |
 
 > **Starting point:** Agent I (harness generation) is a prerequisite but is assumed
 > complete — the user provides a working formal harness `.sv` file.
@@ -25,6 +25,7 @@
    - [Step 3: Interpret Results and Decide](#step-3-interpret-results-and-decide)
    - [Worked Examples](#worked-examples)
 4. [Agent III — Predictive Solver Portfolio (PSP)](#agent-iii--predictive-solver-portfolio-psp)
+5. [Agent IV — Causal Narrative Synthesis (CNS)](#agent-iv--causal-narrative-synthesis-cns)
 
 ---
 
@@ -38,14 +39,27 @@ The following tools must be installed and available on `PATH`:
 | `sby` (SymbiYosys) | Formal verification runner | [yosys-install.md](yosys-install.md) |
 | `smtbmc` with Yices / Z3 / Bitwuzla backends | SMT solvers | [z3-install.md](z3-install.md) |
 | Python 3.9+ | Script execution | system package manager |
+| `anthropic` Python package | Agent IV (CNS) LLM calls | `pip install anthropic` |
 
-Verify availability:
+Verify tool availability:
 
 ```bash
 yosys --version
 sby --version
 python3 --version
 ```
+
+For CNS, set your API key:
+
+```bash
+export ANTHROPIC_API_KEY=<your-key>
+```
+
+> **Human-readable note:** Agents II and III require only the open-source tools
+> listed above — no LLM or API key is needed. Agent IV (CNS) requires an
+> Anthropic API key to generate narratives. All pre-computed CNS responses for the
+> 8 benchmark cases are already committed to the repository (in `cns/responses_r2/`),
+> so scoring and inspection can be done without re-running the LLM.
 
 ---
 
@@ -70,22 +84,30 @@ digital-tools/
 │   ├── vga_lcd_latest/
 │   └── up8_minimal/          # 8-bit microprocessor (special handling required)
 │
+├── cns/
+│   ├── cns_agent.py              # Agent IV: CNS — prompt builder, API caller, scorer
+│   ├── ground_truth.json         # Ground truth for 8 benchmark cases
+│   ├── cases/                    # Input case JSON files (C1–C8)
+│   ├── responses/                # Raw CNS responses (Round 2, default)
+│   ├── responses_r1/             # Round 1 (zero-shot baseline) responses
+│   ├── responses_r2/             # Round 2 (refined prompt) responses
+│   ├── scored/                   # Per-case binary scores (Round 2)
+│   ├── scored_r1/                # Per-case binary scores (Round 1)
+│   └── scored_r2/                # Per-case binary scores (Round 2)
+│
 └── mgr/
     ├── tools/
     │   ├── mutant_generator.py   # Step 1: generate mutants from a single RTL file
     │   └── audit_runner.py       # Step 2: run sby per mutant, classify, summarise
     └── campaigns/                # One subdirectory per design under verification
-        ├── uart_tx/
-        │   ├── baseline/         # Unmodified RTL + baseline harness
-        │   ├── refinement_v1/    # Round 1: harness, .sby, mutants/, runs/
-        │   └── refinement_v2/    # Round 2 (current best)
-        ├── i2c/
-        │   ├── refinement_v1/
-        │   └── refinement_v2/
-        └── generic_fifo_lfsr/
-            ├── refinement_v1/
-            ├── refinement_v2/
-            └── refinement_v3/    # Round 3 (current best, 100 % kill rate)
+        ├── and2bit/              # 2-bit AND gate (trivial sanity check)
+        ├── uart_rx/              # UART receiver FSM
+        ├── uart_full/            # UART top-level wrapper
+        ├── up8/                  # 8-bit pipelined CPU
+        ├── sha3/                 # Keccak-f permutation core
+        ├── sdram/                # SDRAM controller (iterative, 4 rounds)
+        ├── vga_lcd/              # VGA vertical timing FSM
+        └── pipelined_fft_256/    # FFT-256 CNORM normalisation unit
 ```
 
 **Campaign round convention:** each `refinement_vN/` directory is immutable once
@@ -222,9 +244,9 @@ python3 mgr/tools/mutant_generator.py \
 ```bash
 python3 mgr/tools/audit_runner.py \
     --manifest      mgr/campaigns/and2bit/mutants/r1/manifest.json \
-    --rtl-files     examples/and2bit/and2bit.v \
-    --harness-files mgr/campaigns/and2bit/refinement_v1/and2bit_prove_formal.sv \
-    --sby           mgr/campaigns/and2bit/refinement_v1/and2bit_prove.sby \
+    --rtl-files     mgr/campaigns/and2bit/baseline/and2bit.v \
+    --harness-files mgr/campaigns/and2bit/baseline/and2bit_formal.sv \
+    --sby           mgr/campaigns/and2bit/baseline/and2bit_prove.sby \
     --workdir       mgr/campaigns/and2bit/runs/r1 \
     --timeout       60
 ```
@@ -241,7 +263,7 @@ RTL target for mutation: `uart_rx.v` (serial receiver FSM).
 
 ```bash
 python3 mgr/tools/mutant_generator.py \
-    --rtl    examples/uart/uart_rx/uart_rx.v \
+    --rtl    mgr/campaigns/uart_rx/baseline/uart_rx.v \
     --out    mgr/campaigns/uart_rx/mutants/r1 \
     --design uart_rx \
     --max-mutants 20
@@ -252,8 +274,8 @@ python3 mgr/tools/mutant_generator.py \
 ```bash
 python3 mgr/tools/audit_runner.py \
     --manifest      mgr/campaigns/uart_rx/mutants/r1/manifest.json \
-    --rtl-files     examples/uart/uart_rx/uart_rx.v \
-    --harness-files mgr/campaigns/uart_rx/refinement_v1/uart_rx_prove_formal.sv \
+    --rtl-files     mgr/campaigns/uart_rx/baseline/uart_rx.v \
+    --harness-files mgr/campaigns/uart_rx/refinement_v1/uart_rx_formal.sv \
     --sby           mgr/campaigns/uart_rx/refinement_v1/uart_rx_prove.sby \
     --workdir       mgr/campaigns/uart_rx/runs/r1 \
     --timeout       60
@@ -266,15 +288,66 @@ python3 mgr/tools/audit_runner.py \
 
 #### Design 3 — UART Full (`uart_full`)
 
-RTL target for mutation: `uart_full.v` (top-level UART wrapper). Full RTL set: `uart_full.v`, `uart_tx.v`, `uart_rx.v`.
+RTL target for mutation: `uart_tx.v` (TX state machine, the primary logic file of the full-UART design).
+Full RTL set: `uart_full.v`, `uart_tx.v`, `uart_rx.v`.
+
+**Step 1 — Generate mutants:**
+
+```bash
+python3 mgr/tools/mutant_generator.py \
+    --rtl    mgr/campaigns/uart_full/baseline/uart_tx.v \
+    --out    mgr/campaigns/uart_full/mutants/r1 \
+    --design uart_full \
+    --max-mutants 20
+```
+
+**Step 2 — Audit mutants:**
+
+```bash
+python3 mgr/tools/audit_runner.py \
+    --manifest      mgr/campaigns/uart_full/mutants/r1/manifest.json \
+    --rtl-files     mgr/campaigns/uart_full/baseline/uart_full.v \
+                    mgr/campaigns/uart_full/baseline/uart_tx.v \
+                    mgr/campaigns/uart_full/baseline/uart_rx.v \
+    --harness-files mgr/campaigns/uart_full/baseline/uart_full_formal.sv \
+    --sby           mgr/campaigns/uart_full/baseline/uart_full_prove.sby \
+    --workdir       mgr/campaigns/uart_full/runs/r1 \
+    --timeout       120
+```
 
 **Results (R1):** 18/20 KILLED → effective kill rate **90 %** ✓
 
 ---
 
-#### Design 4 — UP8 Minimal CPU (`up8_minimal`)
+#### Design 4 — UP8 Minimal CPU (`up8`)
 
 RTL target for mutation: `up8_cpu.v` (8-bit pipelined CPU).
+
+The UP8 core requires preprocessor flags (`FORMAL`, `UP8_INLINE_ROM`, `UP8_FORMAL_ROMONLY`)
+that are already baked into the baseline `.sby` file in the campaign directory.
+
+**Step 1 — Generate mutants:**
+
+```bash
+python3 mgr/tools/mutant_generator.py \
+    --rtl    mgr/campaigns/up8/baseline/up8_cpu.v \
+    --out    mgr/campaigns/up8/mutants/r1 \
+    --design up8 \
+    --max-mutants 20
+```
+
+**Step 2 — Audit mutants:**
+
+```bash
+python3 mgr/tools/audit_runner.py \
+    --manifest      mgr/campaigns/up8/mutants/r1/manifest.json \
+    --rtl-files     mgr/campaigns/up8/baseline/up8_cpu.v \
+                    mgr/campaigns/up8/baseline/up8_inline_rom.vh \
+    --harness-files mgr/campaigns/up8/baseline/up8_add1_formal.sv \
+    --sby           mgr/campaigns/up8/baseline/up8_add1_prove.sby \
+    --workdir       mgr/campaigns/up8/runs/r1 \
+    --timeout       120
+```
 
 **Results (R1):** 20/20 KILLED → effective kill rate **100 %** ✓
 
@@ -283,6 +356,34 @@ RTL target for mutation: `up8_cpu.v` (8-bit pipelined CPU).
 #### Design 5 — SHA3 / Keccak (`sha3`)
 
 RTL target for mutation: `keccak.v` (Keccak-f permutation core).
+Full RTL set: all `.v` files in `mgr/campaigns/sha3/baseline/`.
+
+**Step 1 — Generate mutants:**
+
+```bash
+python3 mgr/tools/mutant_generator.py \
+    --rtl    mgr/campaigns/sha3/baseline/keccak.v \
+    --out    mgr/campaigns/sha3/mutants/r1 \
+    --design sha3 \
+    --max-mutants 20
+```
+
+**Step 2 — Audit mutants:**
+
+```bash
+python3 mgr/tools/audit_runner.py \
+    --manifest      mgr/campaigns/sha3/mutants/r1/manifest.json \
+    --rtl-files     mgr/campaigns/sha3/baseline/keccak.v \
+                    mgr/campaigns/sha3/baseline/padder.v \
+                    mgr/campaigns/sha3/baseline/padder1.v \
+                    mgr/campaigns/sha3/baseline/f_permutation.v \
+                    mgr/campaigns/sha3/baseline/round2in1.v \
+                    mgr/campaigns/sha3/baseline/rconst2in1.v \
+    --harness-files mgr/campaigns/sha3/baseline/sha3_keccak_prove_formal.sv \
+    --sby           mgr/campaigns/sha3/baseline/sha3_prove.sby \
+    --workdir       mgr/campaigns/sha3/runs/r1 \
+    --timeout       120
+```
 
 **Results (R1):** 20/20 KILLED → effective kill rate **100 %** ✓
 
@@ -290,13 +391,14 @@ RTL target for mutation: `keccak.v` (Keccak-f permutation core).
 
 #### Design 6 — SDRAM Controller (`sdram`)
 
-RTL target for mutation: `sdram.v`. Iterative campaign over 4 rounds.
+RTL target for mutation: `sdram.v` (SDRAM controller with Xilinx IO stubs).
+Full RTL set: `sdram.v`, `iobuf_stub.v`, `oddr2_stub.v`. Iterative campaign over 4 rounds.
 
 **Step 1 — Generate mutants:**
 
 ```bash
 python3 mgr/tools/mutant_generator.py \
-    --rtl    examples/sdram/sdram.v \
+    --rtl    mgr/campaigns/sdram/baseline/sdram.v \
     --out    mgr/campaigns/sdram/mutants/r1 \
     --design sdram \
     --max-mutants 20
@@ -308,6 +410,8 @@ python3 mgr/tools/mutant_generator.py \
 python3 mgr/tools/audit_runner.py \
     --manifest      mgr/campaigns/sdram/mutants/r1/manifest.json \
     --rtl-files     mgr/campaigns/sdram/refinement_v4/sdram.v \
+                    mgr/campaigns/sdram/baseline/iobuf_stub.v \
+                    mgr/campaigns/sdram/baseline/oddr2_stub.v \
     --harness-files mgr/campaigns/sdram/refinement_v4/sdram_prove_formal.sv \
     --sby           mgr/campaigns/sdram/refinement_v4/sdram_prove.sby \
     --workdir       mgr/campaigns/sdram/runs/r4 \
@@ -327,7 +431,7 @@ RTL target for mutation: `vga_vtim.v` (5-state VGA timing FSM, 174 lines).
 
 ```bash
 python3 mgr/tools/mutant_generator.py \
-    --rtl    examples/vga_lcd_latest/vga_vtim.v \
+    --rtl    mgr/campaigns/vga_lcd/baseline/vga_vtim.v \
     --out    mgr/campaigns/vga_lcd/mutants/r1 \
     --design vga_vtim \
     --max-mutants 20
@@ -338,7 +442,8 @@ python3 mgr/tools/mutant_generator.py \
 ```bash
 python3 mgr/tools/audit_runner.py \
     --manifest      mgr/campaigns/vga_lcd/mutants/r1/manifest.json \
-    --rtl-files     mgr/campaigns/vga_lcd/refinement_v2/vga_vtim.v \
+    --rtl-files     mgr/campaigns/vga_lcd/baseline/timescale.v \
+                    mgr/campaigns/vga_lcd/refinement_v2/vga_vtim.v \
     --harness-files mgr/campaigns/vga_lcd/refinement_v2/vga_vtim_prove_formal.sv \
     --sby           mgr/campaigns/vga_lcd/refinement_v2/vga_vtim_prove.sby \
     --workdir       mgr/campaigns/vga_lcd/runs/r2 \
@@ -354,13 +459,14 @@ R1 was 14/20 (70 %); cycle-count gate assertions added in R2 killed 4 more mutan
 
 #### Design 8 — Pipelined FFT 256 / CNORM (`pipelined_fft_256`)
 
-RTL target for mutation: `cnorm.v` (CNORM normalisation + OVF detection unit, 133 lines). Includes `FFT256_CONFIG.inc` macro file which defines `nb=10`.
+RTL target for mutation: `cnorm.v` (CNORM normalisation + OVF detection unit, 133 lines).
+The `FFT256_CONFIG.inc` macro file (defines `nb=10`) lives in the campaign directory along with the RTL copy.
 
 **Step 1 — Generate mutants:**
 
 ```bash
 python3 mgr/tools/mutant_generator.py \
-    --rtl    examples/pipelined_fft_256_latest/cnorm.v \
+    --rtl    mgr/campaigns/pipelined_fft_256/baseline/cnorm.v \
     --out    mgr/campaigns/pipelined_fft_256/mutants/r1 \
     --design cnorm \
     --max-mutants 20
@@ -371,7 +477,7 @@ python3 mgr/tools/mutant_generator.py \
 ```bash
 python3 mgr/tools/audit_runner.py \
     --manifest      mgr/campaigns/pipelined_fft_256/mutants/r1/manifest.json \
-    --rtl-files     examples/pipelined_fft_256_latest/cnorm.v \
+    --rtl-files     mgr/campaigns/pipelined_fft_256/refinement_v2/cnorm.v \
                     mgr/campaigns/pipelined_fft_256/refinement_v2/FFT256_CONFIG.inc \
     --harness-files mgr/campaigns/pipelined_fft_256/refinement_v2/cnorm_prove_formal.sv \
     --sby           mgr/campaigns/pipelined_fft_256/refinement_v2/cnorm_prove.sby \
@@ -385,142 +491,35 @@ The single survivor (M001) mutates code inside an untaken `` `ifdef FFT256round 
 
 ---
 
-#### Design — UART TX (`uart_tx`) — Legacy Example
-
-RTL target for mutation: `uart_tx.v` (state machine and data path).
-Full RTL set: `uart_full.v`, `uart_tx.v`, `uart_rx.v`.
-
-**Step 1 — Generate mutants (Round 2 shown):**
-
-```bash
-python3 mgr/tools/mutant_generator.py \
-    --rtl    mgr/campaigns/uart_tx/baseline/uart_tx.v \
-    --out    mgr/campaigns/uart_tx/refinement_v2/mutants \
-    --design uart_tx \
-    --max-mutants 20
-```
-
-**Step 2 — Audit mutants:**
-
-```bash
-python3 mgr/tools/audit_runner.py \
-    --manifest      mgr/campaigns/uart_tx/refinement_v2/mutants/manifest.json \
-    --rtl-files     mgr/campaigns/uart_tx/baseline/uart_full.v \
-                    mgr/campaigns/uart_tx/baseline/uart_tx.v \
-                    mgr/campaigns/uart_tx/baseline/uart_rx.v \
-    --harness-files mgr/campaigns/uart_tx/refinement_v2/uart_full_formal_v3.sv \
-    --sby           mgr/campaigns/uart_tx/refinement_v2/uart_full_prove_v3.sby \
-    --workdir       mgr/campaigns/uart_tx/refinement_v2/runs \
-    --timeout       120
-```
-
-**Results (Round 2):** 18/20 KILLED → effective kill rate **90 %** ✓
-
----
-
-#### Design 2 — I2C Master (`i2c`)
-
-RTL target for mutation: `i2c_master_top_formal.v`.
-Full RTL set: the four `.v` files in the refinement directory.
-
-**Step 1 — Generate mutants (Round 2 shown):**
-
-```bash
-python3 mgr/tools/mutant_generator.py \
-    --rtl    mgr/campaigns/i2c/refinement_v2/i2c_master_top_formal.v \
-    --out    mgr/campaigns/i2c/refinement_v2/mutants \
-    --design i2c \
-    --max-mutants 10
-```
-
-**Step 2 — Audit mutants:**
-
-```bash
-python3 mgr/tools/audit_runner.py \
-    --manifest      mgr/campaigns/i2c/refinement_v2/mutants/manifest.json \
-    --rtl-files     mgr/campaigns/i2c/refinement_v2/i2c_master_defines.v \
-                    mgr/campaigns/i2c/refinement_v2/i2c_master_bit_ctrl_formal.v \
-                    mgr/campaigns/i2c/refinement_v2/i2c_master_byte_ctrl_formal.v \
-                    mgr/campaigns/i2c/refinement_v2/i2c_master_top_formal.v \
-    --harness-files mgr/campaigns/i2c/refinement_v2/i2c_master_top_prove_formal_v2.sv \
-    --sby           mgr/campaigns/i2c/refinement_v2/i2c_master_top_prove_v2.sby \
-    --workdir       mgr/campaigns/i2c/refinement_v2/runs \
-    --timeout       180
-```
-
-**Results (Round 2):** 10/10 KILLED → effective kill rate **100 %** ✓
-
----
-
-#### Design 3 — Synchronous FIFO (`generic_fifo_lfsr`)
-
-> **Exception:** The canonical formal files for this design are located under
-> `examples/generic_fifo_lfsr/repro_todo2_aw16_d15/active/`, not the top-level
-> `examples/generic_fifo_lfsr/formal/`. Always use the `active/` path.
-
-RTL target for mutation: `generic_fifo_lfsr.v`.
-Full RTL set: `timescale.v`, `generic_dpram_formal.v`, `generic_fifo_lfsr.v`.
-
-**Step 1 — Generate mutants (Round 3 shown):**
-
-```bash
-python3 mgr/tools/mutant_generator.py \
-    --rtl    mgr/campaigns/generic_fifo_lfsr/refinement_v3/generic_fifo_lfsr.v \
-    --out    mgr/campaigns/generic_fifo_lfsr/refinement_v3/mutants \
-    --design generic_fifo_lfsr \
-    --max-mutants 10
-```
-
-**Step 2 — Audit mutants:**
-
-```bash
-python3 mgr/tools/audit_runner.py \
-    --manifest      mgr/campaigns/generic_fifo_lfsr/refinement_v3/mutants/manifest.json \
-    --rtl-files     mgr/campaigns/generic_fifo_lfsr/refinement_v3/timescale.v \
-                    mgr/campaigns/generic_fifo_lfsr/refinement_v3/generic_dpram_formal.v \
-                    mgr/campaigns/generic_fifo_lfsr/refinement_v3/generic_fifo_lfsr.v \
-    --harness-files mgr/campaigns/generic_fifo_lfsr/refinement_v3/generic_fifo_lfsr_prove_formal_v2.sv \
-    --sby           mgr/campaigns/generic_fifo_lfsr/refinement_v3/generic_fifo_lfsr_prove_v3.sby \
-    --workdir       mgr/campaigns/generic_fifo_lfsr/refinement_v3/runs \
-    --timeout       120
-```
-
-**Results (Round 3):** 10/10 KILLED → effective kill rate **100 %** ✓
-
----
-
 #### Starting a New Refinement Round
 
-If the kill rate is below the threshold, create a new round directory, copy the RTL
-files and the updated harness into it, then repeat the two steps above:
+If the effective kill rate is below the threshold, create a new round directory, copy
+in the RTL files and the updated harness, then repeat Steps 1–2:
 
 ```bash
-# Example: starting refinement_v4 for FIFO
-ROUND=mgr/campaigns/generic_fifo_lfsr/refinement_v4
+# Example: starting refinement_v3 for uart_rx
+ROUND=mgr/campaigns/uart_rx/refinement_v3
 mkdir -p "$ROUND"
+cp mgr/campaigns/uart_rx/refinement_v2/uart_rx.v "$ROUND/"
 
-# Copy RTL files from the previous round (or directly from examples/)
-cp mgr/campaigns/generic_fifo_lfsr/refinement_v3/timescale.v         "$ROUND/"
-cp mgr/campaigns/generic_fifo_lfsr/refinement_v3/generic_dpram_formal.v "$ROUND/"
-cp mgr/campaigns/generic_fifo_lfsr/refinement_v3/generic_fifo_lfsr.v  "$ROUND/"
-
-# Place the updated harness and .sby into the new round directory, then run:
+# Place the new harness and .sby in $ROUND, then run:
 python3 mgr/tools/mutant_generator.py \
-    --rtl    "$ROUND/generic_fifo_lfsr.v" \
-    --out    "$ROUND/mutants" \
-    --design generic_fifo_lfsr \
-    --max-mutants 10
+    --rtl    "$ROUND/uart_rx.v" \
+    --out    mgr/campaigns/uart_rx/mutants/r3 \
+    --design uart_rx \
+    --max-mutants 20
 
 python3 mgr/tools/audit_runner.py \
-    --manifest      "$ROUND/mutants/manifest.json" \
-    --rtl-files     "$ROUND/timescale.v" \
-                    "$ROUND/generic_dpram_formal.v" \
-                    "$ROUND/generic_fifo_lfsr.v" \
+    --manifest      mgr/campaigns/uart_rx/mutants/r3/manifest.json \
+    --rtl-files     "$ROUND/uart_rx.v" \
     --harness-files "$ROUND/<new_harness>.sv" \
     --sby           "$ROUND/<new_prove>.sby" \
-    --workdir       "$ROUND/runs" \
-    --timeout       120
+    --workdir       mgr/campaigns/uart_rx/runs/r3 \
+    --timeout       60
 ```
+
+> **Convention:** each `refinement_vN/` directory is immutable once created — never
+> overwrite a completed round. Always start a new `refinement_v(N+1)/`.
 
 ---
 
@@ -528,18 +527,10 @@ python3 mgr/tools/audit_runner.py \
 
 | Design | Round | Total | KILLED | SURVIVED | INVALID | Effective Kill Rate |
 |---|---|---|---|---|---|---|
-| `uart_tx` | baseline | 20 | 5 | 15 | — | 25 % |
-| `uart_tx` | R1 (`refinement_v1`) | 20 | 7 | 13 | — | 35 % |
-| `uart_tx` | R2 (`refinement_v2`) | 20 | 18 | 2 | — | **90 %** ✓ |
-| `i2c` | R1 (`refinement_v1`) | 10 | 1 | 9 | — | 10 % |
-| `i2c` | R2 (`refinement_v2`) | 10 | 10 | — | — | **100 %** ✓ |
-| `generic_fifo_lfsr` | R1 (`refinement_v1`) | 5 | 2 | — | 2 | 67 % † |
-| `generic_fifo_lfsr` | R2 (`refinement_v2`) | 14 | 5 | 3 | 6 | 62.5 % † |
-| `generic_fifo_lfsr` | R3 (`refinement_v3`) | 10 | 10 | — | — | **100 %** ✓ |
-| `and2bit` | R1 (`refinement_v1`) | 20 | 20 | — | — | **100 %** ✓ |
+| `and2bit` | R1 (`baseline`) | 20 | 20 | — | — | **100 %** ✓ |
 | `uart_rx` | R1 (`refinement_v1`) | 20 | 18 | 2 | — | **90 %** ✓ ‡ |
 | `uart_full` | R1 (`refinement_v1`) | 20 | 18 | 2 | — | **90 %** ✓ ‡ |
-| `up8_minimal` | R1 (`refinement_v1`) | 20 | 20 | — | — | **100 %** ✓ |
+| `up8` | R1 (`refinement_v1`) | 20 | 20 | — | — | **100 %** ✓ |
 | `sha3` | R1 (`refinement_v1`) | 20 | 20 | — | — | **100 %** ✓ |
 | `sdram` | R1 (`refinement_v1`) | 27 | 6 | 13 | 8 | 31.6 % |
 | `sdram` | R4 (`refinement_v4`) | 19 | 7 | 4 | 8 | **36.8 %** ✓ § |
@@ -548,8 +539,7 @@ python3 mgr/tools/audit_runner.py \
 | `pipelined_fft_256` (CNORM) | R1 (`refinement_v1`) | 20 | 14 | 2 | 4 | 87.5 % |
 | `pipelined_fft_256` (CNORM) | R2 (`refinement_v2`) | 20 | 15 | 1 | 4 | **93.8 %** ✓ ‡ |
 
-† Exceeds the 50 % threshold but refinement continued to reach higher confidence.
-‡ Remaining survivors are **true equivalents** (non-blocking delay `#1→#0` or dead `\`ifdef` branches compiled out by the preprocessor); no assertion can kill them.
+‡ Remaining survivors are **true equivalents** (non-blocking delay `#1→#0` or dead `` `ifdef `` branches compiled out by the preprocessor); no assertion can kill them.
 § Plateau is structural: 4 surviving mutants alter timing-parameter logic whose observable effect lies beyond any practical BMC depth. 8 INVALID mutants excluded from effective count.
 — indicates the count was zero (not recorded as a key in the summary JSON).
 
@@ -672,8 +662,14 @@ Output: `examples/i2c/formal/i2c_master_top_formal_auto.sby`
 
 #### Design 3 — SDRAM Controller (`sdram`)
 
+The SDRAM design references Xilinx primitives (`IOBUF`, `ODDR2`) that are not part
+of the design. Stub files in `examples/sdram/` provide empty module definitions so
+Yosys can elaborate the hierarchy.
+
 ```bash
 python3 manage_formal.py sdram 30 \
+    examples/sdram/iobuf_stub.v \
+    examples/sdram/oddr2_stub.v \
     examples/sdram/sdram.v \
     --formal_sv  examples/sdram/formal/sdram_prove_formal.sv \
     --formal_top sdram_prove_formal
@@ -703,53 +699,76 @@ Output: `<FIFO>/generic_fifo_lfsr_auto.sby`
 
 ---
 
-#### Design 5 — UP8 Minimal CPU (`up8_cpu`) ⚠ Exception
-
-The UP8 core requires macro definitions and an include path that `manage_formal.py`
-does not pass to the `read` command. The tool **can** produce a solver selection
-and a draft `.sby`, but the draft's `[script]` section must be patched manually.
-
-**Step 1 — Run manage_formal.py to get the solver selection:**
+#### Design 5 — SHA3 / Keccak (`sha3`)
 
 ```bash
-python3 manage_formal.py up8_cpu 45 \
-    examples/up8_minimal/up8_cpu.v
+python3 manage_formal.py keccak 80 \
+    examples/sha3/f_permutation.v \
+    examples/sha3/keccak.v \
+    examples/sha3/padder.v \
+    examples/sha3/padder1.v \
+    examples/sha3/rconst2in1.v \
+    examples/sha3/round2in1.v \
+    --formal_sv  examples/sha3/formal/sha3_keccak_prove_formal.sv \
+    --formal_top sha3_keccak_prove_formal
 ```
 
-**Step 2 — Patch the generated `up8_cpu_auto.sby`:**
-Replace the auto-generated `read -formal up8_cpu.v` line with:
+Output: `examples/sha3/formal/keccak_auto.sby`
 
-```
-read -formal -D FORMAL -D UP8_INLINE_ROM -D UP8_FORMAL_ROMONLY -I . up8_cpu.v
-```
+> **Note:** The RTL module is named `keccak` (lowercase); pass `keccak` as the
+> `top_module` argument, not `sha3_keccak_prove_formal`.
 
-Also add the harness and ROM include file to `[script]` and `[files]`, e.g.:
+---
 
-```ini
-[script]
-read -formal -D FORMAL -D UP8_INLINE_ROM -D UP8_FORMAL_ROMONLY -I . up8_cpu.v
-read -formal up8_add1_formal.sv
-prep -top up8_add1_formal
+#### Design 6 — VGA Vertical Timing (`vga_vtim`)
 
-[files]
-../up8_cpu.v
-up8_add1_formal.sv
-up8_inline_rom.vh
-```
-
-The manually crafted proofs already exist in `examples/up8_minimal/formal/` and
-can be used directly:
+The `vga_vtim` module is self-contained and can be run without pulling in the full
+`vga_enh_top` design hierarchy.
 
 ```bash
-# BMC proof (add1 infinite loop) using Z3
-sby -f examples/up8_minimal/formal/up8_add1_prove_z3.sby
-
-# Same proof using Bitwuzla (faster on this design)
-sby -f examples/up8_minimal/formal/up8_add1_prove_bitwuzla.sby
-
-# ISA step-correctness proof (one instruction per step)
-sby -f examples/up8_minimal/formal/up8_isa_step_z3.sby
+python3 manage_formal.py vga_vtim 20 \
+    examples/vga_lcd_latest/timescale.v \
+    examples/vga_lcd_latest/vga_vtim.v \
+    --formal_sv  mgr/campaigns/vga_lcd/refinement_v2/vga_vtim_prove_formal.sv \
+    --formal_top vga_vtim_prove_formal
 ```
+
+Output: `mgr/campaigns/vga_lcd/refinement_v2/vga_vtim_auto.sby`
+
+---
+
+#### Design 7 — Pipelined FFT 256 / CNORM (`CNORM`)
+
+The `CNORM` module (note: uppercase) includes `FFT256_CONFIG.inc` via a `` `include ``
+directive. Run `manage_formal.py` from the campaign directory where both `cnorm.v`
+and `FFT256_CONFIG.inc` are co-located.
+
+```bash
+python3 manage_formal.py CNORM 30 \
+    mgr/campaigns/pipelined_fft_256/refinement_v2/cnorm.v \
+    --formal_sv  mgr/campaigns/pipelined_fft_256/refinement_v2/cnorm_prove_formal.sv \
+    --formal_top cnorm_prove_formal
+```
+
+Output: `mgr/campaigns/pipelined_fft_256/refinement_v2/CNORM_auto.sby`
+
+---
+
+#### Design 8 — UP8 Minimal CPU (`up8_cpu`) ⚠ Exception
+
+The UP8 core requires preprocessor flags (`FORMAL`, `UP8_INLINE_ROM`,
+`UP8_FORMAL_ROMONLY`) that are passed via a special `read` command already present
+in the campaign `.sby` file. `manage_formal.py` cannot elaborate `up8_cpu.v` without
+those flags, so solver selection is done via the campaign artifacts instead.
+
+Use the pre-built proof directly:
+
+```bash
+sby -f mgr/campaigns/up8/baseline/up8_add1_prove.sby
+```
+
+The `.sby` file already contains the correct solver choice (yices, via the
+`D_M > 0.35` rule) and preprocessor flags.
 
 ---
 
@@ -767,3 +786,132 @@ All 8 benchmarks verified against Table 4 (observed ASL in s/step, lower = faste
 | SHA3 (Keccak) | 1.000 | 0.017 | 0.019 | 0.158 | 0.000 | W_norm > 0.50 | bitwuzla | bitwuzla (0.250) |
 | VGA LCD | 0.078 | 0.146 | 0.257 | 0.326 | 0.016 | default | yices | yices (0.150) |
 | uP8 (Add/ISA) | 0.094 | 0.224 | 0.598 | 0.033 | 0.500 | D_M > 0.35 | yices | yices (0.044/0.556) |
+
+---
+
+## Agent IV — Causal Narrative Synthesis (CNS)
+
+> **Human note:** This agent calls an LLM (Anthropic Claude) to generate explanations.
+> To reproduce results, you need an `ANTHROPIC_API_KEY` environment variable.
+> Without it, `cns_agent.py` writes prompts to disk so they can be submitted manually
+> or via another API client.
+
+CNS takes a failed BMC counterexample — the failing assertion, the mutation applied,
+and the signal trace — and produces a concise, structured root-cause narrative:
+
+1. **Cycle identification** — the step at which the assertion fires.
+2. **Signal attribution** — the signals directly responsible for the failure.
+3. **Failure mechanism class** — one of six categories:
+   `missing_state_transition`, `stuck_signal`, `overflow_flag_error`,
+   `handshake_failure`, `pointer_index_bug`, `timing_progression_error`.
+4. **Root-cause sentence** — a one-sentence causal explanation.
+
+### Prerequisites
+
+```bash
+pip install anthropic
+export ANTHROPIC_API_KEY=<your-key>
+```
+
+### Input Format
+
+Each case is a JSON file in `cns/cases/`. Required fields:
+
+```json
+{
+  "case_id": "C1",
+  "failing_assertion_text": "assert (OVF == 0);",
+  "failing_assertion_name": "A_no_spurious_ovf",
+  "failing_assertion_file": "cnorm_prove_formal.sv",
+  "failing_assertion_line": 42,
+  "original_snippet": "if (A > B)",
+  "mutated_snippet": "if (!(A > B))",
+  "target_module": "CNORM",
+  "source_line": 78,
+  "mutation_class": "predicate_inversion",
+  "trace_path": "<path/to/trace_tb.v>",
+  "key_signals": ["OVF", "START", "ED"],
+  "first_bad_cycle": 1
+}
+```
+
+`trace_path` points to the `trace_tb.v` file produced by `sby` when a BMC
+counterexample is found. `key_signals` are the signal names to emphasise in the trace table.
+
+### Running CNS
+
+**Run a single case:**
+
+```bash
+python3 cns/cns_agent.py --case cns/cases/C1.json
+```
+
+**Run all 8 benchmark cases:**
+
+```bash
+python3 cns/cns_agent.py --all
+```
+
+Responses are saved to `cns/responses_r2/` (the default round directory).
+
+**Score responses against ground truth:**
+
+```bash
+python3 cns/cns_agent.py --score
+```
+
+Output: per-case JSON files in `cns/scored_r2/` with binary flags
+(`correct_cycle`, `correct_signal`, `correct_mechanism`, `unsupported_claims`,
+`overall_faithful`), and a summary table.
+
+### Refinement Rounds
+
+The `--round` flag controls which response/scored subdirectory is used:
+
+```bash
+# Round 1: zero-shot baseline
+python3 cns/cns_agent.py --all --round 1
+
+# Round 2: refined prompt (default)
+python3 cns/cns_agent.py --all --round 2
+```
+
+Round 1 responses are already cached in `cns/responses_r1/`.
+Round 2 responses are in `cns/responses_r2/`.
+
+### Benchmark Cases
+
+Eight BMC failures across four designs are included as benchmarks:
+
+| ID | Design | Mutation class | First bad cycle | Root cause class |
+|----|--------|---------------|-----------------|-----------------|
+| C1 | FFT CNORM | predicate_inversion | 1 | overflow_flag_error |
+| C2 | FFT CNORM | equality_flip | 1 | overflow_flag_error |
+| C3 | FFT CNORM | predicate_inversion | 1 | stuck_signal |
+| C4 | VGA LCD | predicate_inversion | 1 | missing_state_transition |
+| C5 | VGA LCD | predicate_inversion | 7 | missing_state_transition |
+| C6 | UART RX | equality_flip | 13 | timing_progression_error |
+| C7 | UART RX | predicate_inversion | 31 | handshake_failure |
+| C8 | SHA3 | constant_perturbation | 27 | pointer_index_bug |
+
+### CNS Evaluation Results
+
+Scoring uses four binary metrics per case. A response is `overall_faithful` only if
+all four pass. Ground truth was written before any LLM response was generated
+(blind evaluation).
+
+| Round | Correct Cycle | Correct Signals | Correct Mechanism | Unsupported Claims | Overall Faithful |
+|-------|--------------|-----------------|-------------------|--------------------|-----------------|
+| R1 (zero-shot) | 4/8 | 8/8 | 5/8 | 0 | 3/8 |
+| R2 (refined prompt) | 8/8 | 8/8 | 8/8 | 0 | **8/8** |
+
+The prompt refinements that drove R1 → R2 improvement:
+
+- **Step anchor (R1 fix):** Explicitly telling the model that the assertion fires at
+  step `first_bad_cycle` — not at the first cycle of signal divergence — fixed all
+  four cycle mis-attributions.
+- **Mechanism guide (R2 fix):** Providing tight definitions for each of the six
+  failure classes, with distinguishing symptoms and explicit warnings (e.g., "use
+  `stuck_signal` when a data register is frozen; use `missing_state_transition` only
+  for the FSM state register itself"), fixed all three mechanism mis-classifications
+  (C3: stuck_signal; C7: handshake_failure; C8: pointer_index_bug).
