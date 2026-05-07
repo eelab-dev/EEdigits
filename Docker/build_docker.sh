@@ -9,22 +9,27 @@ REPO_ROOT="${SCRIPT_DIR}/.."
 
 # Image name
 IMAGE_REPO="danchitnis/eedigits"
-IMAGE_TAG="${IMAGE_TAG:-latest}"
-IMAGE_NAME="${IMAGE_REPO}:${IMAGE_TAG}"
 
 # Parse arguments
 NO_CACHE=""
+BUILD_AMD64=false
+BUILD_ARM64=false
+
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         --no-cache) NO_CACHE="--no-cache"; shift ;;
+        --amd64) BUILD_AMD64=true; shift ;;
+        --arm64) BUILD_ARM64=true; shift ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
 done
 
-echo "Building Docker image: $IMAGE_NAME"
+if [ "$BUILD_AMD64" = false ] && [ "$BUILD_ARM64" = false ]; then
+    echo "Please specify an architecture: --amd64 or --arm64"
+    echo "Usage: $0 [--amd64] [--arm64] [--no-cache]"
+    exit 1
+fi
 
-# Build the image
-# Context is set to the repository root
 build_args=()
 if [ -n "${CVC5_TAG:-}" ]; then
 	echo "Using pinned CVC5 tag from env: $CVC5_TAG"
@@ -33,16 +38,28 @@ else
 	echo "CVC5_TAG not set; Dockerfile will resolve latest stable tag"
 fi
 
-docker build \
-	$NO_CACHE \
-	"${build_args[@]}" \
-	-t "$IMAGE_NAME" \
-	-f "${SCRIPT_DIR}/Dockerfile" \
-	"$REPO_ROOT"
+if [ "$BUILD_AMD64" = true ]; then
+    echo "Building for AMD64 (local)..."
+    docker buildx build \
+        $NO_CACHE \
+        "${build_args[@]}" \
+        --platform linux/amd64 \
+        -t "${IMAGE_REPO}:amd64" \
+        --load \
+        -f "${SCRIPT_DIR}/Dockerfile" \
+        "$REPO_ROOT"
+fi
 
-# Convenience: also tag without an explicit tag when using 'latest'
-if [ "$IMAGE_TAG" = "latest" ]; then
-	docker tag "$IMAGE_NAME" "$IMAGE_REPO"
+if [ "$BUILD_ARM64" = true ]; then
+    echo "Building for ARM64 (local)..."
+    docker buildx build \
+        $NO_CACHE \
+        "${build_args[@]}" \
+        --platform linux/arm64 \
+        -t "${IMAGE_REPO}:arm64" \
+        --load \
+        -f "${SCRIPT_DIR}/Dockerfile" \
+        "$REPO_ROOT"
 fi
 
 echo "Build complete!"
