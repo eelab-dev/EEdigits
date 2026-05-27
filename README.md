@@ -31,6 +31,8 @@
 
 ## Prerequisites
 
+**It is recommended to use the VSCode devcontainer for a pre-configured environment.** The most convient method is to open this repository on GitHub with the "Open with Codespaces" button, which will launch a cloud-based devcontainer. Alternatively, you can set up the devcontainer locally with Docker and VSCode's Remote Containers extension. If you prefer a local setup without Docker, ensure all the tools listed below are installed and available on your system.
+
 The following tools must be installed and available on `PATH`:
 
 | Tool | Purpose | Install reference |
@@ -117,6 +119,49 @@ each new harness iteration.
 
 ---
 
+## Framework Overview
+
+The diagram below shows the full quality-aware agentic verification loop implemented
+by PRAMANA. Agents I–IV cooperate in a closed loop: solver selection (Agent II) runs
+**once** from RTL structure before the loop begins; mutation-guided refinement (Agent
+III) drives iterative harness strengthening; and causal narrative synthesis (Agent IV)
+translates failing counterexamples into human-readable reports.
+
+```mermaid
+flowchart LR
+    SPEC([Spec.]) --> RTL([RTL])
+    SPEC -->|properties| A1
+    RTL  --> A1
+
+    RTL  -->|structural metrics| A2
+    A2(["**II** SMT Solver Selection\n*(run once)*"]) -->|solver cfg| SMTBE
+
+    RTL  -.->|RTL source| A3
+
+    A1(["**I** Initial Harness\n*(bootstrap)*"]) -->|formal harness| SMTBE([SMT Backend])
+    SMTBE --> A3
+
+    A3(["**III** Mutation-Guided\nRefinement"]) --> D1{Kill rate\n≥ T ?}
+
+    D1 -->|yes| D2{Proof\nresult?}
+    D1 -->|"No — survived mutants\n+ CEX traces"| A1
+
+    D2 -->|pass| VER([RTL Verified ✓])
+    D2 -->|fail| A4
+
+    A4(["**IV** Causal Narrative\nSynthesis"]) --> RPT([Failure Report])
+```
+
+**Figure 1.** The PRAMANA quality-aware agentic verification loop. Agent I (initial
+harness generation) is a **bootstrap step** assumed complete before the loop begins.
+Agent II (solver selection) runs **once** from RTL structural metrics and deposits a
+solver configuration into the SMT backend; it is not re-invoked during iteration.
+Agent III (MGR) drives iterative harness strengthening via mutation-based kill-rate
+feedback. Agent IV (CNS) translates failing counterexample traces into concise,
+human-readable root-cause reports.
+
+---
+
 ## Agent II — Mutation-Guided Refinement (MGR)
 
 ### Concept
@@ -137,7 +182,7 @@ Raw Kill Rate      = KILLED / TOTAL
 Effective Kill Rate = KILLED / (TOTAL − INVALID)
 ```
 
-The **effective kill rate** is the primary metric. The target threshold is **T = 50 %**.
+The **effective kill rate** is the primary metric. The target threshold is **T = 85 %**.
 If the effective kill rate is below T, strengthen the harness and run a new round.
 
 ---
